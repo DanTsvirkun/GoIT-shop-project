@@ -8,13 +8,21 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header"></header>
-      <main>
-        <section class="ads"></section>
-        <section class="categories"></section>
-      </main>
-      <footer class="footer"></footer>
-    </div>
+    <header class="header">
+      <a src="#" class="header__logo"></a>
+      <input class="header__input" type="search" />
+      <div class="header-auth">
+        <span class="header-auth--signup">Регистрация</span>
+        <span class="header-auth--signin">Вход</span>
+      </div>
+      <button class="header__create-ad-btn"></button>
+      <ul class="categories-filter"></ul>
+      <span class="header__clear-filter">Очистить</span>
+    </header>
+    <main>
+      <section class="ads"></section>
+      <section class="categories"></section>
+    </main>
+    <footer class="footer"></footer>
   </body>
 </html>
