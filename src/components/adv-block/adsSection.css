@@ -1,0 +1,62 @@
+/* =======section====== */
+.ads {
+  /* height: 370px; */
+  background-image: url('./images/background-color-blue.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* ======block-item======= */
+.block-item {
+  padding: 70px 0 88px 0;
+}
+.item-main-info {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.item-info {
+  text-align: center;
+}
+.item-img {
+  width: 150px;
+  height: 160px;
+}
+.item-name {
+  font-size: 17px;
+  font-family: 'Montserrat';
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+}
+.item-price {
+  font-size: 33px;
+  font-family: 'Montserrat';
+  color: rgb(255, 107, 8);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.item-currency {
+  font-size: 8px;
+  font-family: 'Montserrat';
+  color: rgb(255, 107, 8);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.buy {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: 'Montserrat';
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  background-color: rgb(255, 107, 8);
+  width: 129px;
+  height: 44px;
+  outline: none;
+}
