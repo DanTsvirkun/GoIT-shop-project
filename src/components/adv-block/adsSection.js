@@ -10,42 +10,40 @@ const blockList = document.querySelector('.block__list');
 const arroundBlockList = document.querySelector('.arround-block__list');
 // =========================================================
 
-function createAdsMarckup() {
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    blockList.insertAdjacentHTML('beforeend', adsTemplateSM());
-    const mySiema = new Siema({
-      selector: blockList,
-      loop: true,
-      duration: 1000,
-    });
-    setInterval(() => {
-      mySiema.next();
-    }, 2500);
-  } else if (
-    window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
-  ) {
-    blockList.insertAdjacentHTML('beforeend', adsTemplateMD());
-    const mySiema = new Siema({
-      selector: blockList,
-      loop: true,
-      duration: 1000,
-    });
-    setInterval(() => {
-      mySiema.next();
-    }, 2500);
-    arroundBlockList.insertAdjacentHTML('beforeend', adsTemplateArround());
-  } else if (window.matchMedia('(min-width: 1280px)').matches) {
-    blockList.insertAdjacentHTML('beforeend', adsTemplateMD());
-    const mySiema = new Siema({
-      selector: blockList,
-      loop: true,
-      duration: 1000,
-    });
-    setInterval(() => {
-      mySiema.next();
-    }, 2500);
-    arroundBlockList.innerHTML = adsTemplateArroundLG();
-  }
+if (window.matchMedia('(max-width: 767px)').matches) {
+  // const object = data.hits.map(item => adsTemplateSM(item)).join('');
+  // blockList.insertAdjacentHTML('beforeend', object);
+  blockList.insertAdjacentHTML('beforeend', adsTemplateSM());
+  const mySiema = new Siema({
+    selector: blockList,
+    loop: true,
+    duration: 1000,
+  });
+  setInterval(() => {
+    mySiema.next();
+  }, 2500);
+} else if (
+  window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
+) {
+  blockList.insertAdjacentHTML('beforeend', adsTemplateMD());
+  const mySiema = new Siema({
+    selector: blockList,
+    loop: true,
+    duration: 1000,
+  });
+  setInterval(() => {
+    mySiema.next();
+  }, 2500);
+  arroundBlockList.insertAdjacentHTML('beforeend', adsTemplateArround());
+} else if (window.matchMedia('(min-width: 1280px)').matches) {
+  blockList.insertAdjacentHTML('beforeend', adsTemplateMD());
+  const mySiema = new Siema({
+    selector: blockList,
+    loop: true,
+    duration: 1000,
+  });
+  setInterval(() => {
+    mySiema.next();
+  }, 2500);
+  arroundBlockList.innerHTML = adsTemplateArroundLG();
 }
-
-createAdsMarckup();
