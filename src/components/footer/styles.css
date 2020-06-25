@@ -1,5 +1,21 @@
 .footer-text {
-  /*font-family: Montserrat, sans-serif;*/
-  color: green;
-  font-weight: bold;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.footer-text {
+  margin-top: 46px;
+  padding-bottom: 46px;
+}
+
+.mt {
+  margin-top: 16px;
 }
