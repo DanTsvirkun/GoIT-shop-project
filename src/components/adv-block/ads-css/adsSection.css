@@ -11,6 +11,7 @@
   .item-main-info {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 30px;
   }
@@ -22,14 +23,16 @@
     height: 160px;
   }
   .item-name {
+    display: block;
     font-size: 17px;
     font-family: 'Montserrat';
     color: rgb(255, 255, 255);
     font-weight: bold;
     line-height: 1.2;
-    text-align: left;
+    text-align: center;
   }
   .item-price {
+    display: block;
     font-size: 33px;
     font-family: 'Montserrat';
     color: rgb(255, 107, 8);
@@ -61,7 +64,7 @@
   }
 }
 /* ===================tablet=================== */
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) {
   .block__list {
     background-image: url('../images/background-color-blue-md.png');
     background-repeat: no-repeat;
@@ -125,5 +128,18 @@
     width: 129px;
     height: 44px;
     outline: none;
+  }
+}
+/* ==================desktop================== */
+@media (min-width: 1280px) {
+  .block__list {
+    width: 66.6%;
+    float: left;
+  }
+  .block-item {
+    padding: 119px 0;
+  }
+  .horizontal-block {
+    display: flex;
   }
 }
