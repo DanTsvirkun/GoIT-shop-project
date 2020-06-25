@@ -21,7 +21,7 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   });
   setInterval(() => {
     mySiema.next();
-  }, 2500);
+  }, 3500);
 } else if (
   window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
 ) {
@@ -33,7 +33,7 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   });
   setInterval(() => {
     mySiema.next();
-  }, 2500);
+  }, 3500);
   arroundBlockList.insertAdjacentHTML('beforeend', adsTemplateArround());
 } else if (window.matchMedia('(min-width: 1280px)').matches) {
   blockList.insertAdjacentHTML('beforeend', adsTemplateMD());
@@ -44,6 +44,6 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   });
   setInterval(() => {
     mySiema.next();
-  }, 2500);
+  }, 3500);
   arroundBlockList.innerHTML = adsTemplateArroundLG();
 }
