@@ -1,2 +1,2 @@
-import './components/header-main/header-main.js';
+import './components/header-main/js/header-main.js';
 import './css/main.css';

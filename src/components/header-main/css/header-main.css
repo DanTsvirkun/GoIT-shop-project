@@ -7,7 +7,7 @@
   display: block;
   width: 48px;
   height: 12px;
-  background: url(images/logo-basic.png);
+  background: url(../images/logo-basic.png);
   margin: 0 auto;
 }
 
@@ -16,48 +16,28 @@
     display: none;
   }
 
+  .tablet-bottom-wrapper {
+    display: none;
+  }
+
   .mobile-burger {
     border: none;
     width: 24px;
     height: 24px;
-    background: url(../../assets/icons/menu/dehaze-24px.svg);
+    background: url(../../../assets/icons/menu/dehaze-24px.svg);
   }
 
   .mobile-search {
     border: none;
     width: 24px;
     height: 24px;
-    background: url(../../assets/icons/search/search-24px.svg);
+    background: url(../../../assets/icons/search/search-24px.svg);
   }
 
   .mobile-menu-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .header__input {
-    display: none;
-  }
-
-  .header-auth {
-    display: none;
-  }
-
-  .header__clear-filter {
-    display: none;
-  }
-
-  .header__create-ad-btn {
-    display: none;
-  }
-
-  .categories-filter {
-    display: none;
-  }
-
-  .tablet-bottom-wrapper {
-    display: none;
   }
 }
 
@@ -102,14 +82,14 @@
     background-color: #ff6b08;
     color: #fff;
     border: none;
-    transition: all 0.5s linear;
+    transition: box-shadow 0.5s linear;
   }
 
   .header__create-ad-btn:hover {
     box-shadow: 0px 2px 20px 10px rgba(255, 107, 8, 0.4);
   }
 
-  .header-auth--signup {
+  .header-auth__signup {
     display: inline-block;
     font-family: 'MontserratMedium', sans-serif;
     line-height: 26px;
@@ -118,7 +98,7 @@
     transition: 0.5s;
   }
 
-  .header-auth--signin {
+  .header-auth__signin {
     font-family: 'MontserratMedium', sans-serif;
     line-height: 26px;
     font-size: 10px;
@@ -126,28 +106,28 @@
     transition: 0.5s;
   }
 
-  .header-auth--signup:hover {
+  .header-auth__signup:hover {
     cursor: pointer;
     color: #ff6b08;
   }
 
-  .header-auth--signin:hover {
+  .header-auth__signin:hover {
     cursor: pointer;
     color: #ff6b08;
   }
 
-  .header-auth--stick {
+  .header-auth__stick {
     transform: translate(0px, 0px);
     content: '';
     display: inline-block;
     width: 1px;
     height: 20px;
-    background: url(images/stick.png);
+    background: url(../images/stick.png);
   }
 
   .tablet-bottom-wrapper {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
   }
 
@@ -157,7 +137,6 @@
     font-size: 10px;
     color: #818181;
     transition: 0.5s;
-    margin-right: 12px;
   }
 
   .header__clear-filter--btn {
@@ -165,7 +144,8 @@
     cursor: pointer;
     width: 24px;
     height: 24px;
-    background: url(../../assets/icons/restore/replay-24px.svg);
+    background: url(../../../assets/icons/restore/replay-24px.svg);
+    margin-right: 4px;
   }
 
   .header__input {
@@ -174,6 +154,7 @@
     width: 405px;
     height: 44px;
     padding-left: 10px;
+    margin-right: 81px;
   }
 
   .header__input--btn {
@@ -183,6 +164,87 @@
     border: none;
     width: 24px;
     height: 24px;
-    background: url(../../assets/icons/search/search-24px-black.svg);
+    background: url(../../../assets/icons/search/search-24px-black.svg);
+  }
+
+  .header__filters--btn {
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url(../../../assets/icons/filters/tune-24px.svg);
+    margin-right: 5px;
+  }
+
+  .header__filters {
+    font-family: 'MontserratMedium', sans-serif;
+    line-height: 26px;
+    font-size: 10px;
+    color: #818181;
+    transition: 0.5s;
+  }
+
+  .clear-filters-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    cursor: pointer;
+  }
+
+  .filters-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-right: 48px;
+    cursor: pointer;
+  }
+
+  .clear-filters-wrapper:hover .header__clear-filter {
+    color: #ff6b08;
+  }
+
+  .filters-wrapper:hover .header__filters {
+    color: #ff6b08;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .desktop-input-wrapper .header__input {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tablet-bottom-wrapper .header__input {
+    display: none;
+  }
+
+  .tablet-bottom-wrapper .header__input--btn {
+    display: none;
+  }
+
+  .tablet-bottom-wrapper .filters-wrapper {
+    display: none;
+  }
+
+  .clear-filters-wrapper {
+    transform: translate(1122px, 0);
+    margin: 0;
+  }
+
+  .header__logo {
+    margin-right: 35px;
+  }
+
+  .tablet-upper-wrapper {
+    justify-content: unset;
+  }
+
+  .header__create-ad-btn {
+    transform: translate(261px, 0px);
+  }
+
+  .header-auth {
+    margin: 0;
   }
 }
