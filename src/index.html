@@ -9,15 +9,33 @@
 
   <body>
     <header class="header">
-      <a src="#" class="header__logo"></a>
-      <input class="header__input" type="search" />
-      <div class="header-auth">
-        <span class="header-auth--signup">Регистрация</span>
-        <span class="header-auth--signin">Вход</span>
+      <div class="container">
+        <div class="mobile-menu-wrapper">
+          <button class="mobile-burger"></button>
+          <a src="#" class="header__logo"></a>
+          <button class="mobile-search"></button>
+        </div>
+        <div class="tablet-upper-wrapper">
+          <a src="#" class="header__logo"></a>
+          <div class="header-auth">
+            <span class="header-auth--signup">Регистрация</span>
+            <span class="header-auth--stick"></span>
+            <span class="header-auth--signin">Вход</span>
+          </div>
+          <button class="header__create-ad-btn">Создать объявление</button>
+        </div>
+        <div class="tablet-bottom-wrapper">
+          <input
+            class="header__input"
+            type="search"
+            placeholder="Поиск товаров..."
+          />
+          <button class="header__input--btn"></button>
+          <button class="header__clear-filter--btn"></button>
+          <span class="header__clear-filter">Очистить</span>
+        </div>
+        <ul class="categories-filter"></ul>
       </div>
-      <button class="header__create-ad-btn"></button>
-      <ul class="categories-filter"></ul>
-      <span class="header__clear-filter">Очистить</span>
     </header>
     <main>
       <section class="ads"></section>
