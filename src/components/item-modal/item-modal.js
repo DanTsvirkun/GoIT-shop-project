@@ -1,30 +1,19 @@
-import itemModalCard from './item-modal.hbs';
 import itemModalCardTablet from './item-modal-tablet.hbs';
 import './item-modal.css';
 import Siema from 'siema';
 //temporary
 const cat = document.querySelector('.categories');
 
-// if (window.matchMedia('(max-width: 767px)').matches) {
-//   cat.innerHTML = itemModalCard();
-cat.insertAdjacentHTML('beforeend', itemModalCard());
-// }
-// if (window.matchMedia('(min-width: 768px)').matches) {
-//   cat.innerHTML = itemModalCardTablet();
 cat.insertAdjacentHTML('beforeend', itemModalCardTablet());
-// }
 
-//add to favourites
+//ADD TO FAVORITES
 const heartBtn = document.querySelector('.icon-fav');
-// console.log(heartBtn);
 heartBtn.addEventListener('click', addToFavourites);
-
 function addToFavourites(e) {
   heartBtn.classList.toggle('icon-fav--active');
-  console.log('11');
 }
 
-//siema
+//siema-slider-mobile
 class SiemaWithDots extends Siema {
   addDots() {
     this.dots = document.createElement('div');
@@ -63,7 +52,7 @@ const mySiemaWithDots = new SiemaWithDots({
   },
 });
 
-//modal-tablet
+//slider-tablet-desctop
 document.body.onclick = function (event) {
   event = event || window.event;
   if (event.target.classList.contains('sm-photo--style')) {
@@ -75,5 +64,4 @@ document.body.onclick = function (event) {
     event.target.parentElement.classList.add('slider_image-min--active');
   }
 };
-
-//heart click amination
+////
