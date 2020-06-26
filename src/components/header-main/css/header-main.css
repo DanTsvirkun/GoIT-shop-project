@@ -84,6 +84,7 @@ input[type='search']::-webkit-search-results-decoration {
   flex-wrap: nowrap;
   margin-right: 48px;
   cursor: pointer;
+  height: 24px;
 }
 
 .clear-filters-wrapper {
@@ -91,6 +92,7 @@ input[type='search']::-webkit-search-results-decoration {
   justify-content: space-around;
   flex-wrap: nowrap;
   cursor: pointer;
+  height: 24px;
 }
 
 .header__filters--btn {
@@ -129,6 +131,15 @@ input[type='search']::-webkit-search-results-decoration {
   font-size: 10px;
   color: #818181;
   transition: 0.5s;
+}
+
+.mobile-buttons-wrapper {
+  display: flex;
+  position: absolute;
+  height: 24px;
+  box-sizing: border-box;
+  /* transform: translateX(-50%); */
+  left: 0;
 }
 
 @media (max-width: 767px) {
