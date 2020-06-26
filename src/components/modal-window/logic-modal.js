@@ -20,19 +20,19 @@ export default function showModal() {
     window.removeEventListener('click', closeModalWithArea);
     window.removeEventListener('keydown', closeModalWithEsc);
   }
-  // Close modal window with click on the cross - "x"
+// Close modal window with click on the cross - "x"
   function closeModalWithCross() {
     closeModal();
   }
 
-  // Close modal window with click on the grey area
+// Close modal window with click on the grey area
   function closeModalWithArea(e) {
     if (e.target === modal) {
       closeModal();
     }
   }
 
-  //Clotse modal window with "Escape-button"
+// Clotse modal window with "Escape-button"
   function closeModalWithEsc(e) {
     if (e.code === 'Escape') {
       closeModal();
