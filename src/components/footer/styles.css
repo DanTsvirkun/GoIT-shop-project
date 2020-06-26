@@ -16,3 +16,11 @@ a:hover {
 .mt {
   margin-top: 16px;
 }
+
+ @media (min-width: 768px) {
+
+ }
+
+ @media (min-width: 1280px) {
+
+ }
