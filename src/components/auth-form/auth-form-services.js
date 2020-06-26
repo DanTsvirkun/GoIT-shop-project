@@ -5,17 +5,18 @@ document
 
 import templateSignIn from '../auth-form/template-sign-in.js';
 import templateSignUp from '../auth-form/template-sign-up.js';
+
 document
   .querySelector('.authorization')
   .insertAdjacentHTML('afterbegin', templateSignIn());
 
 let signInButton = document.querySelector('.sign-in-button');
 let toRegButton = document.querySelector('.to-reg-button');
-let passwordInput = document.querySelector('[name=password-check]');
-let emailInput = document.querySelector('[name=email-check]');
+let passwordInput = document.querySelector('[name=password]');
+let emailInput = document.querySelector('[name=email]');
 
-const sendForm = () => {
-  event.preventDefault();
+const sendForm = e => {
+  event.preventDefault(e);
 
   let user = {};
   user.email = emailInput.value;
@@ -30,18 +31,20 @@ document
   .querySelector('.authorization')
   .insertAdjacentHTML('beforeend', templateSignUp());
 
-let firstNameReg = document.querySelector('[name=first-name]');
-let secondNameReg = document.querySelector('[name=second-name]');
+let firstNameReg = document.querySelector('[name=firstName]');
+let secondNameReg = document.querySelector('[name=secondName]');
 let emailReg = document.querySelector('[name=email]');
+let phoneReg = document.querySelector('[name=phone]');
 let passwordReg = document.querySelector('[name=password]');
 let regOkButton = document.querySelector('.reg-button');
 let cancelButton = document.querySelector('.cancel-button');
 
 class NewUser {
-  constructor(name, surname, email, password, date) {
+  constructor(name, surname, email, phone, password, date) {
     this.name = name;
     this.surname = surname;
     this.email = email;
+    this.phone = phone;
     this.password = password;
     this.date = date;
   }
@@ -53,6 +56,7 @@ export const createUser = () => {
     `${firstNameReg.value}`,
     `${secondNameReg.value}`,
     `${emailReg.value}`,
+    `${phoneReg.value}`,
     `${passwordReg.value}`,
     new Date(),
   );
