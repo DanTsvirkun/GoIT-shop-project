@@ -88,10 +88,24 @@ export const api = {
     return filteredArray
   },
   // Метод для поиска по  id  ----! принимает id как аргумент
+  //   searchId(id) {
+  //     const res = data.allCategories.find((item) =>
+  //       item.id === id
+  //     )
+  //   },
   searchId(id) {
-    const res = data.allCategories.find((item) =>
-      item.id === id
-    )
+    if (id) {
+      return new Promise((res, rej) => {
+        const objId = data.allCategories.find((item) =>
+          item.id === id
+        )
+        res(objId)
+      })
+    } else {
+      return new Promise((res, rej) => {
+        rej('there is not such id')
+      })
+    }
   },
   // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
@@ -129,6 +143,29 @@ export const api = {
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
+  },
+  setFavorites(id) {
+    const user = JSON.parse(localStorage.getItem('user-info'))
+    //   function(id)
+    // запрос на сервер конкретного юзера если он есть, но влюбом случае записываем id  в локал сторейдж
+    localStorage.setItem('user-info', JSON.stringify({
+      ...user,
+      favorites: [...user.favorites, id]
+    }))
+  },
+  getFavorites(id) {
+    const favorites = JSON.parse(localStorage.getItem('user')).favorites
+    return favorites.includes(id)
   }
 }
-api.getAllGoods()
+// api.getAllGoods()
+
+
+localStorage.setItem('user-info', JSON.stringify({
+  email: 'Alxe@asdlasd.com',
+  token: 'asdasgkk4444',
+  favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf']
+}))
+// api.setFavorites('fkkgkgakkgakgakg')
+
+console.log(api.getFavorites("lkglgklkl"));
