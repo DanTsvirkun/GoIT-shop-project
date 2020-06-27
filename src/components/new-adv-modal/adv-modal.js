@@ -1,4 +1,4 @@
-
+// import {api} from '../services/api'
 import './adv-styles.css'
 
 const refs = {
@@ -58,8 +58,9 @@ const markupModal = () => {
 
      <p class="adv-modal__product-description-title">Описание</p>
      <textarea name="productDescription" data-source="description" class="adv-modal__product-description input" id="" cols="30" rows="10"
-       placeholder="  Описание товара"></textarea>
+       placeholder="Описание товара"></textarea>
      
+     <div class="select">
      <p class="adv-modal__product-select-title">Категория</p>
      <select name="productCategory" class="adv-modal__product-select input" id="">
        <option value="category" class="select-option" selected>Категория</option>
@@ -72,6 +73,7 @@ const markupModal = () => {
        <option value="for-free" class="select-option">Отдам бесплатно</option>
        <option value="exchange" class="select-option">Обмен</option>
      </select>
+     </div>
 
      <p class="adv-modal__product-price-title">Цена</p>
      <input type="text" name="productPrice" data-source="price" class="adv-modal__product-price input" id="" placeholder="  0.00 грн">
@@ -104,7 +106,7 @@ function showModal(){
    
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
-  advForm.addEventListener('submit', loadImages);
+  advForm.addEventListener('submit', submitForm);
   imgLoaderArea.addEventListener('click', chooseImgBlock)
 }
 
@@ -146,30 +148,38 @@ function chooseImgBlock(event){
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
   nextImg.dataset.active = true;
-  nextImg.nextElementSibling.classList.add('choose-this');
-  console.log(nextImg);
+  nextImg.nextElementSibling.classList.add('choose-this');  
 }
 
-function loadImages(event){
+function submitForm(event){
   event.preventDefault();
   let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
   
+  console.dir(allImg);
+
   const allImgArr = allImg.filter(item => {  
   const src = item.dataset.img;
   return src;
     
-  }).map(item => item.src);  
-  createData.image = allImgArr;  
+  }).map(item => item.src); 
+
+  createData.image = allImgArr; 
   
-  console.log('createData: ', createData);
+  console.log(createData);
+  console.log(allImgArr);
+  
+  //==========================================================================
+  // api.postAdv(createData.category, createData);  
+  //==========================================================================
+
   advForm.reset();
+  allImg =[];
 }
 
 function closeModall(event){  
   if(event.target.dataset.close){    
     refs.allModal.innerHTML = '';
-
   }
 }
 

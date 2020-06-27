@@ -1,6 +1,6 @@
-.choose-this{
-  border: 2px solid greenyellow;
-  background-image: './adv-images/+.png';
+.choose-this{  
+  background-image: url("./adv-images/+.png");
+  background-repeat: no-repeat;
   background-position: center; 
 }
 
@@ -16,6 +16,9 @@
   z-index: 172;
 } */
 
+.adv-modal-main{
+ 
+}
 
 .adv-modal{
   position: relative;
@@ -51,9 +54,8 @@
 }
 
 .adv-modal__form--title{
-  font-family: "Montserrat";
-  font-size: 18px;
-  font-weight: bold;
+  font-family: 'MontserratBold';
+  font-size: 18px;  
   color: rgb(51, 51, 51);
   line-height: 1.2;
   text-align: start; 
@@ -90,21 +92,18 @@ justify-content: space-between;
 }
 
 .input::placeholder{
-  font-family: "Montserrat";
-  font-size: 14px;
-  font-weight: 700;
+  font-family: 'MontserratSemiBold';
+  font-size: 14px; 
   line-height: 1.2;
   color: rgb(187, 187, 187);
 }
 
 .adv-modal__product-name,
 .adv-modal__product-description,
-.adv-modal__product-select,
 .adv-modal__product-price,
 .adv-modal__product-telephone-number{
   font-size: 14px;
-  font-family: "Montserrat";
-  font-weight: medium;
+  font-family: 'MontserratMedium'; 
   padding-left: 18px;
   /* color: rgb(187, 187, 187);   */
 }
@@ -132,13 +131,30 @@ justify-content: space-between;
   background-color: rgb(244, 246, 251);
 }
 
+.input-label__img{
+  width: 76px;
+  height: 60px;
+  object-fit: cover;
+}
+
 .adv-modal__product-description{
   padding-top: 16px;
   padding-right: 20px;
 }
 
-.adv-modal__product-select .select-option:first-child{
+/* .adv-modal__product-select .select-option:first-child{
   color: rgb(187, 187, 187);
+} */
+
+.adv-modal__product-select{
+  appearance: none;
+  color: rgb(187, 187, 187);
+  font-size: 14px;
+  font-family: 'MontserratMedium'; 
+  padding-left: 18px;
+  background-image: url(./adv-images/Icon drop down.png);
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
 }
 
 .adv-modal__product-telephone-number{
@@ -149,9 +165,8 @@ justify-content: space-between;
   width: 248px;
   height: 50px;
   background-color: rgb(255, 107, 8);
-  font-family: "Montserrat";
-  font-size: 16px;
-  font-weight: 500;
+  font-family: 'MontserratMedium';
+  font-size: 16px;  
   color: rgb(255, 255, 255);
   line-height: 50px;
   border: none;
