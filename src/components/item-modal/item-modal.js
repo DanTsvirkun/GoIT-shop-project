@@ -1,19 +1,48 @@
 import itemModalCardTablet from './item-modal-tablet.hbs';
 import './item-modal.css';
 import Siema from 'siema';
-//temporary
 const cat = document.querySelector('.categories');
-
 cat.insertAdjacentHTML('beforeend', itemModalCardTablet());
-
-//ADD TO FAVORITES
+localStorage.setItem(
+  'user',
+  JSON.stringify({
+    email: 'Alxe@asdlasd.com',
+    token: 'asdasgkk4444',
+    favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
+  }),
+);
+const productId = document.querySelector('.item_modal--item-code').textContent;
+// localStorage.getItem('user').favourites.includes(productId) = true
+//   ? heartBtn.classList.add('icon-fav--active')
+//   : heartBtn.classList.remove('icon-fav--active');
+/////////////////////////////////
 // const heartBtn = document.querySelector('.icon-fav');
 // heartBtn.addEventListener('click', addToFavourites);
 // function addToFavourites(e) {
-//   heartBtn.classList.toggle('icon-fav--active');
+//   const productId = document.querySelector('.item_modal--item-code')
+//     .textContent;
+//   setFavorites(productId) {
+//     const user = JSON.parse(localStorage.getItem('user'))
+//     localStorage.setItem('user', JSON.stringify({
+//       ...user,
+//       favorites: [...user.favorites, productId]
+//     }))
+//   },
+//   getFavorites(productId) {
+//     const favorites = JSON.parse(localStorage.getItem('user')).favorites
+//     console.log(favorites);
+//     return favorites.includes(productId)
+//   }
+// const favorites = JSON.parse(localStorage.getItem('user')).favorites;
+// const productId = document.querySelector('.item_modal--item-code')
+//   .textContent;
+// let elemIndex = favorites.indexOf(productId);
+// if (favorites.includes(productId))
+//   heartBtn.classList.remove('icon-fav--active');
+// favorites.splice(index, elemIndex);
+// localStorage.setItem('favorites', JSON.stringify(favorites));
 // }
 
-/////////
 //siema-slider-mobile
 class SiemaWithDots extends Siema {
   addDots() {
@@ -53,7 +82,7 @@ const mySiemaWithDots = new SiemaWithDots({
   },
 });
 
-//slider-tablet-desctop
+//slider-tablet-desktop
 document.body.onclick = function (event) {
   event = event || window.event;
   if (event.target.classList.contains('sm-photo--style')) {
@@ -66,15 +95,15 @@ document.body.onclick = function (event) {
   }
 };
 ////
-const refsItMob = {
-  itemCode: document.querySelector('.item_modal--item-code').textContent,
-  itemName: document.querySelector('.item_modal--header').textContent,
-  itemPrice: document.querySelector('.item_modal--item-pricevalue').textContent,
-};
+// const refsItMob = {
+//   itemCode: document.querySelector('.item_modal--item-code').textContent,
+//   itemName: document.querySelector('.item_modal--header').textContent,
+//   itemPrice: document.querySelector('.item_modal--item-pricevalue').textContent,
+// };
 
-console.log(refsItMob.itemName);
-console.log(refsItMob.itemCode);
-console.log(refsItMob.itemPrice);
+// console.log(refsItMob.itemName);
+// console.log(refsItMob.itemCode);
+// console.log(refsItMob.itemPrice);
 // let array = [];
 // localStorage.setItem('name', JSONstringify(array));
 
