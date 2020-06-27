@@ -1,15 +1,17 @@
-.line-1::after {
-  content: url(../images/vertical-line.png);
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.footer-text {
+.footer {
+  background-color: #1e2939;
+  color: #767e85;
   font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-size: 12px;
-  margin-top: 46px;
-  padding-bottom: 46px;
+  padding: 42px 0 42px 0;
+  text-align: center;
+}
+
+.line-1::after {
+  position: absolute;
+  content: url(../images/vertical-line.png);
+  margin-top: -5px;
 }
 
 a {
@@ -20,32 +22,23 @@ a:hover {
   text-decoration: underline;
 }
 
-.mt {
-  margin-top: 16px;
-}
+@media (min-width: 768px) {
+  .line-1::after {
+    position: absolute;
+    content: url(../images/vertical-line.png);
+  }
 
- @media (min-width: 768px) {
-   .line-2::after {
-     content: url(../images/vertical-line.png);
-     margin-left: 8px;
-     margin-right: 5px;
-     margin-top: 0;
+  .line-2::after {
+    position: absolute;
+    content: url(../images/vertical-line.png);
+    margin-top: -5px;
    }
 
    p {
-     display: inline-block;
+    display: inline-block;
    }
 
-  .footer-text {
-    margin-top: 36px;
-    padding-bottom: 46px;
-    text-align: center;
-  }
- }
-
- @media (min-width: 1280px) {
-  .footer-text {
-    margin-top: 40px;
-    padding-bottom: 36px;
+  .footer {
+    padding: 66px 0 66px 0;
   }
  }
