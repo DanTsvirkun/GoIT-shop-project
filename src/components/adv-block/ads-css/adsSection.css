@@ -19,6 +19,7 @@
     text-align: center;
   }
   .item-img {
+    object-fit: cover;
     width: 150px;
     height: 160px;
   }
@@ -83,6 +84,7 @@
     text-align: center;
   }
   .item-img {
+    object-fit: cover;
     width: 241px;
   }
   .item-name {

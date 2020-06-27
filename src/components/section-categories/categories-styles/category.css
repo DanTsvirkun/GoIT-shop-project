@@ -133,6 +133,7 @@
   padding: 20px 0px;
 }
 .thing-img {
+  object-fit: cover;
   width: 240px;
   height: 240px;
   margin: 0 auto;

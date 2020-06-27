@@ -17,6 +17,7 @@
     align-items: center;
   }
   .arround-img {
+    object-fit: cover;
     width: 170px;
   }
   .arround-name {
@@ -49,10 +50,6 @@
   }
 }
 @media (min-width: 1280px) {
-  .arround-block__list {
-    /* display: flex;
-    justify-content: space-evenly; */
-  }
   .arround__item:first-of-type {
     background-color: #dcdde0;
   }
@@ -70,6 +67,7 @@
     align-items: center;
   }
   .arround-img {
+    object-fit: cover;
     width: 170px;
   }
   .arround-name {

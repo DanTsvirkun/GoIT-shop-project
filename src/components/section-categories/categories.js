@@ -4,7 +4,7 @@ import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-popular.hbs';
 // ========================================
 const categories = document.querySelector('.categories');
-// ========================================
+// =================static=======================
 categories.insertAdjacentHTML('beforeend', catMain());
 const list = document.querySelector('.things-list');
 list.insertAdjacentHTML('beforeend', catPop());
@@ -40,3 +40,10 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   slidePrev.addEventListener('click', () => mySiema.prev());
   slideNext.addEventListener('click', () => mySiema.next());
 }
+// =========================================
+// const object = data.hits.map(item => adsTemplateSM(item)).join('');
+// blockList.insertAdjacentHTML('beforeend', object);
+// =========================================
+// function createCategory() {
+//   categories.insertAdjacentHTML('beforeend', catMain());
+// }
