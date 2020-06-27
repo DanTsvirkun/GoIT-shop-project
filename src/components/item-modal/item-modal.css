@@ -443,3 +443,9 @@
     width: 412px;
   }
 }
+.modal-wrapper-test {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(85, 56, 18);
+  display: none;
+}

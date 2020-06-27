@@ -1,17 +1,32 @@
 import itemModalCardTablet from './item-modal-tablet.hbs';
 import './item-modal.css';
 import Siema from 'siema';
+import { dataGoods, api } from '../services/api';
+// import '../modal-window/logic-modal.js';
+// import modalLog from '../modal-window/logic-modal.js';
+// console.log(modalLog);
+
+// const btnOpen = document.querySelector('.modal-btn2');
+// btnOpen.addEventListener('click', modalLog);
+
+// const mod = document.querySelector('.item_modal--tablet');
+// document.getElementById('modal-btn2').addEventListener('click', function () {
+//   showModal(mod);
+// });
+// let modal = document.querySelector('.modal-wrapper-test');
+// let close = document.querySelector('.icon-cross');
 const cat = document.querySelector('.categories');
 cat.insertAdjacentHTML('beforeend', itemModalCardTablet());
-localStorage.setItem(
-  'user',
-  JSON.stringify({
-    email: 'Alxe@asdlasd.com',
-    token: 'asdasgkk4444',
-    favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
-  }),
-);
-const productId = document.querySelector('.item_modal--item-code').textContent;
+
+// localStorage.setItem(
+//   'user',
+//   JSON.stringify({
+//     email: 'Alxe@asdlasd.com',
+//     token: 'asdasgkk4444',
+//     favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
+//   }),
+// );
+// const productId = document.querySelector('.item_modal--item-code').textContent;
 // localStorage.getItem('user').favourites.includes(productId) = true
 //   ? heartBtn.classList.add('icon-fav--active')
 //   : heartBtn.classList.remove('icon-fav--active');

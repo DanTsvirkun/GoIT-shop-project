@@ -1,7 +1,6 @@
 ////////////////////////////////////////////////////////////
 //LOGIC FOR MODAL WINDOW v.0.4//////////////////////////////
 ////////////////////////////////////////////////////////////
-
 //const btn = document.querySelector('#myBtn'); // You must find your button-id
 //btn.addEventListener('click', showModal); // Added on the your button listener
 const modal = document.querySelector('#myModal'); // Find your modal window-id (wrapper)
@@ -20,19 +19,19 @@ export default function showModal() {
     window.removeEventListener('click', closeModalWithArea);
     window.removeEventListener('keydown', closeModalWithEsc);
   }
-// Close modal window with click on the cross - "x"
+  // Close modal window with click on the cross - "x"
   function closeModalWithCross() {
     closeModal();
   }
 
-// Close modal window with click on the grey area
+  // Close modal window with click on the grey area
   function closeModalWithArea(e) {
     if (e.target === modal) {
       closeModal();
     }
   }
 
-// Clotse modal window with "Escape-button"
+  // Clotse modal window with "Escape-button"
   function closeModalWithEsc(e) {
     if (e.code === 'Escape') {
       closeModal();
