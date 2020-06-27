@@ -48,9 +48,10 @@
     border-radius: 50%;
     background-color: #ff6b08;
     box-shadow: 0px 8px 8px 0px rgba(233, 97, 5, 0.24);
-    position: absolute;
+    position: fixed;
     right: 22px;
-    top: 66px;
+    top: 414px;
+    outline: none;
   }
   .basket::after {
     content: '+';
@@ -71,6 +72,7 @@
     background-image: url(../images/prev.png);
     background-repeat: no-repeat;
     background-position: center;
+    transition: all 200ms linear;
   }
   .slide-prev:hover {
     background-color: rgb(233, 97, 5);
@@ -85,6 +87,7 @@
     background-image: url(../images/next.png);
     background-repeat: no-repeat;
     background-position: center;
+    transition: all 200ms linear;
   }
   .slide-next:hover {
     background-color: rgb(233, 97, 5);

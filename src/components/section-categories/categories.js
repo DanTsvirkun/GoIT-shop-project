@@ -1,13 +1,16 @@
 import './categories-styles/category.css';
+import './categories-styles/more-info.css';
 import Siema from 'siema';
-import catMain from './categories-templates/category-main.hbs';
-import catPop from './categories-templates/category-popular.hbs';
+import main from './categories-templates/category-main.hbs';
+import item from './categories-templates/category-item.hbs';
 // ========================================
 const categories = document.querySelector('.categories');
+const loadMore = document.querySelector('.load-more');
+const container = categories.querySelector('.container');
 // =================static=======================
-categories.insertAdjacentHTML('beforeend', catMain());
+container.insertAdjacentHTML('beforeend', main());
 const list = document.querySelector('.things-list');
-list.insertAdjacentHTML('beforeend', catPop());
+list.insertAdjacentHTML('beforeend', item());
 // ========================================
 const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
