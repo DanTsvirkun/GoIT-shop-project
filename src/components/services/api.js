@@ -108,11 +108,11 @@ export const api = {
   //     )
   //   },
   // Избранное --- Ира нажимает и это летит к контретному юзеру, динамично передаю название папки(не папик) юзера
+  // Ира нажимает на карточку и ей приходит объект по id. Нужен метод для отправки юзеру в избранное.
   searchId(id) {
     if (id) {
       return new Promise((res, rej) => {
         const objId = data.allCategories.find(item => item.id === id);
-
         res(objId);
       });
     } else {
@@ -194,6 +194,7 @@ export const api = {
     return favorites.includes(id);
   },
 };
+
 // api.getAllGoods()
 // function(id) {
 //   array.filter((item) => {
@@ -201,15 +202,15 @@ export const api = {
 //   })
 // }
 
-// localStorage.setItem(
-//   'user-info',
-//   JSON.stringify({
-//     email: 'Alxe@asdlasd.com',
-//     token: 'asdasgkk4444',
-//     id: '-MAkWY0ZZG5Ji2ge1Ndu',
-//     favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
-//   }),
-// );
+localStorage.setItem(
+  'user-info',
+  JSON.stringify({
+    email: 'Alxe@asdlasd.com',
+    token: 'asdasgkk4444',
+    id: '-MAkWY0ZZG5Ji2ge1Ndu',
+    favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
+  }),
+);
 // api.setFavorites('fkkgkgakkgakgakg')
 
 // console.log(api.getFavorites('ifi124u12uo2428fhj'));
