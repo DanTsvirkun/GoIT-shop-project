@@ -1,7 +1,18 @@
 import axios from 'axios'
 import data from './data'
+import {
+  getUserInfo,
+  signInUser,
+  signUpUser,
+  signOutUser,
+  updateUserAvatar,
+  addUserAdv,
+} from './user-api';
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E'
+
+
+
 
 // Название категорий:  
 // realEstate --- Недвижимость,
@@ -93,12 +104,14 @@ export const api = {
   //       item.id === id
   //     )
   //   },
+  // Избранное --- Ира нажимает и это летит к контретному юзеру, динамично передаю название папки(не папик) юзера
   searchId(id) {
     if (id) {
       return new Promise((res, rej) => {
         const objId = data.allCategories.find((item) =>
           item.id === id
         )
+
         res(objId)
       })
     } else {
@@ -110,6 +123,10 @@ export const api = {
   // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
     return axios.post(`https://project-88172.firebaseio.com/olx/categories/${category}.json`, obj).then((res) => {
+      console.log(res.data.name);
+      const user = JSON.parse(localStorage.getItem('user-info')).id
+      console.log(user);
+      addUserAdv(user, res.data.name);
       data.allCategories = [...data.allCategories, {
         ...obj,
         id: res.data.name
@@ -159,13 +176,18 @@ export const api = {
   }
 }
 // api.getAllGoods()
-
+// function(id) {
+//   array.filter((item) => {
+//    return item !== id
+//   })
+// }
 
 localStorage.setItem('user-info', JSON.stringify({
   email: 'Alxe@asdlasd.com',
   token: 'asdasgkk4444',
+  id: '-MAkWY0ZZG5Ji2ge1Ndu',
   favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf']
 }))
 // api.setFavorites('fkkgkgakkgakgakg')
 
-console.log(api.getFavorites("lkglgklkl"));
+console.log(api.getFavorites("ifi124u12uo2428fhj"));

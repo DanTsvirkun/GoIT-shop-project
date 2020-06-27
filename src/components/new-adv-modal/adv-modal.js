@@ -1,8 +1,6 @@
-
 import './adv-styles.css'
-
 const refs = {
-  button: document.querySelector('.modal-btn'),  
+  button: document.querySelector('.modal-btn'),
   allModal: document.querySelector('.adv-modal-main'),
 }
 
@@ -91,58 +89,58 @@ const markupModal = () => {
 
 const addMarkupModal = markupModal();
 
-let  imgLoaderArea;
+let imgLoaderArea;
 let advForm;
 let productImage;
 let createData;
 let category;
 
-function showModal(){
+function showModal() {
   refs.allModal.insertAdjacentHTML("beforeend", addMarkupModal);
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
-  imgLoaderArea.addEventListener('change', previewImg);  
-   
+  imgLoaderArea.addEventListener('change', previewImg);
+
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
   advForm.addEventListener('submit', loadImages);
   imgLoaderArea.addEventListener('click', chooseImgBlock)
 }
 
-function saveData(event){
+function saveData(event) {
 
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
   const productPrice = event.currentTarget.elements.productPrice;
   const productPhone = event.currentTarget.elements.productPhone;
-  const productCategory = event.currentTarget.elements.productCategory;  
+  const productCategory = event.currentTarget.elements.productCategory;
 
   createData = {
-   name: productName.value,
-   image: [],
-   category: productCategory.value,
-   description: productDescription.value,
-   price: productPrice.value,
-   phone: productPhone.value,
- }
+    name: productName.value,
+    image: [],
+    category: productCategory.value,
+    description: productDescription.value,
+    price: productPrice.value,
+    phone: productPhone.value,
+  }
 }
 
-function chooseImgBlock(event){ 
-  if(event.target === event.currentTarget){
-    return ;
+function chooseImgBlock(event) {
+  if (event.target === event.currentTarget) {
+    return;
   }
-  if(!event.target.dataset.active){
-    return;  
-  }  
- 
+  if (!event.target.dataset.active) {
+    return;
+  }
+
   const imgTarget = event.target;
   imgTarget.nextElementSibling.classList.remove('choose-this');
-  let imgId = Number(event.target.dataset.id);  
+  let imgId = Number(event.target.dataset.id);
   imgTarget.setAttribute("type", "file");
-  imgId += 1;  
+  imgId += 1;
 
-  if(imgId > 6){
+  if (imgId > 6) {
     return;
-  }  
+  }
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
   nextImg.dataset.active = true;
@@ -150,75 +148,49 @@ function chooseImgBlock(event){
   console.log(nextImg);
 }
 
-function loadImages(event){
+function loadImages(event) {
   event.preventDefault();
   let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
-  
-  const allImgArr = allImg.filter(item => {  
-  const src = item.dataset.img;
-  return src;
-    
-  }).map(item => item.src);  
-  createData.image = allImgArr;  
-  
+
+  const allImgArr = allImg.filter(item => {
+    const src = item.dataset.img;
+    return src;
+
+  }).map(item => item.src);
+  createData.image = allImgArr;
   console.log('createData: ', createData);
   advForm.reset();
 }
 
-function closeModall(event){  
-  if(event.target.dataset.close){    
+function closeModall(event) {
+  if (event.target.dataset.close) {
     refs.allModal.innerHTML = '';
 
   }
 }
 
-function previewImg (event){
-  if(event.target === event.currentTarget){
+function previewImg(event) {
+  if (event.target === event.currentTarget) {
     return;
   }
-  if(event.target.dataset.id){
+  if (event.target.dataset.id) {
     const file = event.target.files[0];
 
-    const inputID = event.target.dataset.id;  
-    const img = document.querySelector(`.input-label__img--${inputID}`);  
+    const inputID = event.target.dataset.id;
+    const img = document.querySelector(`.input-label__img--${inputID}`);
     const reader = new FileReader();
-    
+
     reader.onloadend = () => {
       img.src = reader.result;
       productImage = reader.result;
-      img.setAttribute('data-img', productImage);   
+      img.setAttribute('data-img', productImage);
     }
-  
-    if(file){
+
+    if (file) {
       reader.readAsDataURL(file);
     } else {
       img.src = "";
     }
-  }  
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
