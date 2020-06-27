@@ -1,0 +1,101 @@
+@media (min-width: 768px) and (max-width: 1279px) {
+  .arround-block__list {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .arround__item:first-of-type {
+    background-color: #dcdde0;
+  }
+  .arround__item:nth-child(2) {
+    background-color: #fafafa;
+  }
+  .arround__item {
+    width: 50%;
+    height: 220px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .arround-img {
+    object-fit: cover;
+    width: 170px;
+  }
+  .arround-name {
+    display: block;
+
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .arround-price {
+    font-size: 42px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: left;
+  }
+  .arround-currency {
+    font-size: 11px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: right;
+  }
+}
+@media (min-width: 1280px) {
+  .arround__item:first-of-type {
+    background-color: #dcdde0;
+  }
+  .arround__item:nth-child(2) {
+    background-color: #fafafa;
+  }
+  .arround__item:nth-child(3) {
+    background-color: #ff6b08;
+  }
+  .arround__item {
+    width: 33.4%;
+    height: 240px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .arround-img {
+    object-fit: cover;
+    width: 170px;
+  }
+  .arround-name {
+    display: block;
+
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .arround-price {
+    font-size: 42px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: left;
+  }
+  .arround-currency {
+    font-size: 11px;
+    font-family: 'Montserrat';
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: right;
+  }
+}
