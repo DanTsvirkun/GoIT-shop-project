@@ -8,7 +8,7 @@ const refs = {
 
 // console.log(refs.allModal)
 
-refs.button.addEventListener('click', showModal);
+refs.button.addEventListener('click', createModal);
 refs.allModal.addEventListener('click', closeModall)
 
 const markupModal = () => {
@@ -99,7 +99,7 @@ let productImage;
 let createData;
 let category;
 
-function showModal(){
+function createModal(){
   refs.allModal.insertAdjacentHTML("beforeend", addMarkupModal);
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   imgLoaderArea.addEventListener('change', previewImg);  
@@ -120,6 +120,7 @@ function saveData(event){
 
   createData = {
    name: productName.value,
+   mainImg: '',
    image: [],
    category: productCategory.value,
    description: productDescription.value,
@@ -155,8 +156,9 @@ function submitForm(event){
   event.preventDefault();
   let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
+  // allImg = Array.from(allImg);
   
-  console.dir(allImg);
+  // console.dir(allImg);
 
   const allImgArr = allImg.filter(item => {  
   const src = item.dataset.img;
@@ -164,17 +166,17 @@ function submitForm(event){
     
   }).map(item => item.src); 
 
-  createData.image = allImgArr; 
+  createData.image = allImgArr;
+  createData.mainImg = allImgArr[0];
   
   console.log(createData);
-  console.log(allImgArr);
+  // console.log(allImgArr);
   
   //==========================================================================
   // api.postAdv(createData.category, createData);  
   //==========================================================================
 
-  advForm.reset();
-  allImg =[];
+  advForm.reset();  
 }
 
 function closeModall(event){  

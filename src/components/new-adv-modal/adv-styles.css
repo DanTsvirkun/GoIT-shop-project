@@ -150,7 +150,7 @@ justify-content: space-between;
   appearance: none;
   color: rgb(187, 187, 187);
   font-size: 14px;
-  font-family: 'MontserratMedium'; 
+  font-family: 'MontserratMedium', sans-serif; 
   padding-left: 18px;
   background-image: url(./adv-images/Icon drop down.png);
   background-repeat: no-repeat;
