@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>GoIT Shop</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <header class="header"></header>
-      <main>
-        <section class="ads"></section>
-        <section class="categories"></section>
-      </main>
-      <footer class="footer"></footer>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>GoIT Shop</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header"></header>
+    <main>
+
+      <section>
+        -----------------------------------------------------------------------------------------------------------------
+        <p class="user-info"></p>
+        -----------------------------------------------------------------------------------------------------------------
+        <img src="https://dummyimage.com/50x50/ddd/ff0000" class="resultIMG" alt="image">
+        -----------------------------------------------------------------------------------------------------------------
+        <form name="fileForm">
+          <input type="file" name="fileFormInput">
+          <button type="submit">Загрузить</button>
+        </form>
+        -----------------------------------------------------------------------------------------------------------------
+        <form class="auth-form-sign-in" name="userSignIn">
+          <br><input type="email" placeholder="E-mail" name="email" required />
+          <br><input type="text" placeholder="Пароль" name="password" required />
+          <br><button type="submit" class="sign-in-button">Войти</button>
+        </form>
+        -----------------------------------------------------------------------------------------------------------------
+        <form class="auth-form-sign-up" name="userSignUp">
+          <br><input type="text" placeholder="Введите Ваше имя" name="firstName" required />
+          <br><input type="text" placeholder="Введите Вашу фамилию" name="secondName" required />
+          <br><input type="email" placeholder="Введите Ваш e-mail" name="email" required />
+          <br><input type="text" placeholder="Введите номер телефона" name="phone" required />
+          <br><input type="password" placeholder="Введите пароль" name="password" required />
+          <br><input type="password" placeholder="Повторите ввод пароля" name="passwordRepeat" required />
+          <br><button type="submit" class="reg-button">Регистрация</button>
+        </form>
+        -----------------------------------------------------------------------------------------------------------------
+        <br><button class="auth-form-sign-out">Выйти</button><br>
+        -----------------------------------------------------------------------------------------------------------------
+      </section>
+
+      <section class="ads"></section>
+      <section class="categories"></section>
+    </main>
+    <footer class="footer"></footer>
+  </div>
+</body>
+
 </html>
