@@ -36,7 +36,7 @@ export const modalBackDrop = (innerElement) => {
 
 ////////Your element///////////////////////////////////////////////////////////////
 
-const adv = () => {
+/* const adv = () => {
   const innerElement2 = `
     <div class="innerBlock2">
     <h2>Open Window</h2>
@@ -49,3 +49,4 @@ const adv = () => {
 }
 
 adv();
+ */
