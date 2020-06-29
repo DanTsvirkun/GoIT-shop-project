@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/luxplanjay/webpack-starter-kit#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
+    "@babel/core": "^7.10.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "autoprefixer": "^9.7.4",
@@ -50,9 +50,11 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "basiclightbox": "^5.0.3",
     "core-js": "^3.6.4",
     "handlebars": "^4.7.3",
     "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "siema": "^1.5.1"
   }
 }

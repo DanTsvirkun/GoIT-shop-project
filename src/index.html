@@ -8,13 +8,65 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header"></header>
-      <main>
-        <section class="ads"></section>
-        <section class="categories"></section>
-      </main>
-      <footer class="footer"></footer>
-    </div>
+    <header class="header">
+      <div class="container">
+        <div class="lightbox js-lightbox">
+          <div class="lightbox__overlay auth-form"></div>
+        </div>
+        <div class="mobile-menu-wrapper">
+          <div class="mobile-menu-closed">
+            <button class="close-menu"></button>
+            <div class="header-auth-mobile"></div>
+            <div class="mobile-buttons-wrapper">
+              <div class="mobile-filters-wrapper">
+                <button class="header__filters--btn"></button>
+                <span class="header__filters">Фильтры</span>
+              </div>
+              <div class="mobile-clear-filters-wrapper">
+                <button class="header__clear-filter--btn"></button>
+                <span class="header__clear-filter">Очистить</span>
+              </div>
+            </div>
+            <ul class="categories-filter-mobile"></ul>
+          </div>
+          <button class="mobile-burger"></button>
+          <a src="#" class="header__logo"></a>
+          <button class="mobile-search"></button>
+        </div>
+        <div class="tablet-upper-wrapper desktop-upper-wrapper">
+          <a src="#" class="header__logo"></a>
+          <input
+            class="header__input"
+            type="search"
+            placeholder="Поиск товаров..."
+          />
+          <button class="header__input--btn"></button>
+          <div class="header-auth"></div>
+          <button class="header__create-ad-btn">Создать объявление</button>
+        </div>
+        <div class="tablet-bottom-wrapper">
+          <ul class="categories-filter"></ul>
+          <input
+            class="header__input"
+            type="search"
+            placeholder="Поиск товаров..."
+          />
+          <button class="header__input--btn"></button>
+          <div class="filters-wrapper">
+            <button class="header__filters--btn"></button>
+            <span class="header__filters">Фильтры</span>
+          </div>
+          <div class="clear-filters-wrapper">
+            <button class="header__clear-filter--btn"></button>
+            <span class="header__clear-filter">Очистить</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main></main>
+    <button class="modal-btn">call modall</button>
+    <div class="adv-modal-main"></div>
+    <footer class="footer"></footer>
   </body>
 </html>

@@ -1,0 +1,135 @@
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms linear;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+  z-index: 200;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.99);
+}
+
+.lightbox__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.9);
+  transition: transform 200ms ease-in-out;
+}
+
+.lightbox__image {
+  width: auto;
+  height: auto;
+  max-height: 10vh;
+  max-width: 10vw;
+}
+
+.lightbox.is-open .lightbox__content {
+  transform: scale(1);
+}
+
+.lightbox__button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  /* background-image: url('../images/icon-close.svg'); */
+}
+
+.lightbox__button:hover,
+.lightbox__button:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.auth-form {
+  font-family: 'MontserratRegular';
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.auth-form h4 {
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  margin: 0 auto;
+  width: 246px;
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  border: 1px solid #ced2d1;
+  font-weight: 600;
+}
+
+::placeholder {
+  color: #ced2d1;
+}
+
+.auth-form button {
+  text-align: center;
+  text-transform: uppercase;
+  width: 114px;
+  height: 50px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.sign-in-button,
+.reg-button {
+  background-color: #ff6b08;
+  color: #fff;
+  border: none;
+}
+
+.sign-in-button:hover,
+.reg-button:hover {
+  background-color: #e96105;
+}
+
+.cancel-button,
+.to-reg-button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ced2d1;
+}
+
+.cancel-button:hover,
+.to-reg-button:hover {
+  border: 1px solid #000;
+}
