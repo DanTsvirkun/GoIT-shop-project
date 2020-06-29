@@ -52,6 +52,26 @@ export const funcX = data => {
     ? heart.classList.add('icon-fav--active')
     : heart.classList.remove('icon-fav--active');
   heart.addEventListener('click', debounce(heartAttack, 300));
+  /////
+  const showSellerBtn = document.querySelector(
+    '.item_modal--tablet--button-buy',
+  );
+  const showHideBlock = document.querySelector('.item_modal-seller');
+  showSellerBtn.addEventListener('click', changeClassSeller);
+  function changeClassSeller(e) {
+    console.log(111);
+    if (!showHideBlock.classList.contains('item_modal-seller-active')) {
+      showHideBlock.classList.add('item_modal-seller-active');
+      showSellerBtn.textContent = 'Скрыть';
+      showSellerBtn.classList.add('.item_modal--tablet--button-buy-active');
+    } else if (showHideBlock.classList.contains('item_modal-seller-active')) {
+      showHideBlock.classList.remove('item_modal-seller-active');
+      showSellerBtn.textContent = 'Информация о продавце';
+      showSellerBtn.classList.remove('.item_modal--tablet--button-buy-active');
+    }
+  }
+
+  ////
 };
 ///userId+ItemId =>>>addUserFavourite(userId, advId)
 function heartAttack(e) {

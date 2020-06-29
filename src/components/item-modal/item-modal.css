@@ -29,13 +29,29 @@
 }
 .item_modal--tablet--button-buy {
   display: block;
-  border: 0;
+  border: 1px solid #ff6b08;
   background-color: #ff6b08;
   width: 280px;
   height: 60px;
   font-size: 16px;
   font-family: 'MontserratBold';
   color: #ffffff;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: pointer;
+}
+.item_modal--tablet--button-buy-active {
+  display: block;
+  border: 1px solid #ff6b08;
+  background-color: #ffffff;
+  width: 280px;
+  height: 60px;
+  font-size: 16px;
+  font-family: 'MontserratBold';
+  color: #ff6b08;
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
@@ -160,11 +176,16 @@
 }
 
 .item_modal-seller {
+  display: none;
+}
+
+.item_modal-seller-active {
   display: block;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .item_modal-seller--header {
   font-size: 12px;
   font-family: 'MontserratRegular';
@@ -308,6 +329,7 @@
     width: 20px;
     height: 20px;
     stroke-width: 0;
+
     background: url(../../assets/icons/close/close-24px.svg);
     margin-top: 10px;
     cursor: pointer;
@@ -339,7 +361,7 @@
     font-family: 'Montserrat';
     color: #000000;
     line-height: 1.385;
-    width: 312px;
+    width: 310px;
   }
   .images-mini {
     display: flex;
@@ -441,7 +463,7 @@
     font-family: 'Montserrat';
     color: #000000;
     line-height: 1.385;
-    width: 412px;
+    width: 410px;
   }
 }
 .modal-wrapper-test {
@@ -449,4 +471,15 @@
   height: 100vh;
   background-color: rgb(85, 56, 18);
   display: none;
+}
+
+.phone-item-icon {
+  background-size: contain;
+  color: black;
+  display: inline-block;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background: url(../../assets/icons/phone/s_phone.svg);
 }

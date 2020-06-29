@@ -30,15 +30,17 @@
             </div>
             <p class="item_modal--item-price"><span class="item_modal--item-pricevalue"> {{price}} </span>грн
             </p>
-            <button class="item_modal--tablet--button-buy">В корзину</button>
+            <button class="item_modal--tablet--button-buy">Информация о продавце</button>
+            <div class="show-hide-phone">
+                <div class="item_modal-seller">
+                    <p class="item_modal-seller--header">Продавец: <span class="item_modal-seller--name">Имя</span></p>
+                    <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
+                </div>
+            </div>
             <ul class="item_modal--icons">
                 <li class="item_modal--button-fav"><button class="icon-fav"></button>В избранное</li>
                 {{!-- <li class="item_modal--button-subsc"><button class="icon-subsc"></button>Подписаться</li> --}}
             </ul>
-            <div class="item_modal-seller">
-                <p class="item_modal-seller--header">Продавец: <span class="item_modal-seller--name">Имя</span></p>
-                <p class="item_modal-seller--tel">{{phone}}</p>
-            </div>
             <p class="item_modal--desc-header">Описание</p>
             <p class="item_modal--desctab">{{description}}</p>
 
