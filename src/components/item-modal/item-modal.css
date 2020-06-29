@@ -27,43 +27,45 @@
   line-height: 1.2;
   margin-bottom: 16px;
 }
+
+/* ///////// */
 .item_modal--tablet--button-buy {
   display: block;
-  border: 1px solid #ff6b08;
-  background-color: #ff6b08;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.28px;
+  cursor: pointer;
   width: 280px;
   height: 60px;
-  font-size: 16px;
-  font-family: 'MontserratBold';
-  color: #ffffff;
-  font-weight: bold;
-  line-height: 1.2;
-  text-align: center;
-  margin-bottom: 20px;
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
+  color: #fff;
+  border: none;
   outline: none;
-  cursor: pointer;
+  transition: box-shadow 0.5s linear;
+  margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy-active {
   display: block;
-  border: 1px solid #ff6b08;
-  background-color: #ffffff;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.28px;
+  cursor: pointer;
   width: 280px;
   height: 60px;
-  font-size: 16px;
-  font-family: 'MontserratBold';
-  color: #ff6b08;
-  font-weight: bold;
-  line-height: 1.2;
-  text-align: center;
-  margin-bottom: 20px;
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
+  color: #fff;
+  border: none;
   outline: none;
-  cursor: pointer;
+  transition: box-shadow 0.5s linear;
+  margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy:hover {
-  color: #f7fac9;
   box-shadow: 0 10px 10px 0 rgba(8, 45, 126, 0.24),
     0 10px 50px 0 rgba(163, 17, 17, 0.19);
 }
+
 .item_modal--button-fav {
   font-size: 12px;
   font-family: 'Roboto';
@@ -72,7 +74,7 @@
 }
 .item_modal--desc-header {
   font-size: 12px;
-  font-family: 'MontserratRegular';
+  font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
   margin-bottom: 14px;
@@ -95,7 +97,6 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  stroke-width: 0;
   background: url(../../assets/icons/heart/heart_grey.svg);
   background-size: contain;
   margin-right: 10px;
@@ -127,8 +128,6 @@
 /* slider small start */
 .item_modal--imageholder {
   margin-bottom: 20px;
-  /* width: 280px;
-  height: 305px; */
   width: 100%;
   max-width: 30rem;
   margin: 0 auto;
@@ -188,21 +187,22 @@
 
 .item_modal-seller--header {
   font-size: 12px;
-  font-family: 'MontserratRegular';
+  font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
   margin-bottom: 10px;
 }
 .item_modal-seller--name {
   font-size: 14px;
-  font-family: 'MontserratRegular';
+  font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
 }
 .item_modal-seller--tel {
   font-size: 16px;
-  font-family: 'MontserratRegular';
-  color: #878686;
+  font-family: 'MontserratRegular, sans-serif';
+  color: #ff6b08;
+  font-weight: 700;
   line-height: 1.2;
 }
 /* //// */
@@ -229,7 +229,7 @@
 
 .item_modal--desctab {
   font-size: 13px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat, sans-serif';
   color: #000000;
   line-height: 1.385;
   width: 280px;
@@ -336,71 +336,52 @@
     outline: none;
   }
   .item_modal--tablet--button-buy {
-    display: block;
-    border: none;
-    background-color: #ff6b08;
     width: 294px;
     height: 60px;
-    font-size: 16px;
-    font-family: 'MontserratBold';
-    color: #ffffff;
-    font-weight: bold;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-    outline: none;
-  }
-  .item_modal--tablet--button-buy:hover {
-    color: #f7fac9;
-    box-shadow: 0 10px 10px 0 rgba(8, 45, 126, 0.24),
-      0 10px 50px 0 rgba(163, 17, 17, 0.19);
-  }
-  .item_modal--desctab {
-    font-size: 13px;
-    font-family: 'Montserrat';
-    color: #000000;
-    line-height: 1.385;
-    width: 310px;
-  }
-  .images-mini {
-    display: flex;
-  }
-  .slider_image-max {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
-    width: 334px;
-    height: 372px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  .slider_image-min {
-    background-color: rgb(244, 246, 251);
-    width: 52px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .slider_image-min--active {
-    background-color: rgb(244, 246, 251);
-    width: 52px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 2px solid #ff6b08;
-  }
-
-  .bg-photo--style {
-    /* height: 100%;
-    max-width: 336px; */
   }
 }
+.item_modal--desctab {
+  font-size: 13px;
+  font-family: 'Montserrat';
+  color: #000000;
+  line-height: 1.385;
+  width: 310px;
+}
+.images-mini {
+  display: flex;
+}
+.slider_image-max {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+  width: 334px;
+  height: 372px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.slider_image-min {
+  background-color: rgb(244, 246, 251);
+  width: 52px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #f3f3f3;
+}
+.slider_image-min--active {
+  background-color: rgb(244, 246, 251);
+  width: 52px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #fdbc91;
+  transition: border 0.8s linear;
+}
+
 @media (min-width: 1280px) {
   .container {
     max-width: 1200px;
@@ -436,28 +417,14 @@
     margin-bottom: 16px;
   }
   .slider_image-min {
-    background-color: rgb(244, 246, 251);
     width: 60px;
     height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
   }
   .slider_image-min--active {
-    background-color: rgb(244, 246, 251);
     width: 60px;
     height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 2px solid #ff6b08;
   }
-  .bg-photo--style {
-    /* height: 100%;
-    max-width: 436px; */
-  }
+
   .item_modal--desctab {
     font-size: 13px;
     font-family: 'Montserrat';
@@ -481,5 +448,5 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  background: url(../../assets/icons/phone/s_phone.svg);
+  background-image: url(../../assets/icons/phone/s_phone.svg);
 }

@@ -7,8 +7,8 @@ export const showItemModal = function (el) {
   el.addEventListener('click', customFunc);
   //   console.log(el);
 };
-const ulX = document.querySelector('.things-list');
-ulX.addEventListener('click', customFunc);
+// const ulX = document.querySelector('.things-list');
+// ulX.addEventListener('click', customFunc);
 function customFunc(e) {
   if (e.currentTarget === e.target) {
     return;
