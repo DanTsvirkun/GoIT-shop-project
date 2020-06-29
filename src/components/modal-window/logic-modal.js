@@ -2,9 +2,7 @@
 //LOGIC FOR MODAL WINDOW v.0.6//////////////////////////////
 ////////////////////////////////////////////////////////////
 
-export default
-
-class ModalLogic {
+export default class ModalLogic {
   constructor({
     modalid,
     crossid,
