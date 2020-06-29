@@ -65,15 +65,13 @@ function showMobileFilters() {
   }
 }
 
-const body = document.querySelector('body');
-
 function showMobileMenu() {
-  body.style.overflow = 'hidden';
+  refs.body.style.overflow = 'hidden';
   refs.mobileMenuClosed.classList.add('mobile-menu-opened');
 }
 
 function closeMobileMenu() {
-  body.style.overflow = 'unset';
+  refs.body.style.overflow = 'unset';
   refs.mobileMenuClosed.classList.remove('mobile-menu-opened');
 }
 
@@ -133,9 +131,7 @@ var xDown = null;
 var yDown = null;
 
 function getTouches(evt) {
-  return (
-    evt.touches || evt.originalEvent.touches // browser API
-  ); // jQuery
+  return evt.touches || evt.originalEvent.touches;
 }
 
 function handleTouchStart(evt) {
@@ -156,7 +152,6 @@ function handleTouchMove(evt) {
   var yDiff = yDown - yUp;
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
-    /*most significant*/
     if (xDiff > 0) {
       closeMobileMenu();
     } else {
@@ -169,7 +164,6 @@ function handleTouchMove(evt) {
       return;
     }
   }
-  /* reset values */
   xDown = null;
   yDown = null;
 }

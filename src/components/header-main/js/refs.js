@@ -1,4 +1,5 @@
 export default {
+  body: document.querySelector('body'),
   authBlock: document.querySelector('.header-auth'),
   authBlockMobile: document.querySelector('.header-auth-mobile'),
   clearBlock: document.querySelector('.clear-filters-wrapper'),
