@@ -5,7 +5,6 @@ import main from './categories-templates/category-main.hbs';
 import item from './categories-templates/category-item.hbs';
 // ========================================
 const categories = document.querySelector('.categories');
-const loadMore = document.querySelector('.load-more');
 const container = categories.querySelector('.container');
 // =================static=======================
 container.insertAdjacentHTML('beforeend', main());
@@ -44,9 +43,3 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   slideNext.addEventListener('click', () => mySiema.next());
 }
 // =========================================
-// const object = data.hits.map(item => adsTemplateSM(item)).join('');
-// blockList.insertAdjacentHTML('beforeend', object);
-// =========================================
-// function createCategory() {
-//   categories.insertAdjacentHTML('beforeend', catMain());
-// }
