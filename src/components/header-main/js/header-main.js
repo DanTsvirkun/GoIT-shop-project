@@ -3,6 +3,7 @@ import refs from './refs.js';
 import authBlock from '../templates/auth-block.hbs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 
 const testArrayFromBack = [
   'Недвижимость',
@@ -26,14 +27,18 @@ refs.authBlock.insertAdjacentHTML('beforeend', authBlockMarkup);
 
 refs.categories.addEventListener('click', activeCategory);
 refs.categoriesMobile.addEventListener('click', activeCategory);
+refs.categoriesMobile.addEventListener('click', activeCategory);
 
 refs.clearBlock.addEventListener('click', clearActiveCategory);
 refs.clearBlockMobile.addEventListener('click', clearActiveCategory);
 
 refs.mobileFiltersBtn.addEventListener('click', showMobileFilters);
-
 refs.mobileBurger.addEventListener('click', showMobileMenu);
+refs.mobileSearch.addEventListener('click', showMobileInput);
+
 refs.cross.addEventListener('click', closeMobileMenu);
+
+// refs.tabletFiltersBtn.addEventListener('click', showTabletFilters);
 
 function activeCategory(e) {
   if (e.target.nodeName === 'BUTTON') {
@@ -68,6 +73,30 @@ function closeMobileMenu() {
   refs.mobileMenuClosed.classList.remove('mobile-menu-opened');
 }
 
+function showMobileInput() {
+  refs.mobileInput.classList.add('mobile-input');
+  refs.inputSearch.style.display = 'unset';
+  refs.inputCross.style.display = 'unset';
+  refs.inputCross.addEventListener('click', closeMobileInput);
+}
+
+function closeMobileInput() {
+  refs.mobileInput.classList.remove('mobile-input');
+  refs.inputSearch.style.display = 'none';
+  refs.inputCross.style.display = 'none';
+  refs.inputCross.removeEventListener('click', closeMobileInput);
+}
+
+// function showTabletFilters() {
+//   if (refs.tabletCategoriesFilter.innerHTML === '') {
+//     refs.tabletCategoriesFilter.style.display = 'flex';
+//     refs.tabletCategoriesFilter.innerHTML = categoriesMarkup;
+//   } else {
+//     refs.tabletCategoriesFilter.innerHTML = '';
+//     refs.tabletCategoriesFilter.style.display = 'none';
+//   }
+// }
+
 if (window.matchMedia('(max-width: 767px)').matches) {
   document.addEventListener(
     'touchstart',
@@ -79,16 +108,18 @@ if (window.matchMedia('(max-width: 767px)').matches) {
 
 window.addEventListener(
   'resize',
-  throttle(() => {
+  debounce(() => {
     console.log('resize!!');
     document.removeEventListener(
       'touchstart',
-      throttle(handleTouchStart, 500),
+      // throttle(handleTouchStart, 500),
+      handleTouchStart,
       false,
     );
     document.removeEventListener(
       'touchmove',
-      throttle(handleTouchMove, 500),
+      // throttle(handleTouchMove, 500),
+      handleTouchMove,
       false,
     );
 
@@ -117,7 +148,6 @@ function getTouches(evt) {
 }
 
 function handleTouchStart(evt) {
-  console.log('AAAAAAA', evt);
   const firstTouch = getTouches(evt)[0];
   xDown = firstTouch.clientX;
   yDown = firstTouch.clientY;

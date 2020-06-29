@@ -23,19 +23,20 @@ input[type='search']::-webkit-search-results-decoration {
 .mobile-menu-closed {
   position: absolute;
   left: -93.75vw;
-  /* left: 0; */
   top: 0;
   display: flex;
   width: 93.75vw;
   height: 100vh;
   background-color: #031c33;
   transition: 0.5s;
+  z-index: 1;
 }
 
 .mobile-menu-opened {
   box-shadow: 15px 0px 25px 0px rgba(29, 29, 27, 0.15);
   transform: translateX(93.75vw);
   transition: 0.5s;
+  z-index: 1;
 }
 
 .header-auth-mobile {
@@ -212,6 +213,52 @@ input[type='search']::-webkit-search-results-decoration {
   transform: translate(-24px, 24px);
 }
 
+.mobile-input-closed {
+  display: none;
+  position: absolute;
+  font-family: 'MontserratLight', sans-serif;
+  outline: none;
+  color: black;
+  font-size: 12px;
+  width: 300px;
+  height: 40px;
+  padding-left: 30px;
+  margin-right: 81px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.mobile-input {
+  display: unset;
+  opacity: 1;
+}
+
+.mobile-input-btn {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  transform: translate(128px, 0px);
+  border: none;
+  outline: none;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  background: url(../../../assets/icons/search/search-24px-black.svg);
+}
+
+.mobile-input-cross {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: url(../../../assets/icons/close/close-24px.svg);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 24px;
+  height: 24px;
+  transform: translate(-133px, 0px);
+}
+
 @media (max-width: 767px) {
   .tablet-upper-wrapper {
     display: none;
@@ -351,6 +398,8 @@ input[type='search']::-webkit-search-results-decoration {
     margin-right: 81px;
   }
 
+  /* +++ */
+
   .header__input--btn {
     position: absolute;
     cursor: pointer;
@@ -361,6 +410,8 @@ input[type='search']::-webkit-search-results-decoration {
     height: 24px;
     background: url(../../../assets/icons/search/search-24px-black.svg);
   }
+
+  /* +++ */
 
   .header__clear-filter {
     font-family: 'MontserratMedium', sans-serif;
@@ -433,6 +484,14 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+  .categories-filter-tablet {
+    display: none;
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15px;
+  }
   .desktop-upper-wrapper .header__input {
     display: none;
   }
