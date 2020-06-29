@@ -135,10 +135,25 @@ function funcY() {
   });
 
   //slider-tablet-desktop
+  //   document.body.onclick = function (event) {
+  //     event = event || window.event;
+  //     if (event.target.classList.contains('sm-photo--style')) {
+  //       let allLiImg = document.querySelectorAll('.slider_image-min');
+  //       for (let i = 0; i < allLiImg.length; i++) {
+  //         allLiImg[i].classList.remove('slider_image-min--active');
+  //       }
+  //       document.getElementById('bg-photo--style').src = event.target.src;
+  //       event.target.parentElement.classList.add('slider_image-min--active');
+  //     }
+  //   };
+  // }
   document.body.onclick = function (event) {
     event = event || window.event;
+    let allLiImg = document.querySelectorAll('.slider_image-min');
+    for (let i = allLiImg.length - 1; i > 0; i--) {
+      allLiImg[i].classList.remove('slider_image-min--active');
+    }
     if (event.target.classList.contains('sm-photo--style')) {
-      let allLiImg = document.querySelectorAll('.slider_image-min');
       for (let i = 0; i < allLiImg.length; i++) {
         allLiImg[i].classList.remove('slider_image-min--active');
       }
