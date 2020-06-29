@@ -4,6 +4,7 @@ import Siema from 'siema';
 import { api } from '../services/api';
 import debounce from 'lodash.debounce';
 import axios from 'axios';
+import ModalLogic from '../modal-window/logic-modal.js';
 ////////////////////импортировать
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
 const addUserFavourite = (userId, advId) => {
@@ -23,7 +24,7 @@ const deleteUserFavourite = (userId, advId) => {
 //   JSON.stringify({
 //     email: 'Alxe@asdlasd.com',
 //     token: 'asdasgkk4444',
-//     id: '-MAvXcnLmqyQoMBhlFy2',
+//     userId: '-MAzVEIwmTu4ISBtZLb0',
 //     favorites: [
 //       'ggjjkkj4j4214124mdmfg',
 //       'ifi124u12uo2428fhj',
@@ -58,6 +59,7 @@ function heartAttack(e) {
     heart.classList.remove('icon-fav--active');
     const user = JSON.parse(localStorage.getItem('user-info'));
     const arrayFav = user.favorites;
+    const userID = user.userId;
     // console.log(arrayFav);
     const searchItem = arrayFav.filter(data => data !== idItem);
     localStorage.setItem(
@@ -67,7 +69,8 @@ function heartAttack(e) {
         favorites: [...searchItem],
       }),
     );
-    deleteUserFavourite('-MAvXcnLmqyQoMBhlFy2', idItem).then(console.log);
+
+    deleteUserFavourite(userID, idItem).then(console.log);
 
     console.log('searchItem');
     console.log('del');
@@ -76,6 +79,7 @@ function heartAttack(e) {
 
     // setFavorites(idItem) {
     const user = JSON.parse(localStorage.getItem('user-info'));
+    const userID = user.userId;
     //   function(id)
     // // запрос на сервер конкретного юзера если он есть, но влюбом случае записываем id  в локал сторейдж
     localStorage.setItem(
@@ -86,9 +90,8 @@ function heartAttack(e) {
       }),
     );
 
-    addUserFavourite('-MAvXcnLmqyQoMBhlFy2', idItem);
+    addUserFavourite(userID, idItem);
     console.log('add');
-    // api.setFavorites(idItem);
   }
 }
 
