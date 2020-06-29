@@ -8,7 +8,7 @@ export default {
   mobileFiltersBtn: document.querySelector('.mobile-filters-wrapper'),
   categories: document.querySelector('.categories-filter'),
   categoriesMobile: document.querySelector('.categories-filter-mobile'),
-  tabletCategoriesFilter: document.querySelector('.tablet-categories-filter'),
+  categoriesTablet: document.querySelector('.categories-filter-tablet'),
   tabletFiltersBtn: document.querySelector('.filters-wrapper'),
   mobileBurger: document.querySelector('.mobile-burger'),
   mobileSearch: document.querySelector('.mobile-search'),
