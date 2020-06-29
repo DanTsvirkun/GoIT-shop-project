@@ -1,41 +1,49 @@
 ////////////////////////////////////////////////////////////
-//LOGIC FOR MODAL WINDOW v.0.4//////////////////////////////
+//LOGIC FOR MODAL WINDOW v.0.6//////////////////////////////
 ////////////////////////////////////////////////////////////
 
-//const btn = document.querySelector('#myBtn'); // You must find your button-id
-//btn.addEventListener('click', showModal); // Added on the your button listener
-const modal = document.querySelector('#myModal'); // Find your modal window-id (wrapper)
-const close = document.querySelector('#cross'); // Find your close element (cross - "x")
-
-// Open modal window
-export default function showModal() {
-  close.addEventListener('click', closeModalWithCross);
-  window.addEventListener('click', closeModalWithArea);
-  window.addEventListener('keydown', closeModalWithEsc);
-  modal.style.display = 'flex';
-
-  function closeModal() {
-    modal.style.display = 'none';
-    close.removeEventListener('click', closeModalWithCross);
+export default class ModalLogic {
+  constructor({
+    modalid,
+    crossid,
+    openid,
+    markup
+  }) {
+    this.modal = document.querySelector(modalid); // Find your modal window
+    this.close = document.querySelector(crossid); // Find your close element (cross - "x")
+    this.btn = document.querySelector(openid); // Find your open button
+    this.markup = markup; // Your markup string
+    this.modalEventListeners();
+  }
+  modalEventListeners() {
+    this.btn.addEventListener('click', this.createMarkup);
+    this.close.addEventListener('click', this.closeModalWithCross);
+    window.addEventListener('click', closeModalWithArea);
+    window.addEventListener('keydown', closeModalWithEsc);
+  }
+  createMarkup() {
+    this.modal.innerHTML = this.markup;
+  }
+  closeModal() {
+    this.modal.innerHTML = '';
+    this.close.removeEventListener('click', closeModalWithCross);
     window.removeEventListener('click', closeModalWithArea);
     window.removeEventListener('keydown', closeModalWithEsc);
   }
-// Close modal window with click on the cross - "x"
-  function closeModalWithCross() {
-    closeModal();
+  // Close modal window with click on the cross - "x"
+  closeModalWithCross() {
+    this.closeModal();
   }
-
-// Close modal window with click on the grey area
-  function closeModalWithArea(e) {
-    if (e.target === modal) {
-      closeModal();
+  // Close modal window with click on the grey area
+  closeModalWithArea(e) {
+    if (e.target !== this.modal) {
+      this.closeModal();
     }
   }
-
-// Clotse modal window with "Escape-button"
-  function closeModalWithEsc(e) {
+  // Close modal window with "Escape-button"
+  closeModalWithEsc(e) {
     if (e.code === 'Escape') {
-      closeModal();
+      this.closeModal();
     }
   }
 }
