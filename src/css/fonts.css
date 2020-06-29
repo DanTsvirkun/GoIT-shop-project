@@ -50,10 +50,8 @@
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-300.woff')
-
       format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-
 }
 
 /* montserrat-500 - latin_cyrillic */
@@ -66,10 +64,6 @@
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-500.woff')
-<<<<<<< HEAD
       format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-=======
-      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
->>>>>>> c321c140a9ccddfd9aa1cb70fa619aaabc50d7b7
 }

@@ -1,5 +1,13 @@
 import axios from 'axios';
 import data from './data';
+// import {
+//   getUserInfo,
+//   signInUser,
+//   signUpUser,
+//   signOutUser,
+//   updateUserAvatar,
+//   addUserAdv,
+// } from './user-api';
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
 
@@ -94,10 +102,25 @@ export const api = {
     return filteredArray;
   },
   // Метод для поиска по  id  ----! принимает id как аргумент
+  //   searchId(id) {
+  //     const res = data.allCategories.find((item) =>
+  //       item.id === id
+  //     )
+  //   },
+  // Избранное --- Ира нажимает и это летит к контретному юзеру, динамично передаю название папки(не папик) юзера
+  // Ира нажимает на карточку и ей приходит объект по id. Нужен метод для отправки юзеру в избранное.
   searchId(id) {
-    const res = data.allCategories.find(item => item.id === id);
+    if (id) {
+      return new Promise((res, rej) => {
+        const objId = data.allCategories.find(item => item.id === id);
+        res(objId);
+      });
+    } else {
+      return new Promise((res, rej) => {
+        rej('there is not such id');
+      });
+    }
   },
-
   // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
     return axios
@@ -106,6 +129,10 @@ export const api = {
         obj,
       )
       .then(res => {
+        console.log(res.data.name);
+        const user = JSON.parse(localStorage.getItem('user-info')).id;
+        console.log(user);
+        addUserAdv(user, res.data.name);
         data.allCategories = [
           ...data.allCategories,
           {
@@ -150,5 +177,40 @@ export const api = {
     }
     return a;
   },
+  setFavorites(id) {
+    const user = JSON.parse(localStorage.getItem('user-info'));
+    //   function(id)
+    // запрос на сервер конкретного юзера если он есть, но влюбом случае записываем id  в локал сторейдж
+    localStorage.setItem(
+      'user-info',
+      JSON.stringify({
+        ...user,
+        favorites: [...user.favorites, id],
+      }),
+    );
+  },
+  getFavorites(id) {
+    const favorites = JSON.parse(localStorage.getItem('user-info')).favorites;
+    return favorites.includes(id);
+  },
 };
-api.getAllGoods();
+
+// api.getAllGoods()
+// function(id) {
+//   array.filter((item) => {
+//    return item !== id
+//   })
+// }
+
+// localStorage.setItem(
+//   'user-info',
+//   JSON.stringify({
+//     email: 'Alxe@asdlasd.com',
+//     token: 'asdasgkk4444',
+//     id: '-MAkWY0ZZG5Ji2ge1Ndu',
+//     favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
+//   }),
+// );
+// api.setFavorites('fkkgkgakkgakgakg')
+
+// console.log(api.getFavorites('ifi124u12uo2428fhj'));

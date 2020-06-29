@@ -2,6 +2,11 @@ import './categories-styles/category.css';
 import Siema from 'siema';
 import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-popular.hbs';
+import { api } from '../services/api.js';
+
+api.getAllGoods().then(data => {
+  console.log(data);
+});
 // ========================================
 const categories = document.querySelector('.categories');
 // =================static=======================

@@ -215,7 +215,6 @@
 }
 .images-mini {
   display: flex;
-  justify-content: space-between;
 }
 .slider_image-max {
   background-color: rgb(255, 255, 255);
@@ -231,10 +230,13 @@
   background-color: rgb(244, 246, 251);
   width: 42px;
   height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
   cursor: pointer;
+}
+.slider_image-min:not(:last-child) {
+  margin-right: 8px;
 }
 .slider_image-min--active {
   background-color: rgb(244, 246, 251);
@@ -341,7 +343,6 @@
   }
   .images-mini {
     display: flex;
-    justify-content: space-between;
   }
   .slider_image-max {
     background-color: rgb(255, 255, 255);

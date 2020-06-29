@@ -5,3 +5,4 @@ import './components/services/api';
 import './components/adv-block/adsSection';
 import './components/section-categories/categories';
 import './components/modal-window/logic-modal.js';
+import './components/item-modal/item-modal-open.js';
