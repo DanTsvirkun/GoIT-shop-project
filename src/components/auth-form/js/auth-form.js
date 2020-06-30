@@ -17,11 +17,13 @@ import signOut from '../templates/sign-out.hbs';
 import { modalBackDrop } from '../../modal-window/logic-modal';
 
 const signInUpDiv = refs.authBlock;
+const signInUpDivMob = refs.authBlockMobile;
 let signInForm;
 let signUpForm;
 let signOutForm;
 
 signInUpDiv.addEventListener('click', hendelClickSignInUp);
+signInUpDivMob.addEventListener('click', hendelClickSignInUp);
 
 function hendelClickSignInUp(e) {
   if (!localStorage.getItem('user-info')) {
@@ -61,17 +63,15 @@ function isLogIn() {
 
       const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
       getUserInfo(localUserId).then(res => {
-        const test = accMenu(res.data);
-
-        signInUpDiv.innerHTML = `${test}${signOut()}`;
+        signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
+        signInUpDivMob.innerHTML = `${accMenu(res.data)}${signOut()}`;
         signOutForm = document.querySelector('.auth-form-sign-out');
         signOutForm.addEventListener('click', hendelSignOut);
       });
-
-      // signInUpDiv.insertAdjacentElement = `${signOut()}`;
     } else {
       console.log('i am not login');
       signInUpDiv.innerHTML = `${signInUp()}`;
+      signInUpDivMob.innerHTML = `${signInUp()}`;
     }
   }, 1000);
 }
@@ -93,7 +93,6 @@ function hendelSubmitSignIn(e, closeModal) {
   e.preventDefault();
   signInUser(inputData.userSignIn).then(() => closeModal());
 
-  // authForm.innerHTML = ``;
   isLogIn();
 }
 
@@ -101,7 +100,6 @@ function hendelSubmitSignUp(e, closeModal) {
   e.preventDefault();
   signUpUser(inputData.userSignUp).then(() => closeModal());
 
-  // authForm.innerHTML = ``;
   isLogIn();
 }
 

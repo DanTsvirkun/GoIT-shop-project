@@ -21,12 +21,19 @@ export const signInUser = signInUser => {
             user => user.email === res.data.email,
           );
 
+          let favArray = [];
+
+          if (foundUser.favourite) {
+            favArray = Object.keys(foundUser.favourite);
+          }
+
           localStorage.setItem(
             'user-info',
             JSON.stringify({
               userId: foundUser.userId,
               email: res.data.email,
               token: res.data.idToken,
+              favorites: favArray,
             }),
           );
         });
@@ -61,6 +68,7 @@ export const signUpUser = signUpUser => {
                 userId: resId.data.name,
                 email: res.data.email,
                 token: res.data.idToken,
+                favorites: [],
               }),
               axios.patch(
                 `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
@@ -92,13 +100,13 @@ export const addUserAdv = (userId, advId, token) => {
   });
 };
 
-export const addUserFavourite = (userId, advId) => {
+export const addUserFavourite = (userId, advId, token) => {
   return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
     [advId]: 'key',
   });
 };
 
-export const deleteUserFavourite = (userId, advId) => {
+export const deleteUserFavourite = (userId, advId, token) => {
   return axios.delete(
     `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
   );
