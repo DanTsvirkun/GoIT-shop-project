@@ -10,16 +10,29 @@ import data from './data';
 // } from './user-api';
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
+const mainUrl = 'https://project-88172.firebaseio.com/olx';
+
+const nameAllCategories = [
+  'electronics',
+  'property',
+  'transport',
+  'work',
+  'business-and-services',
+  'recreation-and-sports',
+  'for-free',
+  'exchange',
+];
+const requestedArray = [];
 
 // Название категорий:
-// realEstate --- Недвижимость,
-// transport --- Транспорт,
-// jobs --- работа,
-// tech --- Электроника,
-// business --- Бизнес и услуги,
-// activities --- Отдых и спорт,
-// forFree --- Отдам бесплатно,
-// barter --- Обмен
+// 'property' --- Недвижимость,
+// 'transport' --- Транспорт,
+// 'work' --- работа,
+// 'electronics' --- Электроника,
+// 'business-and-services' --- Бизнес и услуги,
+// 'recreation-and-sports' --- Отдых и спорт,
+// 'for-free' --- Отдам бесплатно,
+// 'exchange' --- Обмен
 
 export const api = {
   // Запрос для категорий. Нужно передать название категории как аргумент.
@@ -27,16 +40,25 @@ export const api = {
     if (data[category]) {
       if (data[category].length > 0) {
         return new Promise(resolve => {
+          console.log('DATA CATEGORY');
           resolve(data[category]);
         });
       }
       return axios
-        .get(
-          `https://project-88172.firebaseio.com/olx/categories/${category}.json`,
-        )
+        .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
+          console.log('AXIOS CATEGORY');
           const result = this.transformCategory(res.data);
-          data[category] = [...result];
+          if (!requestedArray.includes(category)) {
+            requestedArray.push(category);
+          }
+          if (data[category].length === 0) {
+            data.allCategories = [...data.allCategories, ...result];
+            data[category] = [...result];
+            console.log('Category', data[category]);
+          }
+
+          console.log('ALL CATEGORIES', data.allCategories);
           return result;
         })
         .catch(err => {
@@ -53,17 +75,37 @@ export const api = {
   // ----! Принимает значение инпута.
   searchGoods(searchWord) {
     if (searchWord) {
-      if (data.allCategories.length > 0) {
+      if (
+        data.allCategories.length > 0 &&
+        requestedArray.length === nameAllCategories.length
+      ) {
         return new Promise(resolve => {
+          console.log('DATA SEARCH WORD');
           resolve(this.filterWords(searchWord));
         });
       }
-      return axios
-        .get('https://project-88172.firebaseio.com/olx/categories.json')
+      // return  axios
+      // .get(`${mainUrl}/categories.json`)
+      return new Promise(res => {
+        res('res');
+      })
         .then(res => {
-          this.transformAllCategories(res.data);
-          const result = this.filterWords(searchWord);
-          return result;
+          console.log('AXIOS SEARCH WORD');
+          if (requestedArray.length < nameAllCategories.length) {
+            return this.addCategory().then(arr => {
+              const allCategories = arr.map(item => {
+                return this.getCategory(item);
+              });
+              return Promise.all(allCategories).then(array => {
+                // console.log(array);
+                const result = this.filterWords(searchWord);
+                // console.log(data.allCategories);
+                return result;
+              });
+              // console.log(ar);
+            });
+          }
+          // this.transformAllCategories(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -121,18 +163,17 @@ export const api = {
       });
     }
   },
+  getUserInfo() {},
   // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
     return axios
-      .post(
-        `https://project-88172.firebaseio.com/olx/categories/${category}.json`,
-        obj,
-      )
+      .post(`${mainUrl}/categories/${category}.json`, obj)
       .then(res => {
+        // отправляю юзеру на бэк
         console.log(res.data.name);
         const user = JSON.parse(localStorage.getItem('user-info')).id;
         console.log(user);
-        addUserAdv(user, res.data.name);
+        addUserAdv(user, res.data.name, token);
         data.allCategories = [
           ...data.allCategories,
           {
@@ -155,21 +196,65 @@ export const api = {
   // Метод нужен для рекламы или популярных товаров.
   //  Например можно брать первые первые 6 для популярных товаров и
   // при каждой загрузке страницы они будут разные.
+
   getAllGoods() {
-    if (data.allCategories.length > 0) {
+    if (
+      data.allCategories.length > 0 &&
+      requestedArray.length === nameAllCategories.length
+    ) {
       return new Promise(resolve => {
+        console.log('DATA ALL-GOODS');
         resolve(data.allCategories);
       });
     }
-    return axios
-      .get('https://project-88172.firebaseio.com/olx/categories.json')
+    return new Promise(res => {
+      res('res');
+    })
       .then(res => {
-        const arrayObjects = this.transformAllCategories(res.data);
+        console.log('AXIOS SEARCH WORD');
+        if (requestedArray.length < nameAllCategories.length) {
+          return this.addCategory().then(arr => {
+            const allCategories = arr.map(item => {
+              return this.getCategory(item);
+            });
+            return Promise.all(allCategories).then(array => {
+              // console.log(array);
 
-        return arrayObjects;
+              // console.log(data.allCategories);
+              return data.allCategories;
+            });
+            // console.log(ar);
+          });
+        }
+        // this.transformAllCategories(res.data);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+      });
   },
+
+  addCategory() {
+    let array = [];
+    for (let i = 0; i < nameAllCategories.length; i++) {
+      if (!requestedArray.includes(nameAllCategories[i])) {
+        // requestedArray.push(nameAllCategories[i]);
+        array.push(nameAllCategories[i]);
+      }
+    }
+    return new Promise(res => res(array));
+  },
+
+  // ----------------------------------------easy option
+  filterCategoryData(arrayAllCat) {
+    console.log(arrayAllCat);
+    arrayAllCat.map(item => {
+      console.log(item);
+      // console.log(item.category);
+      data[item.category] = [...data[item.category], item];
+      console.log(data[item.category]);
+    });
+  },
+
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -177,6 +262,13 @@ export const api = {
     }
     return a;
   },
+  // Можно ли менять избранное юзера до возвращения промиса?
+  // Вначале должен отработать бэк, а только после менять локалСторейдж
+  removeFavorites(array) {
+    const user = JSON.parse(localStorage.getItem('user-info')).id;
+    // function(user,array)
+  },
+  // Вернуть промис
   setFavorites(id) {
     const user = JSON.parse(localStorage.getItem('user-info'));
     //   function(id)
@@ -195,13 +287,14 @@ export const api = {
   },
 };
 
-// api.getAllGoods()
-// function(id) {
-//   array.filter((item) => {
-//    return item !== id
-//   })
+// const fn = function () {
+//   // api.getAllGoods().then((data) => console.log(data))
+//   api.searchGoods('к').then((data) => console.log(data))
 // }
-
+// fn()
+// setTimeout(fn, 2000)
+// setTimeout(fn, 2000)
+// setTimeout(fn, 5000)
 // localStorage.setItem(
 //   'user-info',
 //   JSON.stringify({
@@ -214,3 +307,37 @@ export const api = {
 // api.setFavorites('fkkgkgakkgakgakg')
 
 // console.log(api.getFavorites('ifi124u12uo2428fhj'));
+
+// api.getAllGoods()
+
+// getCategoryTest() {
+//   axios.get('https://project-88172.firebaseio.com/olx/categories.json').then((res) => {
+//     const allKeys = Object.keys(res.data)
+//     const array = allKeys.map((item) => {
+//       return {
+//         [item]: res.data[item]
+//       }
+//     })
+//     console.log(array);
+//   }).then((data) => console.log(data))
+// },
+
+//  getAllGoods() {
+//    if (data.allCategories.length > 0 &&
+//      requestedArray.length === nameAllCategories.length) {
+//      return new Promise(resolve => {
+//        console.log('DATA ALL-GOODS');
+//        resolve(data.allCategories);
+//      });
+//    }
+//    return axios
+//      .get(`${mainUrl}/categories.json`)
+//      .then(res => {
+//        console.log('AXIOS ALL-GOODS');
+//        const arrayObjects = this.transformAllCategories(res.data);
+//        this.filterCategoryData(arrayObjects);
+//        console.log(arrayObjects);
+//        return arrayObjects;
+//      })
+//      .catch(err => console.log(err));
+//  },
