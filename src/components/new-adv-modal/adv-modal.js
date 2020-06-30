@@ -4,12 +4,10 @@ import '../modal-window/styles.css'
 import './adv-styles.css'
 
 const refs = {
-  button: document.querySelector('.modal-btn'),  
-  // allModal: document.querySelector('.adv-modal-main'),
+  button: document.querySelector('.modal-btn'), 
 }
 
 refs.button.addEventListener('click', createModal);
-// refs.allModal.addEventListener('click', closeModall)
 
 const markupModal =
  `
@@ -106,12 +104,7 @@ const markupModal =
     </form>
   </div>
 
-  `
-
-
-// const addMarkupModal = markupModal();
-
-
+  `;
 
 let  imgLoaderArea;
 let advForm;
@@ -119,15 +112,12 @@ let productImage;
 let createData;
 let category;
 
-function createModal(){
-    
+function createModal(){  
+
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal); 
-//==============================================================
 
-//==============================================================
-  // refs.allModal.insertAdjacentHTML("beforeend", addMarkupModal);
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   imgLoaderArea.addEventListener('change', previewImg);  
    
@@ -145,8 +135,6 @@ function saveData(event){
   const productPhone = event.currentTarget.elements.productPhone;
   const productCategory = event.currentTarget.elements.productCategory;
   
-  
-
   createData = {
    name: productName.value,
    mainImg: '',
@@ -202,10 +190,9 @@ function submitForm(event){
   createData.mainImg = allImgArr[0];
 
   function clearImages (arr){
-    arr.map((item => {      
-      item.src = "";
-      
-    }).filter(item));
+    arr.map(item => {      
+      item.src = "";      
+    })
 
     console.log(createData)
   }
@@ -217,12 +204,6 @@ function submitForm(event){
   advForm.reset();  
   clearImages(allImg);
 }
-
-// function closeModall(event){  
-//   if(event.target.dataset.close){    
-//     refs.allModal.innerHTML = '';
-//   }
-// }
 
 function previewImg (event){
   if(event.target === event.currentTarget){
