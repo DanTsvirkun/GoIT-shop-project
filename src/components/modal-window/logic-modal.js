@@ -2,23 +2,23 @@
 //LOGIC FOR MODAL WINDOW v.0.7//////////////////////////////
 ////////////////////////////////////////////////////////////
 //////////////Вызвать метод modalBackdrop, передать разметку/////////////////////////////
-//<div class="modalContainer"><div> - этот див с классом должен быть в основной разметке,
+//<div class="modalContainer"></div> - этот див с классом должен быть в основной разметке,
 //так как на него повешены глобальные настройки
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const modalBackDrop = innerElement => {
-  const container = document.querySelector('.modalContainer');
+  const container = document.querySelector('.modal');
   const createModalMarkup = closeModal => {
-    return `
-    <div class ="modal">
-        ${innerElement};
-    </div>
+    return `   
+        ${innerElement}   
     `;
   };
+
   const closeModal = () => {
-    container.innerHTML = '';
+    container.classList.remove('show-modal');
     container.addEventListener('click', close);
     document.removeEventListener('keydown', close);
+    document.querySelector('body').style.overflow = 'unset';
   };
 
   const close = e => {
@@ -28,6 +28,8 @@ export const modalBackDrop = innerElement => {
   };
 
   container.innerHTML = createModalMarkup(closeModal);
+  container.classList.add('show-modal', 'transition-effect');
+  document.querySelector('body').style.overflow = 'hidden';
   container.addEventListener('click', close);
   document.addEventListener('keydown', close);
   return closeModal;
