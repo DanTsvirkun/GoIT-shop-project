@@ -16,6 +16,7 @@ export const modalBackDrop = (innerElement) => {
     </div>
     `;
   }
+  
   const closeModal = () => {
     container.innerHTML = '';
     container.addEventListener('click', close);
