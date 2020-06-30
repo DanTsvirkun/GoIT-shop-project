@@ -1,3 +1,7 @@
+p:not(:last-child) {
+  margin-bottom: 22px;
+}
+
 .footer {
   background-color: #1e2939;
   color: #767e85;
@@ -36,6 +40,10 @@ a:hover {
 
    p {
     display: inline-block;
+   }
+
+   p:not(:last-child) {
+     margin-bottom: 0;
    }
 
   .footer {
