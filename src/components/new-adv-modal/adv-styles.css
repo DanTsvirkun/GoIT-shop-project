@@ -12,16 +12,19 @@ form input:invalid{
 /* ============================================================================= */
 
 .adv-modal{
-  position: relative;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 280px;  
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1);
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.adv-modal__overlay{
+/* .adv-modal__overlay{
   position: fixed;
   top: 0;
   right: 0;
@@ -29,7 +32,7 @@ form input:invalid{
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.302);  
   
-}
+} */
 
 .adv-modal__close-btn{
   position: absolute;

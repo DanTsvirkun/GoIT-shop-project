@@ -8,18 +8,18 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export const modalBackDrop = (innerElement) => {
-  const container = document.querySelector('.modalContainer');
-  const createModalMarkup = (closeModal) => {
-    return `
-    <div class ="modal">
-        ${innerElement};
-    </div>
+  const container = document.querySelector('.modal');
+  const createModalMarkup = (closeModal) => {   
+    return `   
+        ${innerElement}   
     `;
   }
+  
   const closeModal = () => {
-    container.innerHTML = '';
+    container.classList.remove('show-modal');   
     container.addEventListener('click', close);
     document.removeEventListener('keydown', close);
+    
   }
 
   const close = (e) => {
@@ -29,6 +29,7 @@ export const modalBackDrop = (innerElement) => {
   }
 
   container.innerHTML = createModalMarkup(closeModal);
+  container.classList.add('show-modal', 'transition-effect');
   container.addEventListener('click', close);
   document.addEventListener('keydown', close);
   return closeModal;
