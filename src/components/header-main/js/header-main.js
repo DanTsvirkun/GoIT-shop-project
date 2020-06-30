@@ -110,18 +110,18 @@ const touchStart = throttle(handleTouchStart, 500);
 const touchMove = throttle(handleTouchMove, 500);
 
 if (window.matchMedia('(max-width: 767px)').matches) {
-  document.addEventListener('touchstart', touchStart);
+  refs.header.addEventListener('touchstart', touchStart);
   document.addEventListener('touchmove', touchMove);
 }
 
 window.addEventListener(
   'resize',
   debounce(() => {
-    document.removeEventListener('touchstart', touchStart);
+    refs.header.removeEventListener('touchstart', touchStart);
     document.removeEventListener('touchmove', touchMove);
 
     if (window.matchMedia('(max-width: 767px)').matches) {
-      document.addEventListener('touchstart', touchStart);
+      refs.header.addEventListener('touchstart', touchStart);
       document.addEventListener('touchmove', touchMove);
     }
   }, 500),

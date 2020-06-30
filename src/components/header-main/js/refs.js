@@ -17,4 +17,5 @@ export default {
   inputSearch: document.querySelector('.mobile-input-btn'),
   inputCross: document.querySelector('.mobile-input-cross'),
   cross: document.querySelector('.close-menu'),
+  header: document.querySelector('.header'),
 };
