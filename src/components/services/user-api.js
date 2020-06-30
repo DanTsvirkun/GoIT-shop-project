@@ -9,7 +9,7 @@ export const getUserInfo = userId => {
 };
 
 export const signInUser = signInUser => {
-  axios
+  return axios
     .post(`:signInWithPassword?key=${API_KEY}`, {
       ...signInUser,
       returnSecureToken: true,
@@ -36,9 +36,9 @@ export const signInUser = signInUser => {
 };
 
 export const signUpUser = signUpUser => {
-  const { firstName, secondName, email, phone, password } = signUpUser;
+  const { firstName, secondName, email, phone, password, avatar } = signUpUser;
 
-  axios
+  return axios
     .post(`:signUp?key=${API_KEY}`, {
       email: email,
       password: password,
@@ -47,11 +47,12 @@ export const signUpUser = signUpUser => {
     .then(res => {
       if (res.status === 200) {
         axios
-          .post(`${API_URL}/user.json`, {
-            firstName: firstName,
-            secondName: secondName,
-            email: email,
-            phone: phone,
+          .post(`${API_URL}/user.json?auth=${res.data.idToken}`, {
+            firstName,
+            secondName,
+            email,
+            phone,
+            avatar,
           })
           .then(resId =>
             localStorage.setItem(
@@ -61,9 +62,12 @@ export const signUpUser = signUpUser => {
                 email: res.data.email,
                 token: res.data.idToken,
               }),
-              axios.patch(`${API_URL}/user/${resId.data.name}.json`, {
-                userId: resId.data.name,
-              }),
+              axios.patch(
+                `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
+                {
+                  userId: resId.data.name,
+                },
+              ),
             ),
           );
         console.log('register');
