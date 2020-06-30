@@ -7,32 +7,32 @@
 //так как на него повешены глобальные настройки
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const modalBackDrop = (innerElement) => {
+export const modalBackDrop = innerElement => {
   const container = document.querySelector('.modalContainer');
-  const createModalMarkup = (closeModal) => {
+  const createModalMarkup = closeModal => {
     return `
     <div class ="modal">
         ${innerElement};
     </div>
     `;
-  }
+  };
   const closeModal = () => {
     container.innerHTML = '';
     container.addEventListener('click', close);
     document.removeEventListener('keydown', close);
-  }
+  };
 
-  const close = (e) => {
+  const close = e => {
     if (e.target === document.querySelector('.modal') || e.key === 'Escape') {
       closeModal();
     } else return;
-  }
+  };
 
   container.innerHTML = createModalMarkup(closeModal);
   container.addEventListener('click', close);
   document.addEventListener('keydown', close);
   return closeModal;
-}
+};
 
 ////////Your element///////////////////////////////////////////////////////////////
 
