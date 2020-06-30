@@ -18,21 +18,10 @@ form input:invalid{
   transform: translate(-50%, -50%);
   width: 280px;  
   background: rgb(255, 255, 255);
-  box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1);
-  /* margin: 0 auto; */
+  box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1); 
   padding-top: 40px;
   padding-bottom: 40px;
 }
-
-/* .adv-modal__overlay{
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.302);  
-  
-} */
 
 .adv-modal__close-btn{
   position: absolute;
@@ -62,8 +51,6 @@ display: flex;
 flex-flow: column;
 align-items: center;
 }
-
-
 
 .adv-modal__product-name-title,
 .adv-modal__product-description-title,

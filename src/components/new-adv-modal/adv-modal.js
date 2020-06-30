@@ -24,7 +24,7 @@ const markupModal =
       <div>
         <div class="input-wrapper">
           <p class="adv-modal__product-name-title">Название товара</p>
-          <input type="text" name="productName" class="adv-modal__product-name input" id="" data-source="name"
+          <input type="text" name="productName" class="adv-modal__product-name input" data-source="name"
             autocomplete="off" minlength="2" maxlength="20" placeholder="Название товара">
         </div>
 
@@ -32,32 +32,32 @@ const markupModal =
           <p class="adv-modal__product-photos-title">Фото</p>
           <ul class="adv-modal__product-photos">
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="1" data-active="true" name="" id="fp1">
+              <input class="photo-input" data-id="1" data-active="true" id="fp1">
               <label class="input-label choose-this" for="fp1"><img src="" class="input-label__img input-label__img--1"
                   width="75" height="58" alt=""></label>
             </li>
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="2" data-active="" name="" id="fp2">
+              <input class="photo-input" data-id="2" data-active="" id="fp2">
               <label class="input-label" for="fp2"><img src="" class="input-label__img input-label__img--2" width="75"
                   height="58" alt=""></label>
             </li>
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="3" data-active="" name="" id="fp3">
+              <input class="photo-input" data-id="3" data-active="" id="fp3">
               <label class="input-label" for="fp3"><img src="" class="input-label__img input-label__img--3" width="75"
                   height="58" alt=""></label>
             </li>
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="4" data-active="" name="" id="fp4">
+              <input class="photo-input" data-id="4" data-active="" id="fp4">
               <label class="input-label" for="fp4"><img src="" class="input-label__img input-label__img--4" width="75"
                   height="58" alt=""></label>
             </li>
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="5" data-active="" name="" id="fp5">
+              <input class="photo-input" data-id="5" data-active="" id="fp5">
               <label class="input-label" for="fp5"><img src="" class="input-label__img input-label__img--5" width="75"
                   height="58" alt=""></label>
             </li>
             <li class="adv-modal__product-photos-item">
-              <input class="photo-input" data-id="6" data-active="" name="" id="fp6">
+              <input class="photo-input" data-id="6" data-active="" id="fp6">
               <label class="input-label" for="fp6"><img src="" class="input-label__img input-label__img--6" width="75"
                   height="58" alt=""></label>
             </li>
@@ -67,7 +67,7 @@ const markupModal =
         <div class="input-wrapper">
           <p class="adv-modal__product-description-title">Описание</p>
           <textarea name="productDescription" data-source="description" class="adv-modal__product-description input"
-            id="" maxlength="245" placeholder="Описание товара"></textarea>
+          maxlength="245" placeholder="Описание товара"></textarea>
         </div>
 
         <div class="input-wrapper">
@@ -90,13 +90,13 @@ const markupModal =
         <div class="input-wrapper">
           <p class="adv-modal__product-price-title">Цена</p>
           <input type="text" name="productPrice" data-source="price" class="adv-modal__product-price input"
-            autocomplete="off" minlength="1" maxlength="16" placeholder="  0.00 грн">
+            autocomplete="off" maxlength="16" placeholder="  0.00 грн">
         </div>
 
         <div class="input-wrapper">
           <p class="adv-modal__product-telephone-number-title">Телефон</p>
           <input type="tel" name="productPhone" data-source="phone" class="adv-modal__product-telephone-number input"
-            id="" placeholder="  +38 (0--) --- -- --">
+            minlength="10" placeholder="  +38 (0--) --- -- --">
         </div>
       </div>
       <button type="submit" class="add-product-btn" data-close="">Добавить</button>
@@ -146,7 +146,9 @@ function saveData(event){
  }
 }
 
-function chooseImgBlock(event){ 
+//=================================================
+
+function chooseImgBlock(event){  
   if(event.target === event.currentTarget){
     return ;
   }
@@ -165,9 +167,11 @@ function chooseImgBlock(event){
   }  
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
-  nextImg.dataset.active = true;
+  nextImg.dataset.active = true; 
   nextImg.nextElementSibling.classList.add('choose-this');  
 }
+
+//=================================================
 
 function submitForm(event){
   event.preventDefault();
@@ -183,19 +187,39 @@ function submitForm(event){
   return src;
     
   }).map(item => item.src);
-
-
  
   createData.image = allImgArr;
   createData.mainImg = allImgArr[0];
 
-  function clearImages (arr){
-    arr.map(item => {      
-      item.src = "";      
-    })
-
-    console.log(createData)
+  function clearImages (arr){   
+    arr.map(item =>     
+      item.src = ""     
+    )     
   }
+
+  let allLabelArr = document.querySelectorAll('.input-label');
+  allLabelArr = Array.from(allLabelArr);
+
+  function returnMarkToStart(arr){
+    arr.filter(item => 
+      item.classList.contains("choose-this")
+    ).map(item => item.classList.remove('choose-this'));
+    allLabelArr[0].classList.add('choose-this')
+  }
+
+  let allPhotoInputs = document.querySelectorAll('.photo-input');
+  allPhotoInputs = Array.from(allPhotoInputs);
+
+  function removeInputFile(arr){
+    arr.filter(item => item.attributes.type)
+    .map(item => item.removeAttribute('type'));
+
+    arr.filter(item => item.dataset.active)
+    .map(item => item.dataset.active = "");
+
+    arr[0].dataset.active = true;
+  }
+    console.log(createData)
   
   //==========================================================================
   // api.postAdv(createData.category, createData);  
@@ -203,7 +227,11 @@ function submitForm(event){
 
   advForm.reset();  
   clearImages(allImg);
+  returnMarkToStart(allLabelArr);
+  removeInputFile(allPhotoInputs);  
 }
+
+//====================================================================
 
 function previewImg (event){
   if(event.target === event.currentTarget){
