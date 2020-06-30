@@ -76,7 +76,7 @@ export const signOutUser = () => {
   localStorage.clear();
 };
 
-export const updateUserAvatar = (id, token, obj) => {
+export const updateUserAvatar = (id, obj, token) => {
   return axios.patch(`${API_URL}/user/${id}.json?auth=${token}`, {
     avatar: obj,
   });
