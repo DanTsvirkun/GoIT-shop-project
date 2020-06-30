@@ -12,19 +12,22 @@ import {
 import signIn from './components/auth-form/templates/sign-in.hbs';
 import signUp from './components/auth-form/templates/sign-up.hbs';
 import signInUp from './components/auth-form/templates/sign-in-up.hbs';
+import accMenu from './components/auth-form/templates/acc-menu.hbs';
+import signOut from './components/auth-form/templates/sign-out.hbs';
 
-const signInUpBtn = document.querySelector('.sign-in-up');
 const authForm = document.querySelector('.auth-form');
-const signInUpDiv = document.querySelector('.sign-in-up');
-
+const signInUpDiv = document.querySelector('.account-menu__wrapper');
 let signInForm;
 let signUpForm;
+let signOutForm;
 
-signInUpBtn.addEventListener('click', hendelClickSignInUp);
+signInUpDiv.addEventListener('click', hendelClickSignInUp);
 
 function hendelClickSignInUp(e) {
-  if (e.target.nodeName === 'BUTTON') {
-    murkupAuthForm(e.target.textContent);
+  if (!localStorage.getItem('user-info')) {
+    if (e.target.nodeName === 'BUTTON') {
+      murkupAuthForm(e.target.textContent);
+    }
   }
 }
 
@@ -48,20 +51,24 @@ function isLogIn() {
   setTimeout(() => {
     if (localStorage.getItem('user-info')) {
       console.log('i am login');
-      signInUpDiv.innerHTML = ``;
+
+      const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
+      getUserInfo(localUserId).then(res => {
+        const test = accMenu(res.data);
+
+        signInUpDiv.innerHTML = `${test}`;
+      });
+
+      authForm.innerHTML = `${signOut()}`;
+      signOutForm = document.querySelector('.auth-form-sign-out');
+      signOutForm.addEventListener('click', hendelSignOut);
     } else {
       console.log('i am not login');
       signInUpDiv.innerHTML = `${signInUp()}`;
     }
-  }, 500);
+  }, 1000);
 }
 isLogIn();
-
-const userInfoHtml = document.querySelector('.user-info');
-const resultIMG = document.querySelector('.resultIMG');
-const signOutForm = document.querySelector('.auth-form-sign-out');
-
-signOutForm.addEventListener('click', hendelSignOut);
 
 const inputData = {
   userSignIn: {},
@@ -95,20 +102,20 @@ function hendelSignOut(e) {
   isLogIn();
 }
 
-function userInfo() {
-  if (localStorage.getItem('user-info')) {
-    const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-    getUserInfo(localUserId).then(res => showUserInfo(res.data));
-  }
-}
-userInfo();
+const userInfoHtml = document.querySelector('.user-info');
+const resultIMG = document.querySelector('.resultIMG');
 
-function showUserInfo(obj) {
-  userInfoHtml.innerHTML = `Здравствуйте: ${obj.firstName} ${obj.secondName}. Эмейл: ${obj.email}. Телефон: ${obj.phone}`;
-  if (obj.avatar) {
-    resultIMG.src = obj.avatar;
-  }
-}
+// function userInfo() {
+//   if (localStorage.getItem('user-info')) {
+//     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
+//     getUserInfo(localUserId).then(res => showUserInfo(res.data));
+//   }
+// }
+// userInfo();
+
+// function showUserInfo(obj) {
+//   userInfoHtml.innerHTML = `Здравствуйте: ${obj.firstName} ${obj.secondName}. Эмейл: ${obj.email}. Телефон: ${obj.phone}`;
+// }
 
 // AVATAR
 const fileForm = document.forms.fileForm;
@@ -128,8 +135,8 @@ const createbase = e => {
   const element = fileForm.elements.fileFormInput;
 
   toDataURL(element).then(data => {
-    const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-    updateUserAvatar(localUserId, data);
+    const localUserObj = JSON.parse(localStorage.getItem('user-info'));
+    updateUserAvatar(localUserObj.userId, localUserObj.token, data);
   });
 };
 
