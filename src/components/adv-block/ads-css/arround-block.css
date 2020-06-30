@@ -2,7 +2,7 @@
   .arround-block__list {
     display: flex;
     justify-content: space-evenly;
-    height: 220px;
+    /* height: 220px; */
   }
   .arround__item:first-of-type {
     background-color: #dcdde0;
@@ -51,6 +51,9 @@
   }
 }
 @media (min-width: 1280px) {
+  .arround-block__list {
+    height: 480px;
+  }
   .arround__item:first-of-type {
     background-color: #dcdde0;
   }

@@ -2,29 +2,24 @@ import './categories-styles/category.css';
 import allHbs from './categories-templates/category-view-all.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
+import data from '../services/data';
 // =================================================
 const ads = document.querySelector('.ads');
-const categories = document.querySelector('.categories .container');
-const category = document.querySelectorAll(
-  '.categories .container .category-list',
-);
-const list = document.querySelector(
-  '.categories .container .category-list .category-info .things-list',
-);
-const loadMore = document.querySelector('.categories .load-more');
-const viewAll = document.querySelectorAll('.view-all');
+const viewAllBtn = document.querySelectorAll('.view-all');
+const viewAllUl = document.querySelector('.categories .all-category');
+const close = document.querySelector('.close-category');
 // =================================================
-viewAll.forEach(item => item.addEventListener('click', eachCategory));
+viewAllBtn.forEach(item => item.addEventListener('click', eachCategory));
+close.addEventListener('click', closeCategory);
 // =================================================
-const test = api.getCategory('transport');
-// =================================================
-function eachCategory(e) {
+function eachCategory() {
   ads.classList.add('hide');
-  category.forEach(item => item.classList.add('hide'));
-  loadMore.classList.add('hide');
-  categories.innerHTML = allHbs();
-  //   const object = test.map(item => itemHbs(item));
-  //   list.insertAdjacentHTML('beforeend', object);
+  const object = data.allCategories;
+  const result = object.map(item => itemHbs(item));
+  viewAllUl.innerHTML = result.join('');
 }
-
-// console.log(test);
+// ==================================================
+function closeCategory() {
+  viewAllUl.innerHTML = '';
+  ads.classList.remove('hide');
+}
