@@ -18,7 +18,6 @@
     align-items: center;
   }
   .arround-img {
-    object-fit: cover;
     width: 170px;
   }
   .arround-name {
@@ -71,8 +70,8 @@
     align-items: center;
   }
   .arround-img {
-    object-fit: cover;
-    width: 170px;
+    max-width: 170px;
+    max-height: 210px;
   }
   .arround-name {
     display: block;

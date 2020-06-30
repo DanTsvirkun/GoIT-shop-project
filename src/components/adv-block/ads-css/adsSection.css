@@ -21,9 +21,8 @@
     text-align: center;
   }
   .item-img {
-    object-fit: cover;
-    width: 150px;
-    height: 160px;
+    max-width: 150px;
+    max-height: 160px;
   }
   .item-name {
     display: block;
@@ -89,9 +88,8 @@
     text-align: center;
   }
   .item-img {
-    object-fit: cover;
-    width: 241px;
-    height: 256px;
+    max-width: 241px;
+    max-height: 256px;
   }
   .item-name {
     display: block;

@@ -4,12 +4,11 @@ import '../modal-window/styles.css';
 import './adv-styles.css';
 
 const refs = {
+  button: document.querySelector('.header__create-ad-btn'),
   button: document.querySelector('.modal-btn'),
-  // allModal: document.querySelector('.adv-modal-main'),
 };
 
 refs.button.addEventListener('click', createModal);
-// refs.allModal.addEventListener('click', closeModall)
 
 const markupModal = `
 
@@ -107,8 +106,6 @@ const markupModal = `
 
   `;
 
-// const addMarkupModal = markupModal();
-
 let imgLoaderArea;
 let advForm;
 let productImage;
@@ -119,10 +116,6 @@ function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal);
-  //==============================================================
-
-  //==============================================================
-  // refs.allModal.insertAdjacentHTML("beforeend", addMarkupModal);
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   imgLoaderArea.addEventListener('change', previewImg);
 
@@ -193,11 +186,9 @@ function submitForm(event) {
   createData.mainImg = allImgArr[0];
 
   function clearImages(arr) {
-    arr.map(
-      (item => {
-        item.src = '';
-      }).filter(item),
-    );
+    arr.map(item => {
+      item.src = '';
+    });
 
     console.log(createData);
   }
@@ -209,12 +200,6 @@ function submitForm(event) {
   advForm.reset();
   clearImages(allImg);
 }
-
-// function closeModall(event){
-//   if(event.target.dataset.close){
-//     refs.allModal.innerHTML = '';
-//   }
-// }
 
 function previewImg(event) {
   if (event.target === event.currentTarget) {
