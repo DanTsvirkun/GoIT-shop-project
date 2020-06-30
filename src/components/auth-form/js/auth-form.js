@@ -1,29 +1,29 @@
+import '../css/auth-style.css';
+
 import {
   getUserInfo,
   signInUser,
   signUpUser,
   signOutUser,
-  updateUserAvatar,
-  addUserAdv,
-  addUserFavourite,
 } from '../../services/user-api';
 
 import refs from '../../header-main/js/refs';
 import signIn from '../templates/sign-in.hbs';
 import signUp from '../templates/sign-up.hbs';
 import signInUp from '../templates/sign-in-up.hbs';
-import accMenu from '../templates/acc-menu.hbs';
 import signOut from '../templates/sign-out.hbs';
+import accMenu from '../templates/acc-menu.hbs';
 import { modalBackDrop } from '../../modal-window/logic-modal';
 
 const signInUpDiv = refs.authBlock;
 const signInUpDivMob = refs.authBlockMobile;
-let signInForm;
-let signUpForm;
-let signOutForm;
 
 signInUpDiv.addEventListener('click', hendelClickSignInUp);
 signInUpDivMob.addEventListener('click', hendelClickSignInUp);
+
+let signInForm;
+let signUpForm;
+let signOutForm;
 
 function hendelClickSignInUp(e) {
   if (!localStorage.getItem('user-info')) {
@@ -31,13 +31,13 @@ function hendelClickSignInUp(e) {
       e.target.dataset.btn === 'signin' ||
       e.target.dataset.btn === 'signup'
     ) {
-      murkupAuthForm(e.target.textContent);
+      murkupAuthForm(e.target.dataset.btn);
     }
   }
 }
 
-function murkupAuthForm(btnText) {
-  if (btnText === 'Вход') {
+function murkupAuthForm(dataset) {
+  if (dataset === 'signin') {
     const closeModal = modalBackDrop(signIn());
 
     signInForm = document.querySelector('.auth-form-sign-in');
@@ -56,24 +56,22 @@ function murkupAuthForm(btnText) {
   }
 }
 
-function isLogIn() {
-  setTimeout(() => {
-    if (localStorage.getItem('user-info')) {
-      console.log('i am login');
+export function isLogIn() {
+  if (localStorage.getItem('user-info')) {
+    const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
 
-      const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-      getUserInfo(localUserId).then(res => {
-        signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
-        signInUpDivMob.innerHTML = `${accMenu(res.data)}${signOut()}`;
-        signOutForm = document.querySelector('.auth-form-sign-out');
-        signOutForm.addEventListener('click', hendelSignOut);
-      });
-    } else {
-      console.log('i am not login');
-      signInUpDiv.innerHTML = `${signInUp()}`;
-      signInUpDivMob.innerHTML = `${signInUp()}`;
-    }
-  }, 1000);
+    getUserInfo(localUserId).then(res => {
+      signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
+      signInUpDivMob.innerHTML = `${accMenu(res.data)}${signOut()}`;
+
+      signOutForm = document.querySelectorAll('.auth-form-sign-out');
+      signOutForm[0].addEventListener('click', hendelSignOut);
+      signOutForm[1].addEventListener('click', hendelSignOut);
+    });
+  } else {
+    signInUpDiv.innerHTML = `${signInUp()}`;
+    signInUpDivMob.innerHTML = `${signInUp()}`;
+  }
 }
 isLogIn();
 
@@ -92,15 +90,11 @@ function hendelInputSave(e) {
 function hendelSubmitSignIn(e, closeModal) {
   e.preventDefault();
   signInUser(inputData.userSignIn).then(() => closeModal());
-
-  isLogIn();
 }
 
 function hendelSubmitSignUp(e, closeModal) {
   e.preventDefault();
   signUpUser(inputData.userSignUp).then(() => closeModal());
-
-  isLogIn();
 }
 
 function hendelSignOut(e) {

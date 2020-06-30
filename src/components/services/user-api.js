@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isLogIn } from '../auth-form/js/auth-form';
 
 axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
@@ -36,15 +37,21 @@ export const signInUser = signInUser => {
               favorites: favArray,
             }),
           );
+          isLogIn();
         });
       }
     })
     .catch(err => console.log(err));
 };
 
-export const signUpUser = signUpUser => {
-  const { firstName, secondName, email, phone, password, avatar } = signUpUser;
-
+export const signUpUser = ({
+  firstName,
+  secondName,
+  email,
+  phone,
+  password,
+  avatar,
+}) => {
   return axios
     .post(`:signUp?key=${API_KEY}`, {
       email: email,
@@ -70,15 +77,16 @@ export const signUpUser = signUpUser => {
                 token: res.data.idToken,
                 favorites: [],
               }),
-              axios.patch(
-                `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
-                {
-                  userId: resId.data.name,
-                },
-              ),
+              axios
+                .patch(
+                  `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
+                  {
+                    userId: resId.data.name,
+                  },
+                )
+                .then(() => isLogIn()),
             ),
           );
-        console.log('register');
       }
     })
     .catch(err => console.log(err));
@@ -111,7 +119,3 @@ export const deleteUserFavourite = (userId, advId, token) => {
     `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
   );
 };
-
-// deleteData('-MAkWY0ZZG5Ji2ge1Ndu', '-MZZsadgagsai2ge1Ndd')
-//   .then(res => console.log('test', res))
-//   .catch(err => console.log(err));
