@@ -18,7 +18,7 @@
 }
 
 .transition-effect{
-  transition: opacity 2000ms ease-in-out, visibility 2000ms ease-in-out;
+  transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
 }
 
 .show-modal{
