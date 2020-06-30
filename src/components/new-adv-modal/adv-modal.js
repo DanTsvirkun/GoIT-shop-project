@@ -1,27 +1,17 @@
-<<<<<<< HEAD
+// import {api} from '../services/api'
+import { modalBackDrop } from '../modal-window/logic-modal.js';
+import '../modal-window/styles.css';
 import './adv-styles.css';
 
 const refs = {
   button: document.querySelector('.modal-btn'),
-  allModal: document.querySelector('.adv-modal-main'),
-};
-=======
-// import {api} from '../services/api'
-import {modalBackDrop} from '../modal-window/logic-modal.js'
-import '../modal-window/styles.css'
-import './adv-styles.css'
-
-const refs = {
-  button: document.querySelector('.modal-btn'),  
   // allModal: document.querySelector('.adv-modal-main'),
-}
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
+};
 
 refs.button.addEventListener('click', createModal);
 // refs.allModal.addEventListener('click', closeModall)
 
-const markupModal =
- `
+const markupModal = `
 
   <div class="adv-modal">
 
@@ -115,22 +105,9 @@ const markupModal =
     </form>
   </div>
 
-<<<<<<< HEAD
-refs.button.addEventListener('click', showModal);
-refs.allModal.addEventListener('click', closeModall);
-=======
-  `
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
-
-
-<<<<<<< HEAD
   `;
-};
-=======
+
 // const addMarkupModal = markupModal();
-
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
-
 
 let imgLoaderArea;
 let advForm;
@@ -138,32 +115,21 @@ let productImage;
 let createData;
 let category;
 
-<<<<<<< HEAD
-function showModal() {
-  refs.allModal.insertAdjacentHTML('beforeend', addMarkupModal);
-=======
-function createModal(){
-    
+function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
-  closeBtn.addEventListener('click', closeModal); 
-//==============================================================
+  closeBtn.addEventListener('click', closeModal);
+  //==============================================================
 
-//==============================================================
+  //==============================================================
   // refs.allModal.insertAdjacentHTML("beforeend", addMarkupModal);
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   imgLoaderArea.addEventListener('change', previewImg);
 
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
-<<<<<<< HEAD
-  advForm.addEventListener('submit', loadImages);
-  imgLoaderArea.addEventListener('click', chooseImgBlock);
-=======
   advForm.addEventListener('submit', submitForm);
-  imgLoaderArea.addEventListener('click', chooseImgBlock)
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
+  imgLoaderArea.addEventListener('click', chooseImgBlock);
 }
 
 function saveData(event) {
@@ -172,30 +138,16 @@ function saveData(event) {
   const productPrice = event.currentTarget.elements.productPrice;
   const productPhone = event.currentTarget.elements.productPhone;
   const productCategory = event.currentTarget.elements.productCategory;
-<<<<<<< HEAD
 
   createData = {
     name: productName.value,
+    mainImg: '',
     image: [],
-    category: productCategory.value,
+    category: productCategory.value === 'category' ? '' : productCategory.value,
     description: productDescription.value,
     price: productPrice.value,
     phone: productPhone.value,
   };
-=======
-  
-  
-
-  createData = {
-   name: productName.value,
-   mainImg: '',
-   image: [],
-   category: productCategory.value === 'category'? '' : productCategory.value,
-   description: productDescription.value,
-   price: productPrice.value,
-   phone: productPhone.value,
- }
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
 }
 
 function chooseImgBlock(event) {
@@ -218,22 +170,17 @@ function chooseImgBlock(event) {
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
   nextImg.dataset.active = true;
-  nextImg.nextElementSibling.classList.add('choose-this');  
+  nextImg.nextElementSibling.classList.add('choose-this');
 }
 
-<<<<<<< HEAD
-function loadImages(event) {
-=======
-function submitForm(event){
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
+function submitForm(event) {
   event.preventDefault();
-  if(createData.category === ''){
+  if (createData.category === '') {
     return;
-  }  
+  }
 
-  let allImg = event.currentTarget.querySelectorAll('img'); 
+  let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
-<<<<<<< HEAD
 
   const allImgArr = allImg
     .filter(item => {
@@ -241,59 +188,36 @@ function submitForm(event){
       return src;
     })
     .map(item => item.src);
-  createData.image = allImgArr;
 
-  console.log('createData: ', createData);
-  advForm.reset();
-}
-
-function closeModall(event) {
-  if (event.target.dataset.close) {
-    refs.allModal.innerHTML = '';
-=======
-  
-  const allImgArr = allImg.filter(item => {  
-  const src = item.dataset.img;
-  return src;
-    
-  }).map(item => item.src);
-
-
- 
   createData.image = allImgArr;
   createData.mainImg = allImgArr[0];
 
-  function clearImages (arr){
-    arr.map((item => {      
-      item.src = "";
-      
-    }).filter(item));
+  function clearImages(arr) {
+    arr.map(
+      (item => {
+        item.src = '';
+      }).filter(item),
+    );
 
-    console.log(createData)
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
+    console.log(createData);
   }
-  
+
   //==========================================================================
-  // api.postAdv(createData.category, createData);  
+  // api.postAdv(createData.category, createData);
   //==========================================================================
 
-  advForm.reset();  
+  advForm.reset();
   clearImages(allImg);
 }
 
-<<<<<<< HEAD
-function previewImg(event) {
-  if (event.target === event.currentTarget) {
-=======
-// function closeModall(event){  
-//   if(event.target.dataset.close){    
+// function closeModall(event){
+//   if(event.target.dataset.close){
 //     refs.allModal.innerHTML = '';
 //   }
 // }
 
-function previewImg (event){
-  if(event.target === event.currentTarget){
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
+function previewImg(event) {
+  if (event.target === event.currentTarget) {
     return;
   }
   if (event.target.dataset.id) {
@@ -316,32 +240,3 @@ function previewImg (event){
     }
   }
 }
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> cd93362e4e0d2791d241622b2bc3bc88b06dcfcf
