@@ -1,16 +1,15 @@
 // import {api} from '../services/api'
-import {modalBackDrop} from '../modal-window/logic-modal.js'
-import '../modal-window/styles.css'
-import './adv-styles.css'
+import { modalBackDrop } from '../modal-window/logic-modal.js';
+import '../modal-window/styles.css';
+import './adv-styles.css';
 
 const refs = {
-  button: document.querySelector('.modal-btn'), 
-}
+  button: document.querySelector('.header__create-ad-btn'),
+};
 
 refs.button.addEventListener('click', createModal);
 
-const markupModal =
- `
+const markupModal = `
 
   <div class="adv-modal">
 
@@ -106,152 +105,123 @@ const markupModal =
 
   `;
 
-let  imgLoaderArea;
+let imgLoaderArea;
 let advForm;
 let productImage;
 let createData;
 let category;
 
-function createModal(){  
-
+function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
-  closeBtn.addEventListener('click', closeModal); 
+  closeBtn.addEventListener('click', closeModal);
 
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
-  imgLoaderArea.addEventListener('change', previewImg);  
-   
+  imgLoaderArea.addEventListener('change', previewImg);
+
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
   advForm.addEventListener('submit', submitForm);
-  imgLoaderArea.addEventListener('click', chooseImgBlock)
+  imgLoaderArea.addEventListener('click', chooseImgBlock);
 }
 
-function saveData(event){
-
+function saveData(event) {
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
   const productPrice = event.currentTarget.elements.productPrice;
   const productPhone = event.currentTarget.elements.productPhone;
   const productCategory = event.currentTarget.elements.productCategory;
-  
+
   createData = {
-   name: productName.value,
-   mainImg: '',
-   image: [],
-   category: productCategory.value === 'category'? '' : productCategory.value,
-   description: productDescription.value,
-   price: productPrice.value,
-   phone: productPhone.value,
- }
+    name: productName.value,
+    mainImg: '',
+    image: [],
+    category: productCategory.value === 'category' ? '' : productCategory.value,
+    description: productDescription.value,
+    price: productPrice.value,
+    phone: productPhone.value,
+  };
 }
 
-function chooseImgBlock(event){ 
-  if(event.target === event.currentTarget){
-    return ;
+function chooseImgBlock(event) {
+  if (event.target === event.currentTarget) {
+    return;
   }
-  if(!event.target.dataset.active){
-    return;  
-  }  
- 
+  if (!event.target.dataset.active) {
+    return;
+  }
+
   const imgTarget = event.target;
   imgTarget.nextElementSibling.classList.remove('choose-this');
-  let imgId = Number(event.target.dataset.id);  
-  imgTarget.setAttribute("type", "file");
-  imgId += 1;  
+  let imgId = Number(event.target.dataset.id);
+  imgTarget.setAttribute('type', 'file');
+  imgId += 1;
 
-  if(imgId > 6){
+  if (imgId > 6) {
     return;
-  }  
+  }
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
   nextImg.dataset.active = true;
-  nextImg.nextElementSibling.classList.add('choose-this');  
+  nextImg.nextElementSibling.classList.add('choose-this');
 }
 
-function submitForm(event){
+function submitForm(event) {
   event.preventDefault();
-  if(createData.category === ''){
+  if (createData.category === '') {
     return;
-  }  
+  }
 
-  let allImg = event.currentTarget.querySelectorAll('img'); 
+  let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
-  
-  const allImgArr = allImg.filter(item => {  
-  const src = item.dataset.img;
-  return src;
-    
-  }).map(item => item.src);
 
+  const allImgArr = allImg
+    .filter(item => {
+      const src = item.dataset.img;
+      return src;
+    })
+    .map(item => item.src);
 
- 
   createData.image = allImgArr;
   createData.mainImg = allImgArr[0];
 
-  function clearImages (arr){
-    arr.map(item => {      
-      item.src = "";      
-    })
+  function clearImages(arr) {
+    arr.map(item => {
+      item.src = '';
+    });
 
-    console.log(createData)
+    console.log(createData);
   }
-  
+
   //==========================================================================
-  // api.postAdv(createData.category, createData);  
+  // api.postAdv(createData.category, createData);
   //==========================================================================
 
-  advForm.reset();  
+  advForm.reset();
   clearImages(allImg);
 }
 
-function previewImg (event){
-  if(event.target === event.currentTarget){
+function previewImg(event) {
+  if (event.target === event.currentTarget) {
     return;
   }
-  if(event.target.dataset.id){
+  if (event.target.dataset.id) {
     const file = event.target.files[0];
 
-    const inputID = event.target.dataset.id;  
-    const img = document.querySelector(`.input-label__img--${inputID}`);  
+    const inputID = event.target.dataset.id;
+    const img = document.querySelector(`.input-label__img--${inputID}`);
     const reader = new FileReader();
-    
+
     reader.onloadend = () => {
       img.src = reader.result;
       productImage = reader.result;
-      img.setAttribute('data-img', productImage);   
-    }
-  
-    if(file){
+      img.setAttribute('data-img', productImage);
+    };
+
+    if (file) {
       reader.readAsDataURL(file);
     } else {
-      img.src = "";
+      img.src = '';
     }
-  }  
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
