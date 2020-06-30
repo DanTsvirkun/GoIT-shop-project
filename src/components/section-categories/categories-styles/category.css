@@ -30,7 +30,7 @@
   text-align: left;
   margin-bottom: 26px;
 }
-.basket {
+.modal-btn {
   display: none;
 }
 @media (max-width: 767px) {
@@ -41,7 +41,7 @@
   .slide-next {
     display: none;
   }
-  .basket {
+  .modal-btn {
     display: block;
     width: 50px;
     height: 50px;
@@ -54,7 +54,7 @@
     top: 436px;
     outline: none;
   }
-  .basket::after {
+  .modal-btn::after {
     content: '+';
     color: #ffffff;
   }
