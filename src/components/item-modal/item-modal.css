@@ -1,5 +1,9 @@
 /* MOBILE */
 .wrapper-item-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #ffffff;
   width: 320px;
   margin: 0 auto;
@@ -16,6 +20,7 @@
   justify-content: space-between;
   width: 280px;
   padding-top: 20px;
+  margin: auto;
 }
 .icon-cross {
   position: absolute;
@@ -34,22 +39,25 @@
 
 .item_modal--header {
   font-size: 18px;
-  font-family: 'MontserratBold';
+  font-family: 'MontserratBold, sans-serif';
   color: #000000;
   font-weight: bold;
   line-height: 1.2;
+  letter-spacing: 0.32px;
   margin-bottom: 10px;
 }
 .item_modal--item-codename {
   font-size: 12px;
-  font-family: 'MontserratRegular';
+  font-family: 'MontserratRegular, sans-serif';
   color: #989797;
   line-height: 1.2;
+  letter-spacing: 0.32px;
   margin-bottom: 16px;
 }
 .item_modal--item-price {
   font-size: 18px;
-  font-family: 'MontserratBold';
+  letter-spacing: 0.32px;
+  font-family: 'MontserratBold, sans-serif';
   color: #ff6b08;
   font-weight: bold;
   line-height: 1.2;
@@ -65,10 +73,10 @@
   width: 280px;
   height: 60px;
   background-color: #ff6b08;
-  color: #fff;
-  border: none;
+  color: #ffffff;
+  border: 1px solid #ff6b08;
   outline: none;
-  /* transition: box-shadow 0.5s linear; */
+  transition: 0.3s linear;
   margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy-active {
@@ -79,25 +87,25 @@
   cursor: pointer;
   width: 280px;
   height: 60px;
-  background-color: #fff;
-  color: #fff;
-  border: none;
+  background-color: #ffffff;
+  color: #ff6b08;
+  border: 1px solid #ff6b08;
   outline: none;
-  /* transition: box-shadow 0.5s linear; */
+  transition: 0.3s linear;
   margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy:hover {
-  box-shadow: 0 10px 10px 0 rgba(8, 45, 126, 0.24),
-    0 10px 50px 0 rgba(163, 17, 17, 0.19);
+  box-shadow: 0 0px 10px 0 rgba(8, 45, 126, 0.24),
+    0 10px 30px 0 rgba(163, 17, 17, 0.19);
 }
-.item_modal--tablet--button-buy-active {
+.item_modal--tablet--button-buy-active:hover {
   box-shadow: 0 10px 10px 0 rgba(8, 45, 126, 0.24),
     0 10px 50px 0 rgba(163, 17, 17, 0.19);
 }
 
 .item_modal--button-fav {
   font-size: 12px;
-  font-family: 'Roboto';
+  font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
 }
@@ -127,6 +135,7 @@
   margin-right: 10px;
   cursor: pointer;
   outline: none;
+  vertical-align: middle;
 }
 .icon-fav--active {
   border: none;
@@ -138,6 +147,7 @@
   background: url(../../assets/icons/heart/heart_red.svg);
   background-size: contain;
   margin-right: 10px;
+  vertical-align: middle;
 }
 
 .item_modal--slider_s-img_big {
@@ -151,7 +161,7 @@
   align-content: center;
   margin-bottom: 20px;
 }
-/* slider small start */
+/* slider siema start */
 .item_modal--imageholder {
   margin-bottom: 20px;
   width: 100%;
@@ -186,7 +196,7 @@
   background: #ff6b08;
 }
 
-/* slider small end */
+/* slider siema end */
 
 .item_modal-seller {
   display: none;
@@ -204,6 +214,7 @@
   font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
+  letter-spacing: 0.32px;
   margin-bottom: 10px;
 }
 .item_modal-seller--name {
@@ -211,13 +222,15 @@
   font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
+  letter-spacing: 0.32px;
 }
 .item_modal-seller--tel {
   font-size: 16px;
   font-family: 'MontserratRegular, sans-serif';
   color: #ff6b08;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 2;
+  letter-spacing: 0.32px;
 }
 
 .item_modal--tablet_slider {
@@ -232,7 +245,7 @@
 
 .item_modal--desctab {
   font-size: 13px;
-  font-family: 'Montserrat, sans-serif';
+  font-family: 'MontserratRegular, sans-serif';
   color: #000000;
   line-height: 1.385;
   width: 280px;
@@ -375,7 +388,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 2px solid #f3f3f3;
+  border: 3px solid #f3f3f3;
 }
 .slider_image-min--active {
   background-color: rgb(244, 246, 251);
@@ -385,8 +398,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 2px solid #fdbc91;
-  transition: border 0.8s linear;
+  transition: 0.2s linear;
+  border: 3px solid #fdbc91;
 }
 
 @media (min-width: 1280px) {
@@ -450,4 +463,5 @@
   height: 20px;
   margin-right: 10px;
   background-image: url(../../assets/icons/phone/s_phone.svg);
+  vertical-align: middle;
 }

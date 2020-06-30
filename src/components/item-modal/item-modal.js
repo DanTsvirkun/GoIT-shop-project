@@ -41,7 +41,6 @@ export const funcMarkup = data => {
 
   const closeModal = modalBackDrop(itemModalCardTablet(data));
   const closeBtn = document.querySelector('.icon-cross');
-  // const closeBtn = document.querySelector('.icon-arrow');
   closeBtn.addEventListener('click', closeModal);
 
   funcSlider();
@@ -68,11 +67,11 @@ export const funcMarkup = data => {
     if (!showHideBlock.classList.contains('item_modal-seller-active')) {
       showHideBlock.classList.add('item_modal-seller-active');
       showSellerBtn.textContent = 'Скрыть';
-      showSellerBtn.classList.add('.item_modal--tablet--button-buy-active');
+      showSellerBtn.classList.add('item_modal--tablet--button-buy-active');
     } else if (showHideBlock.classList.contains('item_modal-seller-active')) {
       showHideBlock.classList.remove('item_modal-seller-active');
       showSellerBtn.textContent = 'Информация о продавце';
-      showSellerBtn.classList.remove('.item_modal--tablet--button-buy-active');
+      showSellerBtn.classList.remove('item_modal--tablet--button-buy-active');
     }
   }
 
@@ -81,6 +80,8 @@ export const funcMarkup = data => {
 ///userId+ItemId =>>>addUserFavourite(userId, advId)
 function heartAttack(e) {
   if (api.getFavorites(idItem)) {
+    // const textFav = document.querySelector('.item_modal--button-fav');
+    // textFav.textContent = 'В избранное';
     heart.classList.remove('icon-fav--active');
     const user = JSON.parse(localStorage.getItem('user-info'));
     const arrayFav = user.favorites;
@@ -101,6 +102,7 @@ function heartAttack(e) {
     console.log('del');
   } else if (!api.getFavorites(idItem)) {
     heart.classList.add('icon-fav--active');
+    // textFav.textContent = 'Удалить из избранного';
 
     // setFavorites(idItem) {
     const user = JSON.parse(localStorage.getItem('user-info'));
@@ -119,7 +121,7 @@ function heartAttack(e) {
     console.log('add');
   }
 }
-
+//slider-Siema
 function funcSlider() {
   class SiemaWithDots extends Siema {
     addDots() {
@@ -163,18 +165,6 @@ function funcSlider() {
   });
 
   //slider-tablet-desktop
-  //   document.body.onclick = function (event) {
-  //     event = event || window.event;
-  //     if (event.target.classList.contains('sm-photo--style')) {
-  //       let allLiImg = document.querySelectorAll('.slider_image-min');
-  //       for (let i = 0; i < allLiImg.length; i++) {
-  //         allLiImg[i].classList.remove('slider_image-min--active');
-  //       }
-  //       document.getElementById('bg-photo--style').src = event.target.src;
-  //       event.target.parentElement.classList.add('slider_image-min--active');
-  //     }
-  //   };
-  // }
   document.body.onclick = function (event) {
     event = event || window.event;
     let allLiImg = document.querySelectorAll('.slider_image-min');
