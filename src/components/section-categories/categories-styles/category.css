@@ -37,7 +37,8 @@
   .categories {
     position: relative;
   }
-  .slide-things {
+  .slide-prev,
+  .slide-next {
     display: none;
   }
   .basket {
@@ -50,7 +51,7 @@
     box-shadow: 0px 8px 8px 0px rgba(233, 97, 5, 0.24);
     position: fixed;
     right: 22px;
-    top: 414px;
+    top: 436px;
     outline: none;
   }
   .basket::after {
