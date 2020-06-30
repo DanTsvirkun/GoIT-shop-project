@@ -1,51 +1,53 @@
 ////////////////////////////////////////////////////////////
-//LOGIC FOR MODAL WINDOW v.0.4//////////////////////////////
+//LOGIC FOR MODAL WINDOW v.0.7//////////////////////////////
 ////////////////////////////////////////////////////////////
 
-//const btn = document.querySelector('#myBtn'); // You must find your button-id
-//btn.addEventListener('click', showModal); // Added on the your button listener
-const modal = document.querySelector('#myModal'); // Find your modal window-id (wrapper)
-const close = document.querySelector('#cross'); // Find your close element (cross - "x")
+//////////////Вызвать метод modalBackdrop, передать разметку/////////////////////////////
+//<div class="modalContainer"></div> - этот див с классом должен быть в основной разметке,
+//так как на него повешены глобальные настройки
+/////////////////////////////////////////////////////////////////////////////////////////
 
-// Open modal window
-export default function showModal() {
-  close.addEventListener('click', closeModalWithCross);
-  window.addEventListener('click', closeModalWithArea);
-  window.addEventListener('keydown', closeModalWithEsc);
-  modal.style.display = 'flex';
 
-  function closeModal() {
-    modal.style.display = 'none';
-    close.removeEventListener('click', closeModalWithCross);
-    window.removeEventListener('click', closeModalWithArea);
-    window.removeEventListener('keydown', closeModalWithEsc);
-  }
-// Close modal window with click on the cross - "x"
-  function closeModalWithCross() {
-    closeModal();
-  }
+export const modalBackDrop = (innerElement) => {
+  const container = document.querySelector('.modal');
+  const createModalMarkup = (closeModal) => {   
+    return `   
+        ${innerElement}   
+    `;
+  }  
 
-// Close modal window with click on the grey area
-  function closeModalWithArea(e) {
-    if (e.target === modal) {
+  const closeModal = () => {
+    container.classList.remove('show-modal');   
+    container.addEventListener('click', close);
+    document.removeEventListener('keydown', close);
+  };
+
+  const close = e => {
+    if (e.target === document.querySelector('.modal') || e.key === 'Escape') {
       closeModal();
-    }
-  }
+    } else return;
+  };
 
-// Clotse modal window with "Escape-button"
-  function closeModalWithEsc(e) {
-    if (e.code === 'Escape') {
-      closeModal();
-    }
-  }
+  container.innerHTML = createModalMarkup(closeModal);
+  container.classList.add('show-modal', 'transition-effect');
+  container.addEventListener('click', close);
+  document.addEventListener('keydown', close);
+  return closeModal;
+};
+
+////////Your element///////////////////////////////////////////////////////////////
+
+/* const adv = () => {
+  const innerElement2 = `
+    <div class="innerBlock2">
+    <h2>Open Window</h2>
+    <button class="closeBtnAdv">x</button>
+    </div>
+    `;
+  const closeModal = modalBackDrop(innerElement2); // !!!!!!!!!! Передать разметку, в ответ получить метод на закрытие окна
+  const closeBtn = document.querySelector('.closeBtnAdv');
+  closeBtn.addEventListener('click', closeModal);
 }
 
-/////////////////////////////////////////////////////////////////////////////
-/// Для того, чтобы скрипт сработал, нужно:                               ///
-///1. подставить названия ваших айдишников (id), (если их нет, то создать)///
-///2. функции импортировать в свой ".js-файл"                             ///
-///3. найти свой id, через который вы будете открывать модалку            ///
-///Создание элемента крестик ("cross"):                                   ///
-///<span id="cross">&times;</span>                                        ///
-///На всякий случай... Всем вдохновния при разработке! ;-)                ///
-/////////////////////////////////////////////////////////////////////////////
+adv();
+ */
