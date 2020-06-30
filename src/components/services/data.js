@@ -1,11 +1,11 @@
 export default {
   allCategories: [],
-  realEstate: [],
+  property: [],
   transport: [],
-  jobs: [],
-  tech: [],
-  business: [],
-  activities: [],
-  forFree: [],
-  barter: [],
+  work: [],
+  electronics: [],
+  'business-and-services': [],
+  'recreation-and-sports': [],
+  'for-free': [],
+  exchange: [],
 }
