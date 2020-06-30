@@ -1,0 +1,41 @@
+/*************Global settings*******************/
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;  
+  pointer-events: none;
+}
+
+.modalContainer-active{
+  display: block;
+  pointer-events: initial;
+}
+
+.modal {
+  position: absolute;
+}
+
+/***************For example*******************/
+
+.innerBlock2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 500px;
+  background-color: white;
+}
+
+.closeBtnAdv {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
