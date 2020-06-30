@@ -1,4 +1,3 @@
-/* MOBILE */
 .wrapper-item-modal {
   position: absolute;
   top: 50%;
@@ -99,8 +98,8 @@
     0 10px 30px 0 rgba(163, 17, 17, 0.19);
 }
 .item_modal--tablet--button-buy-active:hover {
-  box-shadow: 0 10px 10px 0 rgba(8, 45, 126, 0.24),
-    0 10px 50px 0 rgba(163, 17, 17, 0.19);
+  box-shadow: 0 0px 10px 0 rgba(8, 45, 126, 0.24),
+    0 10px 30px 0 rgba(163, 17, 17, 0.19);
 }
 
 .item_modal--button-fav {
@@ -109,6 +108,7 @@
   color: #878686;
   line-height: 1.2;
 }
+
 .item_modal--desc-header {
   font-size: 12px;
   font-family: 'MontserratRegular, sans-serif';
@@ -160,6 +160,9 @@
   justify-content: flex-start;
   align-content: center;
   margin-bottom: 20px;
+}
+.item_modal--icons-disactive {
+  display: none;
 }
 /* slider siema start */
 .item_modal--imageholder {

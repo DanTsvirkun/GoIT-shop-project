@@ -20,13 +20,17 @@ export const signInUser = signInUser => {
           const foundUser = Object.values(userArr.data).find(
             user => user.email === res.data.email,
           );
-
+          let favArray = [];
+          if (foundUser.favourite) {
+            favArray = Object.keys(foundUser.favourite);
+          }
           localStorage.setItem(
             'user-info',
             JSON.stringify({
               userId: foundUser.userId,
               email: res.data.email,
               token: res.data.idToken,
+              favorites: favArray,
             }),
           );
         });
@@ -61,6 +65,7 @@ export const signUpUser = signUpUser => {
                 userId: resId.data.name,
                 email: res.data.email,
                 token: res.data.idToken,
+                favorites: [],
               }),
               axios.patch(
                 `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
