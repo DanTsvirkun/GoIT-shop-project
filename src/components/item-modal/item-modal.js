@@ -4,7 +4,7 @@ import Siema from 'siema';
 import { api } from '../services/api';
 import debounce from 'lodash.debounce';
 import axios from 'axios';
-import ModalLogic from '../modal-window/logic-modal.js';
+import { modalBackDrop } from '../modal-window/logic-modal.js';
 ////////////////////импортировать
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
 const addUserFavourite = (userId, advId) => {
@@ -35,11 +35,16 @@ const deleteUserFavourite = (userId, advId) => {
 // );
 let idItem = null;
 let heart = null;
-export const funcX = data => {
-  const cat = document.querySelector('.categories');
-  // cat.insertAdjacentHTML('beforeend', itemModalCardTablet(data));
-  cat.innerHTML = itemModalCardTablet(data);
-  funcY();
+export const funcMarkup = data => {
+  // const cat = document.querySelector('.modalContainer');
+  // cat.innerHTML = itemModalCardTablet(data);
+
+  const closeModal = modalBackDrop(itemModalCardTablet(data));
+  const closeBtn = document.querySelector('.icon-cross');
+  // const closeBtn = document.querySelector('.icon-arrow');
+  closeBtn.addEventListener('click', closeModal);
+
+  funcSlider();
   idItem = data.id;
   if (!localStorage.getItem('user-info')) {
     localStorage.setItem(
@@ -115,7 +120,7 @@ function heartAttack(e) {
   }
 }
 
-function funcY() {
+function funcSlider() {
   class SiemaWithDots extends Siema {
     addDots() {
       this.dots = document.createElement('div');
