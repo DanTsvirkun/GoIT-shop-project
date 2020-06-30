@@ -209,6 +209,11 @@ align-items: center;
     width: 72px;
     height: 56px;    
   }
+ 
+  .input-label__img{
+    width: 72px;
+    height: 56px;    
+  }
 
   .adv-modal__close-btn{    
     top: 30px;
@@ -257,12 +262,7 @@ align-items: center;
   
 }
 /* ============================================================================= */
-@media (min-width: 1280px){
-
-  .input-label{
-    width: 90px;
-    height: 60px;  
-  }
+@media (min-width: 1280px){  
 
   .adv-modal{
     width: 950px;  
@@ -281,6 +281,16 @@ align-items: center;
   
   .adv-modal__product-photos{
     width: 600px;    
+  }
+
+  .input-label{
+    width: 90px;
+    height: 60px;  
+  }
+ 
+  .input-label__img{
+    width: 90px;
+    height: 60px;   
   }
 
   .add-product-btn{  

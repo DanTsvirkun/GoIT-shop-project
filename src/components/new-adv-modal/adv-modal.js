@@ -11,7 +11,7 @@ refs.allModal.addEventListener('click', closeModall)
 
 const markupModal = () => {
   return `
-  <div class="adv-modal__overlay" data-close="true">
+<div class="adv-modal__overlay" data-close="true">
   <div class="adv-modal">
 
     <button type="button" class="adv-modal__close-btn" data-close="true"></button>
