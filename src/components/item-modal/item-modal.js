@@ -2,19 +2,21 @@ import itemModalCardTablet from './item-modal-tablet.hbs';
 import './item-modal.css';
 import Siema from 'siema';
 import { api } from '../services/api';
+import { addUserFavourite } from '../services/user-api';
+import { deleteUserFavourite } from '../services/user-api';
 import debounce from 'lodash.debounce';
 import axios from 'axios';
 import { modalBackDrop } from '../modal-window/logic-modal.js';
 ////////////////////импортировать
-const API_URL = 'https://api-project-575025675995.firebaseio.com';
-const addUserFavourite = (userId, advId) => {
-  return axios.patch(`${API_URL}/user/${userId}/favourite.json`, {
-    [advId]: 'key',
-  });
-};
-const deleteUserFavourite = (userId, advId) => {
-  return axios.delete(`${API_URL}/user/${userId}/favourite/${advId}.json`);
-};
+// const API_URL = 'https://api-project-575025675995.firebaseio.com';
+// const addUserFavourite = (userId, advId) => {
+//   return axios.patch(`${API_URL}/user/${userId}/favourite.json`, {
+//     [advId]: 'key',
+//   });
+// };
+// const deleteUserFavourite = (userId, advId) => {
+//   return axios.delete(`${API_URL}/user/${userId}/favourite/${advId}.json`);
+// };
 /////////////
 // const cat = document.querySelector('.categories');
 // cat.insertAdjacentHTML('beforeend', itemModalCardTablet());
@@ -86,6 +88,7 @@ function heartAttack(e) {
     const user = JSON.parse(localStorage.getItem('user-info'));
     const arrayFav = user.favorites;
     const userID = user.userId;
+    const userToken = user.token;
     // console.log(arrayFav);
     const searchItem = arrayFav.filter(data => data !== idItem);
     localStorage.setItem(
@@ -96,7 +99,7 @@ function heartAttack(e) {
       }),
     );
 
-    deleteUserFavourite(userID, idItem).then(console.log);
+    deleteUserFavourite(userID, idItem, userToken).then(console.log);
 
     console.log('searchItem');
     console.log('del');
@@ -117,7 +120,7 @@ function heartAttack(e) {
       }),
     );
 
-    addUserFavourite(userID, idItem);
+    addUserFavourite(userID, idItem, userToken);
     console.log('add');
   }
 }

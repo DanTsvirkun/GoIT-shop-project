@@ -92,13 +92,13 @@ export const addUserAdv = (userId, advId, token) => {
   });
 };
 
-export const addUserFavourite = (userId, advId) => {
+export const addUserFavourite = (userId, advId, token) => {
   return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
     [advId]: 'key',
   });
 };
 
-export const deleteUserFavourite = (userId, advId) => {
+export const deleteUserFavourite = (userId, advId, token) => {
   return axios.delete(
     `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
   );
