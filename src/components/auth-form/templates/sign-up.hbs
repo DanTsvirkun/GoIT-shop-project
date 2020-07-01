@@ -1,9 +1,9 @@
 <form class="auth-form-sign-up" name="userSignUp">
-  <br><input type="text" placeholder="Введите Ваше имя" name="firstName" required />
-  <br><input type="text" placeholder="Введите Вашу фамилию" name="secondName" required />
-  <br><input type="email" placeholder="Введите Ваш e-mail" name="email" required />
-  <br><input type="text" placeholder="Введите номер телефона" name="phone" required />
-  <br><input type="password" placeholder="Введите пароль" name="password" required />
-  <br><input type="password" placeholder="Повторите ввод пароля" name="passwordRepeat" required />
+  <br><input type="text" placeholder="Имя" name="firstName" minlength="2" required />
+  <br><input type="text" placeholder="Фамилия" name="secondName" minlength="2" required />
+  <br><input type="email" placeholder="Эмейл" name="email" minlength="5" required />
+  <br><input type="text" placeholder="Телефон: 380xxxxxxxx" name="phone" pattern="[0-9]{12}" required />
+  <br><input type="password" placeholder="Пароль" name="password" minlength="6" required />
+  <br><input type="password" placeholder="Повторите пароль" name="passwordRepeat" minlength="6" required />
   <br><button type="submit" class="reg-button">Зарегистрироваться</button>
 </form>
