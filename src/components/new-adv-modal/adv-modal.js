@@ -4,11 +4,11 @@ import '../modal-window/styles.css';
 import './adv-styles.css';
 
 const refs = {
-  button: document.querySelector('.header__create-ad-btn'),
-  button: document.querySelector('.modal-btn'),
+  // button: document.querySelector('.header__create-ad-btn'),
+  button: document.querySelectorAll('.modal-btn'),
 };
 
-refs.button.addEventListener('click', createModal);
+refs.button.forEach(item => item.addEventListener('click', createModal));
 
 const markupModal = `
 

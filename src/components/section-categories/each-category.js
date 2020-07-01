@@ -2,6 +2,7 @@ import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
+import Swup from 'swup';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -16,8 +17,11 @@ close.addEventListener('click', closeCategory);
 // =================================================
 const object = { nameCategory: '', descriptionCategory: '' };
 // ======
-function eachCategory(event) {
-  if (event.target.nodeName !== 'A') {
+export function eachCategory(event) {
+  if (
+    event.target.nodeName !== 'A' ||
+    event.target.classList.contains('categories-filter__item--btn')
+  ) {
     return;
   }
   const nameCat = event.target.dataset.category;
@@ -38,6 +42,11 @@ function eachCategory(event) {
 function call(name, show) {
   api.getCategory(name).then(data => {
     show.innerHTML = itemHbs(data);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    viewAllDiv.classList.add('all-category-show');
   });
 }
 // =================================================
@@ -48,6 +57,7 @@ function closeCategory() {
   ads.classList.remove('hide');
   catContainer.classList.remove('hide');
   loadMore.classList.remove('hide');
+  viewAllDiv.classList.remove('all-category-show');
 }
 // ==================================================
 function mainInfo(word) {

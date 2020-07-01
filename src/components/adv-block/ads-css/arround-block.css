@@ -18,7 +18,8 @@
     align-items: center;
   }
   .arround-img {
-    width: 170px;
+    max-width: 170px;
+    max-height: 200px;
   }
   .arround-name {
     display: block;
