@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isLogIn } from '../auth-form/js/auth-form';
 
 axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
@@ -21,23 +22,36 @@ export const signInUser = signInUser => {
             user => user.email === res.data.email,
           );
 
+          let favArray = [];
+
+          if (foundUser.favourite) {
+            favArray = Object.keys(foundUser.favourite);
+          }
+
           localStorage.setItem(
             'user-info',
             JSON.stringify({
               userId: foundUser.userId,
               email: res.data.email,
               token: res.data.idToken,
+              favorites: favArray,
             }),
           );
+          isLogIn();
         });
       }
     })
     .catch(err => console.log(err));
 };
 
-export const signUpUser = signUpUser => {
-  const { firstName, secondName, email, phone, password, avatar } = signUpUser;
-
+export const signUpUser = ({
+  firstName,
+  secondName,
+  email,
+  phone,
+  password,
+  avatar,
+}) => {
   return axios
     .post(`:signUp?key=${API_KEY}`, {
       email: email,
@@ -61,16 +75,18 @@ export const signUpUser = signUpUser => {
                 userId: resId.data.name,
                 email: res.data.email,
                 token: res.data.idToken,
+                favorites: [],
               }),
-              axios.patch(
-                `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
-                {
-                  userId: resId.data.name,
-                },
-              ),
+              axios
+                .patch(
+                  `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
+                  {
+                    userId: resId.data.name,
+                  },
+                )
+                .then(() => isLogIn()),
             ),
           );
-        console.log('register');
       }
     })
     .catch(err => console.log(err));
@@ -92,18 +108,14 @@ export const addUserAdv = (userId, advId, token) => {
   });
 };
 
-export const addUserFavourite = (userId, advId) => {
+export const addUserFavourite = (userId, advId, token) => {
   return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
     [advId]: 'key',
   });
 };
 
-export const deleteUserFavourite = (userId, advId) => {
+export const deleteUserFavourite = (userId, advId, token) => {
   return axios.delete(
     `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
   );
 };
-
-// deleteData('-MAkWY0ZZG5Ji2ge1Ndu', '-MZZsadgagsai2ge1Ndd')
-//   .then(res => console.log('test', res))
-//   .catch(err => console.log(err));

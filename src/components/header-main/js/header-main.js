@@ -1,7 +1,5 @@
 import '../css/header-main.css';
 import refs from './refs.js';
-import loginRegister from '../templates/login-register.hbs';
-import cabinet from '../templates/cabinet.hbs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
