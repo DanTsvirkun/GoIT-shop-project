@@ -1,12 +1,11 @@
 // import {api} from '../services/api'
-import {
-  modalBackDrop
-} from '../modal-window/logic-modal.js';
+import { modalBackDrop } from '../modal-window/logic-modal.js';
 import '../modal-window/styles.css';
 import './adv-styles.css';
 
 const refs = {
   button: document.querySelector('.header__create-ad-btn'),
+  button: document.querySelector('.modal-btn'),
 };
 
 refs.button.addEventListener('click', createModal);
@@ -117,7 +116,6 @@ function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal);
-
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   imgLoaderArea.addEventListener('change', previewImg);
 

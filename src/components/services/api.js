@@ -1,13 +1,13 @@
 import axios from 'axios';
 import data from './data';
-// import {
-//   getUserInfo,
-//   signInUser,
-//   signUpUser,
-//   signOutUser,
-//   updateUserAvatar,
-//   addUserAdv,
-// } from './user-api';
+import {
+  getUserInfo,
+  signInUser,
+  signUpUser,
+  signOutUser,
+  updateUserAvatar,
+  addUserAdv,
+} from './user-api';
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
 const mainUrl = 'https://project-88172.firebaseio.com/olx';
@@ -23,7 +23,6 @@ const nameAllCategories = [
   'exchange',
 ];
 const requestedArray = [];
-
 // Название категорий:
 // 'property' --- Недвижимость,
 // 'transport' --- Транспорт,
@@ -70,7 +69,7 @@ export const api = {
       });
     }
   },
-  // advertisement Метод для поиска рекламы 
+  // advertisement Метод для поиска рекламы
   // >>>>>>>>>>>>>> ничего передавать не надо, просто вызвать функцию.
   getAdvertisement() {
     if (data.advertisement) {
@@ -86,7 +85,7 @@ export const api = {
           console.log('AXIOS CATEGORY advertisement');
           const result = this.transformCategory(res.data);
           const randomArray = this.shuffleGoods(result);
-          data.advertisement = [...randomArray]
+          data.advertisement = [...randomArray];
           return randomArray;
         })
         .catch(err => {
@@ -198,9 +197,10 @@ export const api = {
       .then(res => {
         // отправляю юзеру на бэк
         console.log(res.data.name);
-        const user = JSON.parse(localStorage.getItem('user-info')).id;
-        console.log(user);
-        addUserAdv(user, res.data.name, token);
+        const user = JSON.parse(localStorage.getItem('user-info'));
+        const userId = user.userId;
+        const userToken = user.token;
+        addUserAdv(userId, res.data.name, userToken);
         data.allCategories = [
           ...data.allCategories,
           {
@@ -315,22 +315,92 @@ export const api = {
     const favorites = JSON.parse(localStorage.getItem('user-info')).favorites;
     return favorites.includes(id);
   },
-};
+// Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
+  filterFavAdv(favArr, advArr) {
+    if (
+      data.allCategories.length > 0 &&
+      requestedArray.length === nameAllCategories.length
+    ) {
+      return new Promise(resolve => {
+        console.log('DATA filterFavAdv');
+        const arrFavAdv = this.filterFavAdv(favArr, advArr)
+        resolve(arrFavAdv)
+      });
+    }
+    return new Promise(res => {
+        res('res');
+      })
+      .then(res => {
+        console.log('AXIOS filterFavAdv');
+        if (requestedArray.length < nameAllCategories.length) {
+          return this.addCategory().then(arr => {
+            const allCategories = arr.map(item => {
+              return this.getCategory(item);
+            });
+            return Promise.all(allCategories).then(array => {
+              const arrFavAdv = this.filterFavAdv(favArr, advArr)
+              return arrFavAdv
+            });
 
-
-
-const fn = function () {
-
-  api.searchGoods('к').then((data) => console.log(data))
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  filterFavAdv(favArr, advArr) {
+    const favourites = data.allCategories.filter((item) => {
+      return favArr.includes(item.id)
+    })
+    const advertisement = data.allCategories.filter((item) => {
+      return advArr.includes(item.id)
+    })
+    // const arrFavAdv = [filteredFavArr, filteredAdvArr]
+   const  arrFavAdv = {
+      favourites,
+      advertisement
+    }
+    return arrFavAdv
+  },
 }
-const fn2 = function () {
-  api.getAllGoods().then((data) => console.log(data))
-}
+
+
+// const fn = function () {
+//   api.searchGoods('к').then(data => console.log(data));
+// };
+// const fn2 = function () {
+//   api.getAllGoods().then(data => console.log(data));
+// };
+// api.getAllGoods().then((data) => {
+//   console.log(data);
+// console.log(data.length);
+// const fav = []
+//   const adv = []
+//   for (let i = 0; i < data.length; i++){
+//     if (!(i % 2)) {
+//       fav.push(data[i].id)
+//       console.log('2');
+//     }
+//     if (!(i % 3)) {
+//       adv.push(data[i].id)
+//       console.log('3');
+//     }
+//   }
+//   console.log(fav);
+//   console.log(adv);
+//   const res = api.filterFavAdv(fav, adv)
+//   console.log(res);
+// })
+
+// api.filterFavAdv()
+
+
 // api.getCategory('work')
 // api.getCategory('property')
 // api.getCategory('transport')
 // // fn()
-// // setTimeout(fn, 2000)
+// setTimeout(fn, 2000)
 // setTimeout(fn2, 5000)
 // setTimeout(fn, 2000)
 // localStorage.setItem(
@@ -379,3 +449,11 @@ const fn2 = function () {
 //      })
 //      .catch(err => console.log(err));
 //  },
+
+
+
+// console.log(localStorage.getItem('user-info'));
+
+// api.getAdvertisement().then((data) => {
+//   console.log(data);
+// })
