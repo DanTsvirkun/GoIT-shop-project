@@ -14,20 +14,20 @@ p:not(:last-child) {
 
 .line-1::after {
   position: absolute;
-  content: url(../images/vertical-line.png);
-  margin-top: -5px;
+  content: '';
+  background-image: url(../images/vertical-line.png);
+  width: 1px;
+  height: 13px;
 }
 
 @media (min-width: 768px) {
-  .line-1::after {
-    position: absolute;
-    content: url(../images/vertical-line.png);
-  }
 
   .line-2::after {
     position: absolute;
-    content: url(../images/vertical-line.png);
-    margin-top: -5px;
+    content: '';
+    background-image: url(../images/vertical-line.png);
+    width: 1px;
+    height: 13px;
    }
 
    p {
