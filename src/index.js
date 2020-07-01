@@ -1,7 +1,7 @@
 import './css/main.css';
-import './components/item-modal/item-modal.js';
-import './components/services/api';
 import './components/auth-form/js/auth-form';
+import './components/services/api';
+import './components/item-modal/item-modal.js';
 import './components/header-main/js/header-main.js';
 import '../src/components/new-adv-modal/adv-modal.js';
 import './components/adv-block/adsSection';

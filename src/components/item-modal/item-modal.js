@@ -5,16 +5,16 @@ import { api } from '../services/api';
 import { addUserFavourite } from '../services/user-api';
 import { deleteUserFavourite } from '../services/user-api';
 import debounce from 'lodash.debounce';
-import axios from 'axios';
 import { modalBackDrop } from '../modal-window/logic-modal.js';
 
 let idItem = null;
 let heart = null;
 
 export const funcMarkup = data => {
+  console.log(data);
+
   const closeModal = modalBackDrop(itemModalCardTablet(data));
   let favBlock = document.querySelector('.item_modal--icons');
-  console.log('we are here', favBlock);
   const closeBtn = document.querySelector('.icon-cross');
   closeBtn.addEventListener('click', closeModal);
   funcSlider();
