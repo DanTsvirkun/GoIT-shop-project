@@ -1,5 +1,6 @@
 // import {api} from '../services/api'
 import {modalBackDrop} from '../modal-window/logic-modal.js'
+// import '../../css/main.css'
 import '../modal-window/styles.css'
 import './adv-styles.css'
 
@@ -8,6 +9,8 @@ const refs = {
 }
 
 refs.button.addEventListener('click', createModal);
+
+// required
 
 const markupModal =
  `
@@ -74,7 +77,7 @@ const markupModal =
           <p class="adv-modal__product-select-title">Категория</p>
           <div class="select">
             <select name="productCategory" class="adv-modal__product-select input" id="">
-              <option value="category" class="select-option select-option-first" selected disabled>Категория</option>
+              <option value="category" class="select-option select-option-hiden" selected disabled>Категория</option>
               <option value="property" class="select-option">Недвижимость</option>
               <option value="transport" class="select-option">Транспорт</option>
               <option value="work" class="select-option">Работа</option>
@@ -87,7 +90,7 @@ const markupModal =
           </div>
         </div>
 
-        <div class="input-wrapper">
+        <div class="input-wrapper input-wrapper__price">
           <p class="adv-modal__product-price-title">Цена</p>
           <input type="text" name="productPrice" data-source="price" class="adv-modal__product-price input"
             autocomplete="off" maxlength="16" placeholder="0.00 грн">
@@ -113,10 +116,7 @@ let createData;
 let category;
 
 function createModal(){
-  
-  // if (localStorage.getItem('user-info')) {
-
-  // }
+ 
 
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
@@ -128,11 +128,11 @@ function createModal(){
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
   advForm.addEventListener('submit', submitForm);
-  imgLoaderArea.addEventListener('click', chooseImgBlock)
+  imgLoaderArea.addEventListener('click', chooseImgBlock);
 }
 
-function saveData(event){
-
+function saveData(event){ 
+  const userInfo = JSON.parse(localStorage.getItem('user-info'));
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
   const productPrice = event.currentTarget.elements.productPrice;
@@ -140,6 +140,7 @@ function saveData(event){
   const productCategory = event.currentTarget.elements.productCategory;
   
   createData = {
+   author: userInfo,
    name: productName.value,
    mainImg: '',
    image: [],
@@ -148,6 +149,12 @@ function saveData(event){
    price: productPrice.value,
    phone: productPhone.value,
  }
+
+  const productPriceWrap = document.querySelector('.input-wrapper__price');
+  console.log(productPriceWrap)
+
+ event.target.value === 'for-free' ? productPriceWrap.classList.add('hide-price') : productPriceWrap.classList.remove('hide-price');
+ event.target.value === 'for-free' ? productPriceWrap.classList.remove('input-wrapper') : productPriceWrap.classList.add('input-wrapper'); 
 }
 
 //=================================================
@@ -225,9 +232,9 @@ function submitForm(event){
   }
     console.log(createData)
   
-  //==========================================================================
+  //===============================================
   // api.postAdv(createData.category, createData);  
-  //==========================================================================
+  //===============================================
 
   advForm.reset();  
   clearImages(allImg);
@@ -261,29 +268,3 @@ function previewImg (event){
     }
   }  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,26 +1,35 @@
 
 /* =========VALIDATION=========== */
 
-form input:valid{
+/* form input:valid{
 
 }
 
 form input:invalid{
   border: 2px solid red;
+} */
+
+/* .bad{
+  border: 2px solid red;
+} */
+
+.hide-price{
+  display: none;
 }
 
 /* ============================================================================= */
 
 .adv-modal{
-  position: absolute; 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;  
+  top: 10%; 
+  margin: 0 auto;
   width: 280px;  
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1); 
   padding-top: 40px;
   padding-bottom: 40px;
+  transition: 0.5s;
+  /* margin: 0 auto; */
 }
 
 .adv-modal__close-btn{
@@ -34,6 +43,10 @@ form input:invalid{
   background-image: url('../../assets/icons/close/close-24px.svg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.adv-modal__close-btn:focus{
+  outline: 1px solid rgb(255, 107, 8); 
 }
 
 .adv-modal__form--title{
@@ -69,7 +82,15 @@ align-items: center;
   line-height: 1.2;
   border: 1px solid rgb(206, 210, 209);
   background-color: rgb(255, 255, 255);
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
+  transition: 0.5s;
+}
+
+.input:hover,
+.input:focus{
+  outline: none;
+  border: 1px solid rgb(255, 107, 8); 
+  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);  */
 }
 
 .input::placeholder{
@@ -104,6 +125,15 @@ align-items: center;
   background-image: url("./adv-images/+.png");
   background-repeat: no-repeat;
   background-position: center; 
+  /* transition: 0.5s; */
+}
+
+.choose-this:hover,
+.choose-this:focus{
+  outline: none;  
+  cursor: pointer;
+  border: 1px solid rgb(255, 107, 8); 
+  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);   */
 }
 
 .photo-input{
@@ -135,6 +165,7 @@ align-items: center;
   background-image: url(./adv-images/Icon drop down.png);
   background-repeat: no-repeat;
   background-position: 90% 50%;
+  cursor: pointer;
 }
 
 .adv-modal__product-telephone-number{
@@ -150,7 +181,15 @@ align-items: center;
   color: rgb(255, 255, 255);
   line-height: 50px;
   border: none;
-  text-align: center;  
+  text-align: center;
+  transition: 0.5s;  
+}
+
+.add-product-btn:hover,
+.add-product-btn:focus{
+  cursor: pointer;
+  box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);
+  outline: none;
 }
 
 /* ============================================================================= */
@@ -192,7 +231,8 @@ align-items: center;
   }  
 
   .adv-modal__product-photos{
-    width: 458px;    
+    width: 458px; 
+    transition: 0.5s;   
   }
 
   .input-label{   
@@ -249,6 +289,10 @@ align-items: center;
     font-size: 14px;
     margin-right: 12px; 
   } 
+
+  .select-option-hiden{
+    font-size: 0;
+  }
   
 }
 /* ============================================================================= */
