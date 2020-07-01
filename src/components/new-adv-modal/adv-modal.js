@@ -1,7 +1,5 @@
 // import {api} from '../services/api'
-import {
-  modalBackDrop
-} from '../modal-window/logic-modal.js';
+import { modalBackDrop } from '../modal-window/logic-modal.js';
 import '../modal-window/styles.css';
 import './adv-styles.css';
 
