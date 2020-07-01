@@ -3,8 +3,7 @@
   font-family: 'MontserratRegular';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'),
-    url('../assets/fonts/montserrat-v14-latin_cyrillic-regular.woff2')
+  src: url('../assets/fonts/montserrat-v14-latin_cyrillic-regular.woff2')
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-regular.woff')
@@ -17,8 +16,7 @@
   font-family: 'MontserratSemiBold';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
-    url('../assets/fonts/montserrat-v14-latin_cyrillic-600.woff2')
+  src: url('../assets/fonts/montserrat-v14-latin_cyrillic-600.woff2')
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-600.woff')
@@ -31,8 +29,7 @@
   font-family: 'MontserratBold';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat Bold'), local('Montserrat-Bold'),
-    url('../assets/fonts/montserrat-v14-latin_cyrillic-700.woff2')
+  src: url('../assets/fonts/montserrat-v14-latin_cyrillic-700.woff2')
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-700.woff')
@@ -45,8 +42,7 @@
   font-family: 'MontserratLight';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat Light'), local('Montserrat-Light'),
-    url('../assets/fonts/montserrat-v14-latin_cyrillic-300.woff2')
+  src: url('../assets/fonts/montserrat-v14-latin_cyrillic-300.woff2')
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-300.woff')
@@ -59,8 +55,7 @@
   font-family: 'MontserratMedium';
   font-style: normal;
   font-weight: normal;
-  src: local('Montserrat Medium'), local('Montserrat-Medium'),
-    url('../assets/fonts/montserrat-v14-latin_cyrillic-500.woff2')
+  src: url('../assets/fonts/montserrat-v14-latin_cyrillic-500.woff2')
       format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../assets/fonts/montserrat-v14-latin_cyrillic-500.woff')

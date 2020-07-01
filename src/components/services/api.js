@@ -33,6 +33,7 @@ const requestedArray = [];
 // 'recreation-and-sports' --- Отдых и спорт,
 // 'for-free' --- Отдам бесплатно,
 // 'exchange' --- Обмен
+// 'advertisement --- Реклама
 
 export const api = {
   // Запрос для категорий. Нужно передать название категории как аргумент.
@@ -55,11 +56,38 @@ export const api = {
           if (data[category].length === 0) {
             data.allCategories = [...data.allCategories, ...result];
             data[category] = [...result];
-            console.log('Category', data[category]);
+            console.log(`Category`, data[category]);
           }
-
           console.log('ALL CATEGORIES', data.allCategories);
           return result;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      return new Promise((res, rej) => {
+        rej('not category');
+      });
+    }
+  },
+  // advertisement Метод для поиска рекламы 
+  // >>>>>>>>>>>>>> ничего передавать не надо, просто вызвать функцию.
+  getAdvertisement() {
+    if (data.advertisement) {
+      if (data.advertisement.length > 0) {
+        return new Promise(resolve => {
+          console.log('DATA advertisement');
+          resolve(data.advertisement);
+        });
+      }
+      return axios
+        .get(`${mainUrl}/categories/advertisement.json`)
+        .then(res => {
+          console.log('AXIOS CATEGORY advertisement');
+          const result = this.transformCategory(res.data);
+          const randomArray = this.shuffleGoods(result);
+          data.advertisement = [...randomArray]
+          return randomArray;
         })
         .catch(err => {
           console.log(err);
@@ -84,8 +112,6 @@ export const api = {
           resolve(this.filterWords(searchWord));
         });
       }
-      // return  axios
-      // .get(`${mainUrl}/categories.json`)
       return new Promise(res => {
         res('res');
       })
@@ -163,6 +189,7 @@ export const api = {
       });
     }
   },
+  // Метод для работы с localStorage
   getUserInfo() {},
   // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
@@ -211,7 +238,7 @@ export const api = {
       res('res');
     })
       .then(res => {
-        console.log('AXIOS SEARCH WORD');
+        console.log('AXIOS ALL_GOODS');
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
             const allCategories = arr.map(item => {
@@ -245,15 +272,18 @@ export const api = {
   },
 
   // ----------------------------------------easy option
-  filterCategoryData(arrayAllCat) {
-    console.log(arrayAllCat);
-    arrayAllCat.map(item => {
-      console.log(item);
-      // console.log(item.category);
-      data[item.category] = [...data[item.category], item];
-      console.log(data[item.category]);
-    });
-  },
+  // filterCategoryData(arrayAllCat) {
+  //   console.log(arrayAllCat);
+  //   arrayAllCat.map(item => {
+  //     console.log(item);
+  //     // console.log(item.category);
+  //     console.log(data[item.category.length]);
+  //     if (data[item.category.length] < 0) {
+  //       data[item.category] = [...data[item.category], item];
+  //       console.log(data[item.category]);
+  //     }
+  //   });
+  // },
 
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -287,14 +317,22 @@ export const api = {
   },
 };
 
-// const fn = function () {
-//   // api.getAllGoods().then((data) => console.log(data))
-//   api.searchGoods('к').then((data) => console.log(data))
-// }
-// fn()
+
+
+const fn = function () {
+
+  api.searchGoods('к').then((data) => console.log(data))
+}
+const fn2 = function () {
+  api.getAllGoods().then((data) => console.log(data))
+}
+// api.getCategory('work')
+// api.getCategory('property')
+// api.getCategory('transport')
+// // fn()
+// // setTimeout(fn, 2000)
+// setTimeout(fn2, 5000)
 // setTimeout(fn, 2000)
-// setTimeout(fn, 2000)
-// setTimeout(fn, 5000)
 // localStorage.setItem(
 //   'user-info',
 //   JSON.stringify({
