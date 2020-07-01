@@ -8,4 +8,5 @@ export default {
   'recreation-and-sports': [],
   'for-free': [],
   exchange: [],
+  advertisement: [],
 }
