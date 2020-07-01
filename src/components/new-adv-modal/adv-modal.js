@@ -74,7 +74,7 @@ const markupModal =
           <p class="adv-modal__product-select-title">Категория</p>
           <div class="select">
             <select name="productCategory" class="adv-modal__product-select input" id="">
-              <option value="category" class="select-option select-option-first" selected>Категория</option>
+              <option value="category" class="select-option select-option-first" selected disabled>Категория</option>
               <option value="property" class="select-option">Недвижимость</option>
               <option value="transport" class="select-option">Транспорт</option>
               <option value="work" class="select-option">Работа</option>
@@ -90,13 +90,13 @@ const markupModal =
         <div class="input-wrapper">
           <p class="adv-modal__product-price-title">Цена</p>
           <input type="text" name="productPrice" data-source="price" class="adv-modal__product-price input"
-            autocomplete="off" maxlength="16" placeholder="  0.00 грн">
+            autocomplete="off" maxlength="16" placeholder="0.00 грн">
         </div>
 
         <div class="input-wrapper">
           <p class="adv-modal__product-telephone-number-title">Телефон</p>
           <input type="tel" name="productPhone" data-source="phone" class="adv-modal__product-telephone-number input"
-            minlength="10" placeholder="  +38 (0--) --- -- --">
+            minlength="10" placeholder="+38 (0--) --- -- --">
         </div>
       </div>
       <button type="submit" class="add-product-btn" data-close="">Добавить</button>
@@ -112,7 +112,11 @@ let productImage;
 let createData;
 let category;
 
-function createModal(){  
+function createModal(){
+  
+  // if (localStorage.getItem('user-info')) {
+
+  // }
 
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
