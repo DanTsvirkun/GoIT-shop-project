@@ -18,14 +18,6 @@ p:not(:last-child) {
   margin-top: -5px;
 }
 
-a {
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 @media (min-width: 768px) {
   .line-1::after {
     position: absolute;
