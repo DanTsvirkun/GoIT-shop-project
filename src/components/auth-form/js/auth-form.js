@@ -100,7 +100,6 @@ function hendelSubmitSignIn(e, closeModal) {
 function hendelSubmitSignUp(e, closeModal) {
   e.preventDefault();
   signUpUser(inputData.userSignUp).then(() => closeModal());
-
   // authForm.innerHTML = ``;
   isLogIn();
 }
