@@ -79,6 +79,8 @@ function test(word) {
     const slideNext = document.querySelector(
       `.${category}-wrapper .slide-next`,
     );
+    // ===================================================
+
     if (window.matchMedia('(max-width: 767px)').matches) {
       const mySiema = new Siema({
         selector: list,
