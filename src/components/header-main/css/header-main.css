@@ -49,50 +49,6 @@ input[type='search']::-webkit-search-results-decoration {
   height: 30px;
 }
 
-.header-auth-mobile .header-auth__signup {
-  color: #fff;
-}
-
-.header-auth-mobile .header-auth__signin {
-  color: #fff;
-}
-
-.header-auth__signup {
-  display: inline-block;
-  font-family: 'MontserratMedium', sans-serif;
-  line-height: 26px;
-  font-size: 12px;
-  color: #818181;
-  transition: 0.5s;
-}
-
-.header-auth__signin {
-  font-family: 'MontserratMedium', sans-serif;
-  line-height: 26px;
-  font-size: 12px;
-  color: #818181;
-  transition: 0.5s;
-}
-
-.header-auth__signup:hover {
-  cursor: pointer;
-  color: #ff6b08;
-}
-
-.header-auth__signin:hover {
-  cursor: pointer;
-  color: #ff6b08;
-}
-
-.mobile-menu-closed .header-auth__stick {
-  content: '';
-  display: inline-block;
-  width: 1px;
-  height: 20px;
-  margin: 0 10px;
-  background: url(../images/stick.png);
-}
-
 .mobile-filters-wrapper {
   display: flex;
   justify-content: space-around;
@@ -280,7 +236,6 @@ input[type='search']::-webkit-search-results-decoration {
   align-items: center;
   width: 100%;
   height: 80px;
-  /* background-color: rgb(19, 31, 48); */
   background-color: #112437;
   box-shadow: 15px 0px 25px 0px rgba(29, 29, 27, 0.15);
 }
@@ -410,15 +365,6 @@ input[type='search']::-webkit-search-results-decoration {
 
   .header__create-ad-btn:hover {
     box-shadow: 0px 2px 20px 10px rgba(255, 107, 8, 0.4);
-  }
-
-  .header-auth__stick {
-    transform: translate(0px, 0px);
-    content: '';
-    display: inline-block;
-    width: 1px;
-    height: 20px;
-    background: url(../images/stick.png);
   }
 
   .tablet-bottom-wrapper {
@@ -551,10 +497,6 @@ input[type='search']::-webkit-search-results-decoration {
 
   .desktop-upper-wrapper {
     margin-bottom: 24px;
-  }
-
-  .header-auth__stick {
-    margin: 0 6px;
   }
 
   .header__clear-filter {
