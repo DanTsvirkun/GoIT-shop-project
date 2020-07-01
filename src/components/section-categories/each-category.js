@@ -1,4 +1,3 @@
-// import './css/main.css';
 import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
@@ -10,6 +9,7 @@ const viewAllDiv = category.querySelector('.all-category');
 const catContainer = category.querySelector('.container');
 const close = category.querySelector('#closeBtn');
 const loadMore = category.querySelector('.load-more');
+const modalBtn = document.querySelector('load-more');
 // =================================================
 category.addEventListener('click', eachCategory);
 close.addEventListener('click', closeCategory);
@@ -30,7 +30,7 @@ function eachCategory(event) {
   show.classList.add('category-line');
   close.classList.remove('hide');
   viewAllDiv.classList.remove('hide');
-  // viewAllDiv.classList.add('container');
+  viewAllDiv.classList.add('container');
 
   call(nameCat, show);
 }
