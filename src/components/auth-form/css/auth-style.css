@@ -1,0 +1,66 @@
+.header-auth-mobile .sign-up__btn {
+  color: #fff;
+}
+
+.header-auth-mobile .sign-in__btn {
+  color: #fff;
+}
+
+.sign-up__btn {
+  display: inline-block;
+  font-family: 'MontserratMedium', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  color: #818181;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.sign-in__btn {
+  font-family: 'MontserratMedium', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  color: #818181;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.sign-up__btn:hover {
+  cursor: pointer;
+  color: #ff6b08;
+}
+
+.sign-in__btn:hover {
+  cursor: pointer;
+  color: #ff6b08;
+}
+
+.mobile-menu-closed .sign-in-up__stick {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  margin: 0 10px;
+  background: url(../../header-main/images/stick.png);
+}
+
+@media (min-width: 768px) {
+  .sign-in-up__stick {
+    transform: translate(0px, 0px);
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: url(../../header-main/images/stick.png);
+  }
+}
+
+@media (min-width: 1280px) {
+  .sign-in-up__stick {
+    margin: 0 6px;
+  }
+}
