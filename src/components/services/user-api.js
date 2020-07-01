@@ -23,9 +23,14 @@ export const signInUser = signInUser => {
           );
 
           let favArray = [];
+          let advArray = [];
 
           if (foundUser.favourite) {
             favArray = Object.keys(foundUser.favourite);
+          }
+
+          if (foundUser.adv) {
+            advArray = Object.keys(foundUser.adv);
           }
 
           localStorage.setItem(
@@ -35,6 +40,7 @@ export const signInUser = signInUser => {
               email: res.data.email,
               token: res.data.idToken,
               favorites: favArray,
+              adv: advArray,
             }),
           );
           isLogIn();
@@ -76,6 +82,7 @@ export const signUpUser = ({
                 email: res.data.email,
                 token: res.data.idToken,
                 favorites: [],
+                adv: [],
               }),
               axios
                 .patch(
