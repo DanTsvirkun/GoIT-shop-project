@@ -1,0 +1,28 @@
+.load-more {
+  background-color: #121d2e;
+  font-family: 'Montserrat';
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+@media (max-width: 767px) {
+  .load-more {
+    height: 70px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .load-more {
+    font-size: 20px;
+    height: 88px;
+  }
+}
+@media (min-width: 1280px) {
+  .load-more {
+    height: 108px;
+    font-size: 20px;
+  }
+}
