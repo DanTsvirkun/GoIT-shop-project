@@ -30,17 +30,18 @@
   text-align: left;
   margin-bottom: 26px;
 }
-.basket {
+.modal-btn {
   display: none;
 }
 @media (max-width: 767px) {
   .categories {
     position: relative;
   }
-  .slide-things {
+  .slide-prev,
+  .slide-next {
     display: none;
   }
-  .basket {
+  .modal-btn {
     display: block;
     width: 50px;
     height: 50px;
@@ -48,11 +49,12 @@
     border-radius: 50%;
     background-color: #ff6b08;
     box-shadow: 0px 8px 8px 0px rgba(233, 97, 5, 0.24);
-    position: absolute;
+    position: fixed;
     right: 22px;
-    top: 66px;
+    top: 444px;
+    outline: none;
   }
-  .basket::after {
+  .modal-btn::after {
     content: '+';
     color: #ffffff;
   }
@@ -62,6 +64,8 @@
     position: relative;
   }
   .slide-prev {
+    position: absolute;
+    top: 50%;
     background-color: rgb(244, 244, 244);
     box-shadow: 2.5px 4.33px 10px 0px rgba(29, 29, 27, 0.11);
     width: 32px;
@@ -71,11 +75,15 @@
     background-image: url(../images/prev.png);
     background-repeat: no-repeat;
     background-position: center;
+    transition: all 200ms linear;
   }
   .slide-prev:hover {
     background-color: rgb(233, 97, 5);
   }
   .slide-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
     background-color: rgb(244, 244, 244);
     box-shadow: 2.5px 4.33px 10px 0px rgba(29, 29, 27, 0.11);
     width: 32px;
@@ -85,28 +93,10 @@
     background-image: url(../images/next.png);
     background-repeat: no-repeat;
     background-position: center;
+    transition: all 200ms linear;
   }
   .slide-next:hover {
     background-color: rgb(233, 97, 5);
-  }
-}
-@media (min-width: 768px) and (max-width: 1279px) {
-  .slide-things {
-    width: 688px;
-    position: absolute;
-    top: 50%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 15px;
-  }
-}
-@media (min-width: 1280px) {
-  .slide-things {
-    width: 1200px;
-    position: absolute;
-    top: 50%;
-    display: flex;
-    justify-content: space-between;
   }
 }
 /* =======================things-item=========================== */
@@ -125,6 +115,22 @@
     width: 333px;
     height: 305px;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+  }
+  .all-category {
+    background-color: rgb(168, 168, 168);
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+    padding-top: 30px;
+  }
+  .close-category {
+    width: 50px;
+    height: 50px;
+    background-color: chartreuse;
+    position: absolute;
+    right: 20px;
+    z-index: 1;
   }
 }
 .things-item {
@@ -156,4 +162,7 @@
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
+}
+.hide {
+  display: none;
 }
