@@ -139,6 +139,7 @@ input[type='search']::-webkit-search-results-decoration {
 .categories-filter__item--btn {
   padding: 8px 15px;
   font-family: 'MontserratLight', sans-serif;
+  font-size: 16px;
   color: #818181;
   background-color: transparent;
   border-width: 1px;
@@ -436,6 +437,7 @@ input[type='search']::-webkit-search-results-decoration {
     align-items: center;
     margin-top: 15px;
   }
+
   .desktop-upper-wrapper .header__input {
     display: none;
   }
