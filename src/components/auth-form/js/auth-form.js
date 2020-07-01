@@ -59,6 +59,7 @@ function murkupAuthForm(dataset) {
 export function isLogIn() {
   if (localStorage.getItem('user-info')) {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
+    console.log(localUserId);
 
     getUserInfo(localUserId).then(res => {
       signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;

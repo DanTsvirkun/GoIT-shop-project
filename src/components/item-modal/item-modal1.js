@@ -19,7 +19,7 @@ export const funcMarkup = data => {
   closeBtn.addEventListener('click', closeModal);
   funcSlider();
   idItem = data.id;
-  // (!localStorage.getItem('user-info')) ? favBlock.classList.add('item_modal--button-fav-disactive') : "незнайомець";
+  // (!localStorage.getItem('user-info')) ? favBlock.classList.add('item_modal--button-fav-disactive') : "что-то";
   if (!localStorage.getItem('user-info')) {
     localStorage.setItem(
       'user-info',

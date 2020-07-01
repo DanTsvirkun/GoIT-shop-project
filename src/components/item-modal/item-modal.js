@@ -10,27 +10,24 @@ import { modalBackDrop } from '../modal-window/logic-modal.js';
 
 let idItem = null;
 let heart = null;
-const favBlock = document.querySelector('.item_modal--button-fav');
-console.log(favBlock);
 
 export const funcMarkup = data => {
   const closeModal = modalBackDrop(itemModalCardTablet(data));
+  let favBlock = document.querySelector('.item_modal--icons');
+  console.log('we are here', favBlock);
   const closeBtn = document.querySelector('.icon-cross');
   closeBtn.addEventListener('click', closeModal);
   funcSlider();
   idItem = data.id;
-  // (!localStorage.getItem('user-info')) ? favBlock.classList.add('item_modal--button-fav-disactive') : "незнайомець";
   if (!localStorage.getItem('user-info')) {
-    localStorage.setItem(
-      'user-info',
-      JSON.stringify({ basket: [], favorites: [] }),
-    );
+    favBlock.classList.add('item_modal--icons-disactive');
+  } else {
+    heart = document.querySelector('.icon-fav');
+    api.getFavorites(idItem)
+      ? heart.classList.add('icon-fav--active')
+      : heart.classList.remove('icon-fav--active');
+    heart.addEventListener('click', debounce(heartAttack, 300));
   }
-  heart = document.querySelector('.icon-fav');
-  api.getFavorites(idItem)
-    ? heart.classList.add('icon-fav--active')
-    : heart.classList.remove('icon-fav--active');
-  heart.addEventListener('click', debounce(heartAttack, 300));
   const showSellerBtn = document.querySelector(
     '.item_modal--tablet--button-buy',
   );
