@@ -1,19 +1,16 @@
 // import {api} from '../services/api'
-import {modalBackDrop} from '../modal-window/logic-modal.js'
-// import '../../css/main.css'
-import '../modal-window/styles.css'
-import './adv-styles.css'
+import { modalBackDrop } from '../modal-window/logic-modal.js';
+import '../modal-window/styles.css';
+import './adv-styles.css';
 
 const refs = {
-  button: document.querySelector('.modal-btn'), 
-}
+  button: document.querySelector('.header__create-ad-btn'),
+  button: document.querySelector('.modal-btn'),
+};
 
 refs.button.addEventListener('click', createModal);
 
-// required
-
-const markupModal =
- `
+const markupModal = `
 
   <div class="adv-modal">
 
@@ -109,22 +106,19 @@ const markupModal =
 
   `;
 
-let  imgLoaderArea;
+let imgLoaderArea;
 let advForm;
 let productImage;
 let createData;
 let category;
 
-function createModal(){
- 
-
+function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
-  closeBtn.addEventListener('click', closeModal); 
-
+  closeBtn.addEventListener('click', closeModal);
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
-  imgLoaderArea.addEventListener('change', previewImg);  
-   
+  imgLoaderArea.addEventListener('change', previewImg);
+
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
   advForm.addEventListener('submit', submitForm);
@@ -138,7 +132,7 @@ function saveData(event){
   const productPrice = event.currentTarget.elements.productPrice;
   const productPhone = event.currentTarget.elements.productPhone;
   const productCategory = event.currentTarget.elements.productCategory;
-  
+
   createData = {
    author: userInfo,
    name: productName.value,
@@ -150,8 +144,7 @@ function saveData(event){
    phone: productPhone.value,
  }
 
-  const productPriceWrap = document.querySelector('.input-wrapper__price');
-  console.log(productPriceWrap)
+  const productPriceWrap = document.querySelector('.input-wrapper__price');  
 
  event.target.value === 'for-free' ? productPriceWrap.classList.add('hide-price') : productPriceWrap.classList.remove('hide-price');
  event.target.value === 'for-free' ? productPriceWrap.classList.remove('input-wrapper') : productPriceWrap.classList.add('input-wrapper'); 
@@ -159,23 +152,24 @@ function saveData(event){
 
 //=================================================
 
-function chooseImgBlock(event){  
-  if(event.target === event.currentTarget){
-    return ;
+
+function chooseImgBlock(event) {
+  if (event.target === event.currentTarget) {
+    return;
   }
-  if(!event.target.dataset.active){
-    return;  
-  }  
- 
+  if (!event.target.dataset.active) {
+    return;
+  }
+
   const imgTarget = event.target;
   imgTarget.nextElementSibling.classList.remove('choose-this');
-  let imgId = Number(event.target.dataset.id);  
-  imgTarget.setAttribute("type", "file");
-  imgId += 1;  
+  let imgId = Number(event.target.dataset.id);
+  imgTarget.setAttribute('type', 'file');
+  imgId += 1;
 
-  if(imgId > 6){
+  if (imgId > 6) {
     return;
-  }  
+  }
 
   const nextImg = document.querySelector(`[data-id="${imgId}"]`);
   nextImg.dataset.active = true; 
@@ -186,11 +180,11 @@ function chooseImgBlock(event){
 
 function submitForm(event){
   event.preventDefault();
-  if(createData.category === ''){
+  if (createData.category === '') {
     return;
-  }  
+  }
 
-  let allImg = event.currentTarget.querySelectorAll('img'); 
+  let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
   
   const allImgArr = allImg.filter(item => {  
@@ -236,7 +230,7 @@ function submitForm(event){
   // api.postAdv(createData.category, createData);  
   //===============================================
 
-  advForm.reset();  
+  advForm.reset();
   clearImages(allImg);
   returnMarkToStart(allLabelArr);
   removeInputFile(allPhotoInputs);  
@@ -248,23 +242,23 @@ function previewImg (event){
   if(event.target === event.currentTarget){
     return;
   }
-  if(event.target.dataset.id){
+  if (event.target.dataset.id) {
     const file = event.target.files[0];
 
-    const inputID = event.target.dataset.id;  
-    const img = document.querySelector(`.input-label__img--${inputID}`);  
+    const inputID = event.target.dataset.id;
+    const img = document.querySelector(`.input-label__img--${inputID}`);
     const reader = new FileReader();
-    
+
     reader.onloadend = () => {
       img.src = reader.result;
       productImage = reader.result;
-      img.setAttribute('data-img', productImage);   
-    }
-  
-    if(file){
+      img.setAttribute('data-img', productImage);
+    };
+
+    if (file) {
       reader.readAsDataURL(file);
     } else {
-      img.src = "";
+      img.src = '';
     }
-  }  
+  }
 }

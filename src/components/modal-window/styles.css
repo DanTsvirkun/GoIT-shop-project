@@ -19,10 +19,6 @@
   overflow-x: hidden;
 }
 
-.lockOverflow{
-  overflow: hidden;
-}
-
 .transition-effect{
   transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
 }
