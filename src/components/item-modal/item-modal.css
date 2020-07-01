@@ -18,22 +18,23 @@
   display: flex;
   justify-content: space-between;
   width: 280px;
-  padding-top: 20px;
+  padding-top: 0px;
   margin: auto;
 }
+
 .icon-cross {
   position: absolute;
-  top: 0px;
-  left: 4px;
+  top: 40px;
+  right: 2px;
   background-color: transparent;
   border: none;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background: url(../../assets/icons/arrow-1/chevron_left-black-24dp/1x/baseline_chevron_left_black_24dp.png);
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 }
 
 .item_modal--header {
@@ -44,8 +45,10 @@
   line-height: 1.2;
   letter-spacing: 0.32px;
   margin-bottom: 10px;
+  margin-top: 60px;
 }
 .item_modal--item-codename {
+  display: block;
   font-size: 12px;
   font-family: 'MontserratRegular, sans-serif';
   color: #989797;
@@ -54,6 +57,7 @@
   margin-bottom: 16px;
 }
 .item_modal--item-price {
+  display: block;
   font-size: 18px;
   letter-spacing: 0.32px;
   font-family: 'MontserratBold, sans-serif';
@@ -107,6 +111,7 @@
   font-family: 'MontserratRegular, sans-serif';
   color: #878686;
   line-height: 1.2;
+  vertical-align: middle;
 }
 
 .item_modal--desc-header {
@@ -130,10 +135,6 @@
   outline: none;
   vertical-align: middle;
 }
-/* .icon-fav:hover {
-  width: 18px;
-  height: 18px;
-} */
 
 .icon-fav--active {
   border: none;
@@ -209,18 +210,19 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* .item_modal-seller-active {
+.item_modal-seller-active {
   display: flex;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 .avatar {
-  width: 100%;
+  width: 60px;
   border-radius: 50%;
-  border: 2px solid #ffffff;
+  border: 2px solid #ff6b08;
   transition: 0.4s;
-} */
+  margin-right: 20px;
+}
 .item_modal-seller--header {
   font-size: 12px;
   font-family: 'MontserratRegular, sans-serif';
@@ -330,6 +332,9 @@
     padding: 26px;
     position: relative;
   }
+  .item_modal--header {
+    margin-top: 20px;
+  }
 
   .item_modal--tablet_wrapper {
     display: flex;
@@ -345,19 +350,11 @@
   .item_modal--tablet-second_wrapper {
     min-width: 316px;
   }
+
   .icon-cross {
-    position: absolute;
-    top: 22px;
+    top: 20px;
     right: 16px;
-    background-color: transparent;
-    border: none;
-    width: 20px;
-    height: 20px;
-    background: url(../../assets/icons/close/close-24px.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    outline: none;
+    background-image: url('../../assets/icons/close/close-24px.svg');
   }
 
   .item_modal--tablet--button-buy {

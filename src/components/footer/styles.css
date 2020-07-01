@@ -1,6 +1,6 @@
-p:not(:last-child) {
+/* p:not(:last-child) {
   margin-bottom: 22px;
-}
+} */
 
 .footer {
   background-color: #1e2939;
@@ -28,17 +28,17 @@ p:not(:last-child) {
     position: absolute;
     content: url(../images/vertical-line.png);
     margin-top: -5px;
-   }
+  }
 
-   p {
+  /* p {
     display: inline-block;
-   }
+  }
 
-   p:not(:last-child) {
-     margin-bottom: 0;
-   }
+  p:not(:last-child) {
+    margin-bottom: 0;
+  } */
 
   .footer {
     padding: 60px 0 60px 0;
   }
- }
+}

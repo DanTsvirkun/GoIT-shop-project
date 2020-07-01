@@ -4,7 +4,7 @@ import Siema from 'siema';
 import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
-// import { showItemModal } from '../item-modal/item-modal-open';
+import { showItemModal } from '../item-modal/item-modal-open';
 // ========================================
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
@@ -109,8 +109,8 @@ function test(word) {
       slidePrev.addEventListener('click', () => mySiema.prev());
       slideNext.addEventListener('click', () => mySiema.next());
     }
-    const ulX = document.querySelector(`.${word}`);
-    // showItemModal(ulX);
+    const ulX = document.querySelector(`.${word}-list`);
+    showItemModal(ulX);
     btnLoadMore.classList.remove('hide');
     btnLoadMore.addEventListener('click', showMoreCategories);
     if (counterStartIdx === nameAllCategories.length - 1) {

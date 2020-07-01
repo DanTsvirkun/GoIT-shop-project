@@ -4,10 +4,9 @@ import { funcMarkup } from './item-modal';
 export const showItemModal = function (el) {
   // const ulX = document.querySelector('.things-list');
   el.addEventListener('click', customFunc);
-  //   console.log(el);
 };
-const ulX = document.querySelector('.things-list');
-ulX.addEventListener('click', customFunc);
+// const ulX = document.querySelector('.things-list');
+// ulX.addEventListener('click', customFunc);
 function customFunc(e) {
   if (e.currentTarget === e.target) {
     return;
