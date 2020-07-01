@@ -1,4 +1,4 @@
-p:not(:last-child) {
+.text-1 {
   margin-bottom: 22px;
 }
 
@@ -30,11 +30,11 @@ p:not(:last-child) {
     height: 12px;
    }
 
-   p {
+  .text-1, .text-2 {
     display: inline-block;
    }
 
-   p:not(:last-child) {
+   .text-1 {
      margin-bottom: 0;
    }
 
