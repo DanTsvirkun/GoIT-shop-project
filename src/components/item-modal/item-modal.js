@@ -73,7 +73,6 @@ function heartAttack(e) {
   } else if (!api.getFavorites(idItem)) {
     heart.classList.add('icon-fav--active');
 
-    // setFavorites(idItem) {
     const user = JSON.parse(localStorage.getItem('user-info'));
     const userID = user.userId;
     const userToken = user.token;

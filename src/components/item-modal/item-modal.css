@@ -273,7 +273,7 @@
   cursor: pointer;
 }
 .slider_image-min:not(:last-child) {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 .slider_image-min--active {
   background-color: rgb(244, 246, 251);
