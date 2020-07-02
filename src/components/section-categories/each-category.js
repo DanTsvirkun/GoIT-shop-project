@@ -2,6 +2,7 @@ import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
+import { clearActiveCategory } from '../header-main/js/header-main';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -45,6 +46,7 @@ function call(name, show) {
       behavior: 'smooth',
     });
     viewAllDiv.classList.add('all-category-show');
+    close.classList.add('close-category-show');
   });
 }
 // =================================================
@@ -56,6 +58,8 @@ export function closeCategory() {
   catContainer.classList.remove('hide');
   loadMore.classList.remove('hide');
   viewAllDiv.classList.remove('all-category-show');
+  close.classList.remove('close-category-show');
+  clearActiveCategory();
 }
 // ==================================================
 function mainInfo(word) {

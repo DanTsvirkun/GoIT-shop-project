@@ -4,9 +4,8 @@ import Siema from 'siema';
 import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
-// import { showItemModal } from '../item-modal/item-modal-open';
+import { showItemModal } from '../item-modal/item-modal-open';
 import throttle from 'lodash.throttle';
-// ========================================
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
 let counterStartIdx = 0;
@@ -180,7 +179,7 @@ function test(word) {
       );
     }
     const ulX = document.querySelector(`.${word}-list`);
-    // showItemModal(ulX);
+    showItemModal(ulX);
     btnLoadMore.classList.remove('hide');
     btnLoadMore.addEventListener('click', showMoreCategories);
     if (counterStartIdx === nameAllCategories.length - 1) {
