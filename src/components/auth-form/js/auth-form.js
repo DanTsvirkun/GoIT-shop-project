@@ -39,7 +39,7 @@ function hendelClickSignInUp(e) {
   }
 }
 
-function murkupAuthForm(dataset) {
+export function murkupAuthForm(dataset) {
   if (dataset === 'signin') {
     const closeModal = modalBackDrop(signIn());
     closeAuthModal = document.querySelector('.auth-modal__close-btn');
@@ -67,6 +67,7 @@ function murkupAuthForm(dataset) {
 export function isLogIn() {
   if (localStorage.getItem('user-info')) {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
+    console.log(localUserId);
 
     getUserInfo(localUserId).then(res => {
       signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
