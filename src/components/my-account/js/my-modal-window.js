@@ -32,22 +32,26 @@ refs.openMyAds.addEventListener('click', openMyAds);
 // }
 
 function btnOpenModal(e, data) {
+  murkupFavoritesGoods();
+  murkupMyAds();
+
   murkupUserAvatar(data);
   murkupUserInfo(data);
+  // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
   // closeModal(data);
   refs.modalBackdropMyAccount.style.display = 'block';
   animationOpenModal();
 }
 
 function openFavorites() {
-  murkupFavoritesGoods();
+  // murkupFavoritesGoods();
   refs.modalBackdropMyAccount.style.display = 'none';
   refs.modalBackdropFavorites.style.display = 'block';
   animationOpenFavorites();
 }
 
 function openMyAds() {
-  murkupMyAds();
+  // murkupMyAds();
   refs.modalBackdropMyAccount.style.display = 'none';
   refs.modalBackdropMyAds.style.display = 'block';
   animationOpenMyAds();

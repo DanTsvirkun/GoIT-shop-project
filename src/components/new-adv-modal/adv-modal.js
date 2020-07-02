@@ -1,4 +1,4 @@
-// import {api} from '../services/api'
+import { api } from '../services/api';
 import { modalBackDrop } from '../modal-window/logic-modal.js';
 import '../modal-window/styles.css';
 import './adv-styles.css';
@@ -251,7 +251,7 @@ function submitForm(event) {
   console.log(createData);
 
   //===============================================
-  // api.postAdv(createData.category, createData);
+  api.postAdv(createData.category, createData);
   //===============================================
 
   advForm.reset();

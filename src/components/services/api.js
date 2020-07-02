@@ -304,13 +304,13 @@ export const api = {
     return favorites.includes(id);
   },
   // Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
-  filterFavAdv(favArr, advArr) {
+  filterMyAccount(favArr) {
     if (
       data.allCategories.length > 0 &&
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
-        const arrFavAdv = this.filterFavAdv(favArr, advArr);
+        const arrFavAdv = this.filterFavAdv(favArr);
         resolve(arrFavAdv);
       });
     }
@@ -324,7 +324,7 @@ export const api = {
               return this.getCategory(item);
             });
             return Promise.all(allCategories).then(array => {
-              const arrFavAdv = this.filterFavAdv(favArr, advArr);
+              const arrFavAdv = this.filterFavAdv(favArr);
               return arrFavAdv;
             });
           });
@@ -334,19 +334,11 @@ export const api = {
         console.log(err);
       });
   },
-  filterFavAdv(favArr, advArr) {
+  filterFavAdv(favArr) {
     const favourites = data.allCategories.filter(item => {
       return favArr.includes(item.id);
     });
-    const advertisement = data.allCategories.filter(item => {
-      return advArr.includes(item.id);
-    });
-    // const arrFavAdv = [filteredFavArr, filteredAdvArr]
-    const arrFavAdv = {
-      favourites,
-      advertisement,
-    };
-    return arrFavAdv;
+    return favourites;
   },
 };
 
