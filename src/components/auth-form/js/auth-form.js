@@ -39,7 +39,7 @@ function hendelClickSignInUp(e) {
   }
 }
 
-function murkupAuthForm(dataset) {
+export function murkupAuthForm(dataset) {
   if (dataset === 'signin') {
     const closeModal = modalBackDrop(signIn());
     closeAuthModal = document.querySelector('.auth-modal__close-btn');
