@@ -1,10 +1,11 @@
 import '../css/header-main.css';
-import refs from './refs.js';
+import refs from './refs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
+import { nameAllCategories } from '../../services/api';
 
-const testArrayFromBack = [
+const arrayFromBack = [
   'Недвижимость',
   'Транспорт',
   'Работа',
@@ -15,29 +16,9 @@ const testArrayFromBack = [
   'Обмен',
 ];
 
-function markupAuthForm(btnText) {
-  if (btnText === 'Вход') {
-    authForm.innerHTML = `${signIn()}`;
-    signInForm = document.querySelector('.auth-form-sign-in');
-    signInForm.addEventListener('input', hendelInputSave);
-    signInForm.addEventListener('submit', hendelSubmitSignIn);
-  } else {
-    authForm.innerHTML = `${signUp()}`;
-    signUpForm = document.querySelector('.auth-form-sign-up');
-    signUpForm.addEventListener('input', hendelInputSave);
-    signUpForm.addEventListener('submit', hendelSubmitSignUp);
-  }
-}
-
-const categoriesMarkup = categoriesList(testArrayFromBack);
+const categoriesMarkup = categoriesList(arrayFromBack);
 
 refs.categories.insertAdjacentHTML('beforeend', categoriesMarkup);
-
-// const authBlockMarkup = loginRegister();
-// const authBlockMarkup = cabinet();
-
-// refs.authBlockMobile.insertAdjacentHTML('beforeend', authBlockMarkup);
-// refs.authBlock.insertAdjacentHTML('beforeend', authBlockMarkup);
 
 refs.categories.addEventListener('click', activeCategory);
 refs.categoriesMobile.addEventListener('click', activeCategory);
@@ -119,6 +100,8 @@ window.addEventListener(
     refs.categoriesTablet.style.display = 'none';
   }, 1000),
 );
+
+////////////////// SWIPE LOGIC BELOW ////////////////////////
 
 const touchStart = throttle(handleTouchStart, 500);
 const touchMove = throttle(handleTouchMove, 500);
