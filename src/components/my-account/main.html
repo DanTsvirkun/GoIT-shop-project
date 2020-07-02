@@ -1,0 +1,183 @@
+<!-- <div class="account-menu__wrapper">
+</div> -->
+<div class="my-account-modal">
+  <!-- <button class="account-btn">
+    <div class="account-avatar">
+      <img class="avatar avatar--hover" src="./components/my-accaunt/avatar-img/default.png" alt="User avatar"
+        width="44" height="44">
+      <span class="account-title">Мой кабинет</span>
+    </div>
+  </button> -->
+
+  <div class="modal-backdrop moodal-backdrop__my-account">
+    <div class="account-wrapper">
+      <span class="modal__icon--close close__my-account"></span>
+      <div class="user-avatar fileForm">
+        <input class="user-avatar__file-input" type="file" name="fileFormInput" id="file-reader">
+        <img class="avatar avatar-shadow " src="./components/my-accaunt/avatar-img/default.png" alt="User avatar"
+          width="85" height="85">
+
+        <label class="user-avatar__input-label" for="file-reader">
+          <span class="user-avatar__add-btn avatar__icon--camera__add">
+            <span class="visually-hidden">Load new avatar</span>
+          </span>
+        </label>
+
+        <label class="user-avatar__input-label">
+          <span class="user-avatar__clear-btn avatar__icon--camera__clear">
+            <span class="visually-hidden">Clear your avatar</span>
+          </span>
+        </label>
+      </div>
+
+      <ul class="user-info">
+        <li class="user-info__fullname">User Name</li>
+        <li class="user-info__mail">test@gmail.com</li>
+        <li class="user-info__phone">+38 (000) 123-45-67</li>
+      </ul>
+
+      <ul class="account-list hr--line">
+        <li class="account-list__favorites icon--heart">
+          <span class="account-list__favorites-link">Избранное</span>
+          <span class="js-counter__heart counter">0</span>
+        </li>
+        <li class="account-list__advertisement icon--add">
+          <span class="account-list__advertisement-link">Мои объявления</span>
+          <span class="js-counter__add counter">0</span>
+        </li>
+      </ul>
+      <span class="account-logout icon--logout">Выйти</span>
+    </div>
+  </div>
+
+  <div class="modal-backdrop moodal-backdrop__favorites">
+    <div class="selected-goods__inner">
+      <span class="modal__icon--close close__favorites"></span>
+      <div class="selected-goods">
+        <h3 class="selected-goods__title icon--heart-on">Избранное</h3>
+        <ul class="selected-goods__list">
+          <li class="selected-goods__item">
+            <img class="selected-goods__item-img" src="https://i.ibb.co/4W1qFHZ/1.jpg" alt="test goods 1" width="220"
+              height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="selected-goods__item-title">Victrola Vintage</h4>
+              <span class="selected-goods__item-price">1,200 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="selected-goods__item-icon">
+              <span class="selected-goods__icon-text">Удалить <span class="selected-goods__icon-text--hidden">с
+                  избранных</span></span>
+            </span>
+          </li>
+          <li class="selected-goods__item">
+            <img class="selected-goods__item-img" src="https://i.ibb.co/XDwtQXQ/6.jpg" alt="test goods 2" width="220"
+              height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="selected-goods__item-title">Acer SB220Q bi 21.5 inches</h4>
+              <span class="selected-goods__item-price">3,100 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="selected-goods__item-icon">
+              <span class="selected-goods__icon-text">Удалить <span class="selected-goods__icon-text--hidden">с
+                  избранных</span></span>
+            </span>
+          </li>
+          <li class="selected-goods__item">
+            <img class="selected-goods__item-img" src="https://i.ibb.co/yp88J5C/3.jpg" alt="test goods 3" width="220"
+              height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="selected-goods__item-title">PlayStation 4 Pro 1TB Console</h4>
+              <span class="selected-goods__item-price">10,500 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="selected-goods__item-icon">
+              <span class="selected-goods__icon-text">Удалить <span class="selected-goods__icon-text--hidden">с
+                  избранных</span></span>
+            </span>
+          </li>
+          <li class="selected-goods__item">
+            <img class="selected-goods__item-img" src="https://i.ibb.co/Rpv2hZ7/71-abl-W-2-XL-AC-SL1001.jpg"
+              alt="test goods 4" width="220" height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="selected-goods__item-title">SKI Over Glasses Console</h4>
+              <span class="selected-goods__item-price">1,200 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="selected-goods__item-icon">
+              <span class="selected-goods__icon-text">Удалить <span class="selected-goods__icon-text--hidden">с
+                  избранных</span></span>
+            </span>
+          </li>
+          <li class="selected-goods__item">
+            <img class="selected-goods__item-img" src="https://i.ibb.co/8dmf8Kw/81eznzv-Az-L-AC-SL1500.jpg"
+              alt="test goods 5" width="220" height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="selected-goods__item-title">Exercise Yoga Mat</h4>
+              <span class="selected-goods__item-price">250 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="selected-goods__item-icon">
+              <span class="selected-goods__icon-text">Удалить <span class="selected-goods__icon-text--hidden">с
+                  избранных</span></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop moodal-backdrop__my-ads">
+    <div class="my-ads__inner">
+      <span class="modal__icon--close close__my-ads"></span>
+      <div class="my-ads">
+        <h3 class="my-ads__title icon--pencil-on">Мои объявления</h3>
+        <ul class="my-ads__list">
+          <li class="my-ads__item">
+            <img class="my-ads__item-img" src="https://i.ibb.co/yp88J5C/3.jpg" alt="test goods 3" width="220"
+              height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="my-ads__item-title">PlayStation 4 Pro 1TB Console</h4>
+              <span class="my-ads__item-price">10,500 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="my-ads__item-icon">
+              <span class="my-ads__icon-text">Удалить</span>
+            </span>
+          </li>
+          <li class="my-ads__item">
+            <img class="my-ads__item-img" src="https://i.ibb.co/Rpv2hZ7/71-abl-W-2-XL-AC-SL1001.jpg" alt="test goods 4"
+              width="220" height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="my-ads__item-title">SKI Over Glasses Console</h4>
+              <span class="my-ads__item-price">1,200 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="my-ads__item-icon">
+              <span class="my-ads__icon-text">Удалить</span>
+            </span>
+          </li>
+          <li class="my-ads__item">
+            <img class="my-ads__item-img" src="https://i.ibb.co/8dmf8Kw/81eznzv-Az-L-AC-SL1500.jpg" alt="test goods 5"
+              width="220" height="180">
+            <div class="selected-goods__item-block__info">
+              <h4 class="my-ads__item-title">Exercise Yoga Mat</h4>
+              <span class="my-ads__item-price">250 грн</span>
+              <p class="selected-goods__item-desc">Давно выяснено, что при оценке дизайна
+                и композиции читаемый текст мешает сосредоточиться...</p>
+            </div>
+            <span class="my-ads__item-icon">
+              <span class="my-ads__icon-text">Удалить</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
