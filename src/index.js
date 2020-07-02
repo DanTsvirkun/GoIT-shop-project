@@ -1,5 +1,4 @@
 import './css/main.css';
-import './components/footer/styles.js';
 import './components/auth-form/js/auth-form';
 import './components/services/api';
 import './components/header-main/js/header-main.js';
@@ -12,3 +11,4 @@ import './components/item-modal/item-modal-open.js';
 import './components/item-modal/item-modal.js';
 import './components/loader/styles.js';
 import './components/modal-window/styles.css';
+import './components/footer/styles.js';

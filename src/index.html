@@ -37,7 +37,7 @@
         <input class="header__input" type="search" placeholder="Поиск товаров..." />
         <button class="header__input--btn"></button>
         <div class="header-auth"></div>
-        <button class="header__create-ad-btn">Создать объявление</button>
+        <button class="header__create-ad-btn modal-btn">Создать объявление</button>
       </div>
       <div class="tablet-bottom-wrapper">
         <ul class="categories-filter"></ul>
@@ -57,6 +57,9 @@
   </header>
   <main>
     <section class="ads">
+      <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
       <ul class="block__list"></ul>
       <ul class="arround-block__list"></ul>
       <ul class="horizontal-block"></ul>
@@ -67,16 +70,17 @@
       <div class="container"></div>
       <button class="load-more hide">Загрузить еще</button>
     </section>
+    <button class="modal-btn"></button>
+    <div class="modalContainer">
+      <div class="modal"></div>
+    </div>
   </main>
-  <button class="modal-btn"></button>
-  <div class="modalContainer">
-    <div class="modal"></div>
-  </div>
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2020 &nbsp;&nbsp;<span class="line-1"></span>&nbsp;&nbsp; All Rights Reserved &nbsp;&nbsp;
+      <p class="text-1">&copy; 2020 &nbsp;&nbsp;<span class="line-1"></span>&nbsp;&nbsp; All Rights Reserved
+        &nbsp;&nbsp;
         <span class="line-2"></span>&nbsp;&nbsp;</p>
-      <p>Developed with &#128151; by GoIT Students</p>
+      <p class="text-2">Developed with &#128151; by GoIT Students</p>
     </div>
   </footer>
 
