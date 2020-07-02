@@ -76,6 +76,7 @@ function showMobileFilters() {
 }
 
 function showMobileMenu() {
+  window.scrollTo(0, 0);
   refs.body.style.overflow = 'hidden';
   refs.mobileMenuClosed.classList.add('mobile-menu-opened');
 }
