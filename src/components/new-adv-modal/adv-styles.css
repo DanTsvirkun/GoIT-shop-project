@@ -1,11 +1,7 @@
-
-
 .hide-price{
   display: none;
 }
-
 /* ============================================================================= */
-
 .adv-modal{
   position: relative;  
   top: 50%;  
@@ -18,7 +14,6 @@
   transition: 0.5s;
   margin: 0 auto;
 }
-
 .adv-modal__close-btn{
   position: absolute;
   top: 22px;
@@ -32,11 +27,6 @@
   background-position: center;
   cursor: pointer;
 }
-
-.adv-modal__close-btn:focus,{
-  outline: 1px solid rgb(255, 107, 8); 
-}
-
 .adv-modal__form--title{
   font-family: 'MontserratBold';
   font-size: 18px;  
@@ -46,13 +36,11 @@
   margin-bottom: 25px;
   margin-left: 18px;  
 }
-
 .adv-modal__form{
 display: flex;
 flex-flow: column;
 align-items: center;
 }
-
 .adv-modal__product-name-title,
 .adv-modal__product-description-title,
 .adv-modal__product-select-title,
@@ -61,7 +49,6 @@ align-items: center;
 .adv-modal__product-photos-title{
   display: none;
 }
-
 .input{  
   font-family: 'MontserratMedium';
   font-size: 14px;  
@@ -73,21 +60,26 @@ align-items: center;
   margin-bottom: 20px; 
   transition: 0.5s;
 }
+.input:required:invalid:not(:placeholder-shown) {
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgb(247, 243, 242);
+}
+.input:required:valid:not(:placeholder-shown) {
+  border: 1px solid rgb(0, 128, 0);
+  background-color: rgb(242, 247, 238);
+}
 
 .input:hover,
 .input:focus{
   outline: none;
   border: 1px solid rgb(255, 107, 8); 
-  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);  */
 }
-
 .input::placeholder{
   font-family: 'MontserratMedium';
   font-size: 14px; 
   line-height: 1.2;
   color: rgb(187, 187, 187);
 }
-
 .adv-modal__product-name,
 .adv-modal__product-description,
 .adv-modal__product-price,
@@ -96,7 +88,6 @@ align-items: center;
   font-family: 'MontserratMedium'; 
   padding-left: 18px;  
 }
-
 .adv-modal__product-photos{
   width: 246px;
   display: flex;
@@ -104,48 +95,37 @@ align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 .adv-modal__product-photos-item:not(:nth-last-child(-n+3)){
   margin-bottom: 10px;
 }
-
 .choose-this{  
   background-image: url("./adv-images/+.png");
   background-repeat: no-repeat;
-  background-position: center; 
-  /* transition: 0.5s; */
+  background-position: center;  
 }
-
 .choose-this:hover,
-.choose-this:focus{
-  outline: none;  
+.choose-this:focus{   
   cursor: pointer;
-  border: 1px solid rgb(255, 107, 8); 
-  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);   */
 }
-
 .photo-input{
   display: none;
 }
-
 .input-label{
   display: block;
   width: 75px;
   height: 59px;
   background-color: rgb(244, 246, 251);
 }
-
 .input-label__img{
   width: 76px;
   height: 60px;
   object-fit: cover;
 }
-
 .adv-modal__product-description{
+  resize: none;
   padding-top: 16px;
   padding-right: 20px;
 }
-
 .adv-modal__product-select{
   appearance: none;
   color: rgb(187, 187, 187);
@@ -155,11 +135,9 @@ align-items: center;
   background-position: 90% 50%;
   cursor: pointer;
 }
-
 .adv-modal__product-telephone-number{
   margin-bottom: 30px;
 }
-
 .add-product-btn{  
   width: 248px;
   height: 50px;
@@ -172,39 +150,32 @@ align-items: center;
   text-align: center;
   transition: 0.5s;  
 }
-
 .add-product-btn:hover,
 .add-product-btn:focus{
   cursor: pointer;
   box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);
   outline: none;
 }
-
 /* ============================================================================= */
-
 @media (min-width: 768px) {
-
   .adv-modal{
     width: 720px;       
     box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.25);
     padding-top: 48px;
     padding-bottom: 50px;   
   }  
-
   .adv-modal__form--title{   
     font-size: 22px;    
     line-height: 1.2;   
     margin-bottom: 36px;
     margin-left: 54px;  
   }
-
   .input{  
     font-size: 14px;    
     width: 458px;
     height: 57px;
     margin: 0;
   }
-
   .adv-modal__product-name-title,
   .adv-modal__product-description-title,
   .adv-modal__product-select-title,
@@ -217,108 +188,86 @@ align-items: center;
     line-height: 1.2;
     color: rgb(0, 0, 0);
   }  
-
   .adv-modal__product-photos{
     width: 458px; 
     transition: 0.5s;   
   }
-
   .input-label{   
     width: 72px;
     height: 56px;    
   }
- 
   .input-label__img{
     width: 72px;
     height: 56px;    
   }
-
   .adv-modal__close-btn{    
     top: 30px;
     right: 26px;    
   }
-
   .input-wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 610px;    
   }
-
   .input-wrapper:not(:last-child){
     margin-bottom: 16px;
   }
-
   .input-wrapper:last-child{
     margin-bottom: 34px;
   }
- 
   .adv-modal__product-name::placeholder,
   .adv-modal__product-description::placeholder{
     color: transparent;
   }
-
   .adv-modal__product-photos{
     margin: 0;
   }
-
   .adv-modal__product-select{   
     background-position: 95% 50%;
   }
-
   .adv-modal__product-telephone-number::placeholder{
     font-family: 'MontserratLight';
     font-style: italic;
   }
-
   .add-product-btn{  
     width: 294px;
     height: 60px;
     font-size: 14px;
     margin-right: 12px; 
   } 
-
   .select-option-hiden{
     font-size: 0;
   }
-  
 }
 /* ============================================================================= */
 @media (min-width: 1280px){  
-
   .adv-modal{
     width: 950px;  
     padding-top: 54px;
     padding-bottom: 56px;   
   }
-
   .input-wrapper{  
     width: 828px;    
   }
- 
   .input{      
     width: 600px;
     height: 56px;
   }
-  
   .adv-modal__product-photos{
     width: 600px;    
   }
-
   .input-label{
     width: 90px;
     height: 60px;  
   }
- 
   .input-label__img{
     width: 90px;
     height: 60px;   
   }
-
   .add-product-btn{  
     width: 294px;
     height: 60px;
     margin-right: 76px;   
   } 
-
 }

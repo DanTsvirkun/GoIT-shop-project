@@ -4,11 +4,11 @@ import '../modal-window/styles.css';
 import './adv-styles.css';
 
 const refs = {
-  button: document.querySelector('.header__create-ad-btn'),
-  button: document.querySelector('.modal-btn'),
+  // button: document.querySelector('.header__create-ad-btn'),
+  button: document.querySelectorAll('.modal-btn'),
 };
 
-refs.button.addEventListener('click', createModal);
+refs.button.forEach(item => item.addEventListener('click', createModal));
 
 const markupModal = `
 
@@ -25,7 +25,7 @@ const markupModal = `
         <div class="input-wrapper">
           <p class="adv-modal__product-name-title">Название товара</p>
           <input type="text" name="productName" class="adv-modal__product-name input" data-source="name"
-            autocomplete="off" minlength="2" maxlength="20" placeholder="Название товара">
+            autocomplete="off" minlength="6" maxlength="60" placeholder="Название товара" required>
         </div>
 
         <div class="input-wrapper">
@@ -67,7 +67,7 @@ const markupModal = `
         <div class="input-wrapper">
           <p class="adv-modal__product-description-title">Описание</p>
           <textarea name="productDescription" data-source="description" class="adv-modal__product-description input"
-          maxlength="245" placeholder="Описание товара"></textarea>
+          maxlength="1000" placeholder="Описание товара"></textarea>
         </div>
 
         <div class="input-wrapper">
@@ -96,7 +96,7 @@ const markupModal = `
         <div class="input-wrapper">
           <p class="adv-modal__product-telephone-number-title">Телефон</p>
           <input type="tel" name="productPhone" data-source="phone" class="adv-modal__product-telephone-number input"
-            minlength="10" placeholder="+38 (0--) --- -- --">
+            minlength="10" placeholder="+38 (0--) --- -- --" required>
         </div>
       </div>
       <button type="submit" class="add-product-btn" data-close="">Добавить</button>
@@ -116,13 +116,15 @@ function createModal() {
   const closeModal = modalBackDrop(markupModal);
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal);
-  imgLoaderArea = document.querySelector('.adv-modal__product-photos');
-  imgLoaderArea.addEventListener('change', previewImg);
+  imgLoaderArea = document.querySelector('.adv-modal__product-photos');  
 
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
   advForm.addEventListener('submit', submitForm);
+
   imgLoaderArea.addEventListener('click', chooseImgBlock);
+  imgLoaderArea.addEventListener('change', previewImg);
+  imgLoaderArea.addEventListener('change', changeImgBlock);
 }
 
 function saveData(event){ 
@@ -150,8 +152,7 @@ function saveData(event){
  event.target.value === 'for-free' ? productPriceWrap.classList.remove('input-wrapper') : productPriceWrap.classList.add('input-wrapper'); 
 }
 
-//=================================================
-
+// let promise;
 
 function chooseImgBlock(event) {
   if (event.target === event.currentTarget) {
@@ -160,23 +161,14 @@ function chooseImgBlock(event) {
   if (!event.target.dataset.active) {
     return;
   }
-
+  
   const imgTarget = event.target;
-  imgTarget.nextElementSibling.classList.remove('choose-this');
-  let imgId = Number(event.target.dataset.id);
   imgTarget.setAttribute('type', 'file');
-  imgId += 1;
 
-  if (imgId > 6) {
-    return;
-  }
+  // console.dir(imgTarget.nextElementSibling.firstChild); 
 
-  const nextImg = document.querySelector(`[data-id="${imgId}"]`);
-  nextImg.dataset.active = true; 
-  nextImg.nextElementSibling.classList.add('choose-this');  
+  
 }
-
-//=================================================
 
 function submitForm(event){
   event.preventDefault();
@@ -235,9 +227,6 @@ function submitForm(event){
   returnMarkToStart(allLabelArr);
   removeInputFile(allPhotoInputs);  
 }
-
-//====================================================================
-
 function previewImg (event){
   if(event.target === event.currentTarget){
     return;
@@ -247,7 +236,7 @@ function previewImg (event){
 
     const inputID = event.target.dataset.id;
     const img = document.querySelector(`.input-label__img--${inputID}`);
-    const reader = new FileReader();
+    const reader = new FileReader();    
 
     reader.onloadend = () => {
       img.src = reader.result;
@@ -262,3 +251,4 @@ function previewImg (event){
     }
   }
 }
+
