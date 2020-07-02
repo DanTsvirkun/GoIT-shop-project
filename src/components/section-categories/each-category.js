@@ -2,6 +2,7 @@ import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
+import { clearActiveCategory } from '../header-main/js/header-main';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -18,24 +19,23 @@ const object = { nameCategory: '', descriptionCategory: '' };
 // ======
 export function eachCategory(event) {
   if (
-    event.target.nodeName !== 'A' ||
+    event.target.classList.contains('view-all') ||
     event.target.classList.contains('categories-filter__item--btn')
   ) {
-    return;
-  }
-  const nameCat = event.target.dataset.category;
-  mainInfo(nameCat);
-  ads.classList.add('hide');
-  catContainer.classList.add('hide');
-  loadMore.classList.add('hide');
-  viewAllDiv.innerHTML = mainHbs(object);
-  const show = document.querySelector('.show-all');
-  show.classList.add('category-line');
-  close.classList.remove('hide');
-  viewAllDiv.classList.remove('hide');
-  viewAllDiv.classList.add('container');
+    const nameCat = event.target.dataset.category;
+    mainInfo(nameCat);
+    ads.classList.add('hide');
+    catContainer.classList.add('hide');
+    loadMore.classList.add('hide');
+    viewAllDiv.innerHTML = mainHbs(object);
+    const show = document.querySelector('.show-all');
+    show.classList.add('category-line');
+    close.classList.remove('hide');
+    viewAllDiv.classList.remove('hide');
+    viewAllDiv.classList.add('container');
 
-  call(nameCat, show);
+    call(nameCat, show);
+  } else return;
 }
 // =================================================
 function call(name, show) {
@@ -50,7 +50,7 @@ function call(name, show) {
   });
 }
 // =================================================
-function closeCategory() {
+export function closeCategory() {
   viewAllDiv.innerHTML = '';
   close.classList.add('hide');
   viewAllDiv.classList.add('hide');
@@ -59,6 +59,7 @@ function closeCategory() {
   loadMore.classList.remove('hide');
   viewAllDiv.classList.remove('all-category-show');
   close.classList.remove('close-category-show');
+  clearActiveCategory();
 }
 // ==================================================
 function mainInfo(word) {
