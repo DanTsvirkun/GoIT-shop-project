@@ -1,20 +1,31 @@
 /*************Global settings*******************/
-
-.modalContainer {
-  position: relative;
-}
-
-.modal {
-  position: absolute;
+​ .modalContainer {
+ ​ position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black;
-  opacity: .6;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+​ .transition-effect {
+  transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+}
+
+​ .show-modal {
+  pointer-events: initial;
+  opacity: 1;
+  visibility: visible;
 }
 
 /***************For example*******************/
-
-.innerBlock2 {
+​ .innerBlock2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,7 +35,7 @@
   background-color: white;
 }
 
-.closeBtnAdv {
+​ .closeBtnAdv {
   position: absolute;
   top: 5px;
   right: 5px;
