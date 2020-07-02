@@ -18,4 +18,12 @@ export default {
   inputCross: document.querySelector('.mobile-input-cross'),
   cross: document.querySelector('.close-menu'),
   header: document.querySelector('.header'),
+  wholeCategory: document.querySelector('.all-category'),
+  tabletInput: document.querySelector('.header__input--tablet'),
+  PCInput: document.querySelector('.header__input--pc'),
+  inputButtonPcTablet: document.querySelectorAll('.header__input--btn'),
+  sectionAds: document.querySelector('.ads'),
+  sectionCategories: document.querySelector('.categories'),
+  loadMore: document.querySelector('.load-more'),
+  closeCategory: document.querySelector('.close-category'),
 };

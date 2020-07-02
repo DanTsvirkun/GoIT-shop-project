@@ -59,6 +59,7 @@ export function closeCategory() {
   loadMore.classList.remove('hide');
   viewAllDiv.classList.remove('all-category-show');
   close.classList.remove('close-category-show');
+  viewAllDiv.classList.remove('container');
   clearActiveCategory();
 }
 // ==================================================
