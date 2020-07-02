@@ -50,7 +50,6 @@ function heartAttack(e) {
   if (api.getFavorites(idItem)) {
     heart.classList.remove('icon-fav--active');
     const user = JSON.parse(localStorage.getItem('user-info'));
-    console.log(user);
     const arrayFav = user.favorites;
     const userID = user.userId;
     const userToken = user.token;
@@ -63,10 +62,7 @@ function heartAttack(e) {
       }),
     );
 
-    deleteUserFavourite(userID, idItem, userToken).then(console.log);
-
-    console.log('searchItem');
-    console.log('del');
+    deleteUserFavourite(userID, idItem, userToken);
   } else if (!api.getFavorites(idItem)) {
     heart.classList.add('icon-fav--active');
 
@@ -82,7 +78,6 @@ function heartAttack(e) {
     );
 
     addUserFavourite(userID, idItem, userToken);
-    console.log('add');
   }
 }
 //slider-Siema

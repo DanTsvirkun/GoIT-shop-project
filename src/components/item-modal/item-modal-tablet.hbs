@@ -1,53 +1,51 @@
 <div class="wrapper-item-modal">
-    <div class="item_modal--tablet">
-        <button class="icon-cross"></button>
-        <ul class="item_modal--tablet_wrapper">
-            <li class="item_modal--tablet_slider">
-                <div class="slider_image-max">
-                    <img class="bg-photo--style" id="bg-photo--style" src="{{mainImg}}" alt="">
-                </div>
-                <div class="slider_image-mini">
+    <button class="icon-cross"></button>
+    <ul class="item_modal--tablet_wrapper">
+        <li class="item_modal--tablet_slider">
+            <div class="slider_image-max">
+                <img class="bg-photo--style" id="bg-photo--style" src="{{mainImg}}" alt="">
+            </div>
+            <div class="slider_image-mini">
 
-                    <ul class="images-mini">
-                        {{#each image}}
-                        <li class="slider_image-min"><img class="sm-photo--style" src="{{this}}" alt="">
-                        </li>
-                        {{/each}}
-                    </ul>
-
-                </div>
-
-            </li>
-            <li class="item_modal--tablet-second_wrapper">
-
-                <h3 class="item_modal--header">{{name}}</h3>
-                <p class="item_modal--item-codename">Код товара | <span class="item_modal--item-code">{{id}}</span></p>
-                <div class="siema item_modal--imageholder">
+                <ul class="images-mini">
                     {{#each image}}
-                    <img class="item_modal--slider_s-img_big " src="{{this}}">
+                    <li class="slider_image-min"><img class="sm-photo--style" src="{{this}}" alt="">
+                    </li>
                     {{/each}}
-                </div>
-                <p class="item_modal--item-price"><span class="item_modal--item-pricevalue"> {{price}} </span>грн
-                </p>
-                <button class="item_modal--tablet--button-buy">Информация о продавце</button>
-                <div class="show-hide-phone">
-                    <ul class="item_modal-seller">
-                        <li><img src="{{avatar}}" alt="{{firstName}}" class="avatarAuth"></li>
-                        <li>
-                            <p class="item_modal-seller--header">Продавец: <span
-                                    class="item_modal-seller--name">{{firstName}}</span>
-                            </p>
-                            <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="item_modal--icons">
-                    <li class="item_modal--button-fav"><button class="icon-fav"></button>В избранное</li>
                 </ul>
-                <p class="item_modal--desc-header">Описание</p>
-                <p class="item_modal--desctab">{{description}}</p>
 
-            </li>
-        </ul>
-    </div>
+            </div>
+
+        </li>
+        <li class="item_modal--tablet-second_wrapper">
+
+            <h3 class="item_modal--header">{{name}}</h3>
+            <p class="item_modal--item-codename">Код товара | <span class="item_modal--item-code">{{id}}</span></p>
+            <div class="siema item_modal--imageholder">
+                {{#each image}}
+                <img class="item_modal--slider_s-img_big " src="{{this}}">
+                {{/each}}
+            </div>
+            <p class="item_modal--item-price"><span class="item_modal--item-pricevalue"> {{price}} </span>грн
+            </p>
+            <button class="item_modal--tablet--button-buy">Информация о продавце</button>
+            <div class="show-hide-phone">
+                <ul class="item_modal-seller">
+                    <li><img src="{{avatar}}" alt="{{firstName}}" class="avatarAuth"></li>
+                    <li>
+                        <p class="item_modal-seller--header">Продавец: <span
+                                class="item_modal-seller--name">{{firstName}}</span>
+                        </p>
+                        <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
+                    </li>
+                </ul>
+            </div>
+            <ul class="item_modal--icons">
+                <li class="item_modal--button-fav"><button class="icon-fav"></button>В избранное</li>
+            </ul>
+            <p class="item_modal--desc-header">Описание</p>
+            <p class="item_modal--desctab">{{description}}</p>
+
+        </li>
+    </ul>
 </div>
