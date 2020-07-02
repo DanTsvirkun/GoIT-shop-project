@@ -160,4 +160,24 @@
   }
 }
 /* ===================loader=================== */
-
+.block__list {
+  opacity: 0;
+}
+.block__list-show {
+  transition: opacity 500ms linear;
+  opacity: 1;
+}
+.arround-block__list {
+  opacity: 0;
+}
+.arround-block__list-show {
+  transition: opacity 500ms linear;
+  opacity: 1;
+}
+.horizontal-block {
+  opacity: 0;
+}
+.horizontal-block-show {
+  transition: opacity 500ms linear;
+  opacity: 1;
+}

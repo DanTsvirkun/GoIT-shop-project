@@ -41,6 +41,9 @@ function changeSize() {
         horizontalBlock.innerHTML = '';
         loader.classList.add('loader-wrapper-hide');
         body.style.overflow = 'unset';
+        blockList.classList.add('block__list-show');
+        arroundBlockList.classList.add('arround-block__list-show');
+        horizontalBlock.classList.add('horizontal-block-show');
       });
   } else if (
     window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
@@ -62,6 +65,9 @@ function changeSize() {
       horizontalBlock.innerHTML = '';
       loader.classList.add('loader-wrapper-hide');
       body.style.overflow = 'unset';
+      blockList.classList.add('block__list-show');
+      arroundBlockList.classList.add('arround-block__list-show');
+      horizontalBlock.classList.add('horizontal-block-show');
     });
   } else if (window.matchMedia('(min-width: 1280px)').matches) {
     api.getAdvertisement().then(data => {
@@ -85,6 +91,9 @@ function changeSize() {
         .join('');
       loader.classList.add('loader-wrapper-hide');
       body.style.overflow = 'unset';
+      blockList.classList.add('block__list-show');
+      arroundBlockList.classList.add('arround-block__list-show');
+      horizontalBlock.classList.add('horizontal-block-show');
     });
   }
 }
