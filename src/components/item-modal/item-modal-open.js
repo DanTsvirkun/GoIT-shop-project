@@ -9,7 +9,6 @@ function customFunc(e) {
     return;
   }
   const currentLiId = e.target.closest('li').dataset.id;
-  console.log(currentLiId);
   api.searchId(currentLiId).then(data => {
     getUserInfo(data.author).then(res => funcMarkup({ ...data, ...res.data }));
   });

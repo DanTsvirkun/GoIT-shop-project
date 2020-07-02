@@ -71,6 +71,7 @@
 .all-category {
   opacity: 0;
   min-height: 500px;
+  /* transition: all 1s linear; */
 }
 .all-category-show {
   transition: all 1s linear;
