@@ -6,18 +6,21 @@ import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
 
 import { refs } from './refs';
+import { openModal } from './my-modal-window';
+import { modalBackDrop } from '../../modal-window/logic-modal';
 
-function markupIncomeBtn() {
-  refs.btnOpenModal.insertAdjacentHTML('beforeend', incomeBtn());
+function markupIncomeBtn(data) {
+  refs.btnOpenModal.innerHTML = incomeBtn(data);
+
+  openModal(data);
 }
-markupIncomeBtn();
 
-function murkupUserAvatar() {
-  refs.hbsUserAvatar.innerHTML = userAvatar();
+function murkupUserAvatar(data) {
+  refs.hbsUserAvatar.innerHTML = userAvatar(data);
 }
 
-function murkupUserInfo() {
-  refs.hbsUserInfo.innerHTML = userInfo();
+function murkupUserInfo(data) {
+  refs.hbsUserInfo.innerHTML = userInfo(data);
 }
 
 function murkupFavoritesGoods() {

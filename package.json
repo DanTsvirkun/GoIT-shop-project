@@ -49,6 +49,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "animate.css": "^4.1.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "handlebars": "^4.7.3",

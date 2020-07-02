@@ -15,16 +15,26 @@ import {
   animationOpenMyAds,
   animationCloseMyAds,
 } from './account-animation.js';
+import { isLogIn } from '../../auth-form/js/auth-form';
+import { modalBackDrop } from '../../modal-window/logic-modal';
 
 // ===================OPEN MODAL ON BTN=======================
+export function openModal(data) {
+  refs.btnOpenModal.addEventListener('click', e => btnOpenModal(e, data));
+}
+// refs.btnOpenModal.addEventListener('click', btnOpenModal);
 
-refs.btnOpenModal.addEventListener('click', btnOpenModal);
 refs.openFavorites.addEventListener('click', openFavorites);
 refs.openMyAds.addEventListener('click', openMyAds);
 
-function btnOpenModal() {
-  murkupUserAvatar();
-  murkupUserInfo();
+// function closeModal(data) {
+//   modalBackDrop();
+// }
+
+function btnOpenModal(e, data) {
+  murkupUserAvatar(data);
+  murkupUserInfo(data);
+  // closeModal(data);
   refs.modalBackdropMyAccount.style.display = 'block';
   animationOpenModal();
 }
@@ -87,6 +97,7 @@ function closeBtnMyAds() {
 refs.logoutAccount.addEventListener('click', logOut);
 
 function logOut() {
-  refs.modalBackdropMyAccount.style.display = 'none';
-  refs.btnOpenModal.style.display = 'none';
+  closeBtnAccount();
+  windowClose();
+  isLogIn();
 }
