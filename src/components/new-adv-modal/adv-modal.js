@@ -139,6 +139,7 @@ function createModal() {
 
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
+
   advForm.addEventListener('submit', submitForm);
   imgLoaderArea.addEventListener('click', chooseImgBlock);
 }
@@ -156,6 +157,7 @@ function saveData(event) {
     name: productName.value,
     mainImg: '',
     image: [],
+
     category: productCategory.value === 'category' ? '' : productCategory.value,
     description: productDescription.value,
     price: productPrice.value,
