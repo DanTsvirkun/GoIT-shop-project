@@ -1,24 +1,28 @@
 /*************Global settings*******************/
-​ .modalContainer {
-   ​position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   z-index: 3;
-   pointer-events: none;
-   opacity: 0;
-   visibility: hidden;
-   background-color: rgba(0, 0, 0, 0.3);
-   overflow-y: auto;
-   overflow-x: hidden;
+.modalContainer {
+  position: relative;
 }
 
-​ .transition-effect {
-   transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.show-modal{
+.transition-effect {
+  transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+}
+
+.show-modal {
   pointer-events: initial;
   opacity: 1;
   visibility: visible;
