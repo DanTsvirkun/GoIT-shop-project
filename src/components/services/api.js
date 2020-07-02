@@ -10,7 +10,9 @@ import {
 } from './user-api';
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
+// apiKey: “AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo”
 const mainUrl = 'https://project-88172.firebaseio.com/olx';
+// https://goit-shop-from-21st-bootcamp.firebaseio.com/
 
 export const nameAllCategories = [
   'electronics',
@@ -40,14 +42,12 @@ export const api = {
     if (data[category]) {
       if (data[category].length > 0) {
         return new Promise(resolve => {
-          console.log('DATA CATEGORY');
           resolve(data[category]);
         });
       }
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
-          console.log('AXIOS CATEGORY');
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
@@ -55,9 +55,8 @@ export const api = {
           if (data[category].length === 0) {
             data.allCategories = [...data.allCategories, ...result];
             data[category] = [...result];
-            console.log(`Category`, data[category]);
           }
-          console.log('ALL CATEGORIES', data.allCategories);
+
           return result;
         })
         .catch(err => {
@@ -75,14 +74,12 @@ export const api = {
     if (data.advertisement) {
       if (data.advertisement.length > 0) {
         return new Promise(resolve => {
-          console.log('DATA advertisement');
           resolve(data.advertisement);
         });
       }
       return axios
         .get(`${mainUrl}/categories/advertisement.json`)
         .then(res => {
-          console.log('AXIOS CATEGORY advertisement');
           const result = this.transformCategory(res.data);
           const randomArray = this.shuffleGoods(result);
           data.advertisement = [...randomArray];
@@ -90,6 +87,9 @@ export const api = {
         })
         .catch(err => {
           console.log(err);
+          alert(
+            'Выключите AdBlock и перезагрузите страницу для корректной работы сайта!',
+          );
         });
     } else {
       return new Promise((res, rej) => {
@@ -107,7 +107,6 @@ export const api = {
         requestedArray.length === nameAllCategories.length
       ) {
         return new Promise(resolve => {
-          console.log('DATA SEARCH WORD');
           resolve(this.filterWords(searchWord));
         });
       }
@@ -115,22 +114,18 @@ export const api = {
         res('res');
       })
         .then(res => {
-          console.log('AXIOS SEARCH WORD');
           if (requestedArray.length < nameAllCategories.length) {
             return this.addCategory().then(arr => {
               const allCategories = arr.map(item => {
                 return this.getCategory(item);
               });
               return Promise.all(allCategories).then(array => {
-                // console.log(array);
                 const result = this.filterWords(searchWord);
-                // console.log(data.allCategories);
+
                 return result;
               });
-              // console.log(ar);
             });
           }
-          // this.transformAllCategories(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -196,7 +191,6 @@ export const api = {
       .post(`${mainUrl}/categories/${category}.json`, obj)
       .then(res => {
         // отправляю юзеру на бэк
-        console.log(res.data.name);
         const user = JSON.parse(localStorage.getItem('user-info'));
         const userId = user.userId;
         const userToken = user.token;
@@ -230,7 +224,6 @@ export const api = {
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
-        console.log('DATA ALL-GOODS');
         resolve(data.allCategories);
       });
     }
@@ -238,19 +231,14 @@ export const api = {
       res('res');
     })
       .then(res => {
-        console.log('AXIOS ALL_GOODS');
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
             const allCategories = arr.map(item => {
               return this.getCategory(item);
             });
             return Promise.all(allCategories).then(array => {
-              // console.log(array);
-
-              // console.log(data.allCategories);
               return data.allCategories;
             });
-            // console.log(ar);
           });
         }
         // this.transformAllCategories(res.data);
@@ -322,7 +310,6 @@ export const api = {
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
-        console.log('DATA filterFavAdv');
         const arrFavAdv = this.filterFavAdv(favArr, advArr);
         resolve(arrFavAdv);
       });
@@ -331,7 +318,6 @@ export const api = {
       res('res');
     })
       .then(res => {
-        console.log('AXIOS filterFavAdv');
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
             const allCategories = arr.map(item => {
