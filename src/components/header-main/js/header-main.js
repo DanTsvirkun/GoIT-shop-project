@@ -150,18 +150,6 @@ function findGoods() {
   }
 }
 
-// function closeCategoryTwo() {
-//   refs.wholeCategory.innerHTML = '';
-//   closeCategory.classList.add('hide');
-//   refs.wholeCategory.classList.add('hide');
-//   refs.sectionAds.classList.remove('hide');
-//   catContainer.classList.remove('hide');
-//   refs.loadMore.classList.remove('hide');
-//   refs.wholeCategory.classList.remove('all-category-show');
-//   refs.closeCategory.classList.remove('close-category-show');
-//   clearActiveCategory();
-// }
-
 window.addEventListener(
   'resize',
   throttle(() => {
@@ -175,18 +163,18 @@ const touchStart = throttle(handleTouchStart, 500);
 const touchMove = throttle(handleTouchMove, 500);
 
 if (window.matchMedia('(max-width: 767px)').matches) {
-  refs.header.addEventListener('touchstart', touchStart);
+  document.addEventListener('touchstart', touchStart);
   document.addEventListener('touchmove', touchMove);
 }
 
 window.addEventListener(
   'resize',
   debounce(() => {
-    refs.header.removeEventListener('touchstart', touchStart);
+    document.removeEventListener('touchstart', touchStart);
     document.removeEventListener('touchmove', touchMove);
 
     if (window.matchMedia('(max-width: 767px)').matches) {
-      refs.header.addEventListener('touchstart', touchStart);
+      document.addEventListener('touchstart', touchStart);
       document.addEventListener('touchmove', touchMove);
     }
   }, 500),
@@ -220,7 +208,7 @@ function handleTouchMove(evt) {
     if (xDiff > 0) {
       closeMobileMenu();
     } else {
-      showMobileMenu();
+      return;
     }
   } else {
     if (yDiff > 0) {
