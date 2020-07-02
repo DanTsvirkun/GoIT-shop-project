@@ -3,7 +3,8 @@ import refs from './refs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
-import { nameAllCategories } from '../../services/api';
+import { eachCategory } from '../../section-categories/each-category';
+import { closeCategory } from '../../section-categories/each-category';
 
 const arrayFromBack = [
   'Недвижимость',
@@ -42,6 +43,7 @@ function activeCategory(e) {
       return;
     }
     e.target.classList.add('active-category');
+    eachCategory(e);
   }
 }
 
@@ -49,6 +51,7 @@ function clearActiveCategory() {
   if (document.querySelector('.active-category')) {
     let activeCategoryATM = document.querySelector('.active-category');
     activeCategoryATM.classList.remove('active-category');
+    closeCategory();
   }
 }
 
@@ -91,6 +94,7 @@ function showTabletFilters() {
   } else {
     refs.categoriesTablet.innerHTML = '';
     refs.categoriesTablet.style.display = 'none';
+    closeCategory();
   }
 }
 
