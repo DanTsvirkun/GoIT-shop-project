@@ -9,4 +9,4 @@ export default {
   'for-free': [],
   exchange: [],
   advertisement: [],
-}
+};

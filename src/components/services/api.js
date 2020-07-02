@@ -12,7 +12,7 @@ import {
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
 const mainUrl = 'https://project-88172.firebaseio.com/olx';
 
-const nameAllCategories = [
+export const nameAllCategories = [
   'electronics',
   'property',
   'transport',
@@ -112,8 +112,8 @@ export const api = {
         });
       }
       return new Promise(res => {
-          res('res');
-        })
+        res('res');
+      })
         .then(res => {
           console.log('AXIOS SEARCH WORD');
           if (requestedArray.length < nameAllCategories.length) {
@@ -235,8 +235,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         console.log('AXIOS ALL_GOODS');
         if (requestedArray.length < nameAllCategories.length) {
@@ -315,7 +315,7 @@ export const api = {
     const favorites = JSON.parse(localStorage.getItem('user-info')).favorites;
     return favorites.includes(id);
   },
-// Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
+  // Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
   filterFavAdv(favArr, advArr) {
     if (
       data.allCategories.length > 0 &&
@@ -323,13 +323,13 @@ export const api = {
     ) {
       return new Promise(resolve => {
         console.log('DATA filterFavAdv');
-        const arrFavAdv = this.filterFavAdv(favArr, advArr)
-        resolve(arrFavAdv)
+        const arrFavAdv = this.filterFavAdv(favArr, advArr);
+        resolve(arrFavAdv);
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         console.log('AXIOS filterFavAdv');
         if (requestedArray.length < nameAllCategories.length) {
@@ -338,10 +338,9 @@ export const api = {
               return this.getCategory(item);
             });
             return Promise.all(allCategories).then(array => {
-              const arrFavAdv = this.filterFavAdv(favArr, advArr)
-              return arrFavAdv
+              const arrFavAdv = this.filterFavAdv(favArr, advArr);
+              return arrFavAdv;
             });
-
           });
         }
       })
@@ -350,21 +349,20 @@ export const api = {
       });
   },
   filterFavAdv(favArr, advArr) {
-    const favourites = data.allCategories.filter((item) => {
-      return favArr.includes(item.id)
-    })
-    const advertisement = data.allCategories.filter((item) => {
-      return advArr.includes(item.id)
-    })
+    const favourites = data.allCategories.filter(item => {
+      return favArr.includes(item.id);
+    });
+    const advertisement = data.allCategories.filter(item => {
+      return advArr.includes(item.id);
+    });
     // const arrFavAdv = [filteredFavArr, filteredAdvArr]
-   const  arrFavAdv = {
+    const arrFavAdv = {
       favourites,
-      advertisement
-    }
-    return arrFavAdv
+      advertisement,
+    };
+    return arrFavAdv;
   },
-}
-
+};
 
 // const fn = function () {
 //   api.searchGoods('к').then(data => console.log(data));
@@ -394,7 +392,6 @@ export const api = {
 // })
 
 // api.filterFavAdv()
-
 
 // api.getCategory('work')
 // api.getCategory('property')
@@ -449,8 +446,6 @@ export const api = {
 //      })
 //      .catch(err => console.log(err));
 //  },
-
-
 
 // console.log(localStorage.getItem('user-info'));
 
