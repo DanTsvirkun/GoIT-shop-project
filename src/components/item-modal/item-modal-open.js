@@ -15,5 +15,6 @@ function customFunc(e) {
   console.log(currentLiId);
   api.searchId(currentLiId).then(data => {
     funcMarkup(data);
+    console.log(data);
   });
 }
