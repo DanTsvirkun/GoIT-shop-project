@@ -70,7 +70,6 @@ export function murkupAuthForm(dataset) {
 export function isLogIn() {
   if (localStorage.getItem('user-info')) {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-    console.log(localUserId);
 
     getUserInfo(localUserId).then(res => {
       signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
@@ -126,32 +125,3 @@ function hendelSignOut(e) {
   signOutUser();
   isLogIn();
 }
-
-// function showUserInfo(obj) {
-//   userInfoHtml.innerHTML = `Здравствуйте: ${obj.firstName} ${obj.secondName}. Эмейл: ${obj.email}. Телефон: ${obj.phone}`;
-// }
-
-// AVATAR
-// const fileForm = document.forms.fileForm;
-
-// function toDataURL(element) {
-//   return new Promise(resolve => {
-//     const reader = new FileReader();
-
-//     reader.onloadend = () => resolve(reader.result);
-//     reader.readAsDataURL(element.files[0]);
-//   });
-// }
-
-// const createbase = e => {
-//   e.preventDefault();
-
-//   const element = fileForm.elements.fileFormInput;
-
-//   toDataURL(element).then(data => {
-//     const localUserObj = JSON.parse(localStorage.getItem('user-info'));
-//     updateUserAvatar(localUserObj.userId, data, localUserObj.token);
-//   });
-// };
-
-// fileForm.addEventListener('submit', createbase);
