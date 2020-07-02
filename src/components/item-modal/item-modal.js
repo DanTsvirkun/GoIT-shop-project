@@ -11,8 +11,6 @@ let idItem = null;
 let heart = null;
 
 export const funcMarkup = data => {
-  console.log(data);
-
   const closeModal = modalBackDrop(itemModalCardTablet(data));
   let favBlock = document.querySelector('.item_modal--icons');
   const closeBtn = document.querySelector('.icon-cross');
@@ -44,6 +42,8 @@ export const funcMarkup = data => {
       showSellerBtn.classList.remove('item_modal--tablet--button-buy-active');
     }
   }
+  let allLiImg = document.querySelectorAll('.slider_image-min');
+  allLiImg[0].classList.add('slider_image-min--active');
 };
 
 function heartAttack(e) {

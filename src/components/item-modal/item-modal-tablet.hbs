@@ -10,8 +10,7 @@
 
                     <ul class="images-mini">
                         {{#each image}}
-                        <li class="slider_image-min--active slider_image-min"><img class="sm-photo--style"
-                                src="{{this}}" alt="">
+                        <li class="slider_image-min"><img class="sm-photo--style" src="{{this}}" alt="">
                         </li>
                         {{/each}}
                     </ul>
@@ -32,16 +31,11 @@
                 </p>
                 <button class="item_modal--tablet--button-buy">Информация о продавце</button>
                 <div class="show-hide-phone">
-                    {{!-- <div class="item_modal-seller">
-                        <p class="item_modal-seller--header">Продавец: <span class="item_modal-seller--name">Имя</span>
-                        </p>
-                        <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
-                    </div> --}}
                     <ul class="item_modal-seller">
-                        <li><img src="https://dummyimage.com/200x200/000/fff" alt="" class="avatar"></li>
+                        <li><img src="{{avatar}}" alt="{{firstName}}" class="avatarAuth"></li>
                         <li>
                             <p class="item_modal-seller--header">Продавец: <span
-                                    class="item_modal-seller--name">Имя</span>
+                                    class="item_modal-seller--name">{{firstName}}</span>
                             </p>
                             <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
                         </li>

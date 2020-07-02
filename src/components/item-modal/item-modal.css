@@ -216,11 +216,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.avatar {
+.avatarAuth {
   width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid #ff6b08;
-  transition: 0.4s;
   margin-right: 20px;
 }
 .item_modal-seller--header {
