@@ -10,8 +10,8 @@
 export const modalBackDrop = innerElement => {
   const container = document.querySelector('.modal');
   const createModalMarkup = closeModal => {
-    return `   
-        ${innerElement}   
+    return `
+        ${innerElement}
     `;
   };
 
