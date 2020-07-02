@@ -2,6 +2,7 @@
   .arround-block__list {
     display: flex;
     justify-content: space-evenly;
+    /* height: 220px; */
   }
   .arround__item:first-of-type {
     background-color: #dcdde0;
@@ -17,8 +18,8 @@
     align-items: center;
   }
   .arround-img {
-    object-fit: cover;
-    width: 170px;
+    max-width: 170px;
+    max-height: 200px;
   }
   .arround-name {
     display: block;
@@ -33,7 +34,7 @@
   .arround-price {
     font-size: 42px;
     font-family: 'Montserrat';
-    color: rgb(0, 0, 0);
+    color: rgb(255, 107, 8);
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
@@ -42,7 +43,7 @@
   .arround-currency {
     font-size: 11px;
     font-family: 'Montserrat';
-    color: rgb(0, 0, 0);
+    color: rgb(255, 107, 8);
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
@@ -50,6 +51,9 @@
   }
 }
 @media (min-width: 1280px) {
+  .arround-block__list {
+    height: 480px;
+  }
   .arround__item:first-of-type {
     background-color: #dcdde0;
   }
@@ -67,8 +71,8 @@
     align-items: center;
   }
   .arround-img {
-    object-fit: cover;
-    width: 170px;
+    max-width: 170px;
+    max-height: 210px;
   }
   .arround-name {
     display: block;

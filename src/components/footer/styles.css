@@ -1,0 +1,44 @@
+.text-1 {
+  margin-bottom: 22px;
+}
+
+.footer {
+  background-color: #1e2939;
+  color: #767e85;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 42px 0 42px 0;
+  text-align: center;
+}
+
+.line-1::after {
+  position: absolute;
+  content: '';
+  background-image: url(../images/vertical-line.png);
+  width: 1px;
+  height: 12px;
+}
+
+@media (min-width: 768px) {
+
+  .line-2::after {
+    position: absolute;
+    content: '';
+    background-image: url(../images/vertical-line.png);
+    width: 1px;
+    height: 12px;
+   }
+
+  .text-1, .text-2 {
+    display: inline-block;
+   }
+
+   .text-1 {
+     margin-bottom: 0;
+   }
+
+  .footer {
+    padding: 60px 0 60px 0;
+  }
+ }

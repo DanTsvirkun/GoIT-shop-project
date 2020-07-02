@@ -18,10 +18,10 @@
    transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
 }
 
-​ .show-modal {
-   pointer-events: initial;
-   opacity: 1;
-   visibility: visible;
+.show-modal{
+  pointer-events: initial;
+  opacity: 1;
+  visibility: visible;
 }
 
 /***************For example*******************/

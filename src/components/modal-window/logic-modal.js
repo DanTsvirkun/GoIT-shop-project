@@ -22,6 +22,7 @@ export const modalBackDrop = innerElement => {
     document.removeEventListener('keydown', close);
     document.querySelector('body').style.overflow = 'unset';
   };
+
   const close = e => {
     if (
       e.target === document.querySelector('.modalContainer') ||
