@@ -1,18 +1,6 @@
 
 /* =========VALIDATION=========== */
 
-/* form input:valid{
-
-}
-
-form input:invalid{
-  border: 2px solid red;
-} */
-
-/* .bad{
-  border: 2px solid red;
-} */
-
 .hide-price{
   display: none;
 }
@@ -162,7 +150,7 @@ align-items: center;
   appearance: none;
   color: rgb(187, 187, 187);
   padding-left: 18px;
-  background-image: url(./adv-images/Icon drop down.png);
+  background-image: url(./adv-images/icon-drop-down.png);
   background-repeat: no-repeat;
   background-position: 90% 50%;
   cursor: pointer;
