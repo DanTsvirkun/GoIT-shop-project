@@ -43,7 +43,6 @@ refs.mobileBurger.addEventListener('click', showMobileMenu);
 refs.mobileSearch.addEventListener('click', showMobileInput);
 
 refs.cross.addEventListener('click', closeMobileMenu);
-// refs.inputCross.addEventListener('click', cl);
 
 refs.tabletFiltersBtn.addEventListener('click', showTabletFilters);
 
@@ -112,18 +111,25 @@ function showTabletFilters() {
   }
 }
 
-function findGoods() {
+let itemList;
+
+function preFindGoods() {
   catContainer.classList.add('hide');
   refs.sectionAds.classList.add('hide');
   refs.wholeCategory.classList.remove('hide');
   refs.loadMore.classList.add('hide');
   refs.wholeCategory.innerHTML = categoryTemplate();
-  const itemList = document.querySelector('.things-list');
+  itemList = document.querySelector('.things-list');
   itemList.classList.add('category-line');
   refs.closeCategory.classList.remove('hide');
   refs.wholeCategory.classList.add('container');
+}
+
+function findGoods() {
+  clearActiveCategory();
 
   if (refs.tabletInput.value !== '') {
+    preFindGoods();
     api.searchGoods(refs.tabletInput.value).then(data => {
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
@@ -133,6 +139,7 @@ function findGoods() {
   }
 
   if (refs.PCInput.value !== '') {
+    preFindGoods();
     api.searchGoods(refs.PCInput.value).then(data => {
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
@@ -142,6 +149,7 @@ function findGoods() {
   }
 
   if (refs.mobileInput.value !== '') {
+    preFindGoods();
     api.searchGoods(refs.mobileInput.value).then(data => {
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
