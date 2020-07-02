@@ -2,7 +2,6 @@ import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
-import Swup from 'swup';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
