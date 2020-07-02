@@ -1,42 +1,42 @@
 /*************Global settings*******************/
 ​ .modalContainer {
- ​ position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  overflow-x: hidden;
+   ​position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: 3;
+   pointer-events: none;
+   opacity: 0;
+   visibility: hidden;
+   background-color: rgba(0, 0, 0, 0.3);
+   overflow-y: auto;
+   overflow-x: hidden;
 }
 
 ​ .transition-effect {
-  transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+   transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
 }
 
 ​ .show-modal {
-  pointer-events: initial;
-  opacity: 1;
-  visibility: visible;
+   pointer-events: initial;
+   opacity: 1;
+   visibility: visible;
 }
 
 /***************For example*******************/
 ​ .innerBlock2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 500px;
-  background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 300px;
+   height: 500px;
+   background-color: white;
 }
 
 ​ .closeBtnAdv {
-  position: absolute;
-  top: 5px;
-  right: 5px;
+   position: absolute;
+   top: 5px;
+   right: 5px;
 }
