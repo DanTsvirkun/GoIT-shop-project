@@ -47,7 +47,7 @@ function activeCategory(e) {
   }
 }
 
-function clearActiveCategory() {
+export function clearActiveCategory() {
   if (document.querySelector('.active-category')) {
     let activeCategoryATM = document.querySelector('.active-category');
     activeCategoryATM.classList.remove('active-category');
@@ -60,6 +60,7 @@ function showMobileFilters() {
     refs.categoriesMobile.innerHTML = categoriesMarkup;
   } else {
     refs.categoriesMobile.innerHTML = '';
+    closeCategory();
   }
 }
 
