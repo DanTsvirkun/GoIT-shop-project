@@ -19,6 +19,25 @@ input[type='search']::-webkit-search-results-decoration {
   background: url(../images/logo-basic.png);
   margin: 0 auto;
 }
+.header__chat-link {
+  position: absolute;
+  font-family: 'MontserratMedium', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  color: #fff;
+  transform: translate(500px, 0);
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.5s;
+}
+.header__chat-link:hover {
+  color: #ff6b08;
+}
+
+.mobile-menu-closed .header__chat-link {
+  transform: translate(34vw, 90vh);
+  color: #818181;
+}
 
 .mobile-menu-closed {
   position: absolute;
@@ -429,6 +448,10 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+  .header__chat-link {
+    transform: translate(75px, 0px);
+  }
+
   .categories-filter-tablet {
     display: none;
     height: 100px;

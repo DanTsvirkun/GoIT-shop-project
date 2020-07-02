@@ -76,6 +76,7 @@ function showMobileFilters() {
 }
 
 function showMobileMenu() {
+  window.scrollTo(0, 0);
   refs.body.style.overflow = 'hidden';
   refs.mobileMenuClosed.classList.add('mobile-menu-opened');
 }
@@ -175,18 +176,18 @@ const touchStart = throttle(handleTouchStart, 500);
 const touchMove = throttle(handleTouchMove, 500);
 
 if (window.matchMedia('(max-width: 767px)').matches) {
-  refs.header.addEventListener('touchstart', touchStart);
+  document.addEventListener('touchstart', touchStart);
   document.addEventListener('touchmove', touchMove);
 }
 
 window.addEventListener(
   'resize',
   debounce(() => {
-    refs.header.removeEventListener('touchstart', touchStart);
+    document.removeEventListener('touchstart', touchStart);
     document.removeEventListener('touchmove', touchMove);
 
     if (window.matchMedia('(max-width: 767px)').matches) {
-      refs.header.addEventListener('touchstart', touchStart);
+      document.addEventListener('touchstart', touchStart);
       document.addEventListener('touchmove', touchMove);
     }
   }, 500),
@@ -220,7 +221,7 @@ function handleTouchMove(evt) {
     if (xDiff > 0) {
       closeMobileMenu();
     } else {
-      showMobileMenu();
+      return;
     }
   } else {
     if (yDiff > 0) {
