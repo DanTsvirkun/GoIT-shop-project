@@ -4,15 +4,14 @@
 /* ============================================================================= */
 .adv-modal{
   position: relative;  
-  top: 10%; 
-  margin: 0 auto;
+  top: 10%;      
   width: 280px;  
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1); 
   padding-top: 40px;
   padding-bottom: 40px;
   transition: 0.5s;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 .adv-modal__close-btn{
   position: absolute;
@@ -25,9 +24,7 @@
   background-image: url('../../assets/icons/close/close-24px.svg');
   background-repeat: no-repeat;
   background-position: center;
-}
-.adv-modal__close-btn:focus{
-  outline: 1px solid rgb(255, 107, 8); 
+  cursor: pointer;
 }
 .adv-modal__form--title{
   font-family: 'MontserratBold';
@@ -47,7 +44,6 @@ align-items: center;
 .adv-modal__product-description-title,
 .adv-modal__product-select-title,
 .adv-modal__product-price-title,
-.adv-modal__product-telephone-number-title,
 .adv-modal__product-photos-title{
   display: none;
 }
@@ -62,11 +58,19 @@ align-items: center;
   margin-bottom: 20px; 
   transition: 0.5s;
 }
+.input:required:invalid:not(:placeholder-shown) {
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgb(247, 243, 242);
+}
+.input:required:valid:not(:placeholder-shown) {
+  border: 1px solid rgb(0, 128, 0);
+  background-color: rgb(242, 247, 238);
+}
+
 .input:hover,
 .input:focus{
   outline: none;
   border: 1px solid rgb(255, 107, 8); 
-  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);  */
 }
 .input::placeholder{
   font-family: 'MontserratMedium';
@@ -76,8 +80,7 @@ align-items: center;
 }
 .adv-modal__product-name,
 .adv-modal__product-description,
-.adv-modal__product-price,
-.adv-modal__product-telephone-number{
+.adv-modal__product-price{
   font-size: 14px;
   font-family: 'MontserratMedium'; 
   padding-left: 18px;  
@@ -95,15 +98,11 @@ align-items: center;
 .choose-this{  
   background-image: url("./adv-images/+.png");
   background-repeat: no-repeat;
-  background-position: center; 
-  /* transition: 0.5s; */
+  background-position: center;  
 }
 .choose-this:hover,
-.choose-this:focus{
-  outline: none;  
+.choose-this:focus{   
   cursor: pointer;
-  border: 1px solid rgb(255, 107, 8); 
-  /* box-shadow: 0px 1px 10px 5px rgba(255, 107, 8, 0.4);   */
 }
 .photo-input{
   display: none;
@@ -120,6 +119,7 @@ align-items: center;
   object-fit: cover;
 }
 .adv-modal__product-description{
+  resize: none;
   padding-top: 16px;
   padding-right: 20px;
 }
@@ -132,7 +132,7 @@ align-items: center;
   background-position: 90% 50%;
   cursor: pointer;
 }
-.adv-modal__product-telephone-number{
+.adv-modal__product-price{
   margin-bottom: 30px;
 }
 .add-product-btn{  
@@ -154,8 +154,11 @@ align-items: center;
   outline: none;
 }
 /* ============================================================================= */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
+
   .adv-modal{
+    top: 50%;  
+    transform: translateY(-50%);
     width: 720px;       
     box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.25);
     padding-top: 48px;
@@ -176,8 +179,7 @@ align-items: center;
   .adv-modal__product-name-title,
   .adv-modal__product-description-title,
   .adv-modal__product-select-title,
-  .adv-modal__product-price-title,
-  .adv-modal__product-telephone-number-title,
+  .adv-modal__product-price-title,  
   .adv-modal__product-photos-title{
     display: block;
     font-size: 14px;
@@ -222,11 +224,7 @@ align-items: center;
   }
   .adv-modal__product-select{   
     background-position: 95% 50%;
-  }
-  .adv-modal__product-telephone-number::placeholder{
-    font-family: 'MontserratLight';
-    font-style: italic;
-  }
+  } 
   .add-product-btn{  
     width: 294px;
     height: 60px;
