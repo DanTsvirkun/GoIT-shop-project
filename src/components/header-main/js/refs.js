@@ -14,6 +14,7 @@ export default {
   mobileBurger: document.querySelector('.mobile-burger'),
   mobileSearch: document.querySelector('.mobile-search'),
   mobileInput: document.querySelector('.mobile-input-closed'),
+  mobileInputOpened: document.querySelector('.mobile-input'),
   inputSearch: document.querySelector('.mobile-input-btn'),
   inputCross: document.querySelector('.mobile-input-cross'),
   cross: document.querySelector('.close-menu'),

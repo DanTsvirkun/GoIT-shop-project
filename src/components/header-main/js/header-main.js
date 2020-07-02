@@ -26,6 +26,8 @@ refs.inputButtonPcTablet.forEach(button =>
   button.addEventListener('click', findGoods),
 );
 
+refs.inputSearch.addEventListener('click', findGoods);
+
 const catContainer = refs.sectionCategories.querySelector('.container');
 refs.categories.insertAdjacentHTML('beforeend', categoriesMarkup);
 
@@ -41,7 +43,7 @@ refs.mobileBurger.addEventListener('click', showMobileMenu);
 refs.mobileSearch.addEventListener('click', showMobileInput);
 
 refs.cross.addEventListener('click', closeMobileMenu);
-// refs.closeCategory.addEventListener('click', closeCategoryTwo);
+// refs.inputCross.addEventListener('click', cl);
 
 refs.tabletFiltersBtn.addEventListener('click', showTabletFilters);
 
@@ -95,6 +97,7 @@ function closeMobileInput() {
   refs.inputSearch.style.display = 'none';
   refs.inputCross.style.display = 'none';
   refs.inputCross.removeEventListener('click', closeMobileInput);
+  closeCategory();
 }
 
 function showTabletFilters() {
@@ -136,19 +139,28 @@ function findGoods() {
     });
     return;
   }
+
+  if (refs.mobileInput.value !== '') {
+    api.searchGoods(refs.mobileInput.value).then(data => {
+      itemList.innerHTML = categoryItemTemplate(data);
+      refs.wholeCategory.classList.add('all-category-show');
+      refs.closeCategory.classList.add('close-category-show');
+    });
+    return;
+  }
 }
 
-function closeCategoryTwo() {
-  refs.wholeCategory.innerHTML = '';
-  closeCategory.classList.add('hide');
-  refs.wholeCategory.classList.add('hide');
-  refs.sectionAds.classList.remove('hide');
-  catContainer.classList.remove('hide');
-  refs.loadMore.classList.remove('hide');
-  refs.wholeCategory.classList.remove('all-category-show');
-  refs.closeCategory.classList.remove('close-category-show');
-  clearActiveCategory();
-}
+// function closeCategoryTwo() {
+//   refs.wholeCategory.innerHTML = '';
+//   closeCategory.classList.add('hide');
+//   refs.wholeCategory.classList.add('hide');
+//   refs.sectionAds.classList.remove('hide');
+//   catContainer.classList.remove('hide');
+//   refs.loadMore.classList.remove('hide');
+//   refs.wholeCategory.classList.remove('all-category-show');
+//   refs.closeCategory.classList.remove('close-category-show');
+//   clearActiveCategory();
+// }
 
 window.addEventListener(
   'resize',
