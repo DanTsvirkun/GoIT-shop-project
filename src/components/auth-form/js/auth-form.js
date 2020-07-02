@@ -16,14 +16,15 @@ import signOut from '../templates/sign-out.hbs';
 import accMenu from '../templates/acc-menu.hbs';
 import { modalBackDrop } from '../../modal-window/logic-modal';
 
-const signInUpDiv = refs.authBlock;
-const signInUpDivMob = refs.authBlockMobile;
-
 let closeAuthModal;
 let repeatPass;
 let signInForm;
+let goToRegister;
 let signUpForm;
 let signOutForm;
+
+const signInUpDiv = refs.authBlock;
+const signInUpDivMob = refs.authBlockMobile;
 
 signInUpDiv.addEventListener('click', hendelClickSignInUp);
 signInUpDivMob.addEventListener('click', hendelClickSignInUp);
@@ -50,6 +51,8 @@ export function murkupAuthForm(dataset) {
     signInForm.addEventListener('submit', e =>
       hendelSubmitSignIn(e, closeModal),
     );
+    goToRegister = document.querySelector('.js-go-to-register');
+    goToRegister.addEventListener('click', hendelGoToRegister);
   } else {
     const closeModal = modalBackDrop(signUp());
     repeatPass = document.querySelector('.auth-modal__input-repeat');
@@ -99,6 +102,10 @@ function hendelInputSave(e) {
       ? (repeatPass.style.border = '1px solid green')
       : (repeatPass.style.border = '1px solid red');
   }
+}
+
+function hendelGoToRegister() {
+  murkupAuthForm('signup');
 }
 
 function hendelSubmitSignIn(e, closeModal) {
