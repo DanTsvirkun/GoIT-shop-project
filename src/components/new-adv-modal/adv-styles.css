@@ -1,5 +1,4 @@
 
-/* =========VALIDATION=========== */
 
 .hide-price{
   display: none;
@@ -9,15 +8,15 @@
 
 .adv-modal{
   position: relative;  
-  top: 10%; 
-  margin: 0 auto;
+  top: 50%;  
+  transform: translateY(-50%);  
   width: 280px;  
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1); 
   padding-top: 40px;
   padding-bottom: 40px;
   transition: 0.5s;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .adv-modal__close-btn{
@@ -31,9 +30,10 @@
   background-image: url('../../assets/icons/close/close-24px.svg');
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
-.adv-modal__close-btn:focus{
+.adv-modal__close-btn:focus,{
   outline: 1px solid rgb(255, 107, 8); 
 }
 
