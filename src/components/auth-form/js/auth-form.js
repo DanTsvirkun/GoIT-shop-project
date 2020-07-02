@@ -119,17 +119,6 @@ function hendelSignOut(e) {
   isLogIn();
 }
 
-// const userInfoHtml = document.querySelector('.user-info');
-// const resultIMG = document.querySelector('.resultIMG');
-
-// function userInfo() {
-//   if (localStorage.getItem('user-info')) {
-//     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-//     getUserInfo(localUserId).then(res => showUserInfo(res.data));
-//   }
-// }
-// userInfo();
-
 // function showUserInfo(obj) {
 //   userInfoHtml.innerHTML = `Здравствуйте: ${obj.firstName} ${obj.secondName}. Эмейл: ${obj.email}. Телефон: ${obj.phone}`;
 // }
