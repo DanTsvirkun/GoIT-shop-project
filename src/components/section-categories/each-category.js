@@ -46,6 +46,7 @@ function call(name, show) {
       behavior: 'smooth',
     });
     viewAllDiv.classList.add('all-category-show');
+    close.classList.add('close-category-show');
   });
 }
 // =================================================
@@ -57,6 +58,7 @@ function closeCategory() {
   catContainer.classList.remove('hide');
   loadMore.classList.remove('hide');
   viewAllDiv.classList.remove('all-category-show');
+  close.classList.remove('close-category-show');
 }
 // ==================================================
 function mainInfo(word) {

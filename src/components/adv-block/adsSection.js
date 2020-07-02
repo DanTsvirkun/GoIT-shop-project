@@ -30,6 +30,7 @@ function changeSize() {
       .then(item => {
         blockList.innerHTML = item;
         const mySiema = new Siema({
+          draggable: false,
           selector: blockList,
           loop: true,
           duration: 1000,
@@ -51,6 +52,7 @@ function changeSize() {
     api.getAdvertisement().then(data => {
       blockList.innerHTML = data.map(item => adsTemplateMD(item));
       const mySiema = new Siema({
+        draggable: false,
         selector: blockList,
         loop: true,
         duration: 1000,
@@ -73,6 +75,7 @@ function changeSize() {
     api.getAdvertisement().then(data => {
       blockList.innerHTML = data.map(item => adsTemplateMD(item));
       const mySiema = new Siema({
+        draggable: false,
         selector: blockList,
         loop: true,
         duration: 1000,
