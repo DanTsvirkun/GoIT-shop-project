@@ -4,8 +4,8 @@ import Siema from 'siema';
 import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
-// import { showItemModal } from '../item-modal/item-modal-open';
-// ========================================
+import { showItemModal } from '../item-modal/item-modal-open';
+import throttle from 'lodash.throttle';
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
 let counterStartIdx = 0;
@@ -79,36 +79,107 @@ function test(word) {
     const slideNext = document.querySelector(
       `.${category}-wrapper .slide-next`,
     );
+    // ===================================================
+
     if (window.matchMedia('(max-width: 767px)').matches) {
       const mySiema = new Siema({
         selector: list,
         loop: true,
-        duration: 1000,
+        duration: 200,
       });
-      setInterval(() => {
-        mySiema.next();
-      }, 4000);
+      window.addEventListener(
+        'resize',
+        throttle(() => {
+          if (
+            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
+              .matches
+          ) {
+            mySiema.perPage = 2;
+            mySiema.loop = false;
+            mySiema.config.perPage = 2;
+            mySiema.config.loop = false;
+          } else if (window.matchMedia('(min-width: 1280px)').matches) {
+            mySiema.perPage = 4;
+            mySiema.loop = false;
+            mySiema.config.perPage = 4;
+            mySiema.config.loop = false;
+          } else if (window.matchMedia('(max-width: 767px)').matches) {
+            mySiema.perPage = 1;
+            mySiema.loop = true;
+            mySiema.config.perPage = 1;
+            mySiema.config.loop = false;
+          }
+        }, 300),
+      );
     } else if (
       window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
     ) {
-      const mySiema = new Siema({
+      const mySiemaTablet = new Siema({
         selector: list,
         duration: 200,
         perPage: 2,
       });
-      slidePrev.addEventListener('click', () => mySiema.prev());
-      slideNext.addEventListener('click', () => mySiema.next());
+      slidePrev.addEventListener('click', () => mySiemaTablet.prev());
+      slideNext.addEventListener('click', () => mySiemaTablet.next());
+      window.addEventListener(
+        'resize',
+        throttle(() => {
+          if (window.matchMedia('(max-width: 767px)').matches) {
+            mySiemaTablet.perPage = 1;
+            mySiemaTablet.loop = true;
+            mySiemaTablet.config.perPage = 1;
+            mySiemaTablet.config.loop = true;
+          } else if (window.matchMedia('(min-width: 1280px)').matches) {
+            mySiemaTablet.perPage = 4;
+            mySiemaTablet.loop = false;
+            mySiemaTablet.config.perPage = 4;
+            mySiemaTablet.config.loop = false;
+          } else if (
+            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
+              .matches
+          ) {
+            mySiemaTablet.perPage = 2;
+            mySiemaTablet.loop = false;
+            mySiemaTablet.config.perPage = 2;
+            mySiemaTablet.config.loop = false;
+          }
+        }, 300),
+      );
     } else if (window.matchMedia('(min-width: 1280px)').matches) {
-      const mySiema = new Siema({
+      const mySiemaPC = new Siema({
         selector: list,
         duration: 200,
         perPage: 4,
       });
-      slidePrev.addEventListener('click', () => mySiema.prev());
-      slideNext.addEventListener('click', () => mySiema.next());
+      slidePrev.addEventListener('click', () => mySiemaPC.prev());
+      slideNext.addEventListener('click', () => mySiemaPC.next());
+      window.addEventListener(
+        'resize',
+        throttle(() => {
+          if (window.matchMedia('(max-width: 767px)').matches) {
+            mySiemaPC.perPage = 1;
+            mySiemaPC.loop = true;
+            mySiemaPC.config.perPage = 1;
+            mySiemaPC.config.loop = true;
+          } else if (
+            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
+              .matches
+          ) {
+            mySiemaPC.perPage = 2;
+            mySiemaPC.loop = false;
+            mySiemaPC.config.perPage = 2;
+            mySiemaPC.config.loop = false;
+          } else if (window.matchMedia('(min-width: 1280px)').matches) {
+            mySiemaPC.perPage = 4;
+            mySiemaPC.loop = false;
+            mySiemaPC.config.perPage = 4;
+            mySiemaPC.config.loop = false;
+          }
+        }, 300),
+      );
     }
-    const ulX = document.querySelector(`.${word}`);
-    // showItemModal(ulX);
+    const ulX = document.querySelector(`.${word}-list`);
+    showItemModal(ulX);
     btnLoadMore.classList.remove('hide');
     btnLoadMore.addEventListener('click', showMoreCategories);
     if (counterStartIdx === nameAllCategories.length - 1) {
@@ -123,49 +194,3 @@ function showMoreCategories(e) {
   }
   fnSwitch(counterStartIdx, counterEndIdx);
 }
-// ==============================================
-// import './categories-styles/category.css';
-// import './categories-styles/more-info.css';
-// import Siema from 'siema';
-// import main from './categories-templates/category-main.hbs';
-// import item from './categories-templates/category-item.hbs';
-// // ========================================
-// const categories = document.querySelector('.categories');
-// const container = categories.querySelector('.container');
-// // =================static=======================
-// container.insertAdjacentHTML('beforeend', main());
-// const list = document.querySelector('.things-list');
-// list.insertAdjacentHTML('beforeend', item());
-// // ========================================
-// const slidePrev = document.querySelector('.slide-prev');
-// const slideNext = document.querySelector('.slide-next');
-// // ========================================
-// if (window.matchMedia('(max-width: 767px)').matches) {
-//   const mySiema = new Siema({
-//     selector: list,
-//     loop: true,
-//     duration: 1000,
-//   });
-//   setInterval(() => {
-//     mySiema.next();
-//   }, 4000);
-// } else if (
-//   window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
-// ) {
-//   const mySiema = new Siema({
-//     selector: list,
-//     duration: 200,
-//     perPage: 2,
-//   });
-//   slidePrev.addEventListener('click', () => mySiema.prev());
-//   slideNext.addEventListener('click', () => mySiema.next());
-// } else if (window.matchMedia('(min-width: 1280px)').matches) {
-//   const mySiema = new Siema({
-//     selector: list,
-//     duration: 200,
-//     perPage: 4,
-//   });
-//   slidePrev.addEventListener('click', () => mySiema.prev());
-//   slideNext.addEventListener('click', () => mySiema.next());
-// }
-// =========================================

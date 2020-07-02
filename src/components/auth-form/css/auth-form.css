@@ -1,0 +1,161 @@
+.auth-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1);
+  padding: 40px 0;
+}
+
+.auth-modal__close-btn {
+  position: absolute;
+  top: 22px;
+  right: 16px;
+  background-color: transparent;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../../assets/icons/close/close-24px.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.auth-modal__form--title {
+  font-family: 'MontserratBold';
+  font-size: 18px;
+  color: rgb(51, 51, 51);
+  line-height: 1.2;
+  text-align: start;
+  margin-bottom: 25px;
+  margin-left: 18px;
+}
+
+.auth-modal__form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.auth-modal__input {
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+  width: 246px;
+  height: 48px;
+  line-height: 1.2;
+  outline: none;
+  border: 1px solid rgb(206, 210, 209);
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.auth-modal__input-repeat {
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+  width: 246px;
+  height: 48px;
+  line-height: 1.2;
+  outline: none;
+  border: 1px solid rgb(206, 210, 209);
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.auth-modal__input:required:invalid:not(:placeholder-shown) {
+  border: 1px solid red;
+}
+
+.auth-modal__input:required:valid:not(:placeholder-shown) {
+  border: 1px solid green;
+}
+
+.auth-modal__input::placeholder {
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgb(187, 187, 187);
+}
+
+.auth-modal__input-repeat::placeholder {
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgb(187, 187, 187);
+}
+
+.auth-modal__submit-btn {
+  width: 248px;
+  height: 50px;
+  background-color: rgb(255, 107, 8);
+  font-family: 'MontserratMedium';
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  line-height: 50px;
+  outline: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .auth-modal {
+    width: 600px;
+    box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 48px 0;
+  }
+
+  .auth-modal__form--title {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 36px;
+    margin-left: 54px;
+  }
+
+  .auth-modal__input {
+    font-size: 14px;
+    width: 400px;
+    height: 57px;
+    padding: 0 10px;
+  }
+
+  .auth-modal__input-repeat {
+    font-size: 14px;
+    width: 400px;
+    height: 57px;
+    padding: 0 10px;
+  }
+
+  .auth-modal__submit-btn {
+    width: 294px;
+    height: 60px;
+    font-size: 14px;
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .auth-modal {
+    padding: 54px 0;
+  }
+
+  .auth-modal__input {
+    height: 56px;
+    padding: 0 10px;
+  }
+
+  .auth-modal__input-repeat {
+    height: 56px;
+    padding: 0 10px;
+  }
+
+  .auth-modal__submit-btn {
+    width: 294px;
+    height: 60px;
+    margin: 0 auto;
+  }
+}

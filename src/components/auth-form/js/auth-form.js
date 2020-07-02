@@ -1,4 +1,5 @@
 import '../css/auth-style.css';
+import '../css/auth-form.css';
 
 import {
   getUserInfo,
@@ -18,12 +19,14 @@ import { modalBackDrop } from '../../modal-window/logic-modal';
 const signInUpDiv = refs.authBlock;
 const signInUpDivMob = refs.authBlockMobile;
 
-signInUpDiv.addEventListener('click', hendelClickSignInUp);
-signInUpDivMob.addEventListener('click', hendelClickSignInUp);
-
+let closeAuthModal;
+let repeatPass;
 let signInForm;
 let signUpForm;
 let signOutForm;
+
+signInUpDiv.addEventListener('click', hendelClickSignInUp);
+signInUpDivMob.addEventListener('click', hendelClickSignInUp);
 
 function hendelClickSignInUp(e) {
   if (!localStorage.getItem('user-info')) {
@@ -36,9 +39,11 @@ function hendelClickSignInUp(e) {
   }
 }
 
-function murkupAuthForm(dataset) {
+export function murkupAuthForm(dataset) {
   if (dataset === 'signin') {
     const closeModal = modalBackDrop(signIn());
+    closeAuthModal = document.querySelector('.auth-modal__close-btn');
+    closeAuthModal.addEventListener('click', closeModal);
 
     signInForm = document.querySelector('.auth-form-sign-in');
     signInForm.addEventListener('input', hendelInputSave);
@@ -47,6 +52,9 @@ function murkupAuthForm(dataset) {
     );
   } else {
     const closeModal = modalBackDrop(signUp());
+    repeatPass = document.querySelector('.auth-modal__input-repeat');
+    closeAuthModal = document.querySelector('.auth-modal__close-btn');
+    closeAuthModal.addEventListener('click', closeModal);
 
     signUpForm = document.querySelector('.auth-form-sign-up');
     signUpForm.addEventListener('input', hendelInputSave);
@@ -59,6 +67,7 @@ function murkupAuthForm(dataset) {
 export function isLogIn() {
   if (localStorage.getItem('user-info')) {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
+    console.log(localUserId);
 
     getUserInfo(localUserId).then(res => {
       signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
@@ -85,6 +94,12 @@ const inputData = {
 
 function hendelInputSave(e) {
   inputData[e.currentTarget.name][e.target.name] = e.target.value;
+
+  if (!(inputData.userSignUp.passwordRepeat === undefined)) {
+    inputData.userSignUp.password === inputData.userSignUp.passwordRepeat
+      ? (repeatPass.style.border = '1px solid green')
+      : (repeatPass.style.border = '1px solid red');
+  }
 }
 
 function hendelSubmitSignIn(e, closeModal) {
@@ -94,7 +109,10 @@ function hendelSubmitSignIn(e, closeModal) {
 
 function hendelSubmitSignUp(e, closeModal) {
   e.preventDefault();
-  signUpUser(inputData.userSignUp).then(() => closeModal());
+
+  if (inputData.userSignUp.password === inputData.userSignUp.passwordRepeat) {
+    signUpUser(inputData.userSignUp).then(() => closeModal());
+  }
 }
 
 function hendelSignOut(e) {

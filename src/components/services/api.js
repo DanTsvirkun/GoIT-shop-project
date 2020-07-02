@@ -14,7 +14,7 @@ const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
 const mainUrl = 'https://project-88172.firebaseio.com/olx';
 // https://goit-shop-from-21st-bootcamp.firebaseio.com/
 
-const nameAllCategories = [
+export const nameAllCategories = [
   'electronics',
   'property',
   'transport',
