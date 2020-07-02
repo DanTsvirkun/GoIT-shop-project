@@ -7,13 +7,17 @@
 //так как на него повешены глобальные настройки
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const modalBackDrop = innerElement => {
+
+
+export const modalBackDrop = (innerElement) => {
+  const body = document.querySelector('body');
   const container = document.querySelector('.modal');
-  const createModalMarkup = closeModal => {
+  const createModalMarkup = (closeModal) => { 
+  body.classList.add('lockOverflow'); 
     return `   
         ${innerElement}   
-    `;
-  };
+    `;        
+  }
 
   const closeModal = () => {
     container.classList.remove('show-modal');
