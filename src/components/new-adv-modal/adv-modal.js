@@ -126,7 +126,8 @@ function saveData(event) {
   const userInfo = JSON.parse(localStorage.getItem('user-info'));
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
-  const productPrice = event.currentTarget.elements.productPrice;
+  const productPrice = event.currentTarget.elements.productPrice.value;
+
   const productCategory = event.currentTarget.elements.productCategory;
   createData = {
     author: userInfo.userId,
@@ -135,7 +136,7 @@ function saveData(event) {
     image: [],
     category: productCategory.value === 'category' ? '' : productCategory.value,
     description: productDescription.value,
-    price: productPrice.value,
+    price: Number(productPrice).toLocaleString(),
   };
   const productPriceWrap = document.querySelector('.input-wrapper__price');
   event.target.value === 'for-free'
