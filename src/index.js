@@ -7,6 +7,7 @@ import './components/adv-block/adsSection';
 import './components/section-categories/categories';
 import './components/section-categories/each-category';
 import './components/modal-window/logic-modal.js';
-import './components/loader/styles.js';
+import './components/item-modal/item-modal-open.js';
+import './components/item-modal/item-modal.js';
 import './components/modal-window/styles.css';
 import './components/footer/styles.js';

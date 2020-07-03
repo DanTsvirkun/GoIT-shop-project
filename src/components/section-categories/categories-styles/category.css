@@ -1,8 +1,13 @@
 .categories {
   position: relative;
+  min-height: 380px;
+  /* padding-top: 54px; */
 }
 .category-list {
-  padding: 54px 0 80px;
+  padding-bottom: 54px;
+}
+.category-list:first-of-type {
+  padding-top: 54px;
 }
 .category-info {
   margin-bottom: 20px;
@@ -69,12 +74,15 @@
 }
 .all-category {
   opacity: 0;
+  min-height: 500px;
+  /* transition: all 1s linear; */
 }
 .all-category-show {
-  transition: all 2s linear;
+  transition: all 1s linear;
   opacity: 1;
 }
 .close-category {
+  opacity: 0;
   width: 50px;
   height: 50px;
   border: none;
@@ -86,13 +94,18 @@
   top: 50px;
   right: 50px;
   z-index: 1;
-  transition: all 200ms linear;
+  /* transition: all 500ms linear; */
   background-image: url(../images/baseline_close_black_24dp.png);
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center;
 }
+.close-category-show {
+  transition: opacity 1s linear, background-color 500ms;
+  opacity: 1;
+}
 .close-category:hover {
+  /* transition: all 200ms linear; */
   background-color: rgb(255, 255, 255);
 }
 
@@ -119,7 +132,7 @@
     box-shadow: 0px 8px 8px 0px rgba(233, 97, 5, 0.24);
     position: fixed;
     right: 22px;
-    top: 444px;
+    top: 80vh;
     outline: none;
   }
   .modal-btn::after {
@@ -156,7 +169,7 @@
     height: 60px;
     border: none;
     outline: none;
-    background-image: url(../images/prev.png);
+    background-image: url(../images/back.svg);
     background-repeat: no-repeat;
     background-position: center;
     transition: all 200ms linear;
@@ -174,7 +187,7 @@
     height: 60px;
     border: none;
     outline: none;
-    background-image: url(../images/next.png);
+    background-image: url(../images/next.svg);
     background-repeat: no-repeat;
     background-position: center;
     transition: all 200ms linear;
@@ -205,4 +218,18 @@
   .close-category {
     right: 120px;
   }
+  .all-category {
+    min-height: 700px;
+  }
+}
+/* ====================================== */
+.loader-cover {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+}
+.loader-cover-none {
+  display: none;
 }
