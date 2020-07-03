@@ -114,10 +114,10 @@ function showTabletFilters() {
 let itemList;
 
 function preFindGoods() {
-  catContainer.classList.add('hide');
   refs.sectionAds.classList.add('hide');
-  refs.wholeCategory.classList.remove('hide');
+  catContainer.classList.add('hide');
   refs.loadMore.classList.add('hide');
+  refs.wholeCategory.classList.remove('hide');
   refs.wholeCategory.innerHTML = categoryTemplate();
   itemList = document.querySelector('.things-list');
   itemList.classList.add('category-line');

@@ -1,7 +1,7 @@
 /* ===========mobile============ */
 @media (max-width: 767px) {
   .loader-wrapper {
-    height: 370px;
+    height: 100vh;
   }
   .block__list {
     /* min-height: 370px; */
@@ -71,7 +71,7 @@
 /* ===================tablet=================== */
 @media (min-width: 768px) {
   .loader-wrapper {
-    height: 590px;
+    height: 100vh;
   }
   .block__list {
     /* min-height: 370px; */
@@ -145,7 +145,7 @@
 /* ==================desktop================== */
 @media (min-width: 1280px) {
   .loader-wrapper {
-    height: 724px;
+    height: 100vh;
   }
   .block__list {
     width: 66.6%;
