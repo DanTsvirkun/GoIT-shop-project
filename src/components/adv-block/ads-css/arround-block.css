@@ -34,20 +34,26 @@
   .arround-price {
     font-size: 42px;
     font-family: 'Montserrat';
-    color: rgb(255, 107, 8);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
     text-align: left;
   }
+  .arround__item:nth-last-of-type(1) .arround-price {
+    color: #ff6b08;
+  }
   .arround-currency {
     font-size: 11px;
     font-family: 'Montserrat';
-    color: rgb(255, 107, 8);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
     text-align: right;
+  }
+  .arround__item:nth-last-of-type(1) .arround-currency {
+    color: #ff6b08;
   }
 }
 @media (min-width: 1280px) {
@@ -93,6 +99,12 @@
     line-height: 1.2;
     text-align: left;
   }
+  .arround__item:nth-last-of-type(2) .arround-price {
+    color: #ff6b08;
+  }
+  .arround__item:nth-last-of-type(1) .arround-price {
+    color: #ffffff;
+  }
   .arround-currency {
     font-size: 11px;
     font-family: 'Montserrat';
@@ -101,5 +113,35 @@
     text-transform: uppercase;
     line-height: 1.2;
     text-align: right;
+  }
+  .arround__item:nth-last-of-type(2) .arround-currency {
+    color: #ff6b08;
+  }
+  .arround__item:nth-last-of-type(1) .arround-currency {
+    color: #ffffff;
+  }
+  .arround-block__list
+    .arround__item:nth-of-type(1)
+    .arround-info
+    .arround-price {
+    color: rgb(0, 0, 0);
+  }
+  .arround-block__list
+    .arround__item:nth-of-type(1)
+    .arround-info
+    .arround-currency {
+    color: rgb(0, 0, 0);
+  }
+  .arround-block__list
+    .arround__item:nth-of-type(2)
+    .arround-info
+    .arround-price {
+    color: #ff6b08;
+  }
+  .arround-block__list
+    .arround__item:nth-of-type(2)
+    .arround-info
+    .arround-currency {
+    color: #ff6b08;
   }
 }
