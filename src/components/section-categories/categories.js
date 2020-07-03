@@ -35,35 +35,39 @@ function test(word) {
   return api.getCategory(word).then(data => {
     switch (word) {
       case 'property':
-        data[0].nameCategory = 'property';
-        data[0].descriptionCategory = 'eeerererer';
+        data[0].nameCategory = 'Недвижимость';
+        data[0].descriptionCategory =
+          'Недвижимость в Украине от застройщика и недорогое вторичное жилье';
         break;
       case 'transport':
-        data[0].nameCategory = 'transport';
-        data[0].descriptionCategory = 'ttttyyyyyyy';
+        data[0].nameCategory = 'Транспорт';
+        data[0].descriptionCategory =
+          'Здесь вы найдете только автомобили, находящиеся в Украине';
         break;
       case 'work':
-        data[0].nameCategory = 'work';
-        data[0].descriptionCategory = 'ggdsgdsgsdgsdgdsgsdg';
+        data[0].nameCategory = 'Работа';
+        data[0].descriptionCategory =
+          'Здесь вы найдете работу в желанной компании';
         break;
       case 'electronics':
-        data[0].nameCategory = 'electronics';
-        data[0].descriptionCategory = 'gagasgasgasga';
+        data[0].nameCategory = 'Электроника';
+        data[0].descriptionCategory = 'Техника и электроника в Украине';
         break;
       case 'business-and-services':
-        data[0].nameCategory = 'business-and-services';
-        data[0].descriptionCategory = 'gagasgasgasga';
+        data[0].nameCategory = 'Бизнес и услуги';
+        data[0].descriptionCategory =
+          'Здесь вы найдёте удобный каталог городских услуг и сервисов. По сути, он станет вашим путеводителем.';
         break;
       case 'recreation-and-sports':
-        data[0].nameCategory = 'recreation-and-sports';
+        data[0].nameCategory = 'Отдых и спорт';
         data[0].descriptionCategory = 'gagasgasgasga';
         break;
       case 'for-free':
-        data[0].nameCategory = 'for-free';
+        data[0].nameCategory = 'Бесплатно';
         data[0].descriptionCategory = 'gagasgasgasga';
         break;
       case 'exchange':
-        data[0].nameCategory = 'exchange';
+        data[0].nameCategory = 'Обмен';
         data[0].descriptionCategory = 'gagasgasgasga';
         break;
       default:
