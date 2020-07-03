@@ -6,7 +6,7 @@
   width: 280px;
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1);
-  padding: 40px 0;
+  padding: 25px 0;
 }
 
 .auth-modal__close-btn {
@@ -99,6 +99,18 @@
   border: none;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.auth-modal__submit-btn:hover,
+.auth-modal__submit-btn:focus {
+  background-color: rgb(100, 100, 100);
+}
+
+.auth-modal__and-text {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: rgb(187, 187, 187);
 }
 
 .auth-modal__submit-btn-reg {
@@ -112,6 +124,12 @@
   border: none;
   text-align: center;
   cursor: pointer;
+}
+
+.auth-modal__submit-btn-reg:hover,
+.auth-modal__submit-btn-reg:focus {
+  background-color: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
 }
 
 @media (min-width: 768px) {
