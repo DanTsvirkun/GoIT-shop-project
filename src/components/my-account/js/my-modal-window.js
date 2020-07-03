@@ -16,20 +16,19 @@ import {
   animationCloseMyAds,
 } from './account-animation.js';
 import { isLogIn } from '../../auth-form/js/auth-form';
-import { modalBackDrop } from '../../modal-window/logic-modal';
 
 // ===================OPEN MODAL ON BTN=======================
+
+// export function openModalMobile(data) {
+//   refs.btnOpenModalMobile.addEventListener('click', e => btnOpenModal(e, data));
+// }
+
 export function openModal(data) {
   refs.btnOpenModal.addEventListener('click', e => btnOpenModal(e, data));
 }
-// refs.btnOpenModal.addEventListener('click', btnOpenModal);
 
 refs.openFavorites.addEventListener('click', openFavorites);
 refs.openMyAds.addEventListener('click', openMyAds);
-
-// function closeModal(data) {
-//   modalBackDrop();
-// }
 
 function btnOpenModal(e, data) {
   murkupFavoritesGoods();
@@ -37,7 +36,6 @@ function btnOpenModal(e, data) {
 
   murkupUserAvatar(data);
   murkupUserInfo(data);
-  // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
   // closeModal(data);
   refs.modalBackdropMyAccount.style.display = 'block';
   animationOpenModal();

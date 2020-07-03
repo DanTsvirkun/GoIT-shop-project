@@ -1,5 +1,7 @@
 export const refs = {
-  btnOpenModal: document.querySelector('.header-auth-mobile'),
+  btnOpenModalMobile: document.querySelector('.header-auth-mobile'),
+  btnOpenModal: document.querySelector('.header-auth'),
+
   hbsUserAvatar: document.querySelector('.js-avatar'),
   hbsUserInfo: document.querySelector('.user-info'),
   userFavoritesList: document.querySelector('.selected-goods__list'),
