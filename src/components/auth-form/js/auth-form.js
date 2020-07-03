@@ -16,14 +16,15 @@ import signOut from '../templates/sign-out.hbs';
 import accMenu from '../templates/acc-menu.hbs';
 import { modalBackDrop } from '../../modal-window/logic-modal';
 
-const signInUpDiv = refs.authBlock;
-const signInUpDivMob = refs.authBlockMobile;
-
 let closeAuthModal;
 let repeatPass;
 let signInForm;
+let goToRegister;
 let signUpForm;
 let signOutForm;
+
+const signInUpDiv = refs.authBlock;
+const signInUpDivMob = refs.authBlockMobile;
 
 signInUpDiv.addEventListener('click', hendelClickSignInUp);
 signInUpDivMob.addEventListener('click', hendelClickSignInUp);
@@ -50,6 +51,8 @@ export function murkupAuthForm(dataset) {
     signInForm.addEventListener('submit', e =>
       hendelSubmitSignIn(e, closeModal),
     );
+    goToRegister = document.querySelector('.js-go-to-register');
+    goToRegister.addEventListener('click', hendelGoToRegister);
   } else {
     const closeModal = modalBackDrop(signUp());
     repeatPass = document.querySelector('.auth-modal__input-repeat');
@@ -67,7 +70,6 @@ export function murkupAuthForm(dataset) {
 export function isLogIn() {
   if (localStorage.getItem('user-info')) {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-    console.log(localUserId);
 
     getUserInfo(localUserId).then(res => {
       signInUpDiv.innerHTML = `${accMenu(res.data)}${signOut()}`;
@@ -102,6 +104,10 @@ function hendelInputSave(e) {
   }
 }
 
+function hendelGoToRegister() {
+  murkupAuthForm('signup');
+}
+
 function hendelSubmitSignIn(e, closeModal) {
   e.preventDefault();
   signInUser(inputData.userSignIn).then(() => closeModal());
@@ -119,43 +125,3 @@ function hendelSignOut(e) {
   signOutUser();
   isLogIn();
 }
-
-// const userInfoHtml = document.querySelector('.user-info');
-// const resultIMG = document.querySelector('.resultIMG');
-
-// function userInfo() {
-//   if (localStorage.getItem('user-info')) {
-//     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
-//     getUserInfo(localUserId).then(res => showUserInfo(res.data));
-//   }
-// }
-// userInfo();
-
-// function showUserInfo(obj) {
-//   userInfoHtml.innerHTML = `Здравствуйте: ${obj.firstName} ${obj.secondName}. Эмейл: ${obj.email}. Телефон: ${obj.phone}`;
-// }
-
-// AVATAR
-// const fileForm = document.forms.fileForm;
-
-// function toDataURL(element) {
-//   return new Promise(resolve => {
-//     const reader = new FileReader();
-
-//     reader.onloadend = () => resolve(reader.result);
-//     reader.readAsDataURL(element.files[0]);
-//   });
-// }
-
-// const createbase = e => {
-//   e.preventDefault();
-
-//   const element = fileForm.elements.fileFormInput;
-
-//   toDataURL(element).then(data => {
-//     const localUserObj = JSON.parse(localStorage.getItem('user-info'));
-//     updateUserAvatar(localUserObj.userId, data, localUserObj.token);
-//   });
-// };
-
-// fileForm.addEventListener('submit', createbase);
