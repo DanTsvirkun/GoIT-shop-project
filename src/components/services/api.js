@@ -9,7 +9,7 @@ import {
   addUserAdv,
 } from './user-api';
 
-const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
+const apiKey = 'AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo';
 // apiKey: “AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo”
 const mainUrl = 'https://goit-shop-from-21st-bootcamp.firebaseio.com';
 // https://goit-shop-from-21st-bootcamp.firebaseio.com/
@@ -254,7 +254,6 @@ export const api = {
     }
     return new Promise(res => res(array));
   },
-
 
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
