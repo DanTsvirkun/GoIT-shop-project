@@ -70,8 +70,8 @@ export function isLogIn() {
     getUserInfo(localUserId).then(res => {
       markupIncomeBtn(res.data);
 
-      signOutForm = document.querySelectorAll('.auth-form-sign-out');
-      signOutForm[0].addEventListener('click', hendelSignOut);
+      signOutForm = document.querySelector('.auth-form-sign-out');
+      signOutForm.addEventListener('click', hendelSignOut);
       // signOutForm[1].addEventListener('click', hendelSignOut);
     });
   } else {

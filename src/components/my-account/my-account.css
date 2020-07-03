@@ -18,6 +18,10 @@
   box-shadow: 2px 1px 5px #9b9b99c0;
 }
 
+.account-logout {
+  line-height: 20px;
+}
+
 .account-btn:hover {
   cursor: pointer;
 }

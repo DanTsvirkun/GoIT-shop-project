@@ -25,7 +25,6 @@ function resetForDefault() {
   const srcDefault = 'https://i.ibb.co/K7j3rZk/99-512.png';
 
   document.querySelectorAll('.avatar').forEach(img => (img.src = srcDefault));
-
   const localUserObj = JSON.parse(localStorage.getItem('user-info'));
   updateUserAvatar(localUserObj.userId, srcDefault, localUserObj.token);
 
