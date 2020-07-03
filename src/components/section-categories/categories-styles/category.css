@@ -1,9 +1,13 @@
 .categories {
   position: relative;
   min-height: 380px;
+  /* padding-top: 54px; */
 }
 .category-list {
-  padding: 54px 0 80px;
+  padding-bottom: 54px;
+}
+.category-list:first-of-type {
+  padding-top: 54px;
 }
 .category-info {
   margin-bottom: 20px;
@@ -95,6 +99,7 @@
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 .close-category-show {
   transition: opacity 1s linear, background-color 500ms;
