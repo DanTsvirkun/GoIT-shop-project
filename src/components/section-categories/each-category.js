@@ -69,42 +69,42 @@ export function closeCategory() {
 function mainInfo(word) {
   switch (word) {
     case 'property':
-      data[0].nameCategory = 'Недвижимость';
-      data[0].descriptionCategory =
+      object.nameCategory = 'property';
+      object.descriptionCategory =
         'При публикации объявлений в разделе Недвижимость необходимо придерживаться правил, что и при размещении любых других объявлений. Однако есть несколько нюансов, на которые стоит обратить внимание.';
       break;
     case 'transport':
-      data[0].nameCategory = 'Транспорт';
-      data[0].descriptionCategory =
+      object.nameCategory = 'transport';
+      object.descriptionCategory =
         'В этом разделе вы можете найти любое передвигающееся средство по вашему вкусу';
       break;
     case 'work':
-      data[0].nameCategory = 'Работа';
-      data[0].descriptionCategory =
+      object.nameCategory = 'work';
+      object.descriptionCategory =
         'Если ищешь работу  тогда тебе к нам. более 500 вакансий каждый день';
       break;
     case 'electronics':
-      data[0].nameCategory = 'Электроника';
-      data[0].descriptionCategory =
+      object.nameCategory = 'electronics';
+      object.descriptionCategory =
         'Любая электроника от детских игрушек до холодильников';
       break;
     case 'business-and-services':
-      data[0].nameCategory = 'Бизнес и услуги';
-      data[0].descriptionCategory =
+      object.nameCategory = 'business-and-services';
+      object.descriptionCategory =
         'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
       break;
     case 'recreation-and-sports':
-      data[0].nameCategory = 'Отдых и спорт';
-      data[0].descriptionCategory =
+      object.nameCategory = 'recreation-and-sports';
+      object.descriptionCategory =
         'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
       break;
     case 'for-free':
-      data[0].nameCategory = 'Отдам Даром';
-      data[0].descriptionCategory = 'Забери меня скорей. Отдадут меня быстрей';
+      object.nameCategory = 'for-free';
+      object.descriptionCategory = 'Забери меня скорей. Отдадут меня быстрей';
       break;
     case 'exchange':
-      data[0].nameCategory = 'Обмен';
-      data[0].descriptionCategory =
+      object.nameCategory = 'exchange';
+      object.descriptionCategory =
         'Хочешь обновку а денег нет. Кто ищет всегда найдет';
       break;
     default:
