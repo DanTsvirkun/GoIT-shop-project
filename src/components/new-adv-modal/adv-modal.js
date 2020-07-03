@@ -125,8 +125,7 @@ function saveData(event){
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
   const productPrice = event.currentTarget.elements.productPrice;  
-  const productCategory = event.currentTarget.elements.productCategory;
- 
+  const productCategory = event.currentTarget.elements.productCategory; 
 
   createData = {
    author: userInfo.userId,
@@ -204,7 +203,19 @@ function submitForm(event){
   }    
   
   //===============================================
-  api.postAdv(createData.category, createData);  
+  api.postAdv(createData.category, createData)
+  .then(data => {
+    const user = JSON.parse(localStorage.getItem('user-info'));
+    const idAdv = data.name; 
+    console.log(idAdv);  
+    localStorage.setItem(
+      'user-info',
+      JSON.stringify({
+        ...user,
+        adv: [...user.adv, idAdv],
+      }),
+    );
+  })
   //===============================================
 
   advForm.reset();
