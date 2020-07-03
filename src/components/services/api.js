@@ -479,6 +479,3 @@ export const api = {
 //   console.log(data);
 // })
 
-api.filterFavAdv([1, 2, 3, 4, 5], [5, 5, 5, 5, 5]).then(data => {
-  console.log(data);
-});
