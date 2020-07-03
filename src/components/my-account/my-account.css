@@ -13,6 +13,11 @@
   background-color: #131f30;
 }
 
+.avatare-large {
+  width: 85px;
+  height: 85px;
+}
+
 .avatar-shadow {
   border: 1px solid #ffffff;
   box-shadow: 2px 1px 5px #9b9b99c0;
@@ -44,6 +49,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10;
 }
 
 .moodal-backdrop__favorites,

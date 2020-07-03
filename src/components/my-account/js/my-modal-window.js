@@ -16,7 +16,7 @@ import {
   animationCloseMyAds,
 } from './account-animation.js';
 import { isLogIn } from '../../auth-form/js/auth-form';
-import { modalBackDrop } from '../../modal-window/logic-modal';
+// import { modalBackDrop } from '../../modal-window/logic-modal';
 
 // ===================OPEN MODAL ON BTN=======================
 

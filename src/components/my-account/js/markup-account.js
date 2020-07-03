@@ -9,14 +9,35 @@ import { refs } from './refs';
 import { openModal } from './my-modal-window';
 import { api } from '../../services/api';
 
-// import { modalBackDrop } from '../../modal-window/logic-modal';
+import { modalBackDrop } from '../../modal-window/logic-modal';
 
-// if (localStorage.getItem('user-info')) {
+const divBtn = document.querySelector('.header-auth');
+
+divBtn.addEventListener('click', e => {
+  const onImg = e.target.nodeName;
+
+  if (onImg !== 'IMG') return;
+  openTabletBtn();
+});
+
+function openTabletBtn() {
+  // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
+  // closeModal(data);
+  refs.modalBackdropMyAccount.style.display = 'block';
+  // openModalBtn();
+}
+
+// ================================================================
 
 function markupIncomeBtn(data) {
   refs.btnOpenModal.innerHTML = incomeBtn(data);
 
+  refs.btnOpenModal.addEventListener('click', e => btnOpenModal(e, data));
   openModal(data);
+
+  // const closeModal = modalBackDrop(openModal(data));
+  // const closeBtn = document.querySelector('.close__my-account');
+  // closeBtn.addEventListener('click', closeModal);
 }
 
 function murkupUserAvatar(data) {
@@ -30,32 +51,24 @@ function murkupUserInfo(data) {
 function murkupFavoritesGoods() {
   const parseFavorites = JSON.parse(localStorage.getItem('user-info'))
     .favorites;
-  // const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
+
   api.filterMyAccount(parseFavorites).then(res => {
     refs.userFavoritesList.innerHTML = favoritesGoods(res);
+    removeFavorites();
   });
 
-  // refs.userFavoritesList.innerHTML = favoritesGoods(favBack);
-
   refs.favoritesValue.textContent = parseFavorites.length;
-  removeFavorites();
 }
 
 function murkupMyAds() {
-  // const parseFavorites = JSON.parse(localStorage.getItem('user-info'))
-  //   .favorites;
   const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
 
   api.filterMyAccount(parseMyAds).then(res => {
     refs.userAdsList.innerHTML = myAds(res);
+    removeUserAds();
   });
 
-  // console.log('myAdsBack.advertisement', myAdsBack);
-  // console.log('parseMyAds', parseMyAds);
-  // console.log('parseFavorites', parseFavorites);
-
   refs.myAdsValue.textContent = parseMyAds.length;
-  removeUserAds();
 }
 
 export {
@@ -65,8 +78,3 @@ export {
   murkupFavoritesGoods,
   murkupMyAds,
 };
-
-// =====================================
-// import menu from '../menu.json';
-// const listItem = menuItem(menu);
-// =====================================

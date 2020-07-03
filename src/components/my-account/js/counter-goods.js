@@ -2,9 +2,11 @@ import { refs } from './refs';
 import { animateCSS } from './account-animation.js';
 
 function removeFavorites() {
-  refs.userFavoritesList.children.forEach(item =>
-    item.addEventListener('click', removeFavoritesItem),
-  );
+  document
+    .querySelector('.selected-goods__list')
+    .children.forEach(item =>
+      item.addEventListener('click', removeFavoritesItem),
+    );
 }
 
 function removeUserAds() {

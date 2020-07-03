@@ -112,7 +112,6 @@ input[type='search']::-webkit-search-results-decoration {
   box-sizing: border-box;
   left: 6.7vw;
   top: 27.8vh;
-  z-index: -1;
 }
 
 .mobile-buttons-wrapper .header__clear-filter {
@@ -131,7 +130,6 @@ input[type='search']::-webkit-search-results-decoration {
   height: 38.7vh;
   left: 6.7vw;
   top: 36vh;
-  z-index: -1;
 }
 
 .categories-filter__item:not(:last-of-type) {
@@ -265,7 +263,6 @@ input[type='search']::-webkit-search-results-decoration {
 .account-avatar {
   width: 44px;
   height: 44px;
-  margin-right: 20px;
 }
 .avatar {
   width: 100%;
