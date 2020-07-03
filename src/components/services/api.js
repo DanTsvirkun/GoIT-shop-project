@@ -48,7 +48,6 @@ export const api = {
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
-          console.log(res);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
