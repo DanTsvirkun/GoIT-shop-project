@@ -99,6 +99,7 @@
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 .close-category-show {
   transition: opacity 1s linear, background-color 500ms;
