@@ -11,7 +11,7 @@ import {
 
 const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
 // apiKey: “AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo”
-const mainUrl = 'https://project-88172.firebaseio.com/olx';
+const mainUrl = 'https://goit-shop-from-21st-bootcamp.firebaseio.com';
 // https://goit-shop-from-21st-bootcamp.firebaseio.com/
 
 export const nameAllCategories = [
@@ -48,6 +48,7 @@ export const api = {
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
+          console.log(res);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
@@ -78,7 +79,7 @@ export const api = {
         });
       }
       return axios
-        .get(`${mainUrl}/categories/advertisement.json`)
+        .get(`${mainUrl}/advertisement.json`)
         .then(res => {
           const result = this.transformCategory(res.data);
           const randomArray = this.shuffleGoods(result);
@@ -163,12 +164,7 @@ export const api = {
     });
     return filteredArray;
   },
-  // Метод для поиска по  id  ----! принимает id как аргумент
-  //   searchId(id) {
-  //     const res = data.allCategories.find((item) =>
-  //       item.id === id
-  //     )
-  //   },
+
   // Избранное --- Ира нажимает и это летит к контретному юзеру, динамично передаю название папки(не папик) юзера
   // Ира нажимает на карточку и ей приходит объект по id. Нужен метод для отправки юзеру в избранное.
   searchId(id) {
@@ -259,19 +255,6 @@ export const api = {
     return new Promise(res => res(array));
   },
 
-  // ----------------------------------------easy option
-  // filterCategoryData(arrayAllCat) {
-  //   console.log(arrayAllCat);
-  //   arrayAllCat.map(item => {
-  //     console.log(item);
-  //     // console.log(item.category);
-  //     console.log(data[item.category.length]);
-  //     if (data[item.category.length] < 0) {
-  //       data[item.category] = [...data[item.category], item];
-  //       console.log(data[item.category]);
-  //     }
-  //   });
-  // },
 
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -304,13 +287,13 @@ export const api = {
     return favorites.includes(id);
   },
   // Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
-  filterFavAdv(favArr, advArr) {
+  filterMyAccount(favArr) {
     if (
       data.allCategories.length > 0 &&
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
-        const arrFavAdv = this.filterFavAdv(favArr, advArr);
+        const arrFavAdv = this.filterFavAdv(favArr);
         resolve(arrFavAdv);
       });
     }
@@ -324,7 +307,7 @@ export const api = {
               return this.getCategory(item);
             });
             return Promise.all(allCategories).then(array => {
-              const arrFavAdv = this.filterFavAdv(favArr, advArr);
+              const arrFavAdv = this.filterFavAdv(favArr);
               return arrFavAdv;
             });
           });
@@ -334,107 +317,10 @@ export const api = {
         console.log(err);
       });
   },
-  filterFavAdv(favArr, advArr) {
+  filterFavAdv(favArr) {
     const favourites = data.allCategories.filter(item => {
       return favArr.includes(item.id);
     });
-    const advertisement = data.allCategories.filter(item => {
-      return advArr.includes(item.id);
-    });
-    // const arrFavAdv = [filteredFavArr, filteredAdvArr]
-    const arrFavAdv = {
-      favourites,
-      advertisement,
-    };
-    return arrFavAdv;
+    return favourites;
   },
 };
-
-// const fn = function () {
-//   api.searchGoods('к').then(data => console.log(data));
-// };
-// const fn2 = function () {
-//   api.getAllGoods().then(data => console.log(data));
-// };
-// api.getAllGoods().then((data) => {
-//   console.log(data);
-// console.log(data.length);
-// const fav = []
-//   const adv = []
-//   for (let i = 0; i < data.length; i++){
-//     if (!(i % 2)) {
-//       fav.push(data[i].id)
-//       console.log('2');
-//     }
-//     if (!(i % 3)) {
-//       adv.push(data[i].id)
-//       console.log('3');
-//     }
-//   }
-//   console.log(fav);
-//   console.log(adv);
-//   const res = api.filterFavAdv(fav, adv)
-//   console.log(res);
-// })
-
-// api.filterFavAdv()
-
-// api.getCategory('work')
-// api.getCategory('property')
-// api.getCategory('transport')
-// // fn()
-// setTimeout(fn, 2000)
-// setTimeout(fn2, 5000)
-// setTimeout(fn, 2000)
-// localStorage.setItem(
-//   'user-info',
-//   JSON.stringify({
-//     email: 'Alxe@asdlasd.com',
-//     token: 'asdasgkk4444',
-//     id: '-MAkWY0ZZG5Ji2ge1Ndu',
-//     favorites: ['ggjjkkj4j4214124mdmfg', 'ifi124u12uo2428fhj', '129412094jsf'],
-//   }),
-// );
-// api.setFavorites('fkkgkgakkgakgakg')
-
-// console.log(api.getFavorites('ifi124u12uo2428fhj'));
-
-// api.getAllGoods()
-
-// getCategoryTest() {
-//   axios.get('https://project-88172.firebaseio.com/olx/categories.json').then((res) => {
-//     const allKeys = Object.keys(res.data)
-//     const array = allKeys.map((item) => {
-//       return {
-//         [item]: res.data[item]
-//       }
-//     })
-//     console.log(array);
-//   }).then((data) => console.log(data))
-// },
-
-//  getAllGoods() {
-//    if (data.allCategories.length > 0 &&
-//      requestedArray.length === nameAllCategories.length) {
-//      return new Promise(resolve => {
-//        console.log('DATA ALL-GOODS');
-//        resolve(data.allCategories);
-//      });
-//    }
-//    return axios
-//      .get(`${mainUrl}/categories.json`)
-//      .then(res => {
-//        console.log('AXIOS ALL-GOODS');
-//        const arrayObjects = this.transformAllCategories(res.data);
-//        this.filterCategoryData(arrayObjects);
-//        console.log(arrayObjects);
-//        return arrayObjects;
-//      })
-//      .catch(err => console.log(err));
-//  },
-
-// console.log(localStorage.getItem('user-info'));
-
-// api.getAdvertisement().then((data) => {
-//   console.log(data);
-// })
