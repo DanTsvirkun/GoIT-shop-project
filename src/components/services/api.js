@@ -304,13 +304,13 @@ export const api = {
     return favorites.includes(id);
   },
   // Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
-  filterFavAdv(favArr, advArr) {
+  filterMyAccount(favArr) {
     if (
       data.allCategories.length > 0 &&
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
-        const arrFavAdv = this.filterFavAdv(favArr, advArr);
+        const arrFavAdv = this.filterFavAdv(favArr);
         resolve(arrFavAdv);
       });
     }
@@ -324,7 +324,7 @@ export const api = {
               return this.getCategory(item);
             });
             return Promise.all(allCategories).then(array => {
-              const arrFavAdv = this.filterFavAdv(favArr, advArr);
+              const arrFavAdv = this.filterFavAdv(favArr);
               return arrFavAdv;
             });
           });
@@ -334,21 +334,61 @@ export const api = {
         console.log(err);
       });
   },
-  filterFavAdv(favArr, advArr) {
+  filterFavAdv(favArr) {
     const favourites = data.allCategories.filter(item => {
       return favArr.includes(item.id);
     });
-    const advertisement = data.allCategories.filter(item => {
-      return advArr.includes(item.id);
-    });
-    // const arrFavAdv = [filteredFavArr, filteredAdvArr]
-    const arrFavAdv = {
-      favourites,
-      advertisement,
-    };
-    return arrFavAdv;
+    return favourites;
   },
 };
+
+// /////////////////
+//   filterMyAccount(favArr, advArr) {
+//   if (
+//     data.allCategories.length > 0 &&
+//     requestedArray.length === nameAllCategories.length
+//   ) {
+//     return new Promise(resolve => {
+//       const arrFavAdv = this.filterFavAdv(favArr, advArr);
+//       resolve(arrFavAdv);
+//     });
+//   }
+//   return new Promise(res => {
+//     res('res');
+//   })
+//     .then(res => {
+//       if (requestedArray.length < nameAllCategories.length) {
+//         return this.addCategory().then(arr => {
+//           const allCategories = arr.map(item => {
+//             return this.getCategory(item);
+//           });
+//           return Promise.all(allCategories).then(array => {
+//             const arrFavAdv = this.filterFavAdv(favArr, advArr);
+//             return arrFavAdv;
+//           });
+//         });
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// },
+// filterFavAdv(favArr, advArr) {
+//   const favourites = data.allCategories.filter(item => {
+//     return favArr.includes(item.id);
+//   });
+//   const advertisement = data.allCategories.filter(item => {
+//     return advArr.includes(item.id);
+//   });
+//   // const arrFavAdv = [filteredFavArr, filteredAdvArr]
+//   const arrFavAdv = {
+//     favourites,
+//     advertisement,
+//   };
+//   return arrFavAdv;
+// },
+
+///////////
 
 // const fn = function () {
 //   api.searchGoods('к').then(data => console.log(data));
@@ -438,3 +478,7 @@ export const api = {
 // api.getAdvertisement().then((data) => {
 //   console.log(data);
 // })
+
+api.filterFavAdv([1, 2, 3, 4, 5], [5, 5, 5, 5, 5]).then(data => {
+  console.log(data);
+});
