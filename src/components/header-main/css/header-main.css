@@ -14,9 +14,12 @@ input[type='search']::-webkit-search-results-decoration {
 .header__logo {
   display: block;
   cursor: pointer;
-  width: 48px;
-  height: 12px;
-  background: url(../images/logo-basic.png);
+  width: 50px;
+  height: 50px;
+  background: url(../images/new-logo.svg);
+  /* color: #0242a1 */
+  background-repeat: no-repeat;
+  background-size: contain;
   margin: 0 auto;
 }
 .header__chat-link {
