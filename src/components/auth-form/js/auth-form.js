@@ -13,7 +13,7 @@ import signIn from '../templates/sign-in.hbs';
 import signUp from '../templates/sign-up.hbs';
 import signInUp from '../templates/sign-in-up.hbs';
 import { modalBackDrop } from '../../modal-window/logic-modal';
-import { markupIncomeBtn } from '../../my-account/js/markup-account';
+import { markupStartBtn } from '../../my-account/js/markup-account';
 
 const signInUpDiv = refs.authBlock;
 const signInUpDivMob = refs.authBlockMobile;
@@ -68,7 +68,7 @@ export function isLogIn() {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
 
     getUserInfo(localUserId).then(res => {
-      markupIncomeBtn(res.data);
+      markupStartBtn(res.data);
 
       signOutForm = document.querySelector('.auth-form-sign-out');
       signOutForm.addEventListener('click', hendelSignOut);

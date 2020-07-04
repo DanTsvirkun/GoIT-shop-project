@@ -1,51 +1,45 @@
-import incomeBtn from '../templates/income-account-btn.hbs';
-import userAvatar from '../templates/account-avatar.hbs';
-import userInfo from '../templates/account-user-info.hbs';
-import favoritesGoods from '../templates/favorites-goods-modal.hbs';
+import { refs } from './refs';
+import hbsIncomeBtn from '../templates/income-account-btn.hbs';
+import hbsUserInfo from '../templates/account-user-info.hbs';
+import hbsFavoritesGoods from '../templates/favorites-goods-modal.hbs';
 import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
-
-import { refs } from './refs';
-import { openModal } from './my-modal-window';
+import { openAccountWindow } from './my-modal-window';
 import { api } from '../../services/api';
+import { isLogIn } from '../../auth-form/js/auth-form';
 
-import { modalBackDrop } from '../../modal-window/logic-modal';
+// import { modalBackDrop } from '../../modal-window/logic-modal';
 
-const divBtn = document.querySelector('.header-auth');
+// const divBtn = document.querySelector('.header-auth');
 
-divBtn.addEventListener('click', e => {
-  const onImg = e.target.nodeName;
+// divBtn.addEventListener('click', e => {
+//   const clickOnImg = e.target.nodeName;
 
-  if (onImg !== 'IMG') return;
-  openTabletBtn();
-});
+//   if (clickOnImg !== 'IMG') return;
+//   openTabletBtn();
+// });
 
-function openTabletBtn() {
-  // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
-  // closeModal(data);
-  refs.modalBackdropMyAccount.style.display = 'block';
-  // openModalBtn();
-}
+// function openTabletBtn() {
+//   // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
+//   // closeModal(data);
+//   refs.modalBackdropMyAccount.style.display = 'block';
+//   // openAccountWindowBtn();
+// }
 
 // ================================================================
 
-function markupIncomeBtn(data) {
-  refs.btnOpenModal.innerHTML = incomeBtn(data);
-
-  refs.btnOpenModal.addEventListener('click', e => btnOpenModal(e, data));
-  openModal(data);
-
-  // const closeModal = modalBackDrop(openModal(data));
-  // const closeBtn = document.querySelector('.close__my-account');
-  // closeBtn.addEventListener('click', closeModal);
+function markupStartBtn(data) {
+  refs.markupStartBtn.innerHTML = hbsIncomeBtn(data); // '.header-auth-mobile'
+  openAccountWindow(data);
 }
 
-function murkupUserAvatar(data) {
-  refs.hbsUserAvatar.innerHTML = userAvatar(data);
-}
+// const closeModal = modalBackDrop(openAccountWindow(data));
+// const closeBtn = document.querySelector('.close__my-account');
+// closeBtn.addEventListener('click', closeModal);
+// ================================================================
 
 function murkupUserInfo(data) {
-  refs.hbsUserInfo.innerHTML = userInfo(data);
+  refs.modalBackdropMyAccount.innerHTML = hbsUserInfo(data);
 }
 
 function murkupFavoritesGoods() {
@@ -53,28 +47,24 @@ function murkupFavoritesGoods() {
     .favorites;
 
   api.filterMyAccount(parseFavorites).then(res => {
-    refs.userFavoritesList.innerHTML = favoritesGoods(res);
+    refs.modalBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
     removeFavorites();
   });
 
-  refs.favoritesValue.textContent = parseFavorites.length;
+  const favoritesValue = document.querySelector('.js-counter__heart');
+  favoritesValue.textContent = parseFavorites.length;
 }
 
 function murkupMyAds() {
   const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
 
   api.filterMyAccount(parseMyAds).then(res => {
-    refs.userAdsList.innerHTML = myAds(res);
+    refs.modalBackdropMyAds.innerHTML = myAds(res);
     removeUserAds();
   });
 
-  refs.myAdsValue.textContent = parseMyAds.length;
+  const myAdsValue = document.querySelector('.js-counter__add');
+  myAdsValue.textContent = parseMyAds.length;
 }
 
-export {
-  markupIncomeBtn,
-  murkupUserAvatar,
-  murkupUserInfo,
-  murkupFavoritesGoods,
-  murkupMyAds,
-};
+export { markupStartBtn, murkupFavoritesGoods, murkupMyAds, murkupUserInfo };

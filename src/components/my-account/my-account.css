@@ -288,6 +288,7 @@
 
 .selected-goods__inner,
 .my-ads__inner {
+  position: relative;
   width: 280px;
   height: 715px;
   overflow: auto;

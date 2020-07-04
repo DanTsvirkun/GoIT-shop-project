@@ -1,11 +1,12 @@
 import { refs } from './refs';
+import { isLogIn } from '../../auth-form/js/auth-form';
 
 import {
-  murkupUserAvatar,
-  murkupUserInfo,
   murkupFavoritesGoods,
   murkupMyAds,
+  murkupUserInfo,
 } from './markup-account';
+import { avatarManipulation } from './file-reader';
 
 import {
   animationOpenModal,
@@ -15,94 +16,119 @@ import {
   animationOpenMyAds,
   animationCloseMyAds,
 } from './account-animation.js';
-import { isLogIn } from '../../auth-form/js/auth-form';
-// import { modalBackDrop } from '../../modal-window/logic-modal';
+import { modalBackDrop } from '../../modal-window/logic-modal';
 
-// ===================OPEN MODAL ON BTN=======================
+// =================== OPEN ACCOUNT WINDOW =======================
 
-export function openModal(data) {
-  refs.btnOpenModal.addEventListener('click', e => btnOpenModal(e, data));
+export function openAccountWindow(data) {
+  refs.markupStartBtn.addEventListener('click', e => {
+    myAccount(e, data);
+  });
 }
-// refs.btnOpenModal.addEventListener('click', btnOpenModal);
+// refs.markupAccountWindow.addEventListener('click', markupAccountWindow);
 
-refs.openFavorites.addEventListener('click', openFavorites);
-refs.openMyAds.addEventListener('click', openMyAds);
-
-// function closeModal(data) {
-//   modalBackDrop();
-// }
-
-function btnOpenModal(e, data) {
+function myAccount(e, data) {
+  murkupUserInfo(data);
   murkupFavoritesGoods();
   murkupMyAds();
 
-  murkupUserAvatar(data);
-  murkupUserInfo(data);
-  // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
-  // closeModal(data);
+  avatarManipulation();
+
+  const refs = {
+    openFavorites: document.querySelector('.account-list__favorites'),
+    openMyAds: document.querySelector('.account-list__advertisement'),
+
+    closeBtnAccount: document.querySelector('.close__my-account'),
+    logoutAccount: document.querySelector('.account-logout'),
+
+    modalBackdropMyAccount: document.querySelector(
+      '.moodal-backdrop__my-account',
+    ),
+  };
+
+  refs.openFavorites.addEventListener('click', openFavorites);
+  refs.openMyAds.addEventListener('click', openMyAds);
+  refs.logoutAccount.addEventListener('click', logOut);
+  refs.closeBtnAccount.addEventListener('click', closeBtnAccount);
+  window.addEventListener('click', windowClose);
+
   refs.modalBackdropMyAccount.style.display = 'block';
+
   animationOpenModal();
 }
 
 function openFavorites() {
-  // murkupFavoritesGoods();
+  const closeFavorites = document.querySelector('.close__favorites');
+  closeFavorites.addEventListener('click', closeBtnFavorites);
+
   refs.modalBackdropMyAccount.style.display = 'none';
   refs.modalBackdropFavorites.style.display = 'block';
+
   animationOpenFavorites();
 }
 
 function openMyAds() {
-  // murkupMyAds();
+  const closeMyAds = document.querySelector('.close__my-ads');
+  closeMyAds.addEventListener('click', closeBtnMyAds);
+
   refs.modalBackdropMyAccount.style.display = 'none';
   refs.modalBackdropMyAds.style.display = 'block';
+
   animationOpenMyAds();
+}
+
+function logOut(e) {
+  closeBtnAccount();
+  windowClose(e);
 }
 
 // =================CLOSE WHEN CLICK ARROUND==================
 
-window.addEventListener('click', windowClose);
-
 function windowClose(e) {
-  e.target === refs.modalBackdropMyAccount &&
-    (refs.modalBackdropMyAccount.style.display = 'none') &&
+  const modalBackdropMyAccount = document.querySelector(
+    '.moodal-backdrop__my-account',
+  );
+  const modalBackdropFavorites = document.querySelector(
+    '.moodal-backdrop__favorites',
+  );
+  const modalBackdropMyAds = document.querySelector('.moodal-backdrop__my-ads');
+  if (e.target === modalBackdropMyAccount) {
+    modalBackdropMyAccount.style.display = 'none';
+
     animationCloseModal();
+  }
 
-  e.target === refs.modalBackdropFavorites &&
-    (refs.modalBackdropFavorites.style.display = 'none') &&
+  if (e.target === modalBackdropFavorites) {
+    modalBackdropFavorites.style.display = 'none';
+
     animationCloseFavorites();
+  }
 
-  e.target === refs.modalBackdropMyAds &&
-    (refs.modalBackdropMyAds.style.display = 'none') &&
+  if (e.target === modalBackdropMyAds) {
+    modalBackdropMyAds.style.display = 'none';
+
     animationCloseMyAds();
+  }
+
+  isLogIn();
 }
 
 // =====================CLOSE MODAL ON BTN=====================
 
-refs.closeBtnAccount.addEventListener('click', closeBtnAccount);
-refs.closeBtnFavorites.addEventListener('click', closeBtnFavorites);
-refs.closeBtnMyAds.addEventListener('click', closeBtnMyAds);
-
 function closeBtnAccount() {
   refs.modalBackdropMyAccount.style.display = 'none';
+
   animationCloseModal();
 }
 
 function closeBtnFavorites() {
   refs.modalBackdropFavorites.style.display = 'none';
+
   animationCloseFavorites();
 }
 
 function closeBtnMyAds() {
   refs.modalBackdropMyAds.style.display = 'none';
+
   animationCloseMyAds();
-}
-
-// ======================LOGOUT======================
-
-refs.logoutAccount.addEventListener('click', logOut);
-
-function logOut() {
-  closeBtnAccount();
-  windowClose();
-  isLogIn();
 }

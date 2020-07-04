@@ -1,36 +1,36 @@
 import { refs } from './refs';
 
 function animationOpenModal() {
-  refs.accountWrapper.classList.add('animate__animated', 'animate__fadeInDown');
+  const accountWrapper = document.querySelector('.account-wrapper');
+  accountWrapper.classList.add('animate__animated', 'animate__fadeInDown');
 }
 
 function animationCloseModal() {
-  refs.accountWrapper.classList.remove(
-    'animate__animated',
-    'animate__fadeInDown',
-  );
+  const accountWrapper = document.querySelector('.account-wrapper');
+  accountWrapper.classList.remove('animate__animated', 'animate__fadeInDown');
 }
 
 function animationOpenFavorites() {
-  refs.selectedGoodsInner.classList.add(
-    'animate__animated',
-    'animate__backInDown',
-  );
+  const selectedGoodsInner = document.querySelector('.selected-goods__inner');
+  selectedGoodsInner.classList.add('animate__animated', 'animate__backInDown');
 }
 
 function animationCloseFavorites() {
-  refs.selectedGoodsInner.classList.remove(
+  const selectedGoodsInner = document.querySelector('.selected-goods__inner');
+  selectedGoodsInner.classList.remove(
     'animate__animated',
     'animate__backInDown',
   );
 }
 
 function animationOpenMyAds() {
-  refs.myAdsInner.classList.add('animate__animated', 'animate__backInDown');
+  const myAdsInner = document.querySelector('.my-ads__inner');
+  myAdsInner.classList.add('animate__animated', 'animate__backInDown');
 }
 
 function animationCloseMyAds() {
-  refs.myAdsInner.classList.remove('animate__animated', 'animate__backInDown');
+  const myAdsInner = document.querySelector('.my-ads__inner');
+  myAdsInner.classList.remove('animate__animated', 'animate__backInDown');
 }
 
 // ============================================================================
