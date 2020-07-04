@@ -58,7 +58,9 @@ function myAccount(e, data) {
 
   refs.openFavorites.addEventListener('click', openFavorites);
   refs.openMyAds.addEventListener('click', openMyAds);
-  refs.logoutAccount.addEventListener('click', logOut);
+  refs.logoutAccount.addEventListener('click', e => {
+    logOut(e, data);
+  });
   refs.closeBtnAccount.addEventListener('click', closeBtnAccount);
   window.addEventListener('click', windowClose);
 
@@ -95,8 +97,9 @@ function openMyAds() {
   animationOpenMyAds();
 }
 
-function logOut(e) {
+function logOut(e, data) {
   closeBtnAccount();
+  murkupUserInfo(data);
   windowClose(e);
 }
 

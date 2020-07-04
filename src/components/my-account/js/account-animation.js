@@ -1,5 +1,3 @@
-import { refs } from './refs';
-
 function animationOpenModal() {
   const accountWrapper = document.querySelector('.account-wrapper');
   accountWrapper.classList.add('animate__animated', 'animate__fadeInDown');
