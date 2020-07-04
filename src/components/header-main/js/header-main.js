@@ -20,6 +20,8 @@ const arrayFromBack = [
   'Обмен',
 ];
 
+let testCommit;
+
 const categoriesMarkup = categoriesList(arrayFromBack);
 
 refs.inputButtonPcTablet.forEach(button =>
