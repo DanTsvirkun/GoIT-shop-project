@@ -16,7 +16,6 @@ import {
   animationOpenMyAds,
   animationCloseMyAds,
 } from './account-animation.js';
-import { modalBackDrop } from '../../modal-window/logic-modal';
 
 // =================== OPEN ACCOUNT WINDOW =======================
 
