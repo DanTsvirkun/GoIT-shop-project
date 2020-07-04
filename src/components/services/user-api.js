@@ -1,5 +1,9 @@
+import '../auth-form/css/auth-err.css';
 import axios from 'axios';
 import { isLogIn } from '../auth-form/js/auth-form';
+import { modalBackDrop } from '../modal-window/logic-modal';
+import signInErr from '../auth-form/templates/sign-in-err.hbs';
+import signUpErr from '../auth-form/templates/sign-up-err.hbs';
 
 axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
@@ -47,7 +51,14 @@ export const signInUser = signInUser => {
         });
       }
     })
-    .catch(err => console.log(err));
+    .catch(() => {
+      setTimeout(() => {
+        const closeModalErr = modalBackDrop(signInErr());
+        document
+          .querySelector('.auth-modal-err__close-btn')
+          .addEventListener('click', closeModalErr);
+      }, 300);
+    });
 };
 
 export const signUpUser = ({
@@ -96,7 +107,14 @@ export const signUpUser = ({
           );
       }
     })
-    .catch(err => console.log(err));
+    .catch(() => {
+      setTimeout(() => {
+        const closeModalErr = modalBackDrop(signUpErr());
+        document
+          .querySelector('.auth-modal-err__close-btn')
+          .addEventListener('click', closeModalErr);
+      }, 300);
+    });
 };
 
 export const signOutUser = () => {

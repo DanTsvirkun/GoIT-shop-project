@@ -1,40 +1,33 @@
 .wrapper-item-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  top: 4%;
   background-color: #ffffff;
   width: 320px;
   margin: 0 auto;
+  padding: 12px 0;
 }
 
-.item_modal--tablet {
-  position: relative;
-  width: 280px;
-  margin: 0 auto;
+.icon-cross {
+  position: absolute;
+  top: 8px;
+  left: 4px;
+  background-color: transparent;
+  border: none;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../assets/icons/arrow-1/chevron_left-black-24dp/1x/baseline_chevron_left_black_24dp.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  cursor: pointer;
 }
 
 .item_modal--tablet_wrapper {
   display: flex;
   justify-content: space-between;
   width: 280px;
-  padding-top: 0px;
-  margin: auto;
-}
-
-.icon-cross {
-  position: absolute;
-  top: 40px;
-  right: 2px;
-  background-color: transparent;
-  border: none;
-  width: 14px;
-  height: 14px;
-  background: url(../../assets/icons/arrow-1/chevron_left-black-24dp/1x/baseline_chevron_left_black_24dp.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  outline: none;
-  cursor: pointer;
+  padding-top: 20px;
+  margin: 0 auto;
 }
 
 .item_modal--header {
@@ -45,7 +38,7 @@
   line-height: 1.2;
   letter-spacing: 0.32px;
   margin-bottom: 10px;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 .item_modal--item-codename {
   display: block;
@@ -79,7 +72,7 @@
   color: #ffffff;
   border: 1px solid #ff6b08;
   outline: none;
-  transition: 0.3s linear;
+  transition: box-shadow 0.3s linear;
   margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy-active {
@@ -91,10 +84,10 @@
   width: 280px;
   height: 60px;
   background-color: #ffffff;
-  color: #ff6b08;
-  border: 1px solid #ff6b08;
+  color: #ff9955;
+  border: 1px solid #ff9955;
   outline: none;
-  transition: 0.3s linear;
+  transition: box-shadow 0.3s linear;
   margin-bottom: 16px;
 }
 .item_modal--tablet--button-buy:hover {
@@ -152,7 +145,6 @@
 .item_modal--slider_s-img_big {
   width: 280px;
   background-color: #ffffff;
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
 }
 .item_modal--icons {
   display: flex;
@@ -168,7 +160,10 @@
   margin-bottom: 20px;
   width: 100%;
   max-width: 30rem;
+  height: 300px;
   margin: 0 auto;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 }
 
 .item_modal--slider-s {
@@ -262,7 +257,7 @@
   font-family: 'MontserratRegular, sans-serif';
   color: #000000;
   line-height: 1.385;
-  width: 280px;
+  width: 260px;
 }
 .images-mini {
   display: flex;
@@ -276,25 +271,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16x;
-}
-.slider_image-min {
-  background-color: rgb(244, 246, 251);
-  width: 42px;
-  height: 44px;
-  cursor: pointer;
-}
-.slider_image-min:not(:last-child) {
-  margin-right: 4px;
-}
-.slider_image-min--active {
-  background-color: rgb(244, 246, 251);
-  width: 42px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 2px solid #ff6b08;
 }
 
 /* tablet-modal */
@@ -335,7 +311,10 @@
   .item_modal--header {
     margin-top: 20px;
   }
-
+  .wrapper-item-modal {
+    top: 50%;
+    transform: translateY(-50%);
+  }
   .item_modal--tablet_wrapper {
     display: flex;
     justify-content: space-between;
@@ -353,6 +332,7 @@
 
   .icon-cross {
     top: 20px;
+    left: unset;
     right: 16px;
     background-image: url('../../assets/icons/close/close-24px.svg');
   }
@@ -373,6 +353,8 @@
 .images-mini {
   display: flex;
 }
+
+/* ///////////////////// */
 .slider_image-max {
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
@@ -383,6 +365,11 @@
   justify-content: center;
   margin-bottom: 16px;
 }
+.bg-photo--style {
+  width: 334px;
+  height: 372px;
+  object-fit: cover;
+}
 .slider_image-min {
   background-color: rgb(244, 246, 251);
   width: 52px;
@@ -392,6 +379,7 @@
   justify-content: center;
   cursor: pointer;
   border: 3px solid #f3f3f3;
+  object-fit: cover;
 }
 .slider_image-min--active {
   background-color: rgb(244, 246, 251);
@@ -403,8 +391,16 @@
   cursor: pointer;
   transition: 0.2s linear;
   border: 3px solid #fdbc91;
+  object-fit: cover;
 }
-
+.sm-photo--style {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.slider_image-min:not(:last-child) {
+  margin-right: 4px;
+}
 @media (min-width: 1280px) {
   .container {
     max-width: 1200px;

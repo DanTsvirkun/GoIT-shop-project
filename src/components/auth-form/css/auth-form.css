@@ -6,7 +6,7 @@
   width: 280px;
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 24px 0px rgba(29, 29, 27, 0.1);
-  padding: 40px 0;
+  padding: 25px 0;
 }
 
 .auth-modal__close-btn {
@@ -90,7 +90,6 @@
 
 .auth-modal__submit-btn {
   width: 248px;
-  height: 50px;
   background-color: rgb(255, 107, 8);
   font-family: 'MontserratMedium';
   font-size: 16px;
@@ -100,6 +99,37 @@
   border: none;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.auth-modal__submit-btn:hover,
+.auth-modal__submit-btn:focus {
+  background-color: rgb(100, 100, 100);
+}
+
+.auth-modal__and-text {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: rgb(187, 187, 187);
+}
+
+.auth-modal__submit-btn-reg {
+  width: 160px;
+  background-color: rgb(206, 210, 209);
+  font-family: 'MontserratMedium';
+  font-size: 12px;
+  color: rgb(51, 51, 51);
+  line-height: 25px;
+  outline: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-modal__submit-btn-reg:hover,
+.auth-modal__submit-btn-reg:focus {
+  background-color: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
 }
 
 @media (min-width: 768px) {
@@ -135,6 +165,19 @@
     height: 60px;
     font-size: 14px;
     margin-right: 12px;
+  }
+
+  .auth-modal__submit-btn-reg {
+    width: 160px;
+    background-color: rgb(206, 210, 209);
+    font-family: 'MontserratMedium';
+    font-size: 12px;
+    color: rgb(51, 51, 51);
+    line-height: 25px;
+    outline: none;
+    border: none;
+    text-align: center;
+    cursor: pointer;
   }
 }
 

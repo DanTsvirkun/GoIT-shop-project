@@ -3,6 +3,7 @@ import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
 import { api } from '../services/api';
 import { clearActiveCategory } from '../header-main/js/header-main';
+import { showItemModal } from '../item-modal/item-modal-open';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -12,6 +13,8 @@ const close = category.querySelector('#closeBtn');
 const loadMore = category.querySelector('.load-more');
 const modalBtn = document.querySelector('load-more');
 // =================================================
+showItemModal(viewAllDiv);
+// ================================================
 category.addEventListener('click', eachCategory);
 close.addEventListener('click', closeCategory);
 // =================================================
@@ -59,6 +62,7 @@ export function closeCategory() {
   loadMore.classList.remove('hide');
   viewAllDiv.classList.remove('all-category-show');
   close.classList.remove('close-category-show');
+  viewAllDiv.classList.remove('container');
   clearActiveCategory();
 }
 // ==================================================
