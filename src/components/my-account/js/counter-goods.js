@@ -20,7 +20,7 @@ function removeFavoritesItem(e) {
   if (e.target.nodeName !== 'SPAN') return;
   e.currentTarget.remove();
 
-  // animateCSS();
+  animateCSS();
   const favoritesValue = document.querySelector('.js-counter__heart');
   const userFavoritesList = document.querySelector('.selected-goods__list');
 

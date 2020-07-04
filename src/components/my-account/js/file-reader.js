@@ -22,7 +22,6 @@ function hendleChange(e) {
     const localUserObj = JSON.parse(localStorage.getItem('user-info'));
     updateUserAvatar(localUserObj.userId, reader.result, localUserObj.token);
     // location.reload();
-    // isLogIn();
   };
 
   file ? reader.readAsDataURL(file) : (refs.avatarImg.src = '');
@@ -35,6 +34,4 @@ function resetForDefault() {
 
   const localUserObj = JSON.parse(localStorage.getItem('user-info'));
   updateUserAvatar(localUserObj.userId, srcDefault, localUserObj.token);
-
-  //   isLogIn();
 }

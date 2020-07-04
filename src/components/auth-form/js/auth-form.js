@@ -78,6 +78,7 @@ export function isLogIn() {
       signInUpDiv.innerHTML = `${hbsIncomeBtn(res.data)}`;
       signInUpDivMob.innerHTML = `${hbsIncomeBtn(res.data)}`;
       signOutForm = document.querySelector('.auth-form-sign-out');
+      console.dir('signOutForm', signOutForm);
       signOutForm.addEventListener('click', hendelSignOut);
       // signOutForm[1].addEventListener('click', hendelSignOut);
     });

@@ -31,20 +31,6 @@ export function openAcc(data) {
     myAccount(e, data);
   });
 }
-// refs.markupAccountWindow.addEventListener('click', markupAccountWindow);
-
-// const divBtn = document.querySelector('.header-auth');
-
-// refs.markupStartBtnTablet.addEventListener('click', e => {
-//   openTabletBtn();
-// });
-
-// function openTabletBtn() {
-//   // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
-//   // closeModal(data);
-//   refs.modalBackdropMyAccount.style.display = 'block';
-//   openAccMob();
-// }
 
 function myAccount(e, data) {
   murkupUserInfo(data);
@@ -64,14 +50,10 @@ function myAccount(e, data) {
     const mobileBackdropMyAccount = (document.querySelector(
       '.js-mobil__account',
     ).style.display = 'block');
-
-    // refs.mobileBackdropMyAccount
   } else {
     const modalBackdropMyAccount = (document.querySelector(
       '.js-tablet__my-account',
     ).style.display = 'block');
-
-    // refs.modalBackdropMyAccount
   }
 
   refs.openFavorites.addEventListener('click', openFavorites);
@@ -87,8 +69,13 @@ function openFavorites() {
   const closeFavorites = document.querySelector('.close__favorites');
   closeFavorites.addEventListener('click', closeBtnFavorites);
 
-  refs.modalBackdropMyAccount.style.display = 'none';
-  refs.modalBackdropFavorites.style.display = 'block';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.mobileBackdropMyAccount.style.display = 'none';
+    refs.mobileBackdropFavorites.style.display = 'block';
+  } else {
+    refs.modalBackdropMyAccount.style.display = 'none';
+    refs.modalBackdropFavorites.style.display = 'block';
+  }
 
   animationOpenFavorites();
 }
@@ -97,8 +84,13 @@ function openMyAds() {
   const closeMyAds = document.querySelector('.close__my-ads');
   closeMyAds.addEventListener('click', closeBtnMyAds);
 
-  refs.modalBackdropMyAccount.style.display = 'none';
-  refs.modalBackdropMyAds.style.display = 'block';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.mobileBackdropMyAccount.style.display = 'none';
+    refs.modalBackdropMyAds.style.display = 'block';
+  } else {
+    refs.modalBackdropMyAccount.style.display = 'none';
+    refs.modalBackdropMyAds.style.display = 'block';
+  }
 
   animationOpenMyAds();
 }
