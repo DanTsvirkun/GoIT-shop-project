@@ -263,6 +263,7 @@ input[type='search']::-webkit-search-results-decoration {
 .account-avatar {
   width: 44px;
   height: 44px;
+  margin-right: 20px;
 }
 .avatar {
   width: 100%;

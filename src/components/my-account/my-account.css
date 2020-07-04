@@ -16,6 +16,7 @@
 .avatare-large {
   width: 85px;
   height: 85px;
+  box-shadow: 2px 2px 8px -1px #9b9b99c0;
 }
 
 .avatar-shadow {
@@ -112,7 +113,7 @@
   height: 31px;
   border-radius: 50%;
   border: 1px solid #ffffff;
-  box-shadow: 2px 2px 6px -2px #9b9b99c0;
+  box-shadow: 2px 2px 6px -1px #9b9b99c0;
   background-repeat: no-repeat;
   background-position: center;
   transition: all 0.5s ease-in-out;

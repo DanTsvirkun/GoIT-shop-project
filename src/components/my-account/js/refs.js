@@ -9,11 +9,13 @@ export const refs = {
   openFavorites: document.querySelector('.account-list__favorites'),
   openMyAds: document.querySelector('.account-list__advertisement'),
 
-  modalBackdropMyAccount: document.querySelector(
-    '.moodal-backdrop__my-account',
-  ),
-  modalBackdropFavorites: document.querySelector('.moodal-backdrop__favorites'),
-  modalBackdropMyAds: document.querySelector('.moodal-backdrop__my-ads'),
+  mobileBackdropMyAccount: document.querySelector('.js-mobil__account'),
+  mobileBackdropFavorites: document.querySelector('.js-mobil__favorites'),
+  mobileBackdropMyAds: document.querySelector('.js-mobil__my-ads'),
+
+  modalBackdropMyAccount: document.querySelector('.js-tablet__my-account'),
+  modalBackdropFavorites: document.querySelector('.js-tablet__favorites'),
+  modalBackdropMyAds: document.querySelector('.js-tablet__my-ads'),
 
   closeBtnAccount: document.querySelector('.close__my-account'),
   closeBtnFavorites: document.querySelector('.close__favorites'),

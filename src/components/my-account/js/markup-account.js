@@ -1,10 +1,10 @@
 import { refs } from './refs';
-import hbsIncomeBtn from '../templates/income-account-btn.hbs';
+// import hbsIncomeBtn from '../templates/income-account-btn.hbs';
 import hbsUserInfo from '../templates/account-user-info.hbs';
 import hbsFavoritesGoods from '../templates/favorites-goods-modal.hbs';
 import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
-import { openAccountWindow } from './my-modal-window';
+import { openAccMob } from './my-modal-window';
 import { api } from '../../services/api';
 import { isLogIn } from '../../auth-form/js/auth-form';
 
@@ -23,23 +23,28 @@ import { isLogIn } from '../../auth-form/js/auth-form';
 //   // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
 //   // closeModal(data);
 //   refs.modalBackdropMyAccount.style.display = 'block';
-//   // openAccountWindowBtn();
+//   openAccMob();
 // }
 
 // ================================================================
 
-function markupStartBtn(data) {
-  refs.markupStartBtn.innerHTML = hbsIncomeBtn(data); // '.header-auth-mobile'
-  openAccountWindow(data);
-}
+// function markupStartBtn(data) {
+//   refs.markupStartBtn.innerHTML = hbsIncomeBtn(data); // '.header-auth-mobile'
+//   openAccMob(data);
+// }
 
-// const closeModal = modalBackDrop(openAccountWindow(data));
+// const closeModal = modalBackDrop(openAccMob(data));
 // const closeBtn = document.querySelector('.close__my-account');
 // closeBtn.addEventListener('click', closeModal);
 // ================================================================
 
 function murkupUserInfo(data) {
-  refs.modalBackdropMyAccount.innerHTML = hbsUserInfo(data);
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.mobileBackdropMyAccount.innerHTML = hbsUserInfo(data);
+    console.log('refs.mobileBackdropMyAccount', refs.mobileBackdropMyAccount);
+  } else {
+    refs.modalBackdropMyAccount.innerHTML = hbsUserInfo(data);
+  }
 }
 
 function murkupFavoritesGoods() {
@@ -47,7 +52,11 @@ function murkupFavoritesGoods() {
     .favorites;
 
   api.filterMyAccount(parseFavorites).then(res => {
-    refs.modalBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      refs.mobileBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
+    } else {
+      refs.modalBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
+    }
     removeFavorites();
   });
 
@@ -59,7 +68,11 @@ function murkupMyAds() {
   const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
 
   api.filterMyAccount(parseMyAds).then(res => {
-    refs.modalBackdropMyAds.innerHTML = myAds(res);
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      refs.mobileBackdropMyAds.innerHTML = myAds(res);
+    } else {
+      refs.modalBackdropMyAds.innerHTML = myAds(res);
+    }
     removeUserAds();
   });
 
@@ -67,4 +80,5 @@ function murkupMyAds() {
   myAdsValue.textContent = parseMyAds.length;
 }
 
-export { markupStartBtn, murkupFavoritesGoods, murkupMyAds, murkupUserInfo };
+// export { markupStartBtn, murkupFavoritesGoods, murkupMyAds, murkupUserInfo };
+export { murkupFavoritesGoods, murkupMyAds, murkupUserInfo };

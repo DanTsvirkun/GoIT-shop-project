@@ -12,8 +12,9 @@ import refs from '../../header-main/js/refs';
 import signIn from '../templates/sign-in.hbs';
 import signUp from '../templates/sign-up.hbs';
 import signInUp from '../templates/sign-in-up.hbs';
+import hbsIncomeBtn from '../templates/income-account-btn.hbs';
+import { openAcc, openAccMob } from '../../my-account/js/my-modal-window';
 import { modalBackDrop } from '../../modal-window/logic-modal';
-import { markupStartBtn } from '../../my-account/js/markup-account';
 
 const signInUpDiv = refs.authBlock;
 const signInUpDivMob = refs.authBlockMobile;
@@ -68,8 +69,14 @@ export function isLogIn() {
     const localUserId = JSON.parse(localStorage.getItem('user-info')).userId;
 
     getUserInfo(localUserId).then(res => {
-      markupStartBtn(res.data);
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        openAccMob(res.data);
+      } else {
+        openAcc(res.data);
+      }
 
+      signInUpDiv.innerHTML = `${hbsIncomeBtn(res.data)}`;
+      signInUpDivMob.innerHTML = `${hbsIncomeBtn(res.data)}`;
       signOutForm = document.querySelector('.auth-form-sign-out');
       signOutForm.addEventListener('click', hendelSignOut);
       // signOutForm[1].addEventListener('click', hendelSignOut);

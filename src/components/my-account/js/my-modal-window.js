@@ -20,12 +20,31 @@ import { modalBackDrop } from '../../modal-window/logic-modal';
 
 // =================== OPEN ACCOUNT WINDOW =======================
 
-export function openAccountWindow(data) {
+export function openAccMob(data) {
   refs.markupStartBtn.addEventListener('click', e => {
     myAccount(e, data);
   });
 }
+
+export function openAcc(data) {
+  refs.markupStartBtnTablet.addEventListener('click', e => {
+    myAccount(e, data);
+  });
+}
 // refs.markupAccountWindow.addEventListener('click', markupAccountWindow);
+
+// const divBtn = document.querySelector('.header-auth');
+
+// refs.markupStartBtnTablet.addEventListener('click', e => {
+//   openTabletBtn();
+// });
+
+// function openTabletBtn() {
+//   // const localUserInfo = JSON.parse(localStorage.getItem('user-info'));
+//   // closeModal(data);
+//   refs.modalBackdropMyAccount.style.display = 'block';
+//   openAccMob();
+// }
 
 function myAccount(e, data) {
   murkupUserInfo(data);
@@ -37,22 +56,29 @@ function myAccount(e, data) {
   const refs = {
     openFavorites: document.querySelector('.account-list__favorites'),
     openMyAds: document.querySelector('.account-list__advertisement'),
-
     closeBtnAccount: document.querySelector('.close__my-account'),
     logoutAccount: document.querySelector('.account-logout'),
-
-    modalBackdropMyAccount: document.querySelector(
-      '.moodal-backdrop__my-account',
-    ),
   };
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    const mobileBackdropMyAccount = (document.querySelector(
+      '.js-mobil__account',
+    ).style.display = 'block');
+
+    // refs.mobileBackdropMyAccount
+  } else {
+    const modalBackdropMyAccount = (document.querySelector(
+      '.js-tablet__my-account',
+    ).style.display = 'block');
+
+    // refs.modalBackdropMyAccount
+  }
 
   refs.openFavorites.addEventListener('click', openFavorites);
   refs.openMyAds.addEventListener('click', openMyAds);
   refs.logoutAccount.addEventListener('click', logOut);
   refs.closeBtnAccount.addEventListener('click', closeBtnAccount);
   window.addEventListener('click', windowClose);
-
-  refs.modalBackdropMyAccount.style.display = 'block';
 
   animationOpenModal();
 }
@@ -85,29 +111,52 @@ function logOut(e) {
 // =================CLOSE WHEN CLICK ARROUND==================
 
 function windowClose(e) {
-  const modalBackdropMyAccount = document.querySelector(
-    '.moodal-backdrop__my-account',
-  );
-  const modalBackdropFavorites = document.querySelector(
-    '.moodal-backdrop__favorites',
-  );
-  const modalBackdropMyAds = document.querySelector('.moodal-backdrop__my-ads');
-  if (e.target === modalBackdropMyAccount) {
-    modalBackdropMyAccount.style.display = 'none';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    const mobileBackdropMyAccount = document.querySelector(
+      '.js-mobil__account',
+    );
+    const mobileBackdropFavorites = document.querySelector(
+      '.js-mobil__favorites',
+    );
+    const mobileBackdropMyAds = document.querySelector('.js-mobil__my-ads');
 
-    animationCloseModal();
-  }
+    if (e.target === mobileBackdropMyAccount) {
+      mobileBackdropMyAccount.style.display = 'none';
+      animationCloseModal();
+    }
 
-  if (e.target === modalBackdropFavorites) {
-    modalBackdropFavorites.style.display = 'none';
+    if (e.target === mobileBackdropFavorites) {
+      mobileBackdropFavorites.style.display = 'none';
+      animationCloseFavorites();
+    }
 
-    animationCloseFavorites();
-  }
+    if (e.target === mobileBackdropMyAds) {
+      mobileBackdropMyAds.style.display = 'none';
+      animationCloseMyAds();
+    }
+  } else {
+    const modalBackdropMyAccount = document.querySelector(
+      '.js-tablet__my-account',
+    );
+    const modalBackdropFavorites = document.querySelector(
+      '.js-tablet__favorites',
+    );
+    const modalBackdropMyAds = document.querySelector('.js-tablet__my-ads');
 
-  if (e.target === modalBackdropMyAds) {
-    modalBackdropMyAds.style.display = 'none';
+    if (e.target === modalBackdropMyAccount) {
+      modalBackdropMyAccount.style.display = 'none';
+      animationCloseModal();
+    }
 
-    animationCloseMyAds();
+    if (e.target === modalBackdropFavorites) {
+      modalBackdropFavorites.style.display = 'none';
+      animationCloseFavorites();
+    }
+
+    if (e.target === modalBackdropMyAds) {
+      modalBackdropMyAds.style.display = 'none';
+      animationCloseMyAds();
+    }
   }
 
   isLogIn();
@@ -116,19 +165,31 @@ function windowClose(e) {
 // =====================CLOSE MODAL ON BTN=====================
 
 function closeBtnAccount() {
-  refs.modalBackdropMyAccount.style.display = 'none';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.mobileBackdropMyAccount.style.display = 'none';
+  } else {
+    refs.modalBackdropMyAccount.style.display = 'none';
+  }
 
   animationCloseModal();
 }
 
 function closeBtnFavorites() {
-  refs.modalBackdropFavorites.style.display = 'none';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.mobileBackdropFavorites.style.display = 'none';
+  } else {
+    refs.modalBackdropFavorites.style.display = 'none';
+  }
 
   animationCloseFavorites();
 }
 
 function closeBtnMyAds() {
-  refs.modalBackdropMyAds.style.display = 'none';
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    refs.modalBackdropMyAds.style.display = 'none';
+  } else {
+    refs.mobileBackdropMyAds.style.display = 'none';
+  }
 
   animationCloseMyAds();
 }
