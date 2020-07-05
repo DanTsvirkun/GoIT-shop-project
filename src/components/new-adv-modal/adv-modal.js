@@ -37,6 +37,7 @@ function createModal() {
   const closeModal = modalBackDrop(markupModal());
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal);
+  
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
@@ -65,7 +66,7 @@ function saveData(event) {
     : productPriceWrap.classList.remove('hide-price');
   event.target.value === 'for-free'
     ? productPriceWrap.classList.remove('input-wrapper')
-    : productPriceWrap.classList.add('input-wrapper');
+    : productPriceWrap.classList.add('input-wrapper');    
 }
 
 //==================================
