@@ -77,7 +77,7 @@
 }
 
 .modal__icon--close {
-  position: fixed;
+  position: absolute;
   top: 15px;
   right: 15px;
   content: '';

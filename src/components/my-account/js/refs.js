@@ -6,8 +6,8 @@ export const refs = {
   userFavoritesList: document.querySelector('.selected-goods__list'),
   userAdsList: document.querySelector('.my-ads__list'),
 
-  openFavorites: document.querySelector('.account-list__favorites'),
-  openMyAds: document.querySelector('.account-list__advertisement'),
+  // openFavorites: document.querySelector('.account-list__favorites'),
+  // openMyAds: document.querySelector('.account-list__advertisement'),
 
   mobileBackdropMyAccount: document.querySelector('.js-mobil__account'),
   mobileBackdropFavorites: document.querySelector('.js-mobil__favorites'),

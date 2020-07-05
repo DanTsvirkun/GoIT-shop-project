@@ -33,28 +33,28 @@ function animationCloseMyAds() {
 
 // ============================================================================
 
-const animateCSS = () => {
-  new Promise((resolve, reject) => {
-    const userFavoritesList = document.querySelector('.selected-goods__item');
+// const animateCSS = () => {
+//   new Promise((resolve, reject) => {
+//     const userFavoritesList = document.querySelector('.selected-goods__item');
 
-    userFavoritesList.classList.add(
-      'animate__animated',
-      'animate__backOutLeft',
-    );
+//     userFavoritesList.classList.add(
+//       'animate__animated',
+//       'animate__backOutLeft',
+//     );
 
-    function handleAnimationEnd() {
-      userFavoritesList.classList.remove(
-        'animate__animated',
-        'animate__backOutLeft',
-      );
-      userFavoritesList.removeEventListener('animationend', handleAnimationEnd);
+//     function handleAnimationEnd() {
+//       userFavoritesList.classList.remove(
+//         'animate__animated',
+//         'animate__backOutLeft',
+//       );
+//       userFavoritesList.removeEventListener('animationend', handleAnimationEnd);
 
-      resolve('Animation ended');
-    }
+//       resolve('Animation ended');
+//     }
 
-    userFavoritesList.addEventListener('animationend', handleAnimationEnd);
-  });
-};
+//     userFavoritesList.addEventListener('animationend', handleAnimationEnd);
+//   });
+// };
 
 // ============================================================================
 
@@ -65,5 +65,5 @@ export {
   animationCloseFavorites,
   animationOpenMyAds,
   animationCloseMyAds,
-  animateCSS,
+  // animateCSS,
 };
