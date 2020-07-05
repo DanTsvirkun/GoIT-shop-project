@@ -43,6 +43,7 @@
   width: 280px;
   height: 305px;
   padding: 20px 0px;
+  cursor: pointer;
 }
 .thing-img {
   object-fit: cover;
