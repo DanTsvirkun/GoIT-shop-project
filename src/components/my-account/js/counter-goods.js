@@ -7,7 +7,6 @@ import { closeBtnFavorites, closeBtnMyAds } from './my-modal-window';
 
 function removeFavorites() {
   const userFavoritesList = document.querySelector('.selected-goods__list');
-
   userFavoritesList.children.forEach(item =>
     item.addEventListener('click', removeFavoritesItem),
   );

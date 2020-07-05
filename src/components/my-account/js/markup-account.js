@@ -5,14 +5,6 @@ import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
 import { api } from '../../services/api';
 
-// import { modalBackDrop } from '../../modal-window/logic-modal';
-
-// ================================================================
-// const closeModal = modalBackDrop(openAccMob(data));
-// const closeBtn = document.querySelector('.close__my-account');
-// closeBtn.addEventListener('click', closeModal);
-// ================================================================
-
 function murkupUserInfo(data) {
   if (window.matchMedia('(max-width: 767px)').matches) {
     refs.mobileBackdropMyAccount.innerHTML = hbsUserInfo(data);
@@ -26,7 +18,6 @@ function murkupFavoritesGoods() {
     .favorites;
 
   api.filterMyAccount(parseFavorites).then(res => {
-    console.log('favorites', res);
     if (window.matchMedia('(max-width: 767px)').matches) {
       refs.mobileBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
     } else {
@@ -44,7 +35,6 @@ function murkupMyAds() {
   const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
 
   api.filterMyAccount(parseMyAds).then(res => {
-    console.log('ads', res);
     if (window.matchMedia('(max-width: 767px)').matches) {
       refs.mobileBackdropMyAds.innerHTML = myAds(res);
     } else {
