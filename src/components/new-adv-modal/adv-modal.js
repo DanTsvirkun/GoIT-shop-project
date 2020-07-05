@@ -118,10 +118,11 @@ function submitForm(event) {
     arr[0].dataset.active = true;
   }
   //===============================================
-  api.postAdv(createData.category, createData).then(data => {
+  api.postAdv(createData.category, createData)
+  .then(data => {
     const user = JSON.parse(localStorage.getItem('user-info'));
-    const idAdv = data.name;
-    console.log(idAdv);
+    const idAdv = data.name; 
+    console.log(idAdv);  
     localStorage.setItem(
       'user-info',
       JSON.stringify({
@@ -129,7 +130,7 @@ function submitForm(event) {
         adv: [...user.adv, idAdv],
       }),
     );
-  });
+  })
   //===============================================
   advForm.reset();
   clearImages(allImg);

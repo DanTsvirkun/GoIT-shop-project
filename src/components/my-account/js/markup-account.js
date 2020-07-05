@@ -4,6 +4,7 @@ import hbsFavoritesGoods from '../templates/favorites-goods-modal.hbs';
 import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
 import { api } from '../../services/api';
+import { isLogIn } from '../../auth-form/js/auth-form';
 
 // import { modalBackDrop } from '../../modal-window/logic-modal';
 
@@ -16,7 +17,6 @@ import { api } from '../../services/api';
 function murkupUserInfo(data) {
   if (window.matchMedia('(max-width: 767px)').matches) {
     refs.mobileBackdropMyAccount.innerHTML = hbsUserInfo(data);
-    console.log('refs.mobileBackdropMyAccount', refs.mobileBackdropMyAccount);
   } else {
     refs.modalBackdropMyAccount.innerHTML = hbsUserInfo(data);
   }
@@ -25,7 +25,6 @@ function murkupUserInfo(data) {
 function murkupFavoritesGoods() {
   const parseFavorites = JSON.parse(localStorage.getItem('user-info'))
     .favorites;
-  console.log('parseFavorites', parseFavorites);
 
   api.filterMyAccount(parseFavorites).then(res => {
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -33,6 +32,7 @@ function murkupFavoritesGoods() {
     } else {
       refs.modalBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
     }
+
     removeFavorites();
   });
 
@@ -49,6 +49,7 @@ function murkupMyAds() {
     } else {
       refs.modalBackdropMyAds.innerHTML = myAds(res);
     }
+
     removeUserAds();
   });
 

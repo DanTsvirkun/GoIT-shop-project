@@ -1,5 +1,3 @@
-import { refs } from './refs';
-import { isLogIn } from '../../auth-form/js/auth-form';
 import { updateUserAvatar } from '../../services/user-api';
 
 export function avatarManipulation() {
@@ -13,18 +11,16 @@ export function avatarManipulation() {
 function hendleChange(e) {
   const file = e.target.files[0];
   const reader = new FileReader();
+  const imgSearche = document.querySelectorAll('.avatar');
 
   reader.onloadend = () => {
-    const imgSearche = document.querySelectorAll('.avatar');
-
     imgSearche.forEach(img => (img.src = reader.result));
 
     const localUserObj = JSON.parse(localStorage.getItem('user-info'));
     updateUserAvatar(localUserObj.userId, reader.result, localUserObj.token);
-    // location.reload();
   };
 
-  file ? reader.readAsDataURL(file) : (refs.avatarImg.src = '');
+  file ? reader.readAsDataURL(file) : resetForDefault();
 }
 
 function resetForDefault() {

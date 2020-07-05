@@ -5,7 +5,7 @@
 
     <ul class="my-ads__list">
       {{#each this}}
-      <li class="my-ads__item">
+      <li class="my-ads__item" data-id="{{id}}" data-category="{{category}}">
         <img class="my-ads__item-img" src="{{mainImg}}" alt="{{name}}" width="220" height="180">
         <div class="my-ads__item-block__info">
           <h4 class="my-ads__item-title">{{name}}</h4>

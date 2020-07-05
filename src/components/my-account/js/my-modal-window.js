@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import { isLogIn } from '../../auth-form/js/auth-form';
+import { signOutUser } from '../../services/user-api';
 
 import {
   murkupFavoritesGoods,
@@ -45,14 +46,15 @@ function myAccount(e, data) {
     logoutAccount: document.querySelector('.account-logout'),
   };
 
+  const mobileBackdropMyAccount = document.querySelector('.js-mobil__account');
+  const modalBackdropMyAccount = document.querySelector(
+    '.js-tablet__my-account',
+  );
+
   if (window.matchMedia('(max-width: 767px)').matches) {
-    const mobileBackdropMyAccount = (document.querySelector(
-      '.js-mobil__account',
-    ).style.display = 'block');
+    mobileBackdropMyAccount.style.display = 'block';
   } else {
-    const modalBackdropMyAccount = (document.querySelector(
-      '.js-tablet__my-account',
-    ).style.display = 'block');
+    modalBackdropMyAccount.style.display = 'block';
   }
 
   refs.openFavorites.addEventListener('click', openFavorites);
@@ -70,13 +72,11 @@ function openFavorites() {
   const closeFavorites = document.querySelector('.close__favorites');
   closeFavorites.addEventListener('click', closeBtnFavorites);
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    refs.mobileBackdropMyAccount.style.display = 'none';
-    refs.mobileBackdropFavorites.style.display = 'block';
-  } else {
-    refs.modalBackdropMyAccount.style.display = 'none';
-    refs.modalBackdropFavorites.style.display = 'block';
-  }
+  refs.mobileBackdropMyAccount.style.display = 'none';
+  refs.mobileBackdropFavorites.style.display = 'block';
+
+  refs.modalBackdropMyAccount.style.display = 'none';
+  refs.modalBackdropFavorites.style.display = 'block';
 
   animationOpenFavorites();
 }
@@ -85,24 +85,24 @@ function openMyAds() {
   const closeMyAds = document.querySelector('.close__my-ads');
   closeMyAds.addEventListener('click', closeBtnMyAds);
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    refs.mobileBackdropMyAccount.style.display = 'none';
-    refs.modalBackdropMyAds.style.display = 'block';
-  } else {
-    refs.modalBackdropMyAccount.style.display = 'none';
-    refs.modalBackdropMyAds.style.display = 'block';
-  }
+  refs.mobileBackdropMyAccount.style.display = 'none';
+  refs.mobileBackdropMyAds.style.display = 'block';
+
+  refs.modalBackdropMyAccount.style.display = 'none';
+  refs.modalBackdropMyAds.style.display = 'block';
 
   animationOpenMyAds();
 }
 
-function logOut(e, data) {
+// ========================== SIGNOUT ==========================
+
+function logOut() {
+  signOutUser();
+  isLogIn();
   closeBtnAccount();
-  murkupUserInfo(data);
-  windowClose(e);
 }
 
-// =================CLOSE WHEN CLICK ARROUND==================
+// ================= CLOSE WHEN CLICK ARROUND ==================
 
 function windowClose(e) {
   if (window.matchMedia('(max-width: 767px)').matches) {
@@ -156,34 +156,25 @@ function windowClose(e) {
   isLogIn();
 }
 
-// =====================CLOSE MODAL ON BTN=====================
+// ===================== CLOSE MODAL ON BTN =====================
 
 function closeBtnAccount() {
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    refs.mobileBackdropMyAccount.style.display = 'none';
-  } else {
-    refs.modalBackdropMyAccount.style.display = 'none';
-  }
-
+  isLogIn();
+  refs.mobileBackdropMyAccount.style.display = 'none';
+  refs.modalBackdropMyAccount.style.display = 'none';
   animationCloseModal();
 }
 
 function closeBtnFavorites() {
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    refs.mobileBackdropFavorites.style.display = 'none';
-  } else {
-    refs.modalBackdropFavorites.style.display = 'none';
-  }
+  refs.mobileBackdropFavorites.style.display = 'none';
+  refs.modalBackdropFavorites.style.display = 'none';
 
   animationCloseFavorites();
 }
 
 function closeBtnMyAds() {
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    refs.modalBackdropMyAds.style.display = 'none';
-  } else {
-    refs.mobileBackdropMyAds.style.display = 'none';
-  }
+  refs.mobileBackdropMyAds.style.display = 'none';
+  refs.modalBackdropMyAds.style.display = 'none';
 
   animationCloseMyAds();
 }

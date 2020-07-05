@@ -12,6 +12,11 @@
   background-color: #131f30;
 }
 
+.avatar {
+  height: 100%;
+  object-fit: cover;
+}
+
 .avatare-large {
   width: 85px;
   height: 85px;
@@ -25,6 +30,10 @@
 
 .account-logout {
   line-height: 20px;
+}
+
+.account-title {
+  width: max-content;
 }
 
 .account-btn:hover {
@@ -68,7 +77,7 @@
 }
 
 .modal__icon--close {
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 15px;
   content: '';
@@ -290,7 +299,7 @@
 .my-ads__inner {
   position: relative;
   width: 280px;
-  height: 715px;
+  height: 100vh;
   overflow: auto;
   background-color: #ffffff;
   margin: 0 auto;
@@ -372,6 +381,7 @@
   font-size: 13px;
   line-height: 18px;
   color: #878686;
+  padding-bottom: 30px;
 }
 
 .selected-goods__icon-text,
@@ -437,7 +447,7 @@
 
   .selected-goods__inner,
   .my-ads__inner {
-    padding-top: 40px;
+    padding: 40px 0 20px;
   }
 
   .selected-goods__item,

@@ -1,7 +1,7 @@
 export default {
   body: document.querySelector('body'),
-  authBlock: document.querySelector('.header-auth'), // =============== authBlock
-  authBlockMobile: document.querySelector('.header-auth-mobile'), // ============= authBlockMobile
+  authBlock: document.querySelector('.header-auth'),
+  authBlockMobile: document.querySelector('.header-auth-mobile'),
   clearBlock: document.querySelector('.clear-filters-wrapper'),
   clearBlockMobile: document.querySelector('.mobile-clear-filters-wrapper'),
   mobileMenuClosed: document.querySelector('.mobile-menu-closed'),

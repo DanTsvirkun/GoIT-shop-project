@@ -1,18 +1,13 @@
 import '../css/auth-style.css';
 import '../css/auth-form.css';
 
-import {
-  getUserInfo,
-  signInUser,
-  signUpUser,
-  signOutUser,
-} from '../../services/user-api';
+import { getUserInfo, signInUser, signUpUser } from '../../services/user-api';
 
 import refs from '../../header-main/js/refs';
 import signIn from '../templates/sign-in.hbs';
 import signUp from '../templates/sign-up.hbs';
 import signInUp from '../templates/sign-in-up.hbs';
-import hbsIncomeBtn from '../templates/income-account-btn.hbs';
+import accMenu from '../templates/acc-menu.hbs';
 import { openAcc, openAccMob } from '../../my-account/js/my-modal-window';
 import { modalBackDrop } from '../../modal-window/logic-modal';
 
@@ -21,7 +16,6 @@ let repeatPass;
 let signInForm;
 let goToRegister;
 let signUpForm;
-let signOutForm;
 
 const signInUpDiv = refs.authBlock;
 const signInUpDivMob = refs.authBlockMobile;
@@ -73,16 +67,12 @@ export function isLogIn() {
 
     getUserInfo(localUserId).then(res => {
       if (window.matchMedia('(max-width: 767px)').matches) {
+        signInUpDivMob.innerHTML = `${accMenu(res.data)}`;
         openAccMob(res.data);
       } else {
+        signInUpDiv.innerHTML = `${accMenu(res.data)}`;
         openAcc(res.data);
       }
-
-      signInUpDiv.innerHTML = `${hbsIncomeBtn(res.data)}`;
-      signInUpDivMob.innerHTML = `${hbsIncomeBtn(res.data)}`;
-      signOutForm = document.querySelector('.auth-form-sign-out');
-      signOutForm.addEventListener('click', hendelSignOut);
-      // signOutForm[1].addEventListener('click', hendelSignOut);
     });
   } else {
     signInUpDiv.innerHTML = `${signInUp()}`;
@@ -123,9 +113,4 @@ function hendelSubmitSignUp(e, closeModal) {
   if (inputData.userSignUp.password === inputData.userSignUp.passwordRepeat) {
     signUpUser(inputData.userSignUp).then(() => closeModal());
   }
-}
-
-function hendelSignOut(e) {
-  signOutUser();
-  isLogIn();
 }
