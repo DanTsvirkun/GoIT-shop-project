@@ -38,18 +38,18 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 260px;
+  width: 270px;
   margin: 0 auto;
 }
 
 .student-modal__item {
-  width: 130px;
+  width: 135px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .student-modal__item:first-child {
-  width: 260px;
+  width: 270px;
 }
 
 .student-modal__item:not(:last-child) {
@@ -57,7 +57,7 @@
 }
 
 .student-modal__avatar {
-  border: 2px solid red;
+  border: 2px solid #ff6b08;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -66,9 +66,11 @@
 }
 
 .student-modal__name {
+  font-family: 'MontserratLight', sans-serif;
 }
 
 .student-modal__email {
+  font-family: 'MontserratLight', sans-serif;
 }
 
 @media (min-width: 768px) {

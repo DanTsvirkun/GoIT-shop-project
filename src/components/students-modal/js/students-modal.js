@@ -6,7 +6,6 @@ import studentsModal from '../templates/students-modal.hbs';
 const studentBtn = document.querySelector('.js-students');
 // studentBtn.addEventListener('click', hendelOpenStudentModal);
 
-// function hendelOpenStudentModal(e) {
 const studentsIdArr = [
   '-MAzVEIwmTu4ISBtZLb0',
   '-MAzVEIwmTu4ISBtZLb0',
@@ -19,22 +18,16 @@ const studentsIdArr = [
   '-MAzVEIwmTu4ISBtZLb0',
 ];
 
-// getUserInfo('').then(res => {
-//   const allUserObj = Object.values(res.data);
+// function hendelOpenStudentModal(e) {
+getUserInfo('').then(res => {
+  const allUserObj = Object.values(res.data);
 
-//   let findUser;
+  let findUser = [];
 
-//   for (const id of studentsIdArr) {
-//     for (const user in allUserObj) {
-//       if (id === allUserObj[user].userId) {
-//         findUser += allUserObj[user];
-//       }
-//     }
-//   }
-//   console.log(findUser);
-// });
+  for (let i = 0; i <= studentsIdArr.length - 1; i += 1) {
+    findUser.push(allUserObj.find(user => user.userId === studentsIdArr[i]));
+  }
 
-// setTimeout(() => {
-//   // modalBackDrop(studentsModal(findUser));
-// }, 5000);
+  modalBackDrop(studentsModal(findUser));
+});
 // }
