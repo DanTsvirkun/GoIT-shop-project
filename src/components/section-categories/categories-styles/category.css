@@ -43,6 +43,11 @@
   width: 280px;
   height: 305px;
   padding: 20px 0px;
+  cursor: pointer;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+}
+.things-item:hover {
+  transform: scale(1.1);
 }
 .thing-img {
   object-fit: cover;
