@@ -10,9 +10,7 @@ import {
 } from './user-api';
 
 const apiKey = 'AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo';
-// apiKey: “AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo”
 const mainUrl = 'https://goit-shop-from-21st-bootcamp.firebaseio.com';
-// https://goit-shop-from-21st-bootcamp.firebaseio.com/
 
 export const nameAllCategories = [
   'electronics',
@@ -48,7 +46,6 @@ export const api = {
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
-          console.log(res);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
