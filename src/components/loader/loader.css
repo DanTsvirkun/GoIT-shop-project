@@ -61,3 +61,14 @@
     height: 0%;
   }
 }
+/* ====================================== */
+.loader-cover {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+}
+.loader-cover-none {
+  display: none;
+}

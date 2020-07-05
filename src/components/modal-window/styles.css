@@ -2,7 +2,6 @@
 .modalContainer {
   position: relative;
 }
-
 .modal {
   position: fixed;
   top: 0;

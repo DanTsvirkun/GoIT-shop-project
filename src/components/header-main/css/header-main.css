@@ -209,13 +209,14 @@ input[type='search']::-webkit-search-results-decoration {
 .mobile-input {
   display: unset;
   opacity: 1;
+  transform: translateY(11px);
 }
 
 .mobile-input-btn {
   display: none;
   position: absolute;
   cursor: pointer;
-  transform: translate(128px, 0px);
+  transform: translate(128px, 11px);
   border: none;
   outline: none;
   z-index: 1;
@@ -234,7 +235,7 @@ input[type='search']::-webkit-search-results-decoration {
   outline: none;
   width: 24px;
   height: 24px;
-  transform: translate(-133px, 0px);
+  transform: translate(-133px, 11px);
 }
 
 .mobile-clear-filters-wrapper:hover .header__clear-filter {
@@ -305,6 +306,12 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 @media (max-width: 767px) {
+  .header {
+    min-height: 92px;
+  }
+
+  /* ++ */
+
   .account-menu__wrapper {
     background-color: #031c33;
     margin-bottom: 30px;
