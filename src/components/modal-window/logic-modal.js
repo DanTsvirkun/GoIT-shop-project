@@ -16,9 +16,7 @@ export const modalBackDrop = innerElement => {
   const closeModal = () => {
     container.classList.remove('show-modal');
     container.addEventListener('click', close);
-    document.removeEventListener('keydown', close);
-    body.style.overflow = '';
-    body.style.maxHeight = '';
+    document.removeEventListener('keydown', close);    
     body.style.overflow = 'unset';
   };
   const close = e => {
@@ -28,8 +26,7 @@ export const modalBackDrop = innerElement => {
   };
   container.innerHTML = createModalMarkup(closeModal);
   container.classList.add('show-modal', 'transition-effect'); 
-  body.style.overflow = 'hidden';
-  body.style.maxHeight = '100vh';
+  body.style.overflow = 'hidden'; 
   container.addEventListener('click', close);
   document.addEventListener('keydown', close);
   return closeModal;
