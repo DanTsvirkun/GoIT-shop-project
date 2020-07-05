@@ -1,7 +1,7 @@
 import { api } from '../../services/api';
 import { deleteUserFavourite, deleteUserAdv } from '../../services/user-api';
 import { showItemModal } from '../../item-modal/item-modal-open';
-import { closeBtnFavorites } from './my-modal-window';
+import { closeBtnFavorites, closeBtnMyAds } from './my-modal-window';
 
 // ===================== FAVOURITES GOODS =======================
 
@@ -62,17 +62,25 @@ function removeUserAds() {
 }
 
 function removeAdsItem(e) {
-  if (e.target.nodeName !== 'SPAN') return;
+  const myAdsValue = document.querySelector('.js-counter__add');
+  const userAdsList = document.querySelector('.my-ads__list');
+
+  if (e.target.nodeName !== 'SPAN') {
+    userAdsList.addEventListener('click', () => {
+      closeBtnMyAds();
+    });
+
+    showItemModal(userAdsList);
+
+    return;
+  }
+
   const idItem = e.currentTarget.closest('li').dataset.id;
   const category = e.currentTarget.closest('li').dataset.category;
-
   e.currentTarget.remove();
 
   backendAdvRemove(idItem);
   api.deleteAdv(category, idItem);
-
-  const myAdsValue = document.querySelector('.js-counter__add');
-  const userAdsList = document.querySelector('.my-ads__list');
 
   myAdsValue.textContent = userAdsList.childElementCount; // ADS COUNTER
 }
