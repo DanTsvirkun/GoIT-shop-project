@@ -1,9 +1,15 @@
 import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
-import { api } from '../services/api';
-import { clearActiveCategory } from '../header-main/js/header-main';
-import { showItemModal } from '../item-modal/item-modal-open';
+import {
+  api
+} from '../services/api';
+import {
+  clearActiveCategory
+} from '../header-main/js/header-main';
+import {
+  showItemModal
+} from '../item-modal/item-modal-open';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -18,7 +24,10 @@ showItemModal(viewAllDiv);
 category.addEventListener('click', eachCategory);
 close.addEventListener('click', closeCategory);
 // =================================================
-const object = { nameCategory: '', descriptionCategory: '' };
+const object = {
+  nameCategory: '',
+  descriptionCategory: ''
+};
 // ======
 export function eachCategory(event) {
   if (
@@ -69,41 +78,41 @@ export function closeCategory() {
 function mainInfo(word) {
   switch (word) {
     case 'property':
-      object.nameCategory = 'property';
+      object.nameCategory = 'Недвижимость';
       object.descriptionCategory =
         'При публикации объявлений в разделе Недвижимость необходимо придерживаться правил, что и при размещении любых других объявлений. Однако есть несколько нюансов, на которые стоит обратить внимание.';
       break;
     case 'transport':
-      object.nameCategory = 'transport';
+      object.nameCategory = 'Транспорт';
       object.descriptionCategory =
         'В этом разделе вы можете найти любое передвигающееся средство по вашему вкусу';
       break;
     case 'work':
-      object.nameCategory = 'work';
+      object.nameCategory = 'Работа';
       object.descriptionCategory =
         'Если ищешь работу  тогда тебе к нам. более 500 вакансий каждый день';
       break;
     case 'electronics':
-      object.nameCategory = 'electronics';
+      object.nameCategory = 'Электроника';
       object.descriptionCategory =
         'Любая электроника от детских игрушек до холодильников';
       break;
     case 'business-and-services':
-      object.nameCategory = 'business-and-services';
+      object.nameCategory = 'Бизнес и услуги';
       object.descriptionCategory =
         'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
       break;
     case 'recreation-and-sports':
-      object.nameCategory = 'recreation-and-sports';
+      object.nameCategory = 'Отдых и спорт';
       object.descriptionCategory =
         'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
       break;
     case 'for-free':
-      object.nameCategory = 'for-free';
+      object.nameCategory = 'Отдам даром';
       object.descriptionCategory = 'Забери меня скорей. Отдадут меня быстрей';
       break;
     case 'exchange':
-      object.nameCategory = 'exchange';
+      object.nameCategory = 'Обмен';
       object.descriptionCategory =
         'Хочешь обновку а денег нет. Кто ищет всегда найдет';
       break;

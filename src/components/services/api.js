@@ -291,6 +291,7 @@ export const api = {
       requestedArray.length === nameAllCategories.length
     ) {
       return new Promise(resolve => {
+        console.log('data');
         const arrFavAdv = this.filterFavAdv(favArr);
         resolve(arrFavAdv);
       });
