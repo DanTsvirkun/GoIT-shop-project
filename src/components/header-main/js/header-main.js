@@ -48,6 +48,8 @@ refs.cross.addEventListener('click', closeMobileMenu);
 
 refs.tabletFiltersBtn.addEventListener('click', showTabletFilters);
 
+window.addEventListener('keydown', findGoodsByEnter);
+
 function activeCategory(e) {
   if (e.target.nodeName === 'BUTTON') {
     clearActiveCategory();
@@ -161,6 +163,12 @@ function findGoods() {
     });
     return;
   }
+}
+
+function findGoodsByEnter(e) {
+  if (e.code === 'Enter') {
+    findGoods();
+  } else return;
 }
 
 window.addEventListener(
