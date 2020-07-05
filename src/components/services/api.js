@@ -48,7 +48,6 @@ export const api = {
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
-          // console.log(res);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
@@ -112,8 +111,8 @@ export const api = {
         });
       }
       return new Promise(res => {
-        res('res');
-      })
+          res('res');
+        })
         .then(res => {
           if (requestedArray.length < nameAllCategories.length) {
             return this.addCategory().then(arr => {
@@ -224,8 +223,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-      res('res');
-    })
+        res('res');
+      })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -297,8 +296,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-      res('res');
-    })
+        res('res');
+      })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -322,11 +321,12 @@ export const api = {
     });
     return favourites;
   },
+
   deleteAdv(category, id) {
     return axios
       .delete(`${mainUrl}/categories/${category}/${id}.json`)
       .then(res => {
-        console.log(res);
+        return res
       })
       .catch(err => {
         console.log(err);
