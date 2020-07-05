@@ -8,6 +8,7 @@ import {
   murkupUserInfo,
 } from './markup-account';
 import { avatarManipulation } from './file-reader';
+import { showItemModal } from '../../item-modal/item-modal-open';
 
 import {
   animationOpenModal,
@@ -165,7 +166,7 @@ function closeBtnAccount() {
   animationCloseModal();
 }
 
-function closeBtnFavorites() {
+export function closeBtnFavorites() {
   refs.mobileBackdropFavorites.style.display = 'none';
   refs.modalBackdropFavorites.style.display = 'none';
 

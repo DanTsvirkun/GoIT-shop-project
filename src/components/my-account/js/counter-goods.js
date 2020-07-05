@@ -1,6 +1,7 @@
-// import { animateCSS } from './account-animation.js';
 import { api } from '../../services/api';
 import { deleteUserFavourite, deleteUserAdv } from '../../services/user-api';
+import { showItemModal } from '../../item-modal/item-modal-open';
+import { closeBtnFavorites } from './my-modal-window';
 
 // ===================== FAVOURITES GOODS =======================
 
@@ -13,16 +14,22 @@ function removeFavorites() {
 }
 
 function removeFavoritesItem(e) {
-  if (e.target.nodeName !== 'SPAN') return;
-  const idItem = e.currentTarget.closest('li').dataset.id;
-
-  e.currentTarget.remove();
-
-  backendFavouriteRemove(idItem);
-
-  // animateCSS();
   const favoritesValue = document.querySelector('.js-counter__heart');
   const userFavoritesList = document.querySelector('.selected-goods__list');
+
+  if (e.target.nodeName !== 'SPAN') {
+    userFavoritesList.addEventListener('click', () => {
+      closeBtnFavorites();
+    });
+
+    showItemModal(userFavoritesList);
+
+    return;
+  }
+
+  const idItem = e.currentTarget.closest('li').dataset.id;
+  e.currentTarget.remove();
+  backendFavouriteRemove(idItem);
 
   favoritesValue.textContent = userFavoritesList.childElementCount; // FAVOURITES COUNTER
 }

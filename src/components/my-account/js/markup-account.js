@@ -27,6 +27,7 @@ function murkupFavoritesGoods() {
     .favorites;
 
   api.filterMyAccount(parseFavorites).then(res => {
+    console.log('favorites', res);
     if (window.matchMedia('(max-width: 767px)').matches) {
       refs.mobileBackdropFavorites.innerHTML = hbsFavoritesGoods(res);
     } else {
@@ -44,6 +45,7 @@ function murkupMyAds() {
   const parseMyAds = JSON.parse(localStorage.getItem('user-info')).adv;
 
   api.filterMyAccount(parseMyAds).then(res => {
+    console.log('ads', res);
     if (window.matchMedia('(max-width: 767px)').matches) {
       refs.mobileBackdropMyAds.innerHTML = myAds(res);
     } else {
