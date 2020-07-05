@@ -8,8 +8,7 @@
 export const modalBackDrop = innerElement => {
   const body = document.querySelector('body');
   const container = document.querySelector('.modal');
-  const createModalMarkup = closeModal => {
-    body.classList.add('lockOverflow');
+  const createModalMarkup = closeModal => {    
     return `
         ${innerElement}
     `;
@@ -17,8 +16,8 @@ export const modalBackDrop = innerElement => {
   const closeModal = () => {
     container.classList.remove('show-modal');
     container.addEventListener('click', close);
-    document.removeEventListener('keydown', close);
-    document.querySelector('body').style.overflow = 'unset';
+    document.removeEventListener('keydown', close);    
+    body.style.overflow = 'unset';
   };
   const close = e => {
     if (e.target === document.querySelector('.modal') || e.key === 'Escape') {
@@ -26,8 +25,8 @@ export const modalBackDrop = innerElement => {
     } else return;
   };
   container.innerHTML = createModalMarkup(closeModal);
-  container.classList.add('show-modal', 'transition-effect');
-  document.querySelector('body').style.overflow = 'hidden';
+  container.classList.add('show-modal', 'transition-effect'); 
+  body.style.overflow = 'hidden'; 
   container.addEventListener('click', close);
   document.addEventListener('keydown', close);
   return closeModal;
