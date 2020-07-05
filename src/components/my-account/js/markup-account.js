@@ -4,7 +4,6 @@ import hbsFavoritesGoods from '../templates/favorites-goods-modal.hbs';
 import myAds from '../templates/my-ads-modal.hbs';
 import { removeFavorites, removeUserAds } from './counter-goods';
 import { api } from '../../services/api';
-import { isLogIn } from '../../auth-form/js/auth-form';
 
 // import { modalBackDrop } from '../../modal-window/logic-modal';
 

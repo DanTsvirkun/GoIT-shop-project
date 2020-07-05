@@ -186,7 +186,7 @@ export function closeBtnFavorites() {
   animationCloseFavorites();
 }
 
-function closeBtnMyAds() {
+export function closeBtnMyAds() {
   refs.mobileBackdropMyAds.style.display = 'none';
   refs.modalBackdropMyAds.style.display = 'none';
 
