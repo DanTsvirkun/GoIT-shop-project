@@ -144,3 +144,9 @@ export const deleteUserFavourite = (userId, advId, token) => {
     `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
   );
 };
+
+export const deleteUserAdv = (userId, advId, token) => {
+  return axios.delete(
+    `${API_URL}/user/${userId}/adv/${advId}.json?auth=${token}`,
+  );
+};

@@ -50,9 +50,11 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "animate.css": "^4.1.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.3",
+    "imagemin": "^6.1.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "siema": "^1.5.1"

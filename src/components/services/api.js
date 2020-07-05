@@ -111,8 +111,8 @@ export const api = {
         });
       }
       return new Promise(res => {
-        res('res');
-      })
+          res('res');
+        })
         .then(res => {
           if (requestedArray.length < nameAllCategories.length) {
             return this.addCategory().then(arr => {
@@ -223,8 +223,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-      res('res');
-    })
+        res('res');
+      })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -296,8 +296,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-      res('res');
-    })
+        res('res');
+      })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -321,10 +321,13 @@ export const api = {
     });
     return favourites;
   },
-  deleteAdv(category, idItem) {
+
+  deleteAdv(category, id) {
     return axios
       .delete(`${mainUrl}/categories/${category}/${id}.json`)
-      .then(res => {})
+      .then(res => {
+        return res
+      })
       .catch(err => {
         console.log(err);
       });
