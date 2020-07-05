@@ -45,7 +45,7 @@
 .student-modal__item {
   width: 135px;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .student-modal__item:first-child {
@@ -73,18 +73,57 @@
   font-family: 'MontserratLight', sans-serif;
 }
 
+.footer__our-students {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ff6b08;
+  cursor: pointer;
+}
+
+.footer__our-students:hover,
+.footer__our-students:focus {
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .student-modal {
     width: 600px;
     box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.25);
-    padding-top: 48px 0;
+    padding: 48px 0;
   }
 
   .student-modal__form--title {
     font-size: 22px;
-    line-height: 1.2;
     margin-bottom: 20px;
     margin-left: 54px;
+  }
+
+  .student-modal__list {
+    width: 570px;
+  }
+
+  .student-modal__item {
+    width: 190px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .student-modal__item:first-child {
+    width: 190px;
+  }
+
+  .student-modal__item:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .student-modal__item:not(:nth-last-child(-n + 3)) {
+    margin-bottom: 20px;
+  }
+
+  .student-modal__avatar {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -92,5 +131,37 @@
   .student-modal {
     width: 1000px;
     padding: 54px 0;
+  }
+
+  .student-modal__list {
+    width: 900px;
+  }
+
+  .student-modal__item {
+    width: 300px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .student-modal__item:first-child {
+    width: 300px;
+  }
+
+  .student-modal__item:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .student-modal__item:not(:nth-last-child(-n + 3)) {
+    margin-bottom: 30px;
+  }
+
+  .student-modal__avatar {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+  }
+
+  .student-modal__name {
+    margin-bottom: 5px;
   }
 }

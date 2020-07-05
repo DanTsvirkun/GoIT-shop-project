@@ -27,4 +27,5 @@ export default {
   sectionCategories: document.querySelector('.categories'),
   loadMore: document.querySelector('.load-more'),
   closeCategory: document.querySelector('.close-category'),
+  logo: document.querySelector('.header__logo'),
 };

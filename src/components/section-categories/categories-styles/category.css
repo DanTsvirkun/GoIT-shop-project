@@ -59,6 +59,10 @@
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
+  max-width: 240px;
+  max-height: 30px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .thing-price {
   display: block;
@@ -222,15 +226,4 @@
   .all-category {
     min-height: 700px;
   }
-}
-/* ====================================== */
-.loader-cover {
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  position: absolute;
-  top: 0;
-}
-.loader-cover-none {
-  display: none;
 }

@@ -70,35 +70,42 @@ function mainInfo(word) {
   switch (word) {
     case 'property':
       object.nameCategory = 'property';
-      object.descriptionCategory = 'eeerererer';
+      object.descriptionCategory =
+        'При публикации объявлений в разделе Недвижимость необходимо придерживаться правил, что и при размещении любых других объявлений. Однако есть несколько нюансов, на которые стоит обратить внимание.';
       break;
     case 'transport':
       object.nameCategory = 'transport';
-      object.descriptionCategory = 'ttttyyyyyyy';
+      object.descriptionCategory =
+        'В этом разделе вы можете найти любое передвигающееся средство по вашему вкусу';
       break;
     case 'work':
       object.nameCategory = 'work';
-      object.descriptionCategory = 'ggdsgdsgsdgsdgdsgsdg';
+      object.descriptionCategory =
+        'Если ищешь работу  тогда тебе к нам. более 500 вакансий каждый день';
       break;
     case 'electronics':
       object.nameCategory = 'electronics';
-      object.descriptionCategory = 'gagasgasgasga';
+      object.descriptionCategory =
+        'Любая электроника от детских игрушек до холодильников';
       break;
     case 'business-and-services':
       object.nameCategory = 'business-and-services';
-      object.descriptionCategory = 'gagasgasgasga';
+      object.descriptionCategory =
+        'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
       break;
     case 'recreation-and-sports':
       object.nameCategory = 'recreation-and-sports';
-      object.descriptionCategory = 'gagasgasgasga';
+      object.descriptionCategory =
+        'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
       break;
     case 'for-free':
       object.nameCategory = 'for-free';
-      object.descriptionCategory = 'gagasgasgasga';
+      object.descriptionCategory = 'Забери меня скорей. Отдадут меня быстрей';
       break;
     case 'exchange':
       object.nameCategory = 'exchange';
-      object.descriptionCategory = 'gagasgasgasga';
+      object.descriptionCategory =
+        'Хочешь обновку а денег нет. Кто ищет всегда найдет';
       break;
     default:
       break;
