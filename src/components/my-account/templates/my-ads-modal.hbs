@@ -1,0 +1,23 @@
+<div class="my-ads__inner">
+  <span class="modal__icon--close close__my-ads"></span>
+  <div class="my-ads">
+    <h3 class="my-ads__title icon--pencil-on">Мои объявления</h3>
+
+    <ul class="my-ads__list">
+      {{#each this}}
+      <li class="my-ads__item" data-id="{{id}}" data-category="{{category}}">
+        <img class="my-ads__item-img" src="{{mainImg}}" alt="{{name}}" width="220" height="180">
+        <div class="my-ads__item-block__info">
+          <h4 class="my-ads__item-title">{{name}}</h4>
+          <span class="my-ads__item-price">{{price}} грн</span>
+          <p class="my-ads__item-desc">{{description}}</p>
+        </div>
+        <span class="my-ads__item-icon">
+          <span class="my-ads__icon-text">Удалить</span>
+        </span>
+      </li>
+      {{/each}}
+    </ul>
+
+  </div>
+</div>
