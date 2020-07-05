@@ -91,15 +91,17 @@ function showMobileInput() {
   refs.mobileInput.classList.add('mobile-input');
   refs.inputSearch.style.display = 'unset';
   refs.inputCross.style.display = 'unset';
+  refs.logo.style.display = 'none';
   refs.inputCross.addEventListener('click', closeMobileInput);
 }
 
 function closeMobileInput() {
   refs.mobileInput.classList.remove('mobile-input');
+  refs.logo.style.display = 'unset';
   refs.inputSearch.style.display = 'none';
   refs.inputCross.style.display = 'none';
   refs.inputCross.removeEventListener('click', closeMobileInput);
-  closeCategory();
+  // closeCategory();
 }
 
 function showTabletFilters() {
