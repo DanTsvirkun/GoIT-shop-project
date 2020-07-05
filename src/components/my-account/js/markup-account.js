@@ -12,6 +12,7 @@ import {
   api
 } from '../../services/api';
 
+
 function murkupUserInfo(data) {
   if (window.matchMedia('(max-width: 767px)').matches) {
     refs.mobileBackdropMyAccount.innerHTML = hbsUserInfo(data);

@@ -9,10 +9,8 @@ import {
   addUserAdv,
 } from './user-api';
 
-const apiKey = 'AIzaSyCmN93oWbbIjStR6IIQAEvdec9qcNLRA_E';
-// apiKey: “AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo”
+const apiKey = 'AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo';
 const mainUrl = 'https://goit-shop-from-21st-bootcamp.firebaseio.com';
-// https://goit-shop-from-21st-bootcamp.firebaseio.com/
 
 export const nameAllCategories = [
   'electronics',
@@ -111,8 +109,8 @@ export const api = {
         });
       }
       return new Promise(res => {
-          res('res');
-        })
+        res('res');
+      })
         .then(res => {
           if (requestedArray.length < nameAllCategories.length) {
             return this.addCategory().then(arr => {
@@ -223,8 +221,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -297,8 +295,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -322,12 +320,11 @@ export const api = {
     });
     return favourites;
   },
-
   deleteAdv(category, id) {
     return axios
       .delete(`${mainUrl}/categories/${category}/${id}.json`)
       .then(res => {
-        return res
+        return res;
       })
       .catch(err => {
         console.log(err);

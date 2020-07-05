@@ -31,33 +31,6 @@ function animationCloseMyAds() {
   myAdsInner.classList.remove('animate__animated', 'animate__backInDown');
 }
 
-// ============================================================================
-
-// const animateCSS = () => {
-//   new Promise((resolve, reject) => {
-//     const userFavoritesList = document.querySelector('.selected-goods__item');
-
-//     userFavoritesList.classList.add(
-//       'animate__animated',
-//       'animate__backOutLeft',
-//     );
-
-//     function handleAnimationEnd() {
-//       userFavoritesList.classList.remove(
-//         'animate__animated',
-//         'animate__backOutLeft',
-//       );
-//       userFavoritesList.removeEventListener('animationend', handleAnimationEnd);
-
-//       resolve('Animation ended');
-//     }
-
-//     userFavoritesList.addEventListener('animationend', handleAnimationEnd);
-//   });
-// };
-
-// ============================================================================
-
 export {
   animationOpenModal,
   animationCloseModal,
@@ -65,5 +38,4 @@ export {
   animationCloseFavorites,
   animationOpenMyAds,
   animationCloseMyAds,
-  // animateCSS,
 };

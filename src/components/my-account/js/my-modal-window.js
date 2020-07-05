@@ -26,9 +26,6 @@ import {
 
 // =================== OPEN ACCOUNT WINDOW =======================
 
-// refs.body.addEventListener('click', openModalOverflow);
-// refs.body.addEventListener('click', closeModalOverflow);
-
 export function openAccMob(data) {
   refs.markupStartBtn.addEventListener('click', e => {
     myAccount(e, data);
@@ -194,7 +191,7 @@ export function closeBtnFavorites() {
   animationCloseFavorites();
 }
 
-function closeBtnMyAds() {
+export function closeBtnMyAds() {
   refs.mobileBackdropMyAds.style.display = 'none';
   refs.modalBackdropMyAds.style.display = 'none';
 
