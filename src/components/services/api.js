@@ -254,7 +254,6 @@ export const api = {
     return new Promise(res => res(array));
   },
 
-
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -321,5 +320,13 @@ export const api = {
       return favArr.includes(item.id);
     });
     return favourites;
+  },
+  deleteAdv(category, idItem) {
+    return axios
+      .delete(`${mainUrl}/categories/${category}/${id}.json`)
+      .then(res => {})
+      .catch(err => {
+        console.log(err);
+      });
   },
 };
