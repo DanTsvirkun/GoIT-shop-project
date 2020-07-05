@@ -48,7 +48,7 @@ export const api = {
       return axios
         .get(`${mainUrl}/categories/${category}.json`)
         .then(res => {
-          console.log(res);
+          // console.log(res);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
@@ -255,7 +255,6 @@ export const api = {
     return new Promise(res => res(array));
   },
 
-
   shuffleGoods(a) {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -322,5 +321,15 @@ export const api = {
       return favArr.includes(item.id);
     });
     return favourites;
+  },
+  deleteAdv(category, id) {
+    return axios
+      .delete(`${mainUrl}/categories/${category}/${id}.json`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
 };
