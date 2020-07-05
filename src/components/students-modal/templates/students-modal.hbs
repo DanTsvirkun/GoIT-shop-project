@@ -1,0 +1,18 @@
+<div class="student-modal">
+
+  <button type="button" class="student-modal__close-btn"></button>
+
+  <h2 class="student-modal__form--title">Наша команда</h2>
+
+  <ul class="student-modal__list">
+    {{#each this}}
+    <li class="student-modal__item">
+      <img class="student-modal__avatar" src="{{avatar}}" alt="Пользователь: {{firstName}} {{secondName}}" width="60"
+        height="60">
+      <p class="student-modal__name">{{firstName}} {{secondName}}</p>
+      <p class="student-modal__tasks">{{tasks}}</p>
+    </li>
+    {{/each}}
+  </ul>
+
+</div>

@@ -18,9 +18,6 @@ import {
 
 // =================== OPEN ACCOUNT WINDOW =======================
 
-// refs.body.addEventListener('click', openModalOverflow);
-// refs.body.addEventListener('click', closeModalOverflow);
-
 export function openAccMob(data) {
   refs.markupStartBtn.addEventListener('click', e => {
     myAccount(e, data);
