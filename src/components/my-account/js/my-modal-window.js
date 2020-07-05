@@ -1,15 +1,12 @@
 import { refs } from './refs';
 import { isLogIn } from '../../auth-form/js/auth-form';
 import { signOutUser } from '../../services/user-api';
-
 import {
   murkupFavoritesGoods,
   murkupMyAds,
   murkupUserInfo,
 } from './markup-account';
 import { avatarManipulation } from './file-reader';
-import { showItemModal } from '../../item-modal/item-modal-open';
-
 import {
   animationOpenModal,
   animationCloseModal,
@@ -20,6 +17,9 @@ import {
 } from './account-animation.js';
 
 // =================== OPEN ACCOUNT WINDOW =======================
+
+// refs.body.addEventListener('click', openModalOverflow);
+// refs.body.addEventListener('click', closeModalOverflow);
 
 export function openAccMob(data) {
   refs.markupStartBtn.addEventListener('click', e => {
@@ -37,6 +37,7 @@ function myAccount(e, data) {
   murkupUserInfo(data);
   murkupFavoritesGoods();
   murkupMyAds();
+  openModalOverflow();
 
   avatarManipulation();
 
@@ -72,6 +73,7 @@ function myAccount(e, data) {
 function openFavorites() {
   const closeFavorites = document.querySelector('.close__favorites');
   closeFavorites.addEventListener('click', closeBtnFavorites);
+  openModalOverflow();
 
   refs.mobileBackdropMyAccount.style.display = 'none';
   refs.mobileBackdropFavorites.style.display = 'block';
@@ -85,6 +87,7 @@ function openFavorites() {
 function openMyAds() {
   const closeMyAds = document.querySelector('.close__my-ads');
   closeMyAds.addEventListener('click', closeBtnMyAds);
+  openModalOverflow();
 
   refs.mobileBackdropMyAccount.style.display = 'none';
   refs.mobileBackdropMyAds.style.display = 'block';
@@ -101,6 +104,7 @@ function logOut() {
   signOutUser();
   isLogIn();
   closeBtnAccount();
+  closeModalOverflow();
 }
 
 // ================= CLOSE WHEN CLICK ARROUND ==================
@@ -117,16 +121,19 @@ function windowClose(e) {
 
     if (e.target === mobileBackdropMyAccount) {
       mobileBackdropMyAccount.style.display = 'none';
+      closeModalOverflow();
       animationCloseModal();
     }
 
     if (e.target === mobileBackdropFavorites) {
       mobileBackdropFavorites.style.display = 'none';
+      closeModalOverflow();
       animationCloseFavorites();
     }
 
     if (e.target === mobileBackdropMyAds) {
       mobileBackdropMyAds.style.display = 'none';
+      closeModalOverflow();
       animationCloseMyAds();
     }
   } else {
@@ -140,16 +147,19 @@ function windowClose(e) {
 
     if (e.target === modalBackdropMyAccount) {
       modalBackdropMyAccount.style.display = 'none';
+      closeModalOverflow();
       animationCloseModal();
     }
 
     if (e.target === modalBackdropFavorites) {
       modalBackdropFavorites.style.display = 'none';
+      closeModalOverflow();
       animationCloseFavorites();
     }
 
     if (e.target === modalBackdropMyAds) {
       modalBackdropMyAds.style.display = 'none';
+      closeModalOverflow();
       animationCloseMyAds();
     }
   }
@@ -163,6 +173,8 @@ function closeBtnAccount() {
   isLogIn();
   refs.mobileBackdropMyAccount.style.display = 'none';
   refs.modalBackdropMyAccount.style.display = 'none';
+
+  closeModalOverflow();
   animationCloseModal();
 }
 
@@ -170,6 +182,7 @@ export function closeBtnFavorites() {
   refs.mobileBackdropFavorites.style.display = 'none';
   refs.modalBackdropFavorites.style.display = 'none';
 
+  closeModalOverflow();
   animationCloseFavorites();
 }
 
@@ -177,5 +190,16 @@ function closeBtnMyAds() {
   refs.mobileBackdropMyAds.style.display = 'none';
   refs.modalBackdropMyAds.style.display = 'none';
 
+  closeModalOverflow();
   animationCloseMyAds();
+}
+
+// ================= FIXED WINDOW WHEN MODAL OPENED =================
+
+function openModalOverflow() {
+  document.querySelector('body').style.overflow = 'hidden';
+}
+
+function closeModalOverflow() {
+  document.querySelector('body').style.overflow = 'unset';
 }

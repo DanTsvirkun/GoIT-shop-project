@@ -1,13 +1,12 @@
 export const refs = {
+  // body: document.querySelector('.body'),
+
   markupStartBtn: document.querySelector('.header-auth-mobile'),
   markupStartBtnTablet: document.querySelector('.header-auth'),
 
   hbsUserInfo: document.querySelector('.user-info'),
   userFavoritesList: document.querySelector('.selected-goods__list'),
   userAdsList: document.querySelector('.my-ads__list'),
-
-  // openFavorites: document.querySelector('.account-list__favorites'),
-  // openMyAds: document.querySelector('.account-list__advertisement'),
 
   mobileBackdropMyAccount: document.querySelector('.js-mobil__account'),
   mobileBackdropFavorites: document.querySelector('.js-mobil__favorites'),
