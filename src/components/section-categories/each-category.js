@@ -103,12 +103,12 @@ function mainInfo(word) {
         'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
       break;
     case 'recreation-and-sports':
-      object.nameCategory = 'Отдых и спорт';
+      object.nameCategory = 'Отдых и спортивные состязания';
       object.descriptionCategory =
         'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
       break;
     case 'for-free':
-      object.nameCategory = 'Отдам даром';
+      object.nameCategory = 'Бесплатно';
       object.descriptionCategory = 'Забери меня скорей. Отдадут меня быстрей';
       break;
     case 'exchange':

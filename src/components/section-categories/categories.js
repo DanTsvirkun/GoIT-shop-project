@@ -65,12 +65,12 @@ function test(word) {
           'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
         break;
       case 'recreation-and-sports':
-        data[0].nameCategory = 'Отдых и спорт';
+        data[0].nameCategory = 'Отдых и спортивные состязания';
         data[0].descriptionCategory =
           'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
         break;
       case 'for-free':
-        data[0].nameCategory = 'Отдам даром';
+        data[0].nameCategory = 'Бесплатно';
         data[0].descriptionCategory =
           'Забери меня скорей. Отдадут меня быстрей';
         break;
