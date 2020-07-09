@@ -35,7 +35,6 @@ const requestedArray = [];
 // 'advertisement --- Реклама
 
 export const api = {
-  // Запрос для категорий. Нужно передать название категории как аргумент.
   getCategory(category) {
     if (data[category]) {
       if (data[category].length > 0) {
@@ -66,8 +65,7 @@ export const api = {
       });
     }
   },
-  // advertisement Метод для поиска рекламы
-  // >>>>>>>>>>>>>> ничего передавать не надо, просто вызвать функцию.
+
   getAdvertisement() {
     if (data.advertisement) {
       if (data.advertisement.length > 0) {
@@ -96,8 +94,6 @@ export const api = {
     }
   },
 
-  // Поиск всех категорий. Метод нужен для поиска одного или нескольких товаров.
-  // ----! Принимает значение инпута.
   searchGoods(searchWord) {
     if (searchWord) {
       if (
@@ -161,9 +157,6 @@ export const api = {
     });
     return filteredArray;
   },
-
-  // Избранное --- Ира нажимает и это летит к контретному юзеру, динамично передаю название папки(не папик) юзера
-  // Ира нажимает на карточку и ей приходит объект по id. Нужен метод для отправки юзеру в избранное.
   searchId(id) {
     if (id) {
       return new Promise((res, rej) => {
@@ -176,14 +169,11 @@ export const api = {
       });
     }
   },
-  // Метод для работы с localStorage
   getUserInfo() {},
-  // Метод для отправки объявления ----! Принимает два аргумента (название категории, объект)
   postAdv(category, obj) {
     return axios
       .post(`${mainUrl}/categories/${category}.json`, obj)
       .then(res => {
-        // отправляю юзеру на бэк
         const user = JSON.parse(localStorage.getItem('user-info'));
         const userId = user.userId;
         const userToken = user.token;
@@ -206,10 +196,6 @@ export const api = {
       })
       .catch(err => console.log(err));
   },
-  //    Метод для получение всех товаров. Все товары приходят радномно при вызове метода.
-  // Метод нужен для рекламы или популярных товаров.
-  //  Например можно брать первые первые 6 для популярных товаров и
-  // при каждой загрузке страницы они будут разные.
 
   getAllGoods() {
     if (
@@ -234,7 +220,6 @@ export const api = {
             });
           });
         }
-        // this.transformAllCategories(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -245,7 +230,6 @@ export const api = {
     let array = [];
     for (let i = 0; i < nameAllCategories.length; i++) {
       if (!requestedArray.includes(nameAllCategories[i])) {
-        // requestedArray.push(nameAllCategories[i]);
         array.push(nameAllCategories[i]);
       }
     }
@@ -259,17 +243,11 @@ export const api = {
     }
     return a;
   },
-  // Можно ли менять избранное юзера до возвращения промиса?
-  // Вначале должен отработать бэк, а только после менять локалСторейдж
   removeFavorites(array) {
     const user = JSON.parse(localStorage.getItem('user-info')).id;
-    // function(user,array)
   },
-  // Вернуть промис
   setFavorites(id) {
     const user = JSON.parse(localStorage.getItem('user-info'));
-    //   function(id)
-    // запрос на сервер конкретного юзера если он есть, но влюбом случае записываем id  в локал сторейдж
     localStorage.setItem(
       'user-info',
       JSON.stringify({
@@ -282,7 +260,6 @@ export const api = {
     const favorites = JSON.parse(localStorage.getItem('user-info')).favorites;
     return favorites.includes(id);
   },
-  // Методом для кабинета принимает два аргумента, 1 - массив избранных, 2 - массив объявлений.
   filterMyAccount(favArr) {
     if (
       data.allCategories.length > 0 &&
