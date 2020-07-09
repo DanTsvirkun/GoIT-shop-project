@@ -9,8 +9,8 @@ import {
   addUserAdv,
 } from './user-api';
 
-const apiKey = 'AIzaSyAW3Ioxj9_QV0Lp_UnBQgdSuz4VSGA5UOo';
-const mainUrl = 'https://goit-shop-from-21st-bootcamp.firebaseio.com';
+const apiKey = 'AIzaSyB2FKz-w072z63RmuE_hI2iUziWeqou_3E';
+const mainUrl = 'https://st-bc-e5b14.firebaseio.com/';
 
 export const nameAllCategories = [
   'electronics',
