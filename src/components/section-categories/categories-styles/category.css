@@ -10,6 +10,41 @@
   touch-action: pan-y;
 }
 
+.electronics-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.property-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.transport-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.business-and-services-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.recreation-and-sports-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.for-free-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.exchange-list {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
 .category-list:first-of-type {
   padding-top: 54px;
 }
