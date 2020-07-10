@@ -108,7 +108,7 @@ function test(word) {
       const mySiema = new Siema({
         selector: list,
         loop: true,
-        duration: 200,
+        duration: 50,
         perPage: 1,
       });
       window.addEventListener(
