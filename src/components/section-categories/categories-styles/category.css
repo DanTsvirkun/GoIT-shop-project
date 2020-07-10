@@ -138,6 +138,51 @@
 }
 
 @media (max-width: 767px) {
+  .category-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .electronics-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .property-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .transport-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .business-and-services-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .recreation-and-sports-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .for-free-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+  .exchange-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100%;
+  }
+
+  .category-list {
+    width: 100%;
+  }
+
   .categories {
     position: relative;
   }
