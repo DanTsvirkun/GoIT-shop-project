@@ -28,7 +28,7 @@ const newItem = [
   { image: dzinsy, name: 'Джинсы Lee', price: 1999 },
   { image: ganteli, name: 'Гантели 2кг', price: 500 },
   { image: gear, name: 'Continental', price: 10000 },
-  { image: hot, name: 'tefal', price: 1299 },
+  { image: hot, name: 'Tefal', price: 1299 },
 ];
 // =========================================================
 const arroundItem = [
