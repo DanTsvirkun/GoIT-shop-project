@@ -1,9 +1,15 @@
 import './categories-styles/category.css';
 import mainHbs from './categories-templates/category-all-item.hbs';
 import itemHbs from './categories-templates/category-item.hbs';
-import { api } from '../services/api';
-import { clearActiveCategory } from '../header-main/js/header-main';
-import { showItemModal } from '../item-modal/item-modal-open';
+import {
+  api
+} from '../services/api';
+import {
+  clearActiveCategory
+} from '../header-main/js/header-main';
+import {
+  showItemModal
+} from '../item-modal/item-modal-open';
 // =================================================
 const ads = document.querySelector('.ads');
 const category = document.querySelector('.categories');
@@ -18,7 +24,10 @@ showItemModal(viewAllDiv);
 category.addEventListener('click', eachCategory);
 close.addEventListener('click', closeCategory);
 // =================================================
-const object = { nameCategory: '', descriptionCategory: '' };
+const object = {
+  nameCategory: '',
+  descriptionCategory: ''
+};
 // ======
 export function eachCategory(event) {
   if (
