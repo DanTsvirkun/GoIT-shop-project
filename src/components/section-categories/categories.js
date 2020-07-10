@@ -110,7 +110,7 @@ function test(word) {
         loop: true,
         duration: 200,
         perPage: 1,
-        easing: 'cubic-bezier(.17,.67,.32,1.34)',
+        easing: 'cubic-bezier(0.250, 0.250, 0.750, 0.750)',
       });
       window.addEventListener(
         'resize',
