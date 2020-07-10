@@ -108,12 +108,9 @@ function test(word) {
       const mySiema = new Siema({
         selector: list,
         loop: true,
-        duration: 200,
+        duration: 100,
         perPage: 1,
         easing: 'cubic-bezier(0.250, 0.250, 0.750, 0.750)',
-        onInit: () => {
-          this.selector.style['touchAction'] = 'pan-y';
-        },
       });
       window.addEventListener(
         'resize',
