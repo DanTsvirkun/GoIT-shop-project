@@ -8,8 +8,8 @@ import {
   updateUserAvatar,
   addUserAdv,
 } from './user-api';
-import staticDb from '../../db/static-db.json'
-console.log(staticDb);
+// import staticDb from '../../db/static-db.json'
+
 
 const apiKey = 'AIzaSyB2FKz-w072z63RmuE_hI2iUziWeqou_3E';
 const mainUrl = 'https://st-bc-e5b14.firebaseio.com';
@@ -305,8 +305,3 @@ export const api = {
       });
   },
 };
-
-const test = function () {
-
-}
-console.log();
