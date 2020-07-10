@@ -217,6 +217,7 @@
   border-radius: 50%;
   border: 2px solid #ff6b08;
   margin-right: 20px;
+  object-fit: cover;
 }
 .item_modal-seller--header {
   font-size: 12px;
@@ -368,7 +369,7 @@
 .bg-photo--style {
   width: 334px;
   height: 372px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .slider_image-min {
   background-color: rgb(244, 246, 251);
@@ -379,7 +380,7 @@
   justify-content: center;
   cursor: pointer;
   border: 3px solid #f3f3f3;
-  object-fit: cover;
+  object-fit: contain;
 }
 .slider_image-min--active {
   background-color: rgb(244, 246, 251);
@@ -391,12 +392,12 @@
   cursor: pointer;
   transition: 0.2s linear;
   border: 3px solid #fdbc91;
-  object-fit: cover;
+  object-fit: contain;
 }
 .sm-photo--style {
   width: 50px;
   height: 50px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .slider_image-min:not(:last-child) {
   margin-right: 4px;
