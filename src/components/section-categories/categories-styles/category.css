@@ -6,6 +6,8 @@
 
 .category-list {
   padding-bottom: 54px;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
 }
 
 .category-list:first-of-type {
