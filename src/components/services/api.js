@@ -100,8 +100,8 @@ export const api = {
         });
       }
       return new Promise(res => {
-          res('res');
-        })
+        res('res');
+      })
         .then(res => {
           if (requestedArray.length < nameAllCategories.length) {
             return this.addCategory().then(arr => {
@@ -202,8 +202,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
@@ -267,8 +267,8 @@ export const api = {
       });
     }
     return new Promise(res => {
-        res('res');
-      })
+      res('res');
+    })
       .then(res => {
         if (requestedArray.length < nameAllCategories.length) {
           return this.addCategory().then(arr => {
