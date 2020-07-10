@@ -78,7 +78,8 @@ export const signUpUser = ({
     .then(res => {
       if (res.status === 200) {
         axios
-          .post(`${API_URL}/user.json?auth=${res.data.idToken}`, {
+          // .post(`${API_URL}/user.json?auth=${res.data.idToken}`, {
+          .post(`${API_URL}/user.json`, {
             firstName,
             secondName,
             email,
@@ -122,31 +123,36 @@ export const signOutUser = () => {
 };
 
 export const updateUserAvatar = (id, obj, token) => {
-  return axios.patch(`${API_URL}/user/${id}.json?auth=${token}`, {
+  // return axios.patch(`${API_URL}/user/${id}.json?auth=${token}`, {
+  return axios.patch(`${API_URL}/user/${id}.json`, {
     avatar: obj,
   });
 };
 
 export const addUserAdv = (userId, advId, token) => {
-  return axios.patch(`${API_URL}/user/${userId}/adv.json?auth=${token}`, {
+  // return axios.patch(`${API_URL}/user/${userId}/adv.json?auth=${token}`, {
+  return axios.patch(`${API_URL}/user/${userId}/adv.json`, {
     [advId]: 'key',
   });
 };
 
 export const addUserFavourite = (userId, advId, token) => {
-  return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
+  // return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
+  return axios.patch(`${API_URL}/user/${userId}/favourite.json`, {
     [advId]: 'key',
   });
 };
 
 export const deleteUserFavourite = (userId, advId, token) => {
   return axios.delete(
-    `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
+    // `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
+    `${API_URL}/user/${userId}/favourite/${advId}.json`,
   );
 };
 
 export const deleteUserAdv = (userId, advId, token) => {
   return axios.delete(
-    `${API_URL}/user/${userId}/adv/${advId}.json?auth=${token}`,
+    // `${API_URL}/user/${userId}/adv/${advId}.json?auth=${token}`,
+    `${API_URL}/user/${userId}/adv/${advId}.json`,
   );
 };
