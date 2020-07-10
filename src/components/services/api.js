@@ -303,6 +303,3 @@ export const api = {
       });
   },
 };
-
-const test = function () {};
-console.log();
