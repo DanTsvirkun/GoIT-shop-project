@@ -36,6 +36,7 @@ let createData;
 function createModal() {
   const closeModal = modalBackDrop(markupModal());
   const closeBtn = document.querySelector('.adv-modal__close-btn');
+  
   closeBtn.addEventListener('click', closeModal);
   
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
@@ -50,8 +51,8 @@ function saveData(event) {
   const productName = event.currentTarget.elements.productName;
   const productDescription = event.currentTarget.elements.productDescription;
   const productPrice = event.currentTarget.elements.productPrice.value;
-
   const productCategory = event.currentTarget.elements.productCategory;
+
   createData = {
     author: userInfo.userId,
     name: productName.value,
@@ -67,9 +68,8 @@ function saveData(event) {
     : productPriceWrap.classList.remove('hide-price');
   event.target.value === 'for-free'
     ? productPriceWrap.classList.remove('input-wrapper')
-    : productPriceWrap.classList.add('input-wrapper');    
+    : productPriceWrap.classList.add('input-wrapper');
 }
-
 //==================================
 function chooseImgBlock(event) {
   if (event.target === event.currentTarget) {
