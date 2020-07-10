@@ -3,12 +3,9 @@ import './categories-styles/more-info.css';
 import Siema from 'siema';
 import catMain from './categories-templates/category-main.hbs';
 import catPop from './categories-templates/category-item.hbs';
-import {
-  api
-} from '../services/api';
-import {
-  showItemModal
-} from '../item-modal/item-modal-open';
+import { load, ready } from '../loader/loader';
+import { api } from '../services/api';
+import { showItemModal } from '../item-modal/item-modal-open';
 import throttle from 'lodash.throttle';
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
@@ -24,7 +21,7 @@ const nameAllCategories = [
   'for-free',
   'exchange',
 ];
-
+load();
 function fnSwitch(startIdx, endIdx) {
   nameAllCategories.slice(startIdx, endIdx).forEach((word, idx, curArr) => {
     if (counterStartIdx < nameAllCategories.length + 1) {
@@ -42,6 +39,9 @@ function fnSwitch(startIdx, endIdx) {
 
 function test(word) {
   return api.getCategory(word).then(data => {
+    if (document.querySelector('.loader-wrapper')) {
+      ready();
+    }
     switch (word) {
       case 'property':
         data[0].nameCategory = 'Недвижимость';
@@ -109,7 +109,7 @@ function test(word) {
         throttle(() => {
           if (
             window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-            .matches
+              .matches
           ) {
             mySiema.perPage = 2;
             mySiema.loop = false;
@@ -153,7 +153,7 @@ function test(word) {
             mySiemaTablet.config.loop = false;
           } else if (
             window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-            .matches
+              .matches
           ) {
             mySiemaTablet.perPage = 2;
             mySiemaTablet.loop = false;
@@ -180,7 +180,7 @@ function test(word) {
             mySiemaPC.config.loop = true;
           } else if (
             window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-            .matches
+              .matches
           ) {
             mySiemaPC.perPage = 2;
             mySiemaPC.loop = false;

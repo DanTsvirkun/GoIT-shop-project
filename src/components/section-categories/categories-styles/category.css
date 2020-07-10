@@ -18,9 +18,8 @@
 
 .category-name {
   font-size: 20px;
-  font-family: 'Montserrat';
+  font-family: 'MontserratSemiBold';
   color: rgb(0, 0, 0);
-  font-weight: bold;
   line-height: 1.2;
   text-align: left;
   margin-right: 12px;
@@ -29,7 +28,7 @@
 .view-all {
   cursor: pointer;
   font-size: 12px;
-  font-family: 'Montserrat';
+  font-family: 'MontserratRegular';
   color: rgb(255, 107, 8);
   text-decoration: underline;
   line-height: 1.2;
@@ -38,7 +37,7 @@
 
 .category-description {
   font-size: 12px;
-  font-family: 'Montserrat';
+  font-family: 'MontserratRegular';
   color: rgb(168, 168, 168);
   line-height: 1.5;
   text-align: left;
@@ -67,9 +66,8 @@
 .thing-name {
   display: block;
   font-size: 12px;
-  font-family: 'Montserrat';
+  font-family: 'MontserratSemiBold';
   color: rgb(0, 0, 0);
-  font-weight: bold;
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
@@ -82,9 +80,8 @@
 .thing-price {
   display: block;
   font-size: 12px;
-  font-family: 'Montserrat';
+  font-family: 'MontserratSemiBold';
   color: rgb(233, 97, 5);
-  font-weight: bold;
   line-height: 1.2;
   text-align: center;
 }
