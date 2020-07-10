@@ -7,6 +7,11 @@ import { load, ready } from '../loader/loader';
 import { api } from '../services/api';
 import { showItemModal } from '../item-modal/item-modal-open';
 import throttle from 'lodash.throttle';
+// =========================================================
+const blockList = document.querySelector('.block__list');
+const arroundBlockList = document.querySelector('.arround-block__list');
+const horizontalBlock = document.querySelector('.horizontal-block');
+// =========================================================
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
 let counterStartIdx = 0;
@@ -26,12 +31,10 @@ function fnSwitch(startIdx, endIdx) {
   nameAllCategories.slice(startIdx, endIdx).forEach((word, idx, curArr) => {
     if (counterStartIdx < nameAllCategories.length + 1) {
       counterStartIdx += 1;
-
     }
 
     if (curArr.length < 2 || counterEndIdx !== 3) {
       counterEndIdx += 1;
-
     }
     return test(word);
   });
@@ -41,6 +44,9 @@ function test(word) {
   return api.getCategory(word).then(data => {
     if (document.querySelector('.loader-wrapper')) {
       ready();
+      blockList.classList.add('block__list-show');
+      arroundBlockList.classList.add('arround-block__list-show');
+      horizontalBlock.classList.add('horizontal-block-show');
     }
     switch (word) {
       case 'property':
