@@ -60,7 +60,7 @@
   object-fit: cover;
   width: 240px;
   height: 240px;
-  margin: 0 auto;
+  margin: 0 auto 5px;
 }
 
 .thing-name {
@@ -72,7 +72,7 @@
   line-height: 1.2;
   text-align: center;
   max-width: 240px;
-  max-height: 30px;
+  max-height: 14px;
   margin: 0 auto;
   overflow: hidden;
 }
