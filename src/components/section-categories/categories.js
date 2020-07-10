@@ -13,7 +13,7 @@ import throttle from 'lodash.throttle';
 const categories = document.querySelector('.categories .container');
 const btnLoadMore = document.querySelector('.load-more');
 let counterStartIdx = 0;
-let counterEndIdx = 4;
+let counterEndIdx = 2;
 const nameAllCategories = [
   'electronics',
   'property',
@@ -24,13 +24,14 @@ const nameAllCategories = [
   'for-free',
   'exchange',
 ];
-async function fnSwitch(startIdx, endIdx) {
-  await nameAllCategories.slice(startIdx, endIdx).forEach(word => {
+
+function fnSwitch(startIdx, endIdx) {
+  nameAllCategories.slice(startIdx, endIdx).forEach((word, idx, curArr) => {
     if (counterStartIdx !== nameAllCategories.length - 1) {
       counterStartIdx += 1;
     }
-    if (!(counterStartIdx % 3)) {
-      counterEndIdx += 2;
+    if (curArr.length < 2 || counterEndIdx !== 3) {
+      counterEndIdx += 1;
     }
     return test(word);
   });
