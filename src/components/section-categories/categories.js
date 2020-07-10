@@ -108,7 +108,7 @@ function test(word) {
       const mySiema = new Siema({
         selector: list,
         loop: true,
-        duration: 50,
+        duration: 200,
         perPage: 1,
         easing: 'cubic-bezier(.17,.67,.32,1.34)',
       });
