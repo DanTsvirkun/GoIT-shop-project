@@ -1,4 +1,4 @@
-import '../css/header-main.css';
+// import '../css/header-main.css';
 import refs from './refs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';

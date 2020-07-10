@@ -1,4 +1,5 @@
 import './css/main.css';
+import './components/header-main/css/header-main.css';
 import './components/auth-form/js/auth-form';
 import './components/services/api';
 import './components/header-main/js/header-main.js';

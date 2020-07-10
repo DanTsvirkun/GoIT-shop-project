@@ -31,12 +31,10 @@ function fnSwitch(startIdx, endIdx) {
   nameAllCategories.slice(startIdx, endIdx).forEach((word, idx, curArr) => {
     if (counterStartIdx < nameAllCategories.length + 1) {
       counterStartIdx += 1;
-
     }
 
     if (curArr.length < 2 || counterEndIdx !== 3) {
       counterEndIdx += 1;
-
     }
     return test(word);
   });
@@ -111,6 +109,7 @@ function test(word) {
         selector: list,
         loop: true,
         duration: 200,
+        perPage: 1,
       });
       window.addEventListener(
         'resize',
