@@ -1,4 +1,3 @@
-// import '../css/header-main.css';
 import refs from './refs';
 import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
@@ -19,8 +18,6 @@ const arrayFromBack = [
   'Отдам бесплатно',
   'Обмен',
 ];
-
-let testCommit;
 
 const categoriesMarkup = categoriesList(arrayFromBack);
 
@@ -103,7 +100,6 @@ function closeMobileInput() {
   refs.inputSearch.style.display = 'none';
   refs.inputCross.style.display = 'none';
   refs.inputCross.removeEventListener('click', closeMobileInput);
-  // closeCategory();
 }
 
 function showTabletFilters() {
