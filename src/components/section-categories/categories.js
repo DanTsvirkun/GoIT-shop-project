@@ -116,14 +116,16 @@ function test(word) {
         'resize',
         throttle(() => {
           if (
-            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-              .matches
+            window.matchMedia('(min-width: 768px)').matches &&
+            window.matchMedia('(max-width: 1279px)').matches
           ) {
+            console.log('1');
             mySiema.perPage = 2;
             mySiema.loop = false;
             mySiema.config.perPage = 2;
             mySiema.config.loop = false;
           } else if (window.matchMedia('(min-width: 1280px)').matches) {
+            console.log('2');
             mySiema.perPage = 4;
             mySiema.loop = false;
             mySiema.config.perPage = 4;
@@ -132,12 +134,13 @@ function test(word) {
             mySiema.perPage = 1;
             mySiema.loop = true;
             mySiema.config.perPage = 1;
-            mySiema.config.loop = false;
+            mySiema.config.loop = true;
           }
         }, 300),
       );
     } else if (
-      window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)').matches
+      window.matchMedia('(min-width: 768px)').matches &&
+      window.matchMedia('(max-width: 1279px)').matches
     ) {
       const mySiemaTablet = new Siema({
         selector: list,
@@ -160,8 +163,8 @@ function test(word) {
             mySiemaTablet.config.perPage = 4;
             mySiemaTablet.config.loop = false;
           } else if (
-            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-              .matches
+            window.matchMedia('(min-width: 768px)').matches &&
+            window.matchMedia('(max-width: 1279px)').matches
           ) {
             mySiemaTablet.perPage = 2;
             mySiemaTablet.loop = false;
@@ -187,8 +190,8 @@ function test(word) {
             mySiemaPC.config.perPage = 1;
             mySiemaPC.config.loop = true;
           } else if (
-            window.matchMedia('(min-width: 768px)' && '(max-width: 1279px)')
-              .matches
+            window.matchMedia('(min-width: 768px)').matches &&
+            window.matchMedia('(max-width: 1279px)').matches
           ) {
             mySiemaPC.perPage = 2;
             mySiemaPC.loop = false;

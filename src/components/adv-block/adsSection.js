@@ -43,7 +43,6 @@ const arroundItem = [
 window.addEventListener('resize', throttle(changeSize, 500));
 function changeSize() {
   if (window.matchMedia('(max-width: 767px)').matches) {
-    console.log(newItem);
     blockList.innerHTML = newItem.map(item => adsTemplate(item));
     const mySiema = new Siema({
       draggable: false,
