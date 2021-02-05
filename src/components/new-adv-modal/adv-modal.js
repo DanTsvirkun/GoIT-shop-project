@@ -34,10 +34,17 @@ let productImage;
 let createData;
 
 function createModal() {
+  if (document.querySelector('.adv-modal')) {
+    document.querySelector('.adv-modal').style.display = 'block';
+  }
+  if (document.querySelector('.modalContainer')) {
+    document.querySelector('.modalContainer').style.display = 'block';
+  }
+  document.querySelector('body').style.overflow = 'hidden';
   const closeModal = modalBackDrop(markupModal());
   const closeBtn = document.querySelector('.adv-modal__close-btn');
   closeBtn.addEventListener('click', closeModal);
-  
+
   imgLoaderArea = document.querySelector('.adv-modal__product-photos');
   advForm = document.forms.advForm;
   advForm.addEventListener('change', saveData);
@@ -62,12 +69,12 @@ function saveData(event) {
     price: Number(productPrice).toLocaleString(),
   };
   const productPriceWrap = document.querySelector('.input-wrapper__price');
-  event.target.value === 'for-free'
+  event.target.value === 'free'
     ? productPriceWrap.classList.add('hide-price')
     : productPriceWrap.classList.remove('hide-price');
-  event.target.value === 'for-free'
+  event.target.value === 'free'
     ? productPriceWrap.classList.remove('input-wrapper')
-    : productPriceWrap.classList.add('input-wrapper');    
+    : productPriceWrap.classList.add('input-wrapper');
 }
 
 //==================================
@@ -84,8 +91,60 @@ function chooseImgBlock(event) {
 //====================================
 function submitForm(event) {
   event.preventDefault();
-  if (createData.category === '') {
+  document.querySelector('.img-error').classList.add('hide');
+  document.querySelector('.description-error').classList.add('hide');
+  document.querySelector('.price-error').classList.add('hide');
+  document.querySelector('.title-error').classList.add('hide');
+  if (!document.querySelector('#fp1').files) {
+    document.querySelector('.img-error').classList.remove('hide');
     return;
+  }
+  if (!document.querySelector('.adv-modal__product-name').value) {
+    document.querySelector('.title-error').classList.remove('hide');
+    return;
+  }
+  if (!document.querySelector('.adv-modal__product-description').value) {
+    document.querySelector('.description-error').classList.remove('hide');
+    return;
+  }
+  if (document.querySelector('.adv-modal__product-select').value !== 'free') {
+    if (!document.querySelector('.adv-modal__product-price').value) {
+      document.querySelector('.price-error').classList.remove('hide');
+      return;
+    }
+  }
+  const formDataEmpty = new FormData();
+  formDataEmpty.set(
+    'title',
+    document.querySelector('.adv-modal__product-name').value,
+  );
+  formDataEmpty.set(
+    'description',
+    document.querySelector('.adv-modal__product-description').value,
+  );
+  formDataEmpty.set(
+    'price',
+    document.querySelector('.adv-modal__product-price').value,
+  );
+  formDataEmpty.set(
+    'category',
+    document.querySelector('.adv-modal__product-select').value,
+  );
+  formDataEmpty.append('file', document.querySelector('#fp1').files[0]);
+  if (document.querySelector('#fp2').files) {
+    formDataEmpty.append('file', document.querySelector('#fp2').files[0]);
+  }
+  if (document.querySelector('#fp3').files) {
+    formDataEmpty.append('file', document.querySelector('#fp3').files[0]);
+  }
+  if (document.querySelector('#fp4').files) {
+    formDataEmpty.append('file', document.querySelector('#fp4').files[0]);
+  }
+  if (document.querySelector('#fp5').files) {
+    formDataEmpty.append('file', document.querySelector('#fp5').files[0]);
+  }
+  if (document.querySelector('#fp6').files) {
+    formDataEmpty.append('file', document.querySelector('#fp6').files[0]);
   }
   let allImg = event.currentTarget.querySelectorAll('img');
   allImg = Array.from(allImg);
@@ -120,10 +179,9 @@ function submitForm(event) {
     arr[0].dataset.active = true;
   }
   //===============================================
-  api.postAdv(createData.category, createData).then(data => {
+  api.postAdv(createData.category, formDataEmpty, allImgArr).then(data => {
     const user = JSON.parse(localStorage.getItem('user-info'));
-    const idAdv = data.name;
-    console.log(idAdv);
+    const idAdv = data.id;
     localStorage.setItem(
       'user-info',
       JSON.stringify({
@@ -137,7 +195,11 @@ function submitForm(event) {
   clearImages(allImg);
   returnMarkToStart(allLabelArr);
   removeInputFile(allPhotoInputs);
-  console.log(createData);
+  const closeModal = modalBackDrop(markupModal());
+  closeModal();
+  // document.querySelector('.adv-modal').style.display = 'none';
+  // document.querySelector('.modalContainer').style.display = 'none';
+  // document.querySelector('body').style.overflow = 'unset';
 }
 //=================================
 function previewImg(event) {

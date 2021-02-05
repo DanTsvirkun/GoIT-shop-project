@@ -7,6 +7,11 @@
   border: none;
   outline: none;
 }
+
+.load-more:hover {
+  color: #ff6b08;
+}
+
 @media (max-width: 767px) {
   .load-more {
     height: 70px;
@@ -25,8 +30,5 @@
     font-size: 20px;
     cursor: pointer;
     transition: all 200ms linear;
-  }
-  .load-more:hover {
-    color: #ff6b08;
   }
 }

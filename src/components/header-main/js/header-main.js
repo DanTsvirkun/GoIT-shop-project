@@ -1,8 +1,7 @@
-// import '../css/header-main.css';
-import refs from './refs';
-import categoriesList from '../templates/categories.hbs';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
+import refs from './refs';
+import categoriesList from '../templates/categories.hbs';
 import { eachCategory } from '../../section-categories/each-category';
 import { closeCategory } from '../../section-categories/each-category';
 import { api } from '../../services/api';
@@ -19,8 +18,6 @@ const arrayFromBack = [
   'Отдам бесплатно',
   'Обмен',
 ];
-
-let testCommit;
 
 const categoriesMarkup = categoriesList(arrayFromBack);
 
@@ -103,7 +100,6 @@ function closeMobileInput() {
   refs.inputSearch.style.display = 'none';
   refs.inputCross.style.display = 'none';
   refs.inputCross.removeEventListener('click', closeMobileInput);
-  // closeCategory();
 }
 
 function showTabletFilters() {
@@ -137,6 +133,9 @@ function findGoods() {
   if (refs.tabletInput.value !== '') {
     preFindGoods();
     api.searchGoods(refs.tabletInput.value).then(data => {
+      if (!data.length) {
+        document.querySelector('.not-found').classList.remove('hide');
+      }
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
       refs.closeCategory.classList.add('close-category-show');
@@ -147,6 +146,9 @@ function findGoods() {
   if (refs.PCInput.value !== '') {
     preFindGoods();
     api.searchGoods(refs.PCInput.value).then(data => {
+      if (!data.length) {
+        document.querySelector('.not-found').classList.remove('hide');
+      }
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
       refs.closeCategory.classList.add('close-category-show');
@@ -157,6 +159,9 @@ function findGoods() {
   if (refs.mobileInput.value !== '') {
     preFindGoods();
     api.searchGoods(refs.mobileInput.value).then(data => {
+      if (!data.length) {
+        document.querySelector('.not-found').classList.remove('hide');
+      }
       itemList.innerHTML = categoryItemTemplate(data);
       refs.wholeCategory.classList.add('all-category-show');
       refs.closeCategory.classList.add('close-category-show');

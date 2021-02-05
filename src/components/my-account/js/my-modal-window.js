@@ -1,20 +1,12 @@
-import {
-  refs
-} from './refs';
-import {
-  isLogIn
-} from '../../auth-form/js/auth-form';
-import {
-  signOutUser
-} from '../../services/user-api';
+import { refs } from './refs';
+import { isLogIn } from '../../auth-form/js/auth-form';
+import { signOutUser } from '../../services/user-api';
 import {
   murkupFavoritesGoods,
   murkupMyAds,
   murkupUserInfo,
 } from './markup-account';
-import {
-  avatarManipulation
-} from './file-reader';
+import { avatarManipulation } from './file-reader';
 import {
   animationOpenModal,
   animationCloseModal,
@@ -39,6 +31,9 @@ export function openAcc(data) {
 }
 
 function myAccount(e, data) {
+  if (!localStorage.getItem('user-info')) {
+    return;
+  }
   murkupUserInfo(data);
   murkupFavoritesGoods();
   murkupMyAds();

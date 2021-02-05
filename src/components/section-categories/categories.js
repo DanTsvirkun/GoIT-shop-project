@@ -7,6 +7,7 @@ import { load, ready } from '../loader/loader';
 import { api } from '../services/api';
 import { showItemModal } from '../item-modal/item-modal-open';
 import throttle from 'lodash.throttle';
+import data from '../services/data';
 // =========================================================
 const blockList = document.querySelector('.block__list');
 const arroundBlockList = document.querySelector('.arround-block__list');
@@ -21,10 +22,10 @@ const nameAllCategories = [
   'property',
   'transport',
   'work',
-  'business-and-services',
-  'recreation-and-sports',
-  'for-free',
-  'exchange',
+  'businessAndServices',
+  'recreationAndSport',
+  'free',
+  'trade',
 ];
 load();
 function fnSwitch(startIdx, endIdx) {
@@ -40,7 +41,7 @@ function fnSwitch(startIdx, endIdx) {
   });
 }
 
-function test(word) {
+export function test(word) {
   return api.getCategory(word).then(data => {
     if (document.querySelector('.loader-wrapper')) {
       ready();
@@ -69,22 +70,22 @@ function test(word) {
         data[0].descriptionCategory =
           'Любая электроника от детских игрушек до холодильников';
         break;
-      case 'business-and-services':
+      case 'businessAndServices':
         data[0].nameCategory = 'Бизнес и услуги';
         data[0].descriptionCategory =
-          'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
+          'Нужна помощь в продвижении малого бизнеса? Торопись тебе точно к нам';
         break;
-      case 'recreation-and-sports':
+      case 'recreationAndSport':
         data[0].nameCategory = 'Отдых и спортивные состязания';
         data[0].descriptionCategory =
-          'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
+          'Ищешь место куда бы укрытся от суеты и будней? Мы покажем тебе место о котором ты мечтал';
         break;
-      case 'for-free':
+      case 'free':
         data[0].nameCategory = 'Бесплатно';
         data[0].descriptionCategory =
           'Забери меня скорей. Отдадут меня быстрей';
         break;
-      case 'exchange':
+      case 'trade':
         data[0].nameCategory = 'Обмен';
         data[0].descriptionCategory =
           'Хочешь обновку а денег нет. Кто ищет всегда найдет';
@@ -119,13 +120,11 @@ function test(word) {
             window.matchMedia('(min-width: 768px)').matches &&
             window.matchMedia('(max-width: 1279px)').matches
           ) {
-            console.log('1');
             mySiema.perPage = 2;
             mySiema.loop = false;
             mySiema.config.perPage = 2;
             mySiema.config.loop = false;
           } else if (window.matchMedia('(min-width: 1280px)').matches) {
-            console.log('2');
             mySiema.perPage = 4;
             mySiema.loop = false;
             mySiema.config.perPage = 4;

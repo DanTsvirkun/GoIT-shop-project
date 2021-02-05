@@ -5,54 +5,49 @@ import { modalBackDrop } from '../modal-window/logic-modal';
 import signInErr from '../auth-form/templates/sign-in-err.hbs';
 import signUpErr from '../auth-form/templates/sign-up-err.hbs';
 
-axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
+// axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
 const API_KEY = 'AIzaSyBagS6Xzts8IVgIgwZ3ER5WfdgPqLtF_DA';
+const newUrl = 'https://callboard-back-presentational.goit.global';
 
 export const getUserInfo = userId => {
-  return axios.get(`${API_URL}/user/${userId}.json`);
+  return axios.get(`${newUrl}/user/${userId}`);
 };
 
 export const signInUser = signInUser => {
   return axios
-    .post(`:signInWithPassword?key=${API_KEY}`, {
+    .post(`${newUrl}/auth/login`, {
       ...signInUser,
-      returnSecureToken: true,
     })
-    .then(res => {
-      if (res.status === 200) {
-        getUserInfo('').then(userArr => {
-          const foundUser = Object.values(userArr.data).find(
-            user => user.email === res.data.email,
-          );
-
-          let favArray = [];
-          let advArray = [];
-
-          if (foundUser.favourite) {
-            favArray = Object.keys(foundUser.favourite);
+    .then(async res => {
+      let filteredFavorites = [];
+      if (res.data.user.favourites[0]) {
+        for (let i = 0; i < res.data.user.favourites.length; i++) {
+          const call = await axios({
+            method: 'GET',
+            url: `${newUrl}/call/${res.data.user.favourites[i]._id}`,
+            headers: { Authorization: res.data.token },
+          });
+          if (call.data.success) {
+            filteredFavorites.push(res.data.user.favourites[i]);
           }
-
-          if (foundUser.adv) {
-            advArray = Object.keys(foundUser.adv);
-          }
-
-          localStorage.setItem(
-            'user-info',
-            JSON.stringify({
-              userId: foundUser.userId,
-              email: res.data.email,
-              token: res.data.idToken,
-              favorites: favArray,
-              adv: advArray,
-            }),
-          );
-          isLogIn();
-        });
+        }
       }
+      localStorage.setItem(
+        'user-info',
+        JSON.stringify({
+          userId: res.data.user.id,
+          email: res.data.email,
+          token: res.data.token,
+          favorites: filteredFavorites,
+          adv: res.data.user.calls.map(item => item._id),
+        }),
+      );
+      isLogIn();
     })
-    .catch(() => {
+    .catch(err => {
       setTimeout(() => {
+        console.log(err);
         const closeModalErr = modalBackDrop(signInErr());
         document
           .querySelector('.auth-modal-err__close-btn')
@@ -67,48 +62,16 @@ export const signUpUser = ({
   email,
   phone,
   password,
-  avatar,
 }) => {
   return axios
-    .post(`:signUp?key=${API_KEY}`, {
-      email: email,
-      password: password,
-      returnSecureToken: true,
+    .post(`${newUrl}/auth/register`, {
+      email,
+      password,
+      firstName,
+      secondName,
+      phone,
     })
-    .then(res => {
-      if (res.status === 200) {
-        axios
-          // .post(`${API_URL}/user.json?auth=${res.data.idToken}`, {
-          .post(`${API_URL}/user.json`, {
-            firstName,
-            secondName,
-            email,
-            phone,
-            avatar,
-          })
-          .then(resId =>
-            localStorage.setItem(
-              'user-info',
-              JSON.stringify({
-                userId: resId.data.name,
-                email: res.data.email,
-                token: res.data.idToken,
-                favorites: [],
-                adv: [],
-              }),
-              axios
-                .patch(
-                  `${API_URL}/user/${resId.data.name}.json?auth=${res.data.idToken}`,
-                  {
-                    userId: resId.data.name,
-                  },
-                )
-                .then(() => isLogIn()),
-            ),
-          );
-      }
-    })
-    .catch(() => {
+    .catch(err => {
       setTimeout(() => {
         const closeModalErr = modalBackDrop(signUpErr());
         document
@@ -119,6 +82,13 @@ export const signUpUser = ({
 };
 
 export const signOutUser = () => {
+  axios({
+    method: 'POST',
+    url: `${newUrl}/auth/logout`,
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('user-info')).token,
+    },
+  });
   localStorage.clear();
 };
 
@@ -129,30 +99,40 @@ export const updateUserAvatar = (id, obj, token) => {
   });
 };
 
-export const addUserAdv = (userId, advId, token) => {
-  // return axios.patch(`${API_URL}/user/${userId}/adv.json?auth=${token}`, {
-  return axios.patch(`${API_URL}/user/${userId}/adv.json`, {
-    [advId]: 'key',
-  });
-};
+// export const addUserAdv = (userId, advId, token) => {
+//   // return axios.patch(`${API_URL}/user/${userId}/adv.json?auth=${token}`, {
+//   return axios.patch(`${API_URL}/user/${userId}/adv.json`, {
+//     [advId]: 'key',
+//   });
+// };
 
-export const addUserFavourite = (userId, advId, token) => {
+export const addUserFavourite = (userId, advId) => {
   // return axios.patch(`${API_URL}/user/${userId}/favourite.json?auth=${token}`, {
-  return axios.patch(`${API_URL}/user/${userId}/favourite.json`, {
-    [advId]: 'key',
+  return axios({
+    method: 'POST',
+    url: `${newUrl}/call/favourite/${advId}`,
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('user-info')).token,
+    },
   });
 };
 
 export const deleteUserFavourite = (userId, advId, token) => {
-  return axios.delete(
-    // `${API_URL}/user/${userId}/favourite/${advId}.json?auth=${token}`,
-    `${API_URL}/user/${userId}/favourite/${advId}.json`,
-  );
+  return axios({
+    method: 'DELETE',
+    url: `${newUrl}/call/favourite/${advId}`,
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('user-info')).token,
+    },
+  });
 };
 
 export const deleteUserAdv = (userId, advId, token) => {
-  return axios.delete(
-    // `${API_URL}/user/${userId}/adv/${advId}.json?auth=${token}`,
-    `${API_URL}/user/${userId}/adv/${advId}.json`,
-  );
+  return axios({
+    method: 'DELETE',
+    url: `${newUrl}/call/${advId}`,
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('user-info')).token,
+    },
+  });
 };
