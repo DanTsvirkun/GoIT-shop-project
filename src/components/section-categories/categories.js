@@ -50,44 +50,43 @@ function test(word) {
     }
     switch (word) {
       case 'property':
-        data[0].nameCategory = 'Недвижимость';
-        data[0].descriptionCategory =
-          'При публикации объявлений в разделе Недвижимость необходимо придерживаться правил, что и при размещении любых других объявлений. Однако есть несколько нюансов, на которые стоит обратить внимание.';
+        data[0].nameCategory = 'Property';
+        data[0].descriptionCategory = 'Wide variety of flats and houses';
         break;
       case 'transport':
-        data[0].nameCategory = 'Транспорт';
+        data[0].nameCategory = 'Transport';
         data[0].descriptionCategory =
-          'В этом разделе вы можете найти любое передвигающееся средство по вашему вкусу';
+          'In this section, you can find any vehicle of your choice';
         break;
       case 'work':
-        data[0].nameCategory = 'Работа';
+        data[0].nameCategory = 'Work';
         data[0].descriptionCategory =
-          'Если ищешь работу  тогда тебе к нам. более 500 вакансий каждый день';
+          'If you are looking for a job then come to us. More than 500 vacancies every day';
         break;
       case 'electronics':
-        data[0].nameCategory = 'Электроника';
+        data[0].nameCategory = 'Electronics';
         data[0].descriptionCategory =
-          'Любая электроника от детских игрушек до холодильников';
+          "Any electronics from children's toys to refrigerators";
         break;
       case 'business-and-services':
-        data[0].nameCategory = 'Бизнес и услуги';
+        data[0].nameCategory = 'Business and services';
         data[0].descriptionCategory =
-          'Нужна помощь в продвижении малого бизнеса. Торопись тебе точно к нам';
+          'Need help promoting small business? Hurry up, come exactly to us';
         break;
       case 'recreation-and-sports':
         data[0].nameCategory = 'Отдых и спортивные состязания';
         data[0].descriptionCategory =
-          'Ищешь место куда бы укрытся от суеты и будней. Мы покажем тебе место о котором ты мечьтал';
+          'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
         break;
       case 'for-free':
-        data[0].nameCategory = 'Бесплатно';
+        data[0].nameCategory = 'Free';
         data[0].descriptionCategory =
-          'Забери меня скорей. Отдадут меня быстрей';
+          "Take me away. I'm going to be taken soon!";
         break;
       case 'exchange':
         data[0].nameCategory = 'Обмен';
         data[0].descriptionCategory =
-          'Хочешь обновку а денег нет. Кто ищет всегда найдет';
+          'You want a new thing, but there is no money. Who seeks will always find';
         break;
       default:
         break;

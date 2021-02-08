@@ -10,14 +10,14 @@ import categoryTemplate from '../../section-categories/categories-templates/cate
 import categoryItemTemplate from '../../section-categories/categories-templates/category-item.hbs';
 
 const arrayFromBack = [
-  'Недвижимость',
-  'Транспорт',
-  'Работа',
-  'Электроника',
-  'Бизнес и услуги',
-  'Отдых и спорт',
-  'Отдам бесплатно',
-  'Обмен',
+  'Property',
+  'Transport',
+  'Work',
+  'Electronics',
+  'Business and services',
+  'Recreation and sport',
+  'Free',
+  'Trade',
 ];
 
 let testCommit;
