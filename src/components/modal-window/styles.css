@@ -29,17 +29,17 @@
 
 /***************For example*******************/
 ​ .innerBlock2 {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 300px;
-   height: 500px;
-   background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 500px;
+  background-color: white;
 }
 
 ​ .closeBtnAdv {
-   position: absolute;
-   top: 5px;
-   right: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

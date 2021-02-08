@@ -4,9 +4,9 @@ export default {
   transport: [],
   work: [],
   electronics: [],
-  'business-and-services': [],
-  'recreation-and-sports': [],
-  'for-free': [],
-  exchange: [],
+  businessAndServices: [],
+  recreationAndSport: [],
+  free: [],
+  trade: [],
   advertisement: [],
 };

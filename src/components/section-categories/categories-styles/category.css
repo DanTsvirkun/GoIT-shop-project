@@ -95,6 +95,10 @@
   display: none;
 }
 
+.hide-two {
+  opacity: 0;
+}
+
 .all-category {
   opacity: 0;
   min-height: 500px;
@@ -158,17 +162,17 @@
     touch-action: pan-y;
     width: 100%;
   }
-  .business-and-services-wrapper {
+  .businessAndServices-wrapper {
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     width: 100%;
   }
-  .recreation-and-sports-wrapper {
+  .recreationAndSport-wrapper {
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     width: 100%;
   }
-  .for-free-wrapper {
+  .free-wrapper {
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     width: 100%;
@@ -312,4 +316,13 @@
   .all-category {
     min-height: 700px;
   }
+}
+
+.not-found {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  padding-top: 200px;
+  text-align: center;
 }

@@ -299,14 +299,14 @@
 .my-ads__inner {
   position: relative;
   width: 280px;
-  height: 100vh;
+  height: 500px;
   overflow: auto;
   background-color: #ffffff;
   margin: 0 auto;
 }
 
 .selected-goods,
-.my-ads {
+.my-calls {
   width: 240px;
   margin: 0 auto;
 }
@@ -495,7 +495,7 @@
   }
 
   .selected-goods,
-  .my-ads {
+  .my-calls {
     width: 600px;
   }
 
@@ -556,7 +556,7 @@
   }
 
   .selected-goods,
-  .my-ads {
+  .my-calls {
     width: 810px;
   }
 
