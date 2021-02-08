@@ -428,7 +428,7 @@ function test(word) {
     case 'recreationAndSport':
       dataII[0].nameCategory = 'Отдых и спортивные состязания';
       dataII[0].descriptionCategory =
-        'Ищешь место куда бы укрытся от суеты и будней? Мы покажем тебе место о котором ты мечтал';
+        'Ищешь место куда бы укрыться от суеты и будней? Мы покажем тебе место о котором ты мечтал';
       break;
     case 'free':
       dataII[0].nameCategory = 'Бесплатно';

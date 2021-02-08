@@ -99,7 +99,7 @@ function mainInfo(word) {
     case 'recreationAndSport':
       object.nameCategory = 'Отдых и спортивные состязания';
       object.descriptionCategory =
-        'Ищешь место куда бы укрытся от суеты и будней? Мы покажем тебе место о котором ты мечтал';
+        'Ищешь место куда бы укрыться от суеты и будней? Мы покажем тебе место о котором ты мечтал';
       break;
     case 'free':
       object.nameCategory = 'Бесплатно';
