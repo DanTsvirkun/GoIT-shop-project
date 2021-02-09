@@ -37,7 +37,7 @@ const arroundItem = [
   { image: JBL, name: 'Колонка JBL', price: 5799 },
   { image: playstation, name: 'Playstation', price: 8999 },
   { image: shkaf, name: 'Шкаф Купе', price: 3599 },
-  { image: water, name: 'Умувальник', price: 1199 },
+  { image: water, name: 'Умывальник', price: 1199 },
 ];
 // =========================================================
 window.addEventListener('resize', throttle(changeSize, 500));
