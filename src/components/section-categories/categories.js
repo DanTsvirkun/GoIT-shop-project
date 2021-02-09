@@ -69,7 +69,7 @@ export function test(word) {
         data[0].descriptionCategory =
           "Any electronics from children's toys to refrigerators";
         break;
-      case 'business-and-services':
+      case 'businessAndServices':
         data[0].nameCategory = 'Business and services';
         data[0].descriptionCategory =
           'Need help promoting small business? Hurry up, come exactly to us';
@@ -79,7 +79,7 @@ export function test(word) {
         data[0].descriptionCategory =
           'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
         break;
-      case 'for-free':
+      case 'free':
         data[0].nameCategory = 'Free';
         data[0].descriptionCategory =
           "Take me away. I'm going to be taken soon!";

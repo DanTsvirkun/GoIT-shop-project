@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { updateUserAvatar } from '../../services/user-api';
 
-const mainUrl = 'https://callboard-back-presentational.goit.global';
+const mainUrl = 'https://callboard-backend-en.goit.global';
 
 export function avatarManipulation() {
   const fileInput = document.querySelector('.user-avatar__file-input');

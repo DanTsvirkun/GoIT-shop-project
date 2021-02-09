@@ -90,7 +90,7 @@ function mainInfo(word) {
       object.descriptionCategory =
         "Any electronics from children's toys to refrigerators";
       break;
-    case 'business-and-services':
+    case 'businessAndServices':
       object.nameCategory = 'Business and services';
       object.descriptionCategory =
         'Need help promoting small business? Hurry up, come exactly to us';
@@ -100,11 +100,11 @@ function mainInfo(word) {
       object.descriptionCategory =
         'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
       break;
-    case 'for-free':
+    case 'free':
       object.nameCategory = 'Free';
       object.descriptionCategory = "Take me away. I'm going to be taken soon!";
       break;
-    case 'exchange':
+    case 'trade':
       object.nameCategory = 'Trade';
       object.descriptionCategory =
         'You want a new thing, but there is no money. Who seeks will always find';

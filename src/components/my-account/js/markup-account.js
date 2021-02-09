@@ -38,7 +38,7 @@ async function murkupFavoritesGoods() {
 
     const info = await axios({
       method: 'GET',
-      url: 'https://callboard-back-presentational.goit.global/user',
+      url: 'https://callboard-backend-en.goit.global/user',
       headers: {
         Authorization: token,
       },
@@ -50,7 +50,7 @@ async function murkupFavoritesGoods() {
       for (let i = 0; i < parseFavorites.length; i++) {
         call = await axios({
           method: 'GET',
-          url: `https://callboard-back-presentational.goit.global/call/${parseFavorites[i]._id}`,
+          url: `https://callboard-backend-en.goit.global/call/${parseFavorites[i]._id}`,
           headers: { Authorization: token },
         });
         if (call.data.success) {

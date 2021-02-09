@@ -9,7 +9,7 @@ import { showItemModal } from '../item-modal/item-modal-open';
 
 const apiKey = 'AIzaSyB2FKz-w072z63RmuE_hI2iUziWeqou_3E';
 const mainUrl = 'https://st-bc-e5b14.firebaseio.com';
-const mainUrlNew = 'https://callboard-back-presentational.goit.global';
+const mainUrlNew = 'https://callboard-backend-en.goit.global';
 
 export const nameAllCategories = [
   'electronics',
