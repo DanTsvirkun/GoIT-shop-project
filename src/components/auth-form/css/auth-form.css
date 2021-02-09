@@ -66,13 +66,13 @@
   padding: 0 10px;
 }
 
-.auth-modal__input:required:invalid:not(:placeholder-shown) {
+/* .auth-modal__input:required:invalid:not(:placeholder-shown) {
   border: 1px solid red;
 }
 
 .auth-modal__input:required:valid:not(:placeholder-shown) {
   border: 1px solid green;
-}
+} */
 
 .auth-modal__input::placeholder {
   font-family: 'MontserratMedium';

@@ -29,7 +29,7 @@ export const signInUser = signInUser => {
             headers: { Authorization: res.data.token },
           });
           if (call.data.success) {
-            filteredFavorites.push(res.data.user.favourites[i]);
+            filteredFavorites.push(res.data.user.favourites[i]._id);
           }
         }
       }

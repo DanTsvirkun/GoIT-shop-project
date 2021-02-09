@@ -94,6 +94,7 @@ function submitForm(event) {
   document.querySelector('.img-error').classList.add('hide');
   document.querySelector('.description-error').classList.add('hide');
   document.querySelector('.price-error').classList.add('hide');
+  document.querySelector('.price-error-2').classList.add('hide');
   document.querySelector('.title-error').classList.add('hide');
   if (!document.querySelector('#fp1').files) {
     document.querySelector('.img-error').classList.remove('hide');
@@ -112,6 +113,10 @@ function submitForm(event) {
       document.querySelector('.price-error').classList.remove('hide');
       return;
     }
+  }
+  if (document.querySelector('.adv-modal__product-price').value < 0) {
+    document.querySelector('.price-error-2').classList.remove('hide');
+    return;
   }
   const formDataEmpty = new FormData();
   formDataEmpty.set(
