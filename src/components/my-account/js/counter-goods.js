@@ -103,8 +103,6 @@ async function removeAdsItem(e) {
     'trade',
   ];
   const dataII = data.allCategories.filter(adv => adv.category === category);
-  console.log(data.allCategories);
-  console.log(dataII);
   if (document.querySelector('.loader-wrapper')) {
     ready();
     blockList.classList.add('block__list-show');

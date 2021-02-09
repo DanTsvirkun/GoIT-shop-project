@@ -44,7 +44,6 @@ export const api = {
       return axios
         .get(`${mainUrlNew}/call/specific/${category}`)
         .then(res => {
-          console.log(result);
           const result = this.transformCategory(res.data);
           if (!requestedArray.includes(category)) {
             requestedArray.push(category);
@@ -65,7 +64,6 @@ export const api = {
           data.allCategories = ids.map(id =>
             data.allCategories.find(adv => adv.id === id),
           );
-          console.log(data[category]);
           return result;
         })
         .catch(err => {

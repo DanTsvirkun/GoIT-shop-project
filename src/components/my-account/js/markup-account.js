@@ -54,7 +54,7 @@ async function murkupFavoritesGoods() {
           headers: { Authorization: token },
         });
         if (call.data.success) {
-          filteredFavorites.push(parseFavorites[i]);
+          filteredFavorites.push(parseFavorites[i]._id);
         } else {
           const favs = Array.from(
             document.querySelectorAll('.selected-goods__item'),

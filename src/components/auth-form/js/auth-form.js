@@ -110,6 +110,44 @@ function hendelSubmitSignIn(e, closeModal) {
 function hendelSubmitSignUp(e, closeModal) {
   e.preventDefault();
 
+  const inputs = document.querySelectorAll('.auth-modal__input');
+  inputs[0].style.border = '1px solid rgb(206, 210, 209)';
+  inputs[1].style.border = '1px solid rgb(206, 210, 209)';
+  inputs[2].style.border = '1px solid rgb(206, 210, 209)';
+  inputs[3].style.border = '1px solid rgb(206, 210, 209)';
+  inputs[4].style.border = '1px solid rgb(206, 210, 209)';
+
+  if (inputData.userSignUp.firstName.trim() === '') {
+    inputs[0].style.border = '1px solid red';
+    return;
+  }
+
+  if (inputData.userSignUp.secondName.trim() === '') {
+    inputs[1].style.border = '1px solid red';
+    return;
+  }
+
+  if (inputData.userSignUp.email.trim() === '') {
+    inputs[2].style.border = '1px solid red';
+    return;
+  }
+
+  if (inputData.userSignUp.phone.trim() === '') {
+    inputs[3].style.border = '1px solid red';
+    return;
+  }
+
+  if (inputData.userSignUp.password.trim() === '') {
+    inputs[4].style.border = '1px solid red';
+    return;
+  }
+
+  inputData.userSignUp.firstName = inputData.userSignUp.firstName.trim();
+  inputData.userSignUp.secondName = inputData.userSignUp.secondName.trim();
+  inputData.userSignUp.email = inputData.userSignUp.email.trim();
+  inputData.userSignUp.phone = inputData.userSignUp.phone.trim();
+  inputData.userSignUp.password = inputData.userSignUp.password.trim();
+
   if (inputData.userSignUp.password === inputData.userSignUp.passwordRepeat) {
     signUpUser(inputData.userSignUp).then(() => closeModal());
   }

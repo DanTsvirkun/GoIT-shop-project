@@ -21,9 +21,13 @@ export const funcMarkup = data => {
     favBlock.classList.add('item_modal--icons-disactive');
   } else {
     heart = document.querySelector('.icon-fav');
-    api.getFavorites(idItem)
-      ? heart.classList.add('icon-fav--active')
-      : heart.classList.remove('icon-fav--active');
+    if (api.getFavorites(idItem)) {
+      heart.classList.add('icon-fav--active');
+      document.querySelector('.fav-text').textContent = 'Add to favourites';
+    } else {
+      document.querySelector('.fav-text').textContent = 'In favourites';
+      heart.classList.remove('icon-fav--active');
+    }
     heart.addEventListener('click', debounce(heartAttack, 300));
   }
   const showSellerBtn = document.querySelector(
@@ -49,6 +53,7 @@ export const funcMarkup = data => {
 function heartAttack(e) {
   if (api.getFavorites(idItem)) {
     heart.classList.remove('icon-fav--active');
+    document.querySelector('.fav-text').textContent = 'Add to favourites';
     const user = JSON.parse(localStorage.getItem('user-info'));
     const arrayFav = user.favorites;
     const userID = user.userId;
@@ -65,7 +70,7 @@ function heartAttack(e) {
     deleteUserFavourite(userID, idItem, userToken);
   } else if (!api.getFavorites(idItem)) {
     heart.classList.add('icon-fav--active');
-
+    document.querySelector('.fav-text').textContent = 'In favourites';
     const user = JSON.parse(localStorage.getItem('user-info'));
     const userID = user.userId;
     const userToken = user.token;
