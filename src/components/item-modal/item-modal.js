@@ -34,11 +34,11 @@ export const funcMarkup = data => {
   function changeClassSeller(e) {
     if (!showHideBlock.classList.contains('item_modal-seller-active')) {
       showHideBlock.classList.add('item_modal-seller-active');
-      showSellerBtn.textContent = 'Скрыть';
+      showSellerBtn.textContent = 'Hide';
       showSellerBtn.classList.add('item_modal--tablet--button-buy-active');
     } else if (showHideBlock.classList.contains('item_modal-seller-active')) {
       showHideBlock.classList.remove('item_modal-seller-active');
-      showSellerBtn.textContent = 'Информация о продавце';
+      showSellerBtn.textContent = "Author's contact info";
       showSellerBtn.classList.remove('item_modal--tablet--button-buy-active');
     }
   }

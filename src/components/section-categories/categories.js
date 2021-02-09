@@ -75,7 +75,7 @@ export function test(word) {
           'Need help promoting small business? Hurry up, come exactly to us';
         break;
       case 'recreationAndSport':
-        data[0].nameCategory = 'Отдых и спортивные состязания';
+        data[0].nameCategory = 'Recreation and sport';
         data[0].descriptionCategory =
           'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
         break;
@@ -85,7 +85,7 @@ export function test(word) {
           "Take me away. I'm going to be taken soon!";
         break;
       case 'trade':
-        data[0].nameCategory = 'Обмен';
+        data[0].nameCategory = 'Trade';
         data[0].descriptionCategory =
           'You want a new thing, but there is no money. Who seeks will always find';
         break;
