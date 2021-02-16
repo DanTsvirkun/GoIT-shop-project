@@ -25,19 +25,19 @@ const horizontalBlock = document.querySelector('.horizontal-block');
 const newItem = [
   { image: airPods, name: 'AirPods Pro', price: 8000 },
   { image: appleWatch, name: 'Apple Watch', price: 12000 },
-  { image: dzinsy, name: 'Jeans Lee', price: 1999 },
-  { image: ganteli, name: 'Dumbbels 2kg', price: 500 },
+  { image: dzinsy, name: 'Jeansy Lee', price: 1999 },
+  { image: ganteli, name: 'Hantle 2kg', price: 500 },
   { image: gear, name: 'Continental', price: 10000 },
   { image: hot, name: 'Tefal', price: 1299 },
 ];
 // =========================================================
 const arroundItem = [
-  { image: fen, name: 'Hairdryer Philips', price: 999 },
+  { image: fen, name: 'Suszarka do włosów Philips', price: 999 },
   { image: iphone, name: 'IphoneX', price: 15999 },
-  { image: JBL, name: 'JBL speaker', price: 5799 },
+  { image: JBL, name: 'JBL Głośnik ', price: 5799 },
   { image: playstation, name: 'Playstation', price: 8999 },
-  { image: shkaf, name: 'Closet', price: 3599 },
-  { image: water, name: 'Washbasin', price: 1199 },
+  { image: shkaf, name: 'Szafa', price: 3599 },
+  { image: water, name: 'Umywalka', price: 1199 },
 ];
 // =========================================================
 window.addEventListener('resize', throttle(changeSize, 500));

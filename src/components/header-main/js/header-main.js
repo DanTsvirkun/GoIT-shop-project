@@ -9,14 +9,14 @@ import categoryTemplate from '../../section-categories/categories-templates/cate
 import categoryItemTemplate from '../../section-categories/categories-templates/category-item.hbs';
 
 const arrayFromBack = [
-  'Property',
-  'Transport',
-  'Work',
-  'Electronics',
-  'Business and services',
-  'Recreation and sport',
-  'Free',
-  'Trade',
+  'Nieruchomości',
+  'Motoryzacja',
+  'Praca',
+  'Elektronika',
+  'Usługi i Firmy',
+  'Sport i Hobby',
+  'Oddam za darmo',
+  'Zamienię',
 ];
 
 const categoriesMarkup = categoriesList(arrayFromBack);

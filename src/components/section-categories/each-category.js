@@ -72,42 +72,44 @@ export function closeCategory() {
 function mainInfo(word) {
   switch (word) {
     case 'property':
-      object.nameCategory = 'Property';
-      object.descriptionCategory = 'Wide variety of flats and houses';
+      object.nameCategory = 'Nieruchomości';
+      object.descriptionCategory =
+        'Publikując ogłoszenia w dziale Nieruchomość, należy przestrzegać zasad, tak jak przy publikacji innych ogłoszeń. Istnieje jednak kilka niuansów, na które trzeba zwrócić uwagę...';
       break;
     case 'transport':
-      object.nameCategory = 'Transport';
+      object.nameCategory = 'Motoryzacja';
       object.descriptionCategory =
-        'In this section, you can find any vehicle of your choice';
+        'W tym dziale znajdziesz dowolne dobra ruchome w Twoim stylu';
       break;
     case 'work':
-      object.nameCategory = 'Work';
+      object.nameCategory = 'Praca';
       object.descriptionCategory =
-        'If you are looking for a job then come to us. More than 500 vacancies every day';
+        'Jeśli szukasz pracy - dobrze trafiłeś. Ponad 500 wakatów każdego dnia';
       break;
     case 'electronics':
-      object.nameCategory = 'Electronics';
+      object.nameCategory = 'Elektronika';
       object.descriptionCategory =
-        "Any electronics from children's toys to refrigerators";
+        'Wszystko, co związane z elektroniką - od zabawek dla dzieci do lodówek';
       break;
     case 'businessAndServices':
-      object.nameCategory = 'Business and services';
+      object.nameCategory = 'Usługi i Firmy';
       object.descriptionCategory =
-        'Need help promoting small business? Hurry up, come exactly to us';
+        'Potrzebujesz pomocy w rozwoju małego biznesu? Pospiesz się, dobrze trafiłeś';
       break;
     case 'recreation-and-sports':
-      object.nameCategory = 'Recreation and sport';
+      object.nameCategory = 'Sport i Hobby';
       object.descriptionCategory =
-        'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
+        'Szukasz miejsca, w którym mógłbyś się ukryć od marności i szarości dnia codziennego? Pokażemy Ci miejsce, o którym marzyłeś';
       break;
     case 'free':
-      object.nameCategory = 'Free';
-      object.descriptionCategory = "Take me away. I'm going to be taken soon!";
+      object.nameCategory = 'Oddam za darmo';
+      object.descriptionCategory =
+        'Zabierz mnie szybciej. Oddadzą mnie szybciej.';
       break;
     case 'trade':
-      object.nameCategory = 'Trade';
+      object.nameCategory = 'Zamienię';
       object.descriptionCategory =
-        'You want a new thing, but there is no money. Who seeks will always find';
+        'Chcesz czegoś nowego, ale nie masz pieniędzy. Kto szuka, zawsze znajdzie';
       break;
     default:
       break;

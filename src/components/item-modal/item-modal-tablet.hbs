@@ -20,20 +20,20 @@
         <li class="item_modal--tablet-second_wrapper">
 
             <h3 class="item_modal--header">{{name}}</h3>
-            <p class="item_modal--item-codename">Call code | <span class="item_modal--item-code">{{id}}</span></p>
+            <p class="item_modal--item-codename">Kod towaru | <span class="item_modal--item-code">{{id}}</span></p>
             <div class="siema item_modal--imageholder">
                 {{#each images}}
                 <img class="item_modal--slider_s-img_big " src="{{this}}">
                 {{/each}}
             </div>
-            <p class="item_modal--item-price"><span class="item_modal--item-pricevalue"> {{price}} </span>uah
+            <p class="item_modal--item-price"><span class="item_modal--item-pricevalue"> {{price}} </span>pln
             </p>
-            <button class="item_modal--tablet--button-buy">Author contact info</button>
+            <button class="item_modal--tablet--button-buy">Informacja o sprzedawcy</button>
             <div class="show-hide-phone">
                 <ul class="item_modal-seller">
                     <li><img src="{{avatar}}" alt="{{firstName}}" class="avatarAuth"></li>
                     <li>
-                        <p class="item_modal-seller--header">Author: <span
+                        <p class="item_modal-seller--header">Autor: <span
                                 class="item_modal-seller--name">{{firstName}}</span>
                         </p>
                         <p class="item_modal-seller--tel"><span class="phone-item-icon"></span>{{phone}}</p>
@@ -41,10 +41,10 @@
                 </ul>
             </div>
             <ul class="item_modal--icons">
-                <li class="item_modal--button-fav"><button class="icon-fav"></button><span class="fav-text">Add to
-                        favourites</span></li>
+                <li class="item_modal--button-fav"><button class="icon-fav"></button><span class="fav-text">Dodaj do
+                        ulubionych</span></li>
             </ul>
-            <p class="item_modal--desc-header">Description</p>
+            <p class="item_modal--desc-header">Opis</p>
             <p class="item_modal--desctab">{{description}}</p>
 
         </li>

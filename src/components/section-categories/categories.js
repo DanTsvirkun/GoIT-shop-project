@@ -51,43 +51,44 @@ export function test(word) {
     }
     switch (word) {
       case 'property':
-        data[0].nameCategory = 'Property';
-        data[0].descriptionCategory = 'Wide variety of flats and houses';
+        data[0].nameCategory = 'Nieruchomości';
+        data[0].descriptionCategory =
+          'Publikując ogłoszenia w dziale Nieruchomość, należy przestrzegać zasad, tak jak przy publikacji innych ogłoszeń. Istnieje jednak kilka niuansów, na które trzeba zwrócić uwagę...';
         break;
       case 'transport':
-        data[0].nameCategory = 'Transport';
+        data[0].nameCategory = 'Motoryzacja';
         data[0].descriptionCategory =
-          'In this section, you can find any vehicle of your choice';
+          'W tym dziale znajdziesz dowolne dobra ruchome w Twoim stylu';
         break;
       case 'work':
-        data[0].nameCategory = 'Work';
+        data[0].nameCategory = 'Praca';
         data[0].descriptionCategory =
-          'If you are looking for a job then come to us. More than 500 vacancies every day';
+          'Jeśli szukasz pracy - dobrze trafiłeś. Ponad 500 wakatów każdego dnia';
         break;
       case 'electronics':
-        data[0].nameCategory = 'Electronics';
+        data[0].nameCategory = 'Elektronika';
         data[0].descriptionCategory =
-          "Any electronics from children's toys to refrigerators";
+          'Wszystko, co związane z elektroniką - od zabawek dla dzieci do lodówek';
         break;
       case 'businessAndServices':
-        data[0].nameCategory = 'Business and services';
+        data[0].nameCategory = 'Usługi i Firmy';
         data[0].descriptionCategory =
-          'Need help promoting small business? Hurry up, come exactly to us';
+          'Potrzebujesz pomocy w rozwoju małego biznesu? Pospiesz się, dobrze trafiłeś';
         break;
       case 'recreationAndSport':
-        data[0].nameCategory = 'Recreation and sport';
+        data[0].nameCategory = 'Sport i Hobby';
         data[0].descriptionCategory =
-          'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
+          'Szukasz miejsca, w którym mógłbyś się ukryć od marności i szarości dnia codziennego? Pokażemy Ci miejsce, o którym marzyłeś';
         break;
       case 'free':
-        data[0].nameCategory = 'Free';
+        data[0].nameCategory = 'Oddam za darmo';
         data[0].descriptionCategory =
-          "Take me away. I'm going to be taken soon!";
+          'Zabierz mnie szybciej. Oddadzą mnie szybciej';
         break;
       case 'trade':
-        data[0].nameCategory = 'Trade';
+        data[0].nameCategory = 'Zamienię';
         data[0].descriptionCategory =
-          'You want a new thing, but there is no money. Who seeks will always find';
+          'Chcesz czegoś nowego, ale nie masz pieniędzy. Kto szuka, zawsze znajdzie';
         break;
       default:
         break;

@@ -1,17 +1,17 @@
 <div class="adv-modal">
   <button type="button" class="adv-modal__close-btn" data-close="true"></button>
   <h2 class="adv-modal__form--title">
-    Create a call
+    Dodaj ogłoszenie
   </h2>
   <form class="adv-modal__form" name="advForm">
     <div class="main-adv-div">
       <div class="input-wrapper">
-        <p class="adv-modal__product-name-title">Call title</p>
+        <p class="adv-modal__product-name-title">Nazwa towaru</p>
         <input type="text" name="productName" class="adv-modal__product-name input" data-source="name"
-          autocomplete="off" minlength="6" maxlength="60" placeholder="Название товара" required>
+          autocomplete="off" minlength="6" maxlength="60" placeholder="Nazwa towaru" required>
       </div>
       <div class="test input-wrapper">
-        <p class="adv-modal__product-photos-title">Photos</p>
+        <p class="adv-modal__product-photos-title">Dodaj zdjęcie</p>
         <ul class="adv-modal__product-photos">
           <li class="adv-modal__product-photos-item">
             <input class="photo-input" data-id="1" data-active="true" id="fp1">
@@ -46,36 +46,36 @@
         </ul>
       </div>
       <div class="input-wrapper">
-        <p class="adv-modal__product-description-title">Description</p>
+        <p class="adv-modal__product-description-title">Opis</p>
         <textarea name="productDescription" data-source="description" class="adv-modal__product-description input"
-          maxlength="1000" placeholder="Описание товара"></textarea>
+          maxlength="1000" placeholder="Opis"></textarea>
       </div>
       <div class="input-wrapper">
-        <p class="adv-modal__product-select-title">Category</p>
+        <p class="adv-modal__product-select-title">Kategoria</p>
         <div class="select">
           <select name="productCategory" class="adv-modal__product-select input" id="">
-            <option value="property" class="select-option">Property</option>
-            <option value="transport" class="select-option">Transport</option>
-            <option value="work" class="select-option">Work</option>
-            <option value="electronics" class="select-option">Electronics</option>
-            <option value="businessAndServices" class="select-option">Business and services</option>
-            <option value="recreationAndSport" class="select-option">Recreation and sport</option>
-            <option value="free" class="select-option">Free</option>
-            <option value="trade" class="select-option">Trade</option>
+            <option value="property" class="select-option">Nieruchomości</option>
+            <option value="transport" class="select-option">Motoryzacja</option>
+            <option value="work" class="select-option">Praca</option>
+            <option value="electronics" class="select-option">Elektronika</option>
+            <option value="businessAndServices" class="select-option">Usługi i Firmy</option>
+            <option value="recreationAndSport" class="select-option">Sport i Hobby</option>
+            <option value="free" class="select-option">Oddam za darmo</option>
+            <option value="trade" class="select-option">Zamienię</option>
           </select>
         </div>
       </div>
       <div class="input-wrapper input-wrapper__price">
-        <p class="adv-modal__product-price-title">Price</p>
+        <p class="adv-modal__product-price-title">Cena</p>
         <input type="number" name="productPrice" data-source="price" class="adv-modal__product-price input"
-          autocomplete="off" maxlength="16" placeholder="0.00 uah">
+          autocomplete="off" maxlength="16" placeholder="0.00 pln">
       </div>
-      <p class="error hide img-error">At least 1 image is required</p>
-      <p class="error hide description-error">Description is required</p>
-      <p class="error hide price-error">Price is required</p>
-      <p class="error hide title-error">Title is required</p>
-      <p class="error hide price-error-2">Price cannot be negative</p>
+      <p class="error hide img-error">Pokaż zdjęcie</p>
+      <p class="error hide description-error">Pokaż opis</p>
+      <p class="error hide price-error">Pokaż cenę</p>
+      <p class="error hide title-error">Pokaż nazwę</p>
+      <p class="error hide price-error-2">Pokaż cenę</p>
     </div>
-    <button type="submit" class="add-product-btn" data-close="">Create</button>
+    <button type="submit" class="add-product-btn" data-close="">Dodaj</button>
   </form>
 </div>

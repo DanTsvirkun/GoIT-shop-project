@@ -92,16 +92,16 @@ async function removeAdsItem(e) {
   const horizontalBlock = document.querySelector('.horizontal-block');
   const categories = document.querySelector('.categories .container');
   const btnLoadMore = document.querySelector('.load-more');
-  const nameAllCategories = [
-    'electronics',
-    'property',
-    'transport',
-    'work',
-    'businessAndServices',
-    'recreationAndSport',
-    'free',
-    'trade',
-  ];
+  // const nameAllCategories = [
+  //   'electronics',
+  //   'property',
+  //   'transport',
+  //   'work',
+  //   'businessAndServices',
+  //   'recreationAndSport',
+  //   'free',
+  //   'trade',
+  // ];
   const dataII = data.allCategories.filter(adv => adv.category === category);
   if (document.querySelector('.loader-wrapper')) {
     ready();
@@ -111,43 +111,44 @@ async function removeAdsItem(e) {
   }
   switch (category) {
     case 'property':
-      dataII[0].nameCategory = 'Property';
-      dataII[0].descriptionCategory = 'Wide variety of flats and houses';
+      dataII[0].nameCategory = 'Nieruchomości';
+      dataII[0].descriptionCategory =
+        'Publikując ogłoszenia w dziale Nieruchomość, należy przestrzegać zasad, tak jak przy publikacji innych ogłoszeń. Istnieje jednak kilka niuansów, na które trzeba zwrócić uwagę...';
       break;
     case 'transport':
-      dataII[0].nameCategory = 'Transport';
+      dataII[0].nameCategory = 'Motoryzacja';
       dataII[0].descriptionCategory =
-        'In this section, you can find any vehicle of your choice';
+        'W tym dziale znajdziesz dowolne dobra ruchome w Twoim stylu';
       break;
     case 'work':
-      dataII[0].nameCategory = 'Work';
+      dataII[0].nameCategory = 'Praca';
       dataII[0].descriptionCategory =
-        'If you are looking for a job then come to us. More than 500 vacancies every day';
+        'Jeśli szukasz pracy - dobrze trafiłeś. Ponad 500 wakatów każdego dnia';
       break;
     case 'electronics':
-      dataII[0].nameCategory = 'Electronics';
+      dataII[0].nameCategory = 'Elektronika';
       dataII[0].descriptionCategory =
-        "Any electronics from children's toys to refrigerators";
+        'Wszystko, co związane z elektroniką - od zabawek dla dzieci do lodówek';
       break;
     case 'businessAndServices':
-      dataII[0].nameCategory = 'Business and services';
+      dataII[0].nameCategory = 'Usługi i Firmy';
       dataII[0].descriptionCategory =
-        'Need help promoting small business? Hurry up, come exactly to us';
+        'Potrzebujesz pomocy w rozwoju małego biznesu? Pospiesz się, dobrze trafiłeś';
       break;
     case 'recreationAndSport':
-      dataII[0].nameCategory = 'Recreation and sport';
+      dataII[0].nameCategory = 'Sport i Hobby';
       dataII[0].descriptionCategory =
-        'Looking for a place to hide from the hustle and bustle and everyday life. We will show you the place you dreamed of';
+        'Szukasz miejsca, w którym mógłbyś się ukryć od marności i szarości dnia codziennego? Pokażemy Ci miejsce, o którym marzyłeś';
       break;
     case 'free':
-      dataII[0].nameCategory = 'Free';
+      dataII[0].nameCategory = 'Oddam za darmo';
       dataII[0].descriptionCategory =
-        "Take me away. I'm going to be taken soon!";
+        'Zabierz mnie szybciej. Oddadzą mnie szybciej.';
       break;
     case 'trade':
-      dataII[0].nameCategory = 'Trade';
+      dataII[0].nameCategory = 'Zamienię';
       dataII[0].descriptionCategory =
-        'You want a new thing, but there is no money. Who seeks will always find';
+        'Chcesz czegoś nowego, ale nie masz pieniędzy. Kto szuka, zawsze znajdzie';
       break;
     default:
       break;

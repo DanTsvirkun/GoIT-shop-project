@@ -1,7 +1,7 @@
 <div class="selected-goods__inner">
   <span class="modal__icon--close close__favorites"></span>
   <div class="selected-goods">
-    <h3 class="selected-goods__title icon--heart-on">Favourites</h3>
+    <h3 class="selected-goods__title icon--heart-on">Obserwowane</h3>
 
     <ul class="selected-goods__list">
       {{#each this}}
@@ -9,12 +9,12 @@
         <img class="selected-goods__item-img" src="{{mainImg}}" alt="{{name}}" width="220" height="180">
         <div class="selected-goods__item-block__info">
           <h4 class="selected-goods__item-title">{{name}}</h4>
-          <span class="selected-goods__item-price">{{price}} uah</span>
+          <span class="selected-goods__item-price">{{price}} pln</span>
           <p class="selected-goods__item-desc">{{description}}</p>
         </div>
         <span class="selected-goods__item-icon">
-          <span class="selected-goods__icon-text">Delete <span class="selected-goods__icon-text--hidden">from
-              favourites</span></span>
+          <span class="selected-goods__icon-text">Usuń <span class="selected-goods__icon-text--hidden">z
+              ulubionych</span></span>
         </span>
       </li>
       {{/each}}

@@ -23,9 +23,9 @@ export const funcMarkup = data => {
     heart = document.querySelector('.icon-fav');
     if (api.getFavorites(idItem)) {
       heart.classList.add('icon-fav--active');
-      document.querySelector('.fav-text').textContent = 'Add to favourites';
+      document.querySelector('.fav-text').textContent = 'Dodaj do ulubionych';
     } else {
-      document.querySelector('.fav-text').textContent = 'In favourites';
+      document.querySelector('.fav-text').textContent = 'W ulubionych';
       heart.classList.remove('icon-fav--active');
     }
     heart.addEventListener('click', debounce(heartAttack, 300));

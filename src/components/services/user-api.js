@@ -8,7 +8,7 @@ import signUpErr from '../auth-form/templates/sign-up-err.hbs';
 // axios.defaults.baseURL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const API_URL = 'https://api-project-575025675995.firebaseio.com';
 const API_KEY = 'AIzaSyBagS6Xzts8IVgIgwZ3ER5WfdgPqLtF_DA';
-const newUrl = 'https://callboard-backend-en.goit.global';
+const newUrl = 'https://callboard-backend-pl.goit.global';
 
 export const getUserInfo = userId => {
   return axios.get(`${newUrl}/user/${userId}`);
